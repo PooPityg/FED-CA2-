@@ -1,0 +1,27 @@
+{
+  "name": "fed-ca2-",
+  "version": "1.0.0",
+  "description": "Req CA2 (Each member to 3 pages)\r Theme:Gaming / tourist / search and find .",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @tailwindcss/cli -i CSS/input.css -o CSS/output.css --watch",
+    "build": "npx @tailwindcss/cli -i CSS/input.css -o CSS/output.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PooPityg/FED-CA2-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PooPityg/FED-CA2-/issues"
+  },
+  "homepage": "https://github.com/PooPityg/FED-CA2-#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
+  }
+}
