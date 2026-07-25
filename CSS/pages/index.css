@@ -1,0 +1,7 @@
+#hero button {
+    @apply p-2;
+}
+
+#test {
+    @apply text-white;
+}
