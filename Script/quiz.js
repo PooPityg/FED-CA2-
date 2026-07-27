@@ -1,5 +1,3 @@
-const { createElement } = require("react")
-
 const a_question = [
     {   
         q:"",
@@ -70,9 +68,66 @@ function render_questions(){
 
 function to_quiz(){
     document.getElementById("intro").classList.add("invisible")
-    document.getElementById
+    document.getElementById("quiz").classList.remove("invisible")
+    render_questions()
 }
 
-function sel_answer(){
+function sel_answer(i,btn){
+    if(answered) return
+    answered = true 
+    const q = a_question[current]
+    const allopt = document.querySelectorAll("#opions .opt")
+    allopt.forEach(o=>o.disabled = true)
 
+    if(i === q.correct){
+        score++
+        btn.classList.add('correct')
+    } else{
+        btn.classList.add('incorrect')
+        allopt[q.correct].classList.add('correct')
+    }
+
+    document.getElementById('logscore').textContent = `SCORE${score}`
+    const cxt = document.getElementById('qcontext')
+    cxt.textContent = q.context
+    cxt.classList.remove('invisible')
+    document.getElementById('action').classList.remove('invisible')
 }
+
+function nextQues(){
+    current++
+    if(current >= a_question.length){
+        showEnd()
+    }else{
+        render_questions()
+    }
+}
+
+function showEnd(){
+    document.getElementById('quiz').classList.add('invisible')
+    document.getElementById('end').classList.remove('invisible')
+    document.getElementById('finalscore').innerHTML =`${score}<span>/${a_question.length}</span>`
+    /*Fill in reult line*/
+    let line
+    if(score >=9) line = ""
+    else if(score >= 7) line = ""
+    else if(score >=4) line = ""
+    else line =""
+    document.getElementById('resultline').textContent = line
+
+    a_question.forEach((_,i) => {
+        const room = document.getElementById('node-' + i)
+        room.classList.remove('current')
+        room.classList.add('visited')
+    })
+}
+
+function restartQuiz(){
+    current = 0 
+    score = 0
+    document.getElementById('end').classList.add('invisible')
+    document.getElementById('quiz').classList.remove('invisible')
+    render_questions()
+}
+
+buildprogressbar()
