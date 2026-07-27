@@ -1,0 +1,48 @@
+/* use Instrument Serif wherever you want that specific look, e.g. headings */
+h1, h2, .card p:first-child {
+    font-family: 'Instrument Serif', serif;
+}
+/* Carousel styles */
+.carousel {
+    margin: 30px auto;
+    width: 90%;
+    display: flex;
+    overflow-x: auto;
+    gap: 1em;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.group {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: spin 60s linear infinite;
+    padding: 10px;
+}
+
+.card {
+    flex: 0 0 8em;
+    height: 5em;
+    font-size: 3rem;
+    border-radius: 0.2em;
+    text-align: center;
+    align-content: center;
+    display: flex;
+    background: linear-gradient(to bottom right, #333232, #0b0b0b);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-0.5rem); /* -translate-y-2 = -8px, or -0.5rem */
+  box-shadow: 0 50px 50px -12px rgba(250, 249, 249, 0.074); /* shadow-2xl */
+    background: linear-gradient(to bottom right, #696868, #050505);
+}
+
+@keyframes spin {
+    from {translate: 0;}
+    to {translate: -100%;}
+}
