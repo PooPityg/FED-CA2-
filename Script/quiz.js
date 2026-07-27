@@ -64,6 +64,8 @@ function render_questions(){
     document.getElementById("qcontext").classList.add("invisible")
     document.getElementById("action").classList.add("invisible")
     document.getElementById("nextBtn").textContent = current === a_question.length-1 ? 'See results' : 'Next Question' 
+
+    updatebar()
 }
 
 function to_quiz(){
