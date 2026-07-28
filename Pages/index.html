@@ -5,107 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/output.css">
-    <link rel="stylesheet" href="../CSS/style.css">
     <script src="../Script/index.js" defer></script>
     <script src="../Script/main.js" defer></script>
 </head>
-<body>
-<header class="fixed top-0 w-full z-50 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
-    <nav class="grid grid-cols-3 items-center font-instrument-sans text-neutral-100 py-3">
+<body class="page-index">
+    <header class="fixed top-0 w-full z-50 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
+        <nav class="grid grid-cols-3 items-center font-instrument-sans text-neutral-100 py-3">
 
-        <!-- Left -->
-        <div class="flex justify-around">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-        </div>
-
-        <!-- Center -->
-        <a href="index.html" class="justify-self-center" id="brand">
-            <div class="flex flex-col items-center">
-                <p class="bg-red-400">VIM</p>
-                <p class="font-instrument-serif text-3xl">
-                    CARPE DIEM
-                </p>
+            <!-- Left -->
+            <div class="flex justify-around">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
             </div>
-        </a>
 
-        <!-- Right -->
-        <div class="flex justify-around">
-            <div class="relative" id="exploreMenu">
-                <button
-                    id="exploreBtn"
-                    class="flex items-center gap-1 cursor-pointer"
-                >
-                    Explore
-                    <span id="exploreArrow">▾</span>
-                </button>
-                <div
-                    id="exploreDropdown"
-                    class="absolute top-full left-1/2 -translate-x-1/2 pt-1
-                        w-56 rounded-xl
-                        bg-black/70 backdrop-blur-xl
-                        border border-white/10
-                        opacity-0 invisible scale-95
-                        "
-                >
-                        <a href="virtual-museum.html" class="block px-4 py-3 hover:bg-white/10">
-                            3D Virtual Museum
-                        </a>
-                        <a href="collections.html" class="block px-4 py-3 hover:bg-white/10">
-                            Collections
-                        </a>
-                        <a href="achievement.html" class="block px-4 py-3 hover:bg-white/10">
-                            My Achievement
-                        </a>
-                        <a href="events.html" class="block px-4 py-3 hover:bg-white/10">
-                            Events
-                        </a>
+            <!-- Center -->
+            <a href="index.html" class="justify-self-center" id="brand">
+                <div class="flex flex-col items-center">
+                    <p class="bg-red-400">VIM</p>
+                    <p class="font-instrument-serif text-3xl">
+                        CARPE DIEM
+                    </p>
                 </div>
-            </div>
-            <a href="visit-us.html">Visit Us</a>
-        </div>
-    </nav>
-</header>
-    <main>
-        <section id="hero" class="relative h-screen">
-            <img
-                src="../Assets/index/museum-hero.png"
-                class="absolute inset-0 w-full h-full object-cover"
-                alt="Museum hero"
-            >
+            </a>
 
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="relative z-10 text-white flex flex-col items-center px-3">
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold font-instrument-serif mb-1">Seize the Day.</h1>
-                    <p class="max-w-sm md:max-w-lg text-xs sm:text-base text-center font-instrument-sans mb-2">To put to rout all that was not life; and not, when I had come to die, discover that I had not lived.</p>
-                    <div class="flex flex-row justify-between gap-4 mt-2">
-                        <a id="enterMuseumBtn" href="museum.html" class="cursor-pointer font-instrument-serif border-1 border-olive-900 bg-white/80 text-olive-900 backdrop-blur-lg">Enter the Museum</a>
-                        <a id="browseCollectionBtn" class="cursor-pointer font-instrument-serif border-1 bg-olive-900/30 border-olive-900 text-white backdrop-blur-lg">Browse Collection</a>
+            <!-- Right -->
+            <div class="flex justify-around">
+                <div class="relative" id="exploreMenu">
+                    <button
+                        id="exploreBtn"
+                        class="flex items-center gap-1 cursor-pointer"
+                    >
+                        Explore
+                        <span id="exploreArrow">▾</span>
+                    </button>
+                    <div
+                        id="exploreDropdown"
+                        class="absolute top-full left-1/2 -translate-x-1/2 pt-1
+                            w-56 rounded-xl
+                            bg-black/70 backdrop-blur-xl
+                            border border-white/10
+                            opacity-0 invisible scale-95
+                            "
+                    >
+                            <a href="virtual-museum.html" class="block px-4 py-3 hover:bg-white/10">
+                                3D Virtual Museum
+                            </a>
+                            <a href="collections.html" class="block px-4 py-3 hover:bg-white/10">
+                                Collections
+                            </a>
+                            <a href="achievement.html" class="block px-4 py-3 hover:bg-white/10">
+                                My Achievement
+                            </a>
+                            <a href="events.html" class="block px-4 py-3 hover:bg-white/10">
+                                Events
+                            </a>
                     </div>
                 </div>
-                <div class="absolute w-[300px] h-[200px] bg-black/40 blur-3xl rounded-full z-"></div>
+                <a href="visit-us.html">Visit Us</a>
             </div>
-        </section>
+        </nav>
+    </header>
+        <main>
+            <section id="hero" class="relative h-screen">
+                <img
+                    src="../Assets/index/museum-hero.png"
+                    class="absolute inset-0 w-full h-full object-cover"
+                    alt="Museum hero"
+                >
 
-        <section class="relative">
-            <canvas
-                id="hero-canvas"
-                class="fixed inset-0 w-full h-full -z-10"
-            ></canvas>
-        </section>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="relative z-10 text-white flex flex-col items-center px-3">
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold font-instrument-serif mb-1">Seize the Day.</h1>
+                        <p class="max-w-sm md:max-w-lg text-xs sm:text-base text-center font-instrument-sans mb-2">To put to rout all that was not life; and not, when I had come to die, discover that I had not lived.</p>
+                        <div class="flex flex-row justify-between gap-4 mt-2">
+                            <a id="enterMuseumBtn" href="museum.html" class="cursor-pointer font-instrument-serif border-1 border-olive-900 bg-white/80 text-olive-900 backdrop-blur-lg">Enter the Museum</a>
+                            <a id="browseCollectionBtn" class="cursor-pointer font-instrument-serif border-1 bg-olive-900/30 border-olive-900 text-white backdrop-blur-lg">Browse Collection</a>
+                        </div>
+                    </div>
+                    <div class="absolute w-[300px] h-[200px] bg-black/40 blur-3xl rounded-full z-"></div>
+                </div>
+            </section>
 
-        <section class="mt-34 px-16 flex flex-start h-screen">
-            <div class="flex flex-col">
-                <h2 class="font-instrument-serif text-xl">— Featured Exhibits</h2>
-                <h1 class="font-instrument-sans text-3xl text-white">Explore This Week</h1>
+            <section class="relative">
+                <canvas
+                    id="hero-canvas"
+                    class="fixed inset-0 w-full h-full -z-10"
+                ></canvas>
+            </section>
+
+            <section class="mt-34 px-16 flex flex-start h-screen">
+                <div class="flex flex-col">
+                    <h2 class="font-instrument-serif text-xl">— Featured Exhibits</h2>
+                    <h1 class="font-instrument-sans text-3xl text-white">Explore This Week</h1>
+                    <a href="museum.html">Enter Museum</a>
+                </div>
+            </section>
+            <section class="font-instrument-sans flex items-center justify-center h-screen">
+                <h1 id="test">Virtual Interactive Museum</h1>
                 <a href="museum.html">Enter Museum</a>
-            </div>
+            </section>
         </section>
-        <section class="font-instrument-sans flex items-center justify-center h-screen">
-            <h1 id="test">Virtual Interactive Museum</h1>
-            <a href="museum.html">Enter Museum</a>
-        </section>
-     </section>
-    </main>
+        </main>
 </body>
 </html>
