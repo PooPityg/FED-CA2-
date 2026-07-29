@@ -39,3 +39,26 @@ btn.addEventListener('click', () => {
     else
         closeMenu()
 })
+
+const navbar = document.getElementById("navbar");
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    // Always show navbar near the top
+    if (currentScrollY <= 10) {
+        navbar.classList.remove("-translate-y-full");
+    }
+    // Scrolling down
+    else if (currentScrollY > lastScrollY) {
+        navbar.classList.add("-translate-y-full");
+    }
+    // Scrolling up
+    else {
+        navbar.classList.remove("-translate-y-full");
+    }
+
+    lastScrollY = currentScrollY;
+});

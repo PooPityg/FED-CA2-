@@ -23,3 +23,9 @@ nav a:not(#brand):hover {
 nav button:hover {
     @apply font-semibold;
 }
+
+.bg-shadow {
+    @apply bg-black/40;
+    @apply blur-3xl;
+    @apply rounded-full;
+}
