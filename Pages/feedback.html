@@ -6,9 +6,67 @@
     <title>Feedback Form</title>
 
     <link rel="stylesheet" href="../CSS/pages/feedback.css">
+    <link rel="stylesheet" href="../CSS/output.css">
+
+    <script src="../Script/main.js" defer></script>
 </head>
 <body>
+    <header class="fixed top-0 w-full z-50 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
+        <nav class="grid grid-cols-3 items-center font-instrument-sans text-neutral-100 py-3">
 
+            <!-- Left -->
+            <div class="flex justify-around">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <!-- Center -->
+            <a href="index.html" class="justify-self-center" id="brand">
+                <div class="flex flex-col items-center">
+                    <p class="bg-red-400">VIM</p>
+                    <p class="font-instrument-serif text-3xl">
+                        CARPE DIEM
+                    </p>
+                </div>
+            </a>
+
+            <!-- Right -->
+            <div class="flex justify-around">
+                <div class="relative" id="exploreMenu">
+                    <button
+                        id="exploreBtn"
+                        class="flex items-center gap-1 cursor-pointer"
+                    >
+                        Explore
+                        <span id="exploreArrow">▾</span>
+                    </button>
+                    <div
+                        id="exploreDropdown"
+                        class="absolute top-full left-1/2 -translate-x-1/2 pt-1
+                            w-56 rounded-xl
+                            bg-black/70 backdrop-blur-xl
+                            border border-white/10
+                            opacity-0 invisible scale-95
+                            "
+                    >
+                            <a href="virtual-museum.html" class="block px-4 py-3 hover:bg-white/10">
+                                3D Virtual Museum
+                            </a>
+                            <a href="collections.html" class="block px-4 py-3 hover:bg-white/10">
+                                Collections
+                            </a>
+                            <a href="achievement.html" class="block px-4 py-3 hover:bg-white/10">
+                                My Achievement
+                            </a>
+                            <a href="events.html" class="block px-4 py-3 hover:bg-white/10">
+                                Events
+                            </a>
+                    </div>
+                </div>
+                <a href="visit-us.html">Visit Us</a>
+            </div>
+        </nav>
+    </header>
     <div class="container">
         <h1>Feedback Form</h1>
 

@@ -1,7 +1,5 @@
-#hero button {
-    @apply p-2;
-}
-
-#test {
-    @apply text-white;
+.page-index {
+    #hero a {
+        @apply p-2;
+    }
 }
