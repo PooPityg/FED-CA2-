@@ -1,13 +1,13 @@
 const a_question = [
     {   
-        q:"",
-        option:["A","B","C","D"],
-        correct:2,
-        context:""
+        q:"Is himeko the GOAT",
+        option:["Yes","OFC","tHE GOAT","WHY DID I LOSE 50/50"],
+        correct:3,
+        context:"I lost 50/50 to seele"
     },
     {   
-        q:"",
-        option:["A","B","C","D"],
+        q:"Placeholder",
+        option:["opion","opion","opion","opion"],
         correct:3,
         context:""
     },    
@@ -59,16 +59,16 @@ function render_questions(){
         btn.onclick = () => sel_answer(i,btn)
         el.appendChild(btn)
     })
-    document.getElementById("qcontext").classList.add("invisible")
-    document.getElementById("action").classList.add("invisible")
+    document.getElementById("qcontext").classList.add("hidden")
+    document.getElementById("action").classList.add("hidden")
     document.getElementById("nextBtn").textContent = current === a_question.length-1 ? 'See results' : 'Next Question' 
 
     updatebar()
 }
 
-function to_quiz(){
-    document.getElementById("intro").classList.add("invisible")
-    document.getElementById("quiz").classList.remove("invisible")
+function toQuiz(){
+    document.getElementById("intro").classList.add("hidden")
+    document.getElementById("quiz").classList.remove("hidden")
     render_questions()
 }
 
@@ -90,8 +90,8 @@ function sel_answer(i,btn){
     document.getElementById('logscore').textContent = `SCORE${score}`
     const cxt = document.getElementById('qcontext')
     cxt.textContent = q.context
-    cxt.classList.remove('invisible')
-    document.getElementById('action').classList.remove('invisible')
+    cxt.classList.remove('hidden')
+    document.getElementById('action').classList.remove('hidden')
 }
 
 function nextQues(){
@@ -104,15 +104,15 @@ function nextQues(){
 }
 
 function showEnd(){
-    document.getElementById('quiz').classList.add('invisible')
-    document.getElementById('end').classList.remove('invisible')
+    document.getElementById('quiz').classList.add('hidden')
+    document.getElementById('end').classList.remove('hidden')
     document.getElementById('finalscore').innerHTML =`${score}<span>/${a_question.length}</span>`
     /*Fill in reult line*/
     let line
-    if(score >=9) line = ""
-    else if(score >= 7) line = ""
-    else if(score >=4) line = ""
-    else line =""
+    if(score >=9) line = "Amazing"
+    else if(score >= 7) line = "WOW"
+    else if(score >=4) line = "Can do better"
+    else line ="Failure"
     document.getElementById('resultline').textContent = line
 
     a_question.forEach((_,i) => {
@@ -125,8 +125,8 @@ function showEnd(){
 function restartQuiz(){
     current = 0 
     score = 0
-    document.getElementById('end').classList.add('invisible')
-    document.getElementById('quiz').classList.remove('invisible')
+    document.getElementById('end').classList.add('hidden')
+    document.getElementById('quiz').classList.remove('hidden')
     render_questions()
 }
 
