@@ -7,12 +7,15 @@ function currentFrame(index) {
     return `../Assets/index/museum-background/frames/frame_${String(index).padStart(4, "0")}.webp`;
 }
 
+let current = 0;
+let target = 0;
+
 // Resize canvas
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    drawFrame(0);
+    drawFrame(Math.round(current));
 }
 
 window.addEventListener("resize", resizeCanvas);
@@ -56,16 +59,13 @@ function drawFrame(index) {
     );
 }
 
-let current = 0;
-let target = 0;
-
 window.addEventListener("scroll", () => {
 
     const maxScroll =
         document.documentElement.scrollHeight -
         window.innerHeight;
 
-    const progress = window.scrollY / maxScroll;
+    const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
 
     target = progress * (frameCount - 1);
 
