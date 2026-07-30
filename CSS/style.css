@@ -29,3 +29,7 @@ nav button:hover {
     @apply blur-3xl;
     @apply rounded-full;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
