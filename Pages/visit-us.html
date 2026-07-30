@@ -5,36 +5,76 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="code.js" defer></script>
+    <script src="../Script/main.js" defer></script>
     <link rel="stylesheet" href="../CSS/pages/visit-us.css">
 </head>
 
 
 <body class="flex flex-col bg-gradient-to-br from-gray-900 to-black text-white overflow-x-hidden">
-    <header class="fixed top-0 w-full z-50 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-4 bg-black/70 shadow-lg backdrop-blur-md">
-        <nav class="grid grid-cols-3 items-center text-neutral-100">
-        <div class="flex justify-around min-w-0">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-    </div>
+    <header class="fixed top-0 w-full z-50 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
 
-    <a href="home.html" class="justify-self-center min-w-0">
-        <div class="flex flex-col items-center">
-            <p class="bg-red-400">VIM</p>
-            <p class="serif text-3xl">CARPE DIEM</p>
-        </div>
-    </a>
+        <nav class="grid grid-cols-3 items-center font-instrument-sans text-neutral-100 py-3">
 
-        <div class="flex justify-around min-w-0">
-        <a href="explore.html">Explore</a>
-        <a href="connect.html">Connect</a>
-        </div>
-    </nav>
+            <!-- Left -->
+            <div class="flex justify-around">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <!-- Center -->
+            <a href="index.html" class="justify-self-center" id="brand">
+                <div class="flex flex-col items-center">
+                    <p class="bg-red-400">VIM</p>
+                    <p class="serif text-3xl">
+                        CARPE DIEM
+                    </p>
+                </div>
+            </a>
+
+            <!-- Right -->
+            <div class="flex justify-around">
+                <div class="relative" id="exploreMenu">
+                    <button
+                        id="exploreBtn"
+                        class="flex items-center gap-1 cursor-pointer"
+                    >
+                        Explore
+                        <span id="exploreArrow">▾</span>
+                    </button>
+                    <div
+                        id="exploreDropdown"
+                        class="absolute top-full left-1/2 -translate-x-1/2 pt-1
+                            w-56 rounded-xl
+                            bg-black/70 backdrop-blur-xl
+                            border border-white/10
+                            opacity-0 invisible scale-95
+                            "
+                    >
+                            <a href="virtual-museum.html" class="block px-4 py-3 hover:bg-white/10 hover:rounded-xl">
+                                3D Virtual Museum
+                            </a>
+                            <a href="collections.html" class="block px-4 py-3 hover:bg-white/10">
+                                Collections
+                            </a>
+                            <a href="achievement.html" class="block px-4 py-3 hover:bg-white/10">
+                                My Achievement
+                            </a>
+                            <a href="events.html" class="block px-4 py-3 hover:bg-white/10 hover:rounded-xl">
+                                Events
+                            </a>
+                    </div>
+                </div>
+                <a href="visit-us.html">Visit Us</a>
+            </div>
+        </nav>
     </header>
+
     <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-10">
+
     <section class="flex justify-center align-center flex-col items-center">
         <img src="../assets/visit-us/museum.png" class="mt-15 w-[80%] h-120 object-cover" alt="Museum Image">
     </section>
+
     <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg mt-15"> 
 
     <h1 class="serif text-8xl text-center m-10 bg-linear-90 from-blue-600 to-orange-600 bg-clip-text text-transparent underline">Key Information</h1>
@@ -48,24 +88,74 @@
         </div>
         <div class="flex flex-col items-center card">
             <h1 class="p-5 text-4xl serif underline">Ticket Prices</h1>
-            <button class="border-2 border-white/30 rounded-md border-dashed p-5 px-10 cursor-pointer bg-black hover:bg-slate-950"> Learn more </button>
+            <a href="#ticketdiv"><button class="border-2 border-white/30 rounded-md border-dashed p-5 px-10 cursor-pointer bg-black hover:bg-slate-950"> Learn more </button></a>
         </div>
         <div class="card flex flex-col">
             <h1 class="p-5 text-4xl serif underline">Address</h1>
-            <p class="p-2 pl-5"> <strong>2 Bayfront Avenue</strong></p>
-            <p class="p-2 pl-5"> <strong>Singapore, 018972 </strong></p> 
+            <p class="p-2 pl-5"> 2 Bayfront Avenue</p>
+            <p class="p-2 pl-5"> Singapore, 018972</p> 
             <a href="#transportdiv" class="self-end"> <button class="border-2 border-white/30 border-dashed rounded-md p-1 hover:bg-slate-950 cursor-pointer"> Learn more </button> </a>
         </div>
     </section>
+
     <hr id="transportdiv" class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15"> 
-    <section class="flex flex-wrap justify-center gap-20 mb-10">
-    <div class="border-3 border-dashed border-white/10 p-10 max-w-[500px]">
-        <h1 class="text-6xl text-center bg-linear-90 from-red-400 to-orange-600 bg-clip-text text-transparent underline mb-10">Getting There</h1>
-        <iframe class="w-[100%] mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6758.919695322001!2d103.85591794933656!3d1.2856972194028085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1906fa938819%3A0x4af3bb1fea6f86c!2s2%20Bayfront%20Ave%2C%20Singapore%20018972!5e0!3m2!1sen!2ssg!4v1784909038216!5m2!1sen!2ssg" width="200" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>    </div>
-    <div class="border-3 border-dashed border-white/10 p-10 max-w-[500px]">
-        <h1 class="text-6xl text-center bg-linear-90 from-blue-400 to-purple-600 bg-clip-text text-transparent underline">Transport Options</h1>
-    </div>
-</section>
+
+    <section class="flex justify-center gap-10">
+        <div class="border-3 border-dashed border-white/10 p-10 w-[30%]">
+            <h1 class="serif text-8xl text-center bg-linear-90 from-blue-400 to-purple-600 bg-clip-text text-transparent underline pb-10">Transport Options</h1>
+            <ol class="list-disc bg-linear-br from-gray-800 to-gray-900 space-y-4"> 
+                <li class="text-xl">10-minute walk from Bayfront MRT (DTL/CCL)</li> 
+                <li class="text-xl">Located inside Marina Bay Sands</li>
+                <li class="text-xl">5-min walk from Marina Bay Sands Theatre bus stop</li>
+                <li class="text-xl">2-min walk from Helix Bridge! </li>
+            </ol>
+        </div>
+        <div class="border-3 border-dashed border-white/10 p-10 w-[50%]">
+            <h1 class="serif text-8xl text-center bg-linear-90 from-red-600 to-yellow-300 bg-clip-text text-transparent underline mb-10">Getting There</h1>
+            <iframe class="w-[100%] mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6758.919695322001!2d103.85591794933656!3d1.2856972194028085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1906fa938819%3A0x4af3bb1fea6f86c!2s2%20Bayfront%20Ave%2C%20Singapore%20018972!5e0!3m2!1sen!2ssg!4v1784909038216!5m2!1sen!2ssg" 
+                width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>    
+        </div>
+    </section>
+
+    <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15">
+
+    <section id="ticketdiv"class="flex justify-center gap-10">
+        <div class="flex justify-center flex-col border-3 border-dashed border-white/10 p-10 w-[50%]">
+            <h1 class="serif text-8xl text-center bg-linear-90 from-pink-600 to-purple-300 bg-clip-text text-transparent underline mb-10">Ticket Prices</h1>
+            <table class="border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th> Age Group</th>
+                        <th> Price/Exhibit</th>
+                        <th> Full Museum Package (4 Exhibits)</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Children (<5)</td>
+                    <td>$10</td>
+                    <td>$25</td>
+                </tr>
+                <tr>
+                    <td>Youth (5-18)</td>
+                    <td>$15</td>
+                    <td>$35</td>
+                </tr>
+                <tr>
+                    <td>Adults (19-64)</td>
+                    <td>$17</td>
+                    <td>$42</td>
+                </tr>
+                <tr>
+                    <td>Senior</td>
+                    <td>$15</td>
+                    <td>$35</td>
+                </tr>
+            </table>
+        </div>
+        <div class="border-3 border-dashed border-white/10 p-10 w-[30%]">
+            <img src="../assets/visit-us/museumticket.png" class="object-cover w-full h-full"></img>
+        </div>
+    </section> 
     <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15"> 
 
  </body>

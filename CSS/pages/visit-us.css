@@ -74,3 +74,8 @@ code, pre {
     from {translate: 0;}
     to {translate: -100%;}
 }
+
+table, tr, td, th {
+    border: 1px solid white;
+    padding: 10px
+}
