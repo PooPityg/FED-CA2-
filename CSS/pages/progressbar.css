@@ -1,24 +1,31 @@
 .p_node{
     height: 6px;
     width: 6px;
-    transform: rotate(45);
-    border-radius: 1px;
+    transform: rotate(45deg);
+    border-radius: 2px;
     border: 1.5px solid rgb(255, 0, 0);
+    transition: all 0.5s cubic-bezier(.4,0,.2,1);
+    flex-shrink:0;
 }
 
-.p_node .visited{
+.visited{
     background-color: red;
     border-color: azure;
 }
 
-.p_node .current{
+.current{
     background-color: black;
     border-color: blue;
 }
 
 .p_line{
     height: 1px;
-    background: repeating-linear-gradient();
+    flex: 1;
+    background: repeating-linear-gradient(90deg, rgba(41,67,160, 0.69) 0 4px , transparent 4px 8px);
     min-height: 4px;
+}
+
+.card-shadow{
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.4) inset;
 }
 

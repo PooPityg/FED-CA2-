@@ -1,0 +1,14 @@
+[
+    {   
+        "q":"Is himeko the GOAT",
+        "option":["Yes","OFC","tHE GOAT","WHY DID I LOSE 50/50"],
+        "correct":3,
+        "context":"I lost 50/50 to seele"
+    },
+    {   
+        "q":"Placeholder",
+        "option":["opion","opion","opion","opion"],
+        "correct":3,
+        "context":""
+    }
+]
