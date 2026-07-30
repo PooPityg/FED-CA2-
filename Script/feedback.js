@@ -16,7 +16,7 @@ rating.addEventListener("change", function () {
     feedbackSection.style.display = "block";
 
     // Ratings 1 or 2
-    if (rating.value === "1 - Poor" || rating.value === "2 - Fair") {
+    if (rating.value === "1 - Poor"  || rating.value === "2 - Fair") {
         feedbackLabel.textContent = "How can we improve?";
         feedback.placeholder = "Tell us what went wrong and how we can do better...";
     }
@@ -40,7 +40,7 @@ form.addEventListener("submit", function(event){
     const feedback = document.getElementById("feedback").value.trim();
 
     // Check if any field is empty
-    if(name === "" || email === "" || rating === "" || feedback === ""){
+    if(name === "" || email === ""  || rating === ""  ||feedback === ""){
         alert("Please fill in all fields.");
         return;
     }
