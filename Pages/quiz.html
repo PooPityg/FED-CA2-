@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <script src=""></script>
+    <script src="../Script/quiz.js" defer></script>
     <script src="../Script/main.js" defer></script>
+    <link rel="stylesheet" href="../CSS/pages/progressbar.css">
     <link rel="stylesheet" href="../CSS/output.css">
 </head>
-<body>
+<body class="min-h-screen">
     <header class="sticky top-0 w-full z-50 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
         <nav class="grid grid-cols-3 items-center font-instrument-sans text-neutral-100 py-3">
 
@@ -65,38 +66,38 @@
             </div>
         </nav>
     </header>
-    <main>
-        <header id="stage">
+    <main class="flex justify-center items-center px-6 pt-32 pb-16 ">
+        <header class="max-w-xl w-full" id="stage">
             <!-- Intro-->
             <div id="proggres"></div>
-            <div id="intro">
+            <div class="border text-center rounded-sm px-8 pt-10 pb-8" id="intro">
                 <div>Carpe Diem Musuem</div>
                 <h1>Title</h1><!--add a title for the quiz-->
                 <p>Context</p><!--Add Context paragraph for User-->
-                <button class="cursor-pointer" onclick="">Begin Quiz</button>
+                <button class="cursor-pointer" onclick="toQuiz()">Begin Quiz</button>
             </div>
             <!--quiz-->
-            <div class="invisible" id="quiz">
+            <div class= "hidden" id="quiz">
                 <div id="log">
                     <span id="lognum"></span>
                     <span id="logscore"></span>
                 </div>
                 <h1 id="question"></h1>
                 <div id="opions"></div>
-                <div class="invisible" id="qcontext"></div>
-                <div class="invisible" id="action">
-                    <button id="nextBtn" class="" onclick=""></button>             
+                <div class= "hidden" id="qcontext"></div>
+                <div class= "hidden" id="action">
+                    <button id="nextBtn" class="" onclick="nextQues()"></button>             
                 </div>
             </div>
             <!--results-->
-            <div class="invisible" id="end">
+            <div class= "hidden" id="end">
                 <div>Quiz completed</div>
                 <h1>Your Result</h1>    
                 <div id="finalscore">0<span> /10</span></div>
                 <div id="resultline"></div>
                 <div id="b_row">
                     <button id="visitBtn">Plan your visit</button>
-                    <button id="retakeBtn" onclick="">Retake the quiz</button>
+                    <button id="retakeBtn" onclick="restartQuiz()">Retake the quiz</button>
                 </div>
             </div>
         </header>
