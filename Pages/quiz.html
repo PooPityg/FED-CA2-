@@ -70,7 +70,7 @@
         <header class="max-w-xl w-full" id="stage">
             <!-- Intro-->
             <div id="proggres" class="flex items-center justify-center gap-1.5 mb-8 px-1"></div>
-            <section class="bg-parchment text-inkText rounded-sm border border-black/5 card-shadow px-9 pt-10 pb-8 text-center" id="intro">
+            <section class="bg-parchment text-inkText rounded-sm border border-black/5 card-shadow px-9 pt-10 pb-8 text-center font-instrument-serif" id="intro">
                 <p class="tracking-widest uppercase mb-8">Carpe Diem Musuem</p>
                 <h1 class="text-4xl leading-tight mb-3">Title</h1><!--add a title for the quiz-->
                 <p class="leading-relaxed mb-6 max-w-mb mx-auto ">Context</p><!--Add Context paragraph for User-->
@@ -90,16 +90,16 @@
                 </div>
             </section>
             <!--results-->
-            <div class= "hidden" id="end">
-                <div>Quiz completed</div>
-                <h1>Your Result</h1>    
-                <div id="finalscore">0<span> /10</span></div>
+            <section class= "hidden rounded-sm border border-black card-shadow px-9 pt-10 pb-8 text-center font-instrument-serif" id="end">
+                <p class="text-[11px] mb-3 uppercase tracking-widest ">Quiz completed</p>
+                <h1 class="text-3xl mb-2">Your Result</h1>    
+                <div class="leading-none " id="finalscore">0<span> /10</span></div>
                 <div id="resultline"></div>
                 <div id="b_row">
                     <button id="visitBtn" onclick="window.location.href='visit-us.html';" >Plan your visit</button>
                     <button id="retakeBtn" onclick="restartQuiz()">Retake the quiz</button>
                 </div>
-            </div>
+            </section>
         </header>
     </main>
 </body>

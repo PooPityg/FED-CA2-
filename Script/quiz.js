@@ -2,7 +2,27 @@ let score = 0
 let current = 0 
 let answered = false 
 let a_question = []
-const fs
+
+async function loadQuestion() {
+    try{
+        const res = await fetch('../assets/quiz/questions.json')
+        if(!res.ok){
+            throw new Error(`HTTP error Status:${res.status}`)
+        }
+        const ques = await res.json()
+        return ques
+    }
+    catch(error){
+        console.error(`An error occured ${error.message}`)
+        return []
+    }
+}
+
+window.addEventListener('load', async () => {
+    a_question = await loadQuestion() 
+    console.log('Loaded', a_question.length, 'questions')
+})
+
 
 
 function buildprogressbar(){
@@ -118,5 +138,3 @@ function restartQuiz(){
     document.getElementById('quiz').classList.remove('hidden')
     render_questions()
 }
-
-loadQuestion()
