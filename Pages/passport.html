@@ -1,11 +1,204 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Passport</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <header
+      id="navbar"
+      class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
+    >
+      <nav
+        class="grid grid-cols-3 items-center font-instrument-sans text-neutral-100 py-3 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30"
+      >
+        <!-- Left -->
+        <div class="flex justify-around">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+        </div>
+
+        <!-- Center -->
+        <a href="index.html" class="justify-self-center" id="brand">
+          <div class="flex flex-col items-center">
+            <span class="bg-red-400">VIM</span>
+            <span
+              class="font-instrument-serif text-xl sm:text-2xl md:text-3xl mt-1"
+            >
+              CARPE DIEM
+            </span>
+          </div>
+        </a>
+
+        <!-- Right -->
+        <div class="flex justify-around">
+          <div class="relative" id="exploreMenu">
+            <button
+              id="exploreBtn"
+              class="flex items-center gap-1 cursor-pointer"
+            >
+              Explore
+              <span id="exploreArrow">▾</span>
+            </button>
+            <div
+              id="exploreDropdown"
+              class="absolute top-full right-0 mt-2 w-56 rounded-xl bg-black/90 translate-x-1/2 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
+            >
+              <a
+                href="virtual-museum.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
+              >
+                <span class="block font-medium">3D Virtual Museum</span>
+                <span class="block text-xs text-neutral-400 mt-0.5"
+                  >Walk the immersive halls</span
+                >
+              </a>
+              <a
+                href="collections.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
+                role="menuitem"
+              >
+                <span class="block font-medium">Collections</span>
+                <span class="block text-xs text-neutral-400 mt-0.5"
+                  >Browse artifacts by era</span
+                >
+              </a>
+              <a
+                href="achievement.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
+                role="menuitem"
+              >
+                <span class="block font-medium">My Achievement</span>
+                <span class="block text-xs text-neutral-400 mt-0.5"
+                  >View your passport & badges</span
+                >
+              </a>
+              <a
+                href="quiz.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
+                role="menuitem"
+              >
+                <span class="block font-medium">Quiz</span>
+                <span class="block text-xs text-neutral-400 mt-0.5"
+                  >Test your knowledge</span
+                >
+              </a>
+            </div>
+          </div>
+          <a href="visit-us.html">Visit Us</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+        <section class="font-instrument-serif" id="progress">
+            <div>
+                <p>Your Journey</p>
+                <h1>Badge Collection</h1>
+                <button class="cursor-pointer" onclick="window.location.href='index.html'">Back to Museum</button>
+            </div>
+             <section class="rounded-lg border border-amber-900 bg-white p-8 shadow-lg">
+
+            <div class="grid grid-cols-3 gap-8 items-center">
+                <!--Progress-->
+            <section class="rounded-lg border border-amber-900 bg-white p-8 shadow-lg">
+
+                <div class="grid grid-cols-3 gap-8 items-center">
+
+                   <!-- Progress -->
+                   <div class="col-span-2 space-y-6">
+
+                        <!-- Exhibits -->
+                        <div class="rounded bg-gray-100 p-4">
+                            <div class="mb-3 flex justify-between">
+                                <span class="text-sm font-medium">
+                                    Exhibits Collected
+                                </span>
+
+                                <span
+                                    id="exhibitText"
+                                    class="text-xs font-medium text-gray-600">
+                                    6/12
+                                </span>
+                            </div>
+
+                            <div class="h-3 overflow-hidden rounded-full bg-gray-300">
+                                <div
+                                    id="exhibitProgress"
+                                    class="h-full w-1/2 rounded-full bg-amber-900">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quizzes -->
+                        <div class="rounded bg-gray-100 p-4">
+                            <div class="mb-3 flex justify-between">
+                                <span class="text-sm font-medium">
+                                    Quizzes Completed
+                                </span>
+
+                                <span
+                                    id="quizText"
+                                    class="text-xs font-medium text-gray-600">
+                                    3/12
+                                </span>
+                            </div>
+
+                            <div class="h-3 overflow-hidden rounded-full bg-gray-300">
+                                <div
+                                    id="quizProgress"
+                                    class="h-full w-1/4 rounded-full bg-blue-700">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overall Progress -->
+                    <div class="flex flex-col items-center gap-3">
+
+                        <div
+                            id="overallChart"
+                            class="flex h-[120px] w-[120px] items-center justify-center rounded-full shadow-md bg-[conic-gradient(#8B6F47_0deg,#8B6F47_180deg,#4B7BA7_180deg,#4B7BA7_270deg,#e5e7eb_270deg,#e5e7eb_360deg)]">
+
+                            <div
+                                class="flex h-[100px] w-[100px] items-center justify-center rounded-full bg-white text-2xl font-medium text-gray-800">
+
+                                <span id="overallPercentage">
+                                    38%
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <p class="text-xs font-medium text-gray-600">
+                            Overall Progress
+                        </p>
+
+                        <!-- Legend -->
+                        <div class="w-full space-y-1 text-xs text-gray-600">
+
+                            <div class="flex items-center gap-2">
+                                <div class="h-2 w-2 rounded-full bg-amber-900"></div>
+                                <span>Exhibits</span>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <div class="h-2 w-2 rounded-full bg-blue-700"></div>
+                                <span>Quizzes</span>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <div class="h-2 w-2 rounded-full bg-gray-300"></div>
+                                <span>Remaining</span>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </section>
+        </section>
+        <section id="stampcollection">
+
+        </section>
+    </main>
+  </body>
 </html>
