@@ -1,21 +1,29 @@
-const a_question = [
-    {   
-        q:"Is himeko the GOAT",
-        option:["Yes","OFC","tHE GOAT","WHY DID I LOSE 50/50"],
-        correct:3,
-        context:"I lost 50/50 to seele"
-    },
-    {   
-        q:"Placeholder",
-        option:["opion","opion","opion","opion"],
-        correct:3,
-        context:""
-    },    
-]
-
 let score = 0 
 let current = 0 
 let answered = false 
+let a_question = []
+
+async function loadQuestion() {
+    try{
+        const res = await fetch('../assets/quiz/questions.json')
+        if(!res.ok){
+            throw new Error(`HTTP error Status:${res.status}`)
+        }
+        const ques = await res.json()
+        return ques
+    }
+    catch(error){
+        console.error(`An error occured ${error.message}`)
+        return []
+    }
+}
+
+window.addEventListener('load', async () => {
+    a_question = await loadQuestion() 
+    console.log('Loaded', a_question.length, 'questions')
+})
+
+
 
 function buildprogressbar(){
     const el = document.getElementById("proggres")
@@ -46,8 +54,8 @@ function updatebar(){
 function render_questions(){
     answered = false
     const ques = a_question[current]
-    document.getElementById("lognum").textContent = `QuUESTION${current+1}/${a_question.length}`
-    document.getElementById("logscore").textContent = `SCORE${score}`
+    document.getElementById("lognum").textContent = `QUESTION${current+1}/${a_question.length}`
+    document.getElementById("logscore").textContent = `SCORE ${score}`
     document.getElementById("question").textContent = ques.q
     const el = document.getElementById("opions")
     const letter = ["A","B","C","D"]
@@ -69,6 +77,7 @@ function render_questions(){
 function toQuiz(){
     document.getElementById("intro").classList.add("hidden")
     document.getElementById("quiz").classList.remove("hidden")
+    buildprogressbar()
     render_questions()
 }
 
@@ -87,7 +96,7 @@ function sel_answer(i,btn){
         allopt[q.correct].classList.add('correct')
     }
 
-    document.getElementById('logscore').textContent = `SCORE${score}`
+    document.getElementById('logscore').textContent = `SCORE ${score}`
     const cxt = document.getElementById('qcontext')
     cxt.textContent = q.context
     cxt.classList.remove('hidden')
@@ -129,5 +138,3 @@ function restartQuiz(){
     document.getElementById('quiz').classList.remove('hidden')
     render_questions()
 }
-
-buildprogressbar()
