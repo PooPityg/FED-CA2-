@@ -1,4 +1,3 @@
-
 const menu = document.getElementById("exploreMenu");
 const dropdown = document.getElementById("exploreDropdown");
 const arrow = document.getElementById("exploreArrow");
