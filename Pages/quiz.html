@@ -66,15 +66,17 @@
             </div>
         </nav>
     </header>
-    <main class="flex justify-center items-center px-6 pt-16 pb-16 min-h-screen ">
-        <header class="max-w-xl w-full" id="stage">
+    <main class="flex justify-center items-center bg-stone-950 px-6 pt-16 pb-16 min-h-screen ">
+        <header class="max-w-xl w-full text-neutral-200 " id="stage">
             <!-- Intro-->
-            <div id="proggres" class="flex items-center justify-center gap-1.5 mb-8 px-1"></div>
-            <section class="bg-parchment text-inkText rounded-sm border border-black/5 card-shadow px-9 pt-10 pb-8 text-center font-instrument-serif" id="intro">
+            <div class="w-full h-2 bg-gray-100 rounded border border-gray-300 overflow-hidden mb-3">
+                <div id="progress-bar" class="h-full bg-yellow-400 transition-all duration-300 rounded" style="width: 0%"></div>
+            </div>
+            <section class="bg-parchment text-inkText rounded-sm border border-white/10 card-shadow px-9 pt-10 pb-8 text-center font-instrument-serif" id="intro">
                 <p class="tracking-widest uppercase mb-8">Carpe Diem Musuem</p>
                 <h1 class="text-4xl leading-tight mb-3">Title</h1><!--add a title for the quiz-->
                 <p class="leading-relaxed mb-6 max-w-mb mx-auto ">Context</p><!--Add Context paragraph for User-->
-                <button class="font-mono text-xs tracking-widest uppercase px-6 py-3 rounded-sm hover:bg-[#2A3348] transition cursor-pointer" onclick="toQuiz()">Begin Quiz</button><!--cursor-pointer transition rounded-sm tracking-widest uppercase bg-pink-300 px-6 py-3 hover:bg-red-500-->
+                <button class="font-mono text-xs tracking-widest uppercase px-6 py-3 rounded-sm hover:bg-[#2A3348] transition cursor-pointer" onclick="toQuiz()">Begin Quiz</button>
             </section>
             <!--quiz-->
             <section class= "hidden rounded-sm border border-black/5 card-shadow px-9 pt-10 pb-8" id="quiz">
@@ -84,9 +86,9 @@
                 </div>
                 <h1 class="font-instrument-serif text-2xl leading-snug mb-6" id="question"></h1>
                 <div class="flex flex-col gap-2.5 font-instrument-serif text-2xl tracking-widest" id="opions"></div>
-                <div class= "hidden font-instrument-serif tracking-widest" id="qcontext"></div>
-                <div class= "hidden font-instrument-serif tracking-wide" id="action">
-                    <button id="nextBtn" class="rounded-sm hover:bg-[#FF13F0] transition cursor-pointer" onclick="nextQues()"></button>             
+                <div class= "hidden font-instrument-serif tracking-widest my-3" id="qcontext"></div>
+                <div class= "hidden font-instrument-serif tracking-wide flex justify-end mt-4" id="action">
+                    <button id="nextBtn" class="px-2 rounded-sm border border-[#6b7280] hover:bg-[#2A3348] transition cursor-pointer" onclick="nextQues()"></button>             
                 </div>
             </section>
             <!--results-->
@@ -96,8 +98,8 @@
                 <div class="leading-none text-6xl my-2 font-bold " id="finalscore">0<span> /10</span></div>
                 <div class="text-lg leading-none italic " id="resultline"></div>
                 <div class="flex gap-3 flex-wrap justify-center my-3" id="b_row">
-                    <button class="rounded-sm border-black border px-3 " id="visitBtn" onclick="window.location.href='visit-us.html';" >Plan your visit</button>
-                    <button class="rounded-sm border-black border px-3 " id="retakeBtn" onclick="restartQuiz()">Retake the quiz</button>
+                    <button class="rounded-sm border-black border px-3 hover:bg-[#2A3348] transition cursor-pointer" id="visitBtn" onclick="window.location.href='visit-us.html';" >Plan your visit</button>
+                    <button class="rounded-sm border-black border px-3 hover:bg-[#2A3348] transition cursor-pointer" id="retakeBtn" onclick="restartQuiz()">Retake the quiz</button>
                 </div>
             </section>
         </header>
