@@ -80,7 +80,6 @@ function restoreProgress() {
 
 window.addEventListener('load', async () => {
     a_question = await loadQuestion()
-    numQues = a_question.length
     console.log('Loaded', a_question.length, 'questions')
     restoreProgress()
 })
