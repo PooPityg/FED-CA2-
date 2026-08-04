@@ -8,10 +8,14 @@ const exhibitStamps = [
 ]
 
 function getstamp(){
-    try{
-        return JSON.parse(localStorage.getItem(stampkey)|| [] )
-    }catch(e){
-        []
+    const stored = localStorage.getItem(stampkey)
+
+    if (!stored) return []
+
+    try {
+        return JSON.parse(stored)
+    } catch (e) {
+        return []
     }
 }
 
