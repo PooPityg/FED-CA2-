@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../CSS/output.css">
+    <script src="../Script/passport.js"></script>
     <title>Passport</title>
   </head>
   <body class="min-h-screen bg-stone-950 text-neutral-100">
@@ -99,34 +100,19 @@
                 </div>
               </div>
             </div>
-            <!--Circular progress bar(study)-->
+            <!--Circular progress bar-->
             <div class="flex flex-col items-center gap-3 rounded-xl border border-white/10 bg-black/20 p-4 sm:p-5">
-              <div id="overallChart" class="flex h-[110px] w-[110px] items-center justify-center rounded-full shadow-md bg-[conic-gradient(#8B6F47_0deg,#8B6F47_180deg,#4B7BA7_180deg,#4B7BA7_270deg,#059669_270deg,#e5e7eb_360deg)] sm:h-[120px] sm:w-[120px]">
-                <div class="flex h-[90px] w-[90px] items-center justify-center rounded-full bg-white text-xl font-medium text-gray-800 sm:h-[100px] sm:w-[100px] sm:text-2xl">
-                  <span id="overallPercentage">40%</span>
-                </div>
+              <div class="relative flex items-center justify-center w-40 h-40">
+                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                  <!-- Background Circle -->
+                  <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" cx="50" cy="50" r="40"/>
+                  <!-- Progress Circle -->
+                  <circle id="overallProgress" class="text-indigo-600 transition-all duration-300 ease-in-out" stroke-width="10" stroke-linecap="round" stroke="currentColor" fill="transparent" cx="50" cy="50" r="40" stroke-dasharray="251.2" style="stroke-dashoffset: calc(251.2 - (251.2 * 70) / 100);"/>
+                </svg>
+                <span id="overallTxt" class="absolute text-2xl font-bold text-netural-200">70%</span>
               </div>
 
-              <p class="text-xs font-semibold uppercase tracking-[0.25em] text-gray-200">Overall Progress</p>
-
-              <div class="w-full space-y-1 text-xs text-gray-200">
-                <div class="flex items-center gap-2">
-                  <div class="h-2 w-2 rounded-full bg-amber-900"></div>
-                  <span>Exhibits</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <div class="h-2 w-2 rounded-full bg-blue-700"></div>
-                  <span>Quizzes</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <div class="h-2 w-2 rounded-full bg-emerald-600"></div>
-                  <span>Badges</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <div class="h-2 w-2 rounded-full bg-gray-300"></div>
-                  <span>Remaining</span>
-                </div>
-              </div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-gray-200">Overall Progress</p>
             </div>
           </div>
         </section>
