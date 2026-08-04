@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../CSS/output.css">
-    <script src="../Script/passport.js"></script>
+    <link rel="stylesheet" href="../CSS/pages/passport.css">
+    <script src="../Script/stamps.js" defer></script>
+    <script src="../Script/passport.js" defer></script>
     <title>Passport</title>
   </head>
   <body class="min-h-screen bg-stone-950 text-neutral-100">
@@ -71,16 +73,6 @@
           <div class="grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_220px] lg:items-center lg:gap-8">
             <div class="space-y-4">
               <div class="rounded-xl border border-white/10 bg-white/10 p-3 sm:p-4">
-                <div class="mb-4 flex items-center justify-between ">
-                  <span class="text-sm font-semibold tracking-wide text-white">Exhibits Collected</span>
-                  <span id="exhibitText" class="text-xs font-semibold tracking-wide text-neutral-200">6/12</span>
-                </div>
-                <div class="h-3 overflow-hidden rounded-full bg-stone-300/70">
-                  <div id="exhibitProgress" class="h-full rounded-full bg-amber-900" style="width: 50%"></div>
-                </div>
-              </div>
-
-              <div class="rounded-xl border border-white/10 bg-white/10 p-3 sm:p-4">
                 <div class="mb-4 flex items-center justify-between">
                   <span class="text-sm font-semibold tracking-wide text-white">Quizzes Completed</span>
                   <span id="quizText" class="text-xs font-semibold tracking-wide text-neutral-200">3/12</span>
@@ -119,7 +111,13 @@
       </section>
 
       <section id="stampcollection" class="mx-auto mt-8 max-w-6xl rounded-2xl border border-white/10 bg-white/10 p-4 text-sm text-neutral-300 sm:p-6">
-        <p class="text-center sm:text-left">Your collected stamps and badges will appear here.</p>
+        <h1 class="text-3xl sm:text-6xl text-center">My Musuem Passport</h1>
+        <p class="text-center my-4">Your collected stamps and badges will appear here.</p>
+        <div class="text-center mb-4" id="stamp-progress"></div>
+        <div class="mb-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" id="stamp-grid"></div>
+        <div class="flex justify-center">
+          <button class="rounded-sm border border-black px-5 py-3 transition hover:bg-[#2A3348] cursor-pointer" id="reset">Reset all</button>
+        </div>
       </section>
     </main>
   </body>
