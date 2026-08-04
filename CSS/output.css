@@ -258,6 +258,9 @@
   .invisible {
     visibility: hidden;
   }
+  .visible {
+    visibility: visible;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -365,6 +368,8 @@
   .mt-15 {
     margin-top: calc(var(--spacing) * 15);
   }
+  .mt-30 {
+    margin-top: calc(var(--spacing) * 30);
   .mt-17 {
     margin-top: calc(var(--spacing) * 17);
   }
@@ -448,6 +453,9 @@
   }
   .h-\[25\%\] {
     height: 25%;
+  }
+  .h-\[60vh\] {
+    height: 60vh;
   }
   .h-\[100\%\] {
     height: 100%;
@@ -1026,6 +1034,8 @@
   .py-24 {
     padding-block: calc(var(--spacing) * 24);
   }
+  .py-30 {
+    padding-block: calc(var(--spacing) * 30);
   .py-28 {
     padding-block: calc(var(--spacing) * 28);
   }
@@ -1190,6 +1200,9 @@
     --tw-tracking: var(--tracking-wider);
     letter-spacing: var(--tracking-wider);
   }
+  .text-gray-300 {
+    color: var(--color-gray-300);
+  }
   .tracking-widest {
     --tw-tracking: var(--tracking-widest);
     letter-spacing: var(--tracking-widest);
@@ -1319,11 +1332,6 @@
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
-  .backdrop-blur-md {
-    --tw-backdrop-blur: blur(var(--blur-md));
-    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-  }
   .backdrop-blur-xl {
     --tw-backdrop-blur: blur(var(--blur-xl));
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
@@ -1374,6 +1382,58 @@
       @media (hover: hover) {
         --tw-translate-x: var(--spacing);
         translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .group-hover\:scale-105 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        --tw-scale-x: 105%;
+        --tw-scale-y: 105%;
+        --tw-scale-z: 105%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .group-hover\:text-olive-200 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-olive-200);
+      }
+    }
+  }
+  .hover\:-translate-y-0\.5 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-y: calc(var(--spacing) * -0.5);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .hover\:border-olive-700\/30 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, oklch(39.4% 0.023 107.4) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-olive-700) 30%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:border-white\/50 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, #fff 50%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-white) 50%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-neutral-100 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-neutral-100);
       }
     }
   }
@@ -2022,6 +2082,115 @@ table, tr, td, th {
   color: white;
   text-shadow: 0px 5px 10px gray;
 }
+.page-collection {
+  margin: 0;
+  background: #0a0a0a;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  & .page-header {
+    max-width: 1100px;
+  }
+  & .page-header h1 {
+    font-size: 22px;
+    margin: 0;
+  }
+  & .page-header p {
+    margin: 4px 0 0;
+    color: #a3a3a3;
+    font-size: 13px;
+  }
+  & .grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  & .card {
+    background: #1c1c1c;
+    border: 1px solid #2e2e2e;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.15s ease, background 0.15s ease;
+    width: 100%;
+  }
+  & .card:hover {
+    background: #242424;
+    transform: translateY(-3px);
+  }
+  & .card {
+    cursor: pointer;
+  }
+  & .card.zoomed {
+    transform: scale(1.08);
+    background: #242424;
+    border-color: #666;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    position: relative;
+  }
+  & .card-img {
+    background: #3a3a3a;
+    height: 110px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 12px;
+    text-transform: uppercase;
+    overflow: hidden;
+  }
+  & .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  & .card-title {
+    font-size: 15px;
+    margin: 0;
+  }
+  & .card-year {
+    font-size: 12px;
+    color: #a3a3a3;
+    margin: -6px 0 0;
+  }
+  & .card-desc {
+    font-size: 12.5px;
+    color: #a3a3a3;
+    line-height: 1.45;
+    margin: 0;
+    flex-grow: 1;
+  }
+  & .browse-btn {
+    border: 1px solid #4a4a4a;
+    color: #fff;
+    padding: 7px 0;
+    border-radius: 6px;
+    font-size: 12.5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.15s;
+  }
+  & .browse-btn:hover {
+    background: #fff;
+    color: #111;
+  }
+  @media (max-width: 860px) {
+    & .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    & .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
 #hero-canvas {
   opacity: 0.6;
 }
@@ -2044,6 +2213,35 @@ nav button:hover {
 }
 ::-webkit-scrollbar {
   display: none;
+}
+.exhibit-card {
+  border-radius: var(--radius-2xl);
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: color-mix(in srgb, #fff 10%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+  }
+  background-color: color-mix(in srgb, #fff 5%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+  }
+  --tw-backdrop-blur: blur(var(--blur-md));
+  -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 300ms;
+  transition-duration: 300ms;
+  &:is(:where(.group):hover *) {
+    @media (hover: hover) {
+      --tw-scale-x: 105%;
+      --tw-scale-y: 105%;
+      --tw-scale-z: 105%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
 }
 @property --tw-translate-x {
   syntax: "*";
@@ -2224,6 +2422,7 @@ nav button:hover {
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-blur {
 @property --tw-backdrop-blur {
   syntax: "*";
   inherits: false;

@@ -40,7 +40,7 @@ btn.addEventListener('click', () => {
 })
 
 const navbar = document.getElementById("navbar");
-
+console.log(navbar)
 let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
