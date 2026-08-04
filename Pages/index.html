@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carpe Diem</title>
     <link rel="stylesheet" href="../CSS/output.css">
     <script src="../Script/index.js" defer></script>
     <script src="../Script/main.js" defer></script>
@@ -79,13 +79,13 @@
 
                 <div class="relative z-10 text-white text-center px-3">
                     <p class="text-olive-200 text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 font-medium">Virtual Interactive Museum</p>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-instrument-serif font-semibold mb-4 leading-tight">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-instrument-serif font-semibold mb-1 leading-tight">
                         Seize the Day.
                     </h1>
-                    <p class="text-neutral-200 text-sm sm:text-base max-w-lg mx-auto mb-8 leading-relaxed">
+                    <p class="text-neutral-200 text-sm sm:text-base max-w-lg mx-auto mb-6 leading-relaxed">
                         To put to rout all that was not life; and not, when I had come to die, discover that I had not lived.
                     </p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-lg">
                         <a id="enterMuseumBtn" href="museum.html" 
                             class="cursor-pointer font-instrument-serif border-1 
                             border-olive-900 bg-white/80 text-olive-900 rounded-sm
@@ -93,7 +93,7 @@
                             Enter the Museum
                         </a>
                         <a 
-                            href="collections.html" 
+                            href="collection.html" 
                             class="font-instrument-serif rounded-sm border-1
                                 border-white/30 bg-white/5 text-white
                                 hover:bg-white/10 hover:border-white/50 transition-all duration-300 hover:-translate-y-0.5"
@@ -104,7 +104,7 @@
                 </div>
             </section>
 
-            <section class="relative flex flex-col items-center justify-center md:px-10 lg:px-16 min-h-screen bg-stone-950 py-28">
+            <section class="relative flex flex-col items-center justify-center px-4 md:px-10 lg:px-16 min-h-screen bg-stone-950 py-30">
                 <!-- Section Heading -->
                 <div class="flex justify-center mb-8">
                     <div class="text-center">
@@ -119,102 +119,94 @@
                 </div>
 
                 <!-- Exhibit Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
+                    <!-- Card 1 -->
+                    <a href="artifact.html" class="group h-[60vh] flex flex-col">
+                        <div class="exhibit-card h-full flex flex-col overflow-hidden">
+                            <div class="flex-1 min-h-0 overflow-hidden">
+                                <img
+                                    src="../assets/index/featured/egypt.avif"
+                                    alt="Ancient Sculpture"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                                >
+                            </div>
 
-                    <!-- Card -->
-                    <a href="artifact.html" class="group h-full flex flex-col">
-                        <div class="flex flex-col flex-1 overflow-hidden rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
-
-                            <img
-                                src="../assets/index/featured/egypt.avif"
-                                alt="Ancient Sculpture"
-                                class="aspect-[4/5] w-full object-cover
-                                    transition duration-500
-                                    group-hover:scale-105"
-                            >
-
-                            <div class="flex flex-col flex-1 p-5">
+                            <div class="p-5">
                                 <h3 class="font-instrument-serif text-xl text-white">
                                     Ancient Egypt
                                 </h3>
-
                                 <p class="mt-2 text-sm text-neutral-300">
                                     Discover the craftsmanship and symbolism behind this timeless masterpiece.
                                 </p>
                             </div>
-
                         </div>
                     </a>
 
-                    <!-- Card -->
-                    <a href="artifact.html" class="group h-full flex flex-col">
-                        <div class="flex flex-col flex-1 overflow-hidden rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+                    <!-- Card 2 -->
+                    <a href="artifact.html" class="group h-[60vh] flex flex-col">
+                        <div class="exhibit-card h-full flex flex-col overflow-hidden">
+                            <div class="flex-1 min-h-0 overflow-hidden">
+                                <img
+                                    src="../assets/index/featured/china.jpeg"
+                                    alt="Ancient Sculpture"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                                >
+                            </div>
 
-                            <img
-                                src="../assets/index/featured/china.jpeg"
-                                alt="Renaissance Painting"
-                                class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105"
-                            >
-
-                            <div class="flex flex-col flex-1 p-5">
+                            <div class="p-5">
                                 <h3 class="font-instrument-serif text-xl text-white">
                                     China
                                 </h3>
-
                                 <p class="mt-2 text-sm text-neutral-300">
                                     A glimpse into the rebirth of European art and culture.
                                 </p>
                             </div>
-
                         </div>
                     </a>
 
-                    <!-- Card -->
-                    <a href="artifact.html" class="group h-full flex flex-col">
-                        <div class="flex flex-col flex-1 overflow-hidden rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+                    <!-- Card 3 -->
+                    <a href="artifact.html" class="group h-[60vh] flex flex-col">
+                        <div class="exhibit-card h-full flex flex-col overflow-hidden">
+                            <div class="flex-1 min-h-0 overflow-hidden">
+                                <img
+                                    src="../assets/index/featured/native-american.webp"
+                                    alt="Native American"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                                >
+                            </div>
 
-                            <img
-                                src="../assets/index/featured/native-american.webp"
-                                alt="Native American"
-                                class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105"
-                            >
-
-                            <div class="flex flex-col flex-1 p-5">
+                            <div class="p-5">
                                 <h3 class="font-instrument-serif text-xl text-white">
                                     Native American
                                 </h3>
-
                                 <p class="mt-2 text-sm text-neutral-300">
                                     An artifact that has survived centuries of history.
                                 </p>
                             </div>
-
                         </div>
                     </a>
 
-                    <!-- Card -->
-                    <a href="artifact.html" class="group h-full flex flex-col">
-                        <div class="flex flex-col flex-1 overflow-hidden rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+                    <!-- Card 4 -->
+                    <a href="artifact.html" class="group h-[60vh] flex flex-col">
+                        <div class="exhibit-card h-full flex flex-col overflow-hidden">
+                            <div class="flex-1 min-h-0 overflow-hidden">
+                                <img
+                                    src="../assets/index/featured/easter-island.jpg"
+                                    alt="Modern Installation"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                                >
+                            </div>
 
-                            <img
-                                src="../assets/index/featured/easter-island.jpg"
-                                alt="Modern Installation"
-                                class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105"
-                            >
-
-                            <div class="flex flex-col flex-1 p-5">
+                            <div class="p-5">
                                 <h3 class="font-instrument-serif text-xl text-white">
                                     Easter Island
                                 </h3>
-
                                 <p class="mt-2 text-sm text-neutral-300">
                                     Experience immersive contemporary art through light and space.
                                 </p>
                             </div>
-
                         </div>
                     </a>
-
                 </div>
                 <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
                     <span class="text-white/50 font-bold">↓</span>
