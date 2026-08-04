@@ -1,24 +1,44 @@
-.p_node{
-    height: 6px;
-    width: 6px;
-    transform: rotate(45);
-    border-radius: 1px;
-    border: 1.5px solid rgb(255, 0, 0);
+.card-shadow{
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.4) inset;
+}
+.opt { 
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid #6b7280;
+    border-radius: 0.5rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.opt:last-child {
+    margin-bottom: 0;
 }
 
-.p_node .visited{
-    background-color: red;
-    border-color: azure;
+.opt:hover {
+    background-color: #2A3348;
 }
 
-.p_node .current{
-    background-color: black;
-    border-color: blue;
+.opt-letter {
+    flex-shrink: 0;
+    font-weight: 600;
 }
 
-.p_line{
-    height: 1px;
-    background: repeating-linear-gradient();
-    min-height: 4px;
+.opt-text {
+    flex: 1;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
 }
 
+.correct{
+    border-color: green;
+    border-width: 3px;
+}
+.incorrect{
+    border-color: rgb(250, 85, 85);
+    border-width: 3px;
+}

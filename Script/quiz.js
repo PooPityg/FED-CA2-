@@ -1,53 +1,40 @@
-const a_question = [
-    {   
-        q:"Is himeko the GOAT",
-        option:["Yes","OFC","tHE GOAT","WHY DID I LOSE 50/50"],
-        correct:3,
-        context:"I lost 50/50 to seele"
-    },
-    {   
-        q:"Placeholder",
-        option:["opion","opion","opion","opion"],
-        correct:3,
-        context:""
-    },    
-]
-
 let score = 0 
-let current = 0 
+let current = 0
+let progress = 1
 let answered = false 
+let a_question = []
 
-function buildprogressbar(){
-    const el = document.getElementById("proggres")
-    el.innerHTML=''
-    a_question.forEach((_,i)=>{
-        const node = document.createElement('div')
-        node.className = "p_node"
-        node.id = 'node-' + i 
-        el.appendChild(node)
-
-        if (i<a_question.length - 1){
-            const line = document.createElement('div')
-            line.className = "p_line"
-            el.appendChild(line)
+async function loadQuestion() {
+    try{
+        const res = await fetch('../assets/quiz/questions.json')
+        if(!res.ok){
+            throw new Error(`HTTP error Status:${res.status}`)
         }
-    })
+        const ques = await res.json()
+        return ques
+    }
+    catch(error){
+        console.error(`An error occured ${error.message}`)
+        return []
+    }
 }
 
+window.addEventListener('load', async () => {
+    a_question = await loadQuestion() 
+    console.log('Loaded', a_question.length, 'questions')
+})
+
+
 function updatebar(){
-    a_question.forEach((_,i)=>{
-        const room = document.getElementById("node-" +i)
-        room.classList.remove('visited','current')
-        if (i < current) room.classList.add('visited')
-        else if(i ===current) room.classList.add('current')
-    })
+    const percentage = (progress/a_question.length) * 100
+    document.getElementById('progress-bar').style.width = percentage + '%';  
 }
 
 function render_questions(){
     answered = false
     const ques = a_question[current]
-    document.getElementById("lognum").textContent = `QuUESTION${current+1}/${a_question.length}`
-    document.getElementById("logscore").textContent = `SCORE${score}`
+    document.getElementById("lognum").textContent = `QUESTION${current+1}/${a_question.length}`
+    document.getElementById("logscore").textContent = `SCORE ${score}`
     document.getElementById("question").textContent = ques.q
     const el = document.getElementById("opions")
     const letter = ["A","B","C","D"]
@@ -55,14 +42,13 @@ function render_questions(){
     ques.option.forEach((opt,i)=>{
         const btn = document.createElement('button')
         btn.className="opt"
-        btn.innerHTML=`<span>${letter[i]}</span><span>${opt}</span>`
+        btn.innerHTML=`<span class="opt-letter">${letter[i]}</span><span class="opt-text">${opt}</span>`
         btn.onclick = () => sel_answer(i,btn)
         el.appendChild(btn)
     })
     document.getElementById("qcontext").classList.add("hidden")
     document.getElementById("action").classList.add("hidden")
     document.getElementById("nextBtn").textContent = current === a_question.length-1 ? 'See results' : 'Next Question' 
-
     updatebar()
 }
 
@@ -87,7 +73,7 @@ function sel_answer(i,btn){
         allopt[q.correct].classList.add('correct')
     }
 
-    document.getElementById('logscore').textContent = `SCORE${score}`
+    document.getElementById('logscore').textContent = `SCORE ${score}`
     const cxt = document.getElementById('qcontext')
     cxt.textContent = q.context
     cxt.classList.remove('hidden')
@@ -96,6 +82,7 @@ function sel_answer(i,btn){
 
 function nextQues(){
     current++
+    progress++
     if(current >= a_question.length){
         showEnd()
     }else{
@@ -107,7 +94,6 @@ function showEnd(){
     document.getElementById('quiz').classList.add('hidden')
     document.getElementById('end').classList.remove('hidden')
     document.getElementById('finalscore').innerHTML =`${score}<span>/${a_question.length}</span>`
-    /*Fill in reult line*/
     let line
     if(score >=9) line = "Amazing"
     else if(score >= 7) line = "WOW"
@@ -115,19 +101,13 @@ function showEnd(){
     else line ="Failure"
     document.getElementById('resultline').textContent = line
 
-    a_question.forEach((_,i) => {
-        const room = document.getElementById('node-' + i)
-        room.classList.remove('current')
-        room.classList.add('visited')
-    })
 }
 
 function restartQuiz(){
-    current = 0 
+    current = 0
     score = 0
+    progress = 1 
     document.getElementById('end').classList.add('hidden')
     document.getElementById('quiz').classList.remove('hidden')
     render_questions()
 }
-
-buildprogressbar()

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>    <!--Make buttons bigger and result section bigger-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
@@ -67,40 +67,42 @@
             </div>
         </nav>
     </header>
-    <main class="flex justify-center items-center px-6 pt-32 pb-16 ">
-        <header class="max-w-xl w-full" id="stage">
+    <main class="flex justify-center items-center bg-stone-950 px-6 pt-16 pb-16 min-h-screen ">
+        <header class="max-w-xl w-full text-neutral-200 " id="stage">
             <!-- Intro-->
-            <div id="proggres"></div>
-            <div class="border text-center rounded-sm px-8 pt-10 pb-8" id="intro">
-                <div>Carpe Diem Musuem</div>
-                <h1>Title</h1><!--add a title for the quiz-->
-                <p>Context</p><!--Add Context paragraph for User-->
-                <button class="cursor-pointer" onclick="toQuiz()">Begin Quiz</button>
+            <div class="w-full h-2 bg-gray-100 rounded border border-gray-300 overflow-hidden mb-3">
+                <div id="progress-bar" class="h-full bg-yellow-400 transition-all duration-300 rounded" style="width: 0%"></div>
             </div>
+            <section class="bg-parchment text-inkText rounded-sm border border-white/10 card-shadow px-9 pt-10 pb-8 text-center font-instrument-serif" id="intro">
+                <p class="tracking-widest uppercase mb-8">Carpe Diem Musuem</p>
+                <h1 class="text-4xl leading-tight mb-3">Title</h1><!--add a title for the quiz-->
+                <p class="leading-relaxed mb-6 max-w-mb mx-auto ">Context</p><!--Add Context paragraph for User-->
+                <button class="font-mono text-xs tracking-widest uppercase px-6 py-3 rounded-sm hover:bg-[#2A3348] transition cursor-pointer" onclick="toQuiz()">Begin Quiz</button>
+            </section>
             <!--quiz-->
-            <div class= "hidden" id="quiz">
-                <div id="log">
+            <section class= "hidden rounded-sm border border-black/5 card-shadow px-9 pt-10 pb-8" id="quiz">
+                <div class="flex justify-between mb-3 pb-6 border-b border-black/10 tracking-widest uppercase text-[15px] font-instrument-serif" id="log">
                     <span id="lognum"></span>
                     <span id="logscore"></span>
                 </div>
-                <h1 id="question"></h1>
-                <div id="opions"></div>
-                <div class= "hidden" id="qcontext"></div>
-                <div class= "hidden" id="action">
-                    <button id="nextBtn" class="" onclick="nextQues()"></button>             
+                <h1 class="font-instrument-serif text-2xl leading-snug mb-6" id="question"></h1>
+                <div class="flex flex-col gap-2.5 font-instrument-serif text-2xl tracking-widest" id="opions"></div>
+                <div class= "hidden font-instrument-serif tracking-widest my-3" id="qcontext"></div>
+                <div class= "hidden font-instrument-serif tracking-wide flex justify-end mt-4" id="action">
+                    <button id="nextBtn" class="px-2 rounded-sm border border-[#6b7280] hover:bg-[#2A3348] transition cursor-pointer" onclick="nextQues()"></button>             
                 </div>
-            </div>
+            </section>
             <!--results-->
-            <div class= "hidden" id="end">
-                <div>Quiz completed</div>
-                <h1>Your Result</h1>    
-                <div id="finalscore">0<span> /10</span></div>
-                <div id="resultline"></div>
-                <div id="b_row">
-                    <button id="visitBtn">Plan your visit</button>
-                    <button id="retakeBtn" onclick="restartQuiz()">Retake the quiz</button>
+            <section class= "hidden rounded-sm border border-black card-shadow px-9 pt-10 pb-8 text-center font-instrument-serif" id="end">
+                <p class="text-[11px] mb-3 uppercase tracking-widest ">Quiz completed</p>
+                <h1 class="text-3xl mb-2">Your Result</h1>    
+                <div class="leading-none text-6xl my-2 font-bold " id="finalscore">0<span> /10</span></div>
+                <div class="text-lg leading-none italic " id="resultline"></div>
+                <div class="flex gap-3 flex-wrap justify-center my-3" id="b_row">
+                    <button class="rounded-sm border-black border px-3 hover:bg-[#2A3348] transition cursor-pointer" id="visitBtn" onclick="window.location.href='visit-us.html';" >Plan your visit</button>
+                    <button class="rounded-sm border-black border px-3 hover:bg-[#2A3348] transition cursor-pointer" id="retakeBtn" onclick="restartQuiz()">Retake the quiz</button>
                 </div>
-            </div>
+            </section>
         </header>
     </main>
 </body>
