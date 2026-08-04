@@ -1,0 +1,5 @@
+.page-egypt {    
+    & .shadow-black {
+        text-shadow: 2px 1px 20px black;
+    }
+}
