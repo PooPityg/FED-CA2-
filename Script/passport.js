@@ -9,3 +9,22 @@ function setOverall(percent){
     text.innerText = `${percent}%`
 }
 
+function renderstamps(){
+    const gird = document.getElementById('stamp-grid')
+    const text = document.getElementById('stamp-progress')
+    const collected = getstamp()
+    gird.innerHTML=''
+    exhibitStamps.forEach(s=>{
+
+    })
+
+}
+
+function resetStamp(){
+    localStorage.removeItem(stampkey)
+}
+
+document.getElementById('reset').addEventListener('click', () => {
+    resetStamps();
+    renderstamps();
+})
