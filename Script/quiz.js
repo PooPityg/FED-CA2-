@@ -3,7 +3,11 @@ let current = 0
 let progress = 1
 let answered = false
 let a_question = []
+let numQues = 0
 const STORAGE_KEY = 'quizProgress'
+const SCORE_KEY = 'quizScore'
+const COMPLETED_KEY = 'quizCompleted'
+const FSCORE_KEY = 'quizFinalScore'
 
 async function loadQuestion() {
     try {
@@ -30,29 +34,53 @@ function saveProgress() {
     if (!a_question.length) return
     const nextQuestion = Math.min(current + 1, a_question.length)
     localStorage.setItem(STORAGE_KEY, String(nextQuestion))
+    localStorage.setItem(SCORE_KEY, String(score))
 }
 
 function clearProgress() {
     localStorage.removeItem(STORAGE_KEY)
+    localStorage.removeItem(SCORE_KEY)
+    updateIntroButton(false)
+}
+
+function markCompleted() {
+    sessionStorage.setItem(COMPLETED_KEY, 'true')
+}
+
+function clearCompletedFlag() {
+    sessionStorage.removeItem(COMPLETED_KEY)
 }
 
 function restoreProgress() {
+    if (sessionStorage.getItem(COMPLETED_KEY) === 'true') {
+        current = 0
+        score = 0
+        progress = 1
+        clearProgress()
+        clearCompletedFlag()
+        return
+    }
+
     const savedValue = Number(localStorage.getItem(STORAGE_KEY))
+    const savedScore = Number(localStorage.getItem(SCORE_KEY))
 
     if (!Number.isInteger(savedValue) || savedValue < 0 || savedValue >= a_question.length) {
         current = 0
+        score = 0
         progress = 1
-        updateIntroButton(false)
+        clearProgress()
         return
     }
 
     current = savedValue
+    score = Number.isInteger(savedScore) ? savedScore : 0
     progress = savedValue + 1
     updateIntroButton(true)
 }
 
 window.addEventListener('load', async () => {
     a_question = await loadQuestion()
+    numQues = a_question.length
     console.log('Loaded', a_question.length, 'questions')
     restoreProgress()
 })
@@ -81,10 +109,15 @@ function render_questions() {
     document.getElementById('qcontext').classList.add('hidden')
     document.getElementById('action').classList.add('hidden')
     document.getElementById('nextBtn').textContent = current === a_question.length - 1 ? 'See results' : 'Next Question'
+    const returnBtn = document.getElementById('returnBtn')
+    if (returnBtn) {
+        returnBtn.classList.toggle('hidden', current === a_question.length - 1)
+    }
     updatebar()
 }
 
 function toQuiz() {
+    clearCompletedFlag()
     document.getElementById('intro').classList.add('hidden')
     document.getElementById('quiz').classList.remove('hidden')
     render_questions()
@@ -126,9 +159,12 @@ function nextQues() {
 
 function showEnd() {
     clearProgress()
+    markCompleted()
     document.getElementById('quiz').classList.add('hidden')
     document.getElementById('end').classList.remove('hidden')
     document.getElementById('finalscore').innerHTML = `${score}<span>/${a_question.length}</span>`
+    let finalScore = score
+    localStorage.setItem(FSCORE_KEY,String(score))
     let line
     if (score >= 9) line = 'Amazing'
     else if (score >= 7) line = 'WOW'
@@ -141,6 +177,7 @@ function restartQuiz() {
     current = 0
     score = 0
     progress = 1
+    clearCompletedFlag()
     clearProgress()
     document.getElementById('end').classList.add('hidden')
     document.getElementById('quiz').classList.remove('hidden')
