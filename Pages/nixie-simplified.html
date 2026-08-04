@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nixie Tube Chronometer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #030303;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* ===== CRT NOISE + OVERLAY ===== */
+#noiseCanvas {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 200; opacity: 0.14; mix-blend-mode: screen;
+}
+.crt-overlay {
+  position: fixed; inset: 0; pointer-events: none; z-index: 100;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 1px, transparent 1px, transparent 3px);
+  background-size: 100% 4px;
+  animation: scanline-drift 0.08s linear infinite;
+}
+.crt-overlay::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.55) 100%);
+}
+.crt-overlay::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255, 140, 40, 0.018);
+  animation: crt-flicker 0.1s steps(2) infinite;
+}
+@keyframes scanline-drift { 0% { background-position: 0 0; } 100% { background-position: 0 4px; } }
+@keyframes crt-flicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.82; } }
+
+/* ===== SCREEN SHAKE ===== */
+@keyframes screen-shake {
+  0% { transform: translate(0,0) rotate(0deg); }
+  10% { transform: translate(-3px,2px) rotate(-0.2deg); }
+  20% { transform: translate(3px,-2px) rotate(0.2deg); }
+  30% { transform: translate(-2px,3px) rotate(-0.1deg); }
+  40% { transform: translate(2px,-3px) rotate(0.1deg); }
+  50% { transform: translate(-4px,1px) rotate(-0.15deg); }
+  60% { transform: translate(4px,-1px) rotate(0.15deg); }
+  70% { transform: translate(-1px,4px) rotate(-0.05deg); }
+  80% { transform: translate(1px,-4px) rotate(0.05deg); }
+  90% { transform: translate(-2px,2px) rotate(-0.1deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+.nixie-container.shaking { animation: screen-shake 0.12s linear infinite; }
+
+/* ===== DUST ===== */
+.dust { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+.particle {
+  position: absolute; width: 2px; height: 2px;
+  background: rgba(255, 160, 60, 0.25); border-radius: 50%;
+  animation: drift 18s linear infinite;
+}
+@keyframes drift {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10%, 90% { opacity: 0.5; }
+  100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+}
+
+/* ===== MAIN CONTAINER ===== */
+.nixie-container {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 60px 80px 40px;
+  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 140, 40, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 40px 80px rgba(0,0,0,0.8), 0 0 120px rgba(255, 100, 20, 0.04);
+  cursor: pointer;
+}
+.tubes-row { display: flex; gap: 24px; }
+
+/* ===== TUBE ===== */
+.tube { position: relative; width: 100px; height: 160px; display: flex; align-items: center; justify-content: center; }
+.tube-glass {
+  position: absolute; inset: 0;
+  border-radius: 50% / 20%;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 20%, rgba(255,200,120,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 30% 30%, rgba(255,255,255,0.04) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 30%, transparent 70%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255, 140, 40, 0.12);
+  box-shadow: inset 0 0 30px rgba(255, 100, 20, 0.05), inset 0 0 60px rgba(255, 80, 10, 0.02), 0 0 40px rgba(255, 100, 20, 0.08);
+  overflow: hidden;
+}
+.tube-glass::before {
+  content: ''; position: absolute; top: 8%; left: 15%; width: 25%; height: 40%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 70%);
+  filter: blur(2px);
+}
+.tube-base {
+  position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+  width: 70%; height: 20px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #2a2a2a 20%, #1a1a1a 50%, #0d0d0d 100%);
+  border-radius: 4px; border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+.tube-base::before {
+  content: ''; position: absolute; top: 2px; left: 10%; right: 10%; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,140,40,0.3), transparent);
+}
+.tube-pins { position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+.pin { width: 3px; height: 12px; background: linear-gradient(180deg, #444 0%, #222 100%); border-radius: 0 0 1px 1px; }
+
+/* ===== DIGIT ===== */
+.digit-window { position: relative; width: 60px; height: 100px; overflow: hidden; z-index: 10; }
+.digit-strip { position: absolute; top: 0; left: 0; width: 100%; text-align: center; transition: transform 0.06s linear; }
+.digit-strip.smooth { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+.digit {
+  height: 100px; display: flex; align-items: center; justify-content: center;
+  font-size: 72px; color: #ff8c20; opacity: 0.12; transition: opacity 0.04s;
+  text-shadow: 0 0 10px rgba(255,140,40,0.8), 0 0 30px rgba(255,100,20,0.6), 0 0 60px rgba(255,80,10,0.4), 0 0 100px rgba(255,60,0,0.2);
+}
+.digit.active {
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(255,160,60,1), 0 0 30px rgba(255,120,30,0.9), 0 0 60px rgba(255,100,20,0.7), 0 0 100px rgba(255,80,10,0.4), 0 0 150px rgba(255,60,0,0.2);
+}
+@keyframes nixie-flicker { 0%,100% { opacity: 1; } 50% { opacity: 0.88; } 52% { opacity: 1; } 85% { opacity: 0.92; } 87% { opacity: 1; } }
+.digit.active.flicker { animation: nixie-flicker 0.12s ease-in-out; }
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(255,160,60,1), 0 0 30px rgba(255,120,30,0.9), 0 0 60px rgba(255,100,20,0.7); }
+  50% { text-shadow: 0 0 15px rgba(255,180,80,1), 0 0 40px rgba(255,140,50,1), 0 0 80px rgba(255,120,30,0.9), 0 0 120px rgba(255,100,20,0.5); }
+}
+.digit.settled { animation: glow-pulse 3s ease-in-out infinite; }
+
+/* ===== WIRES ===== */
+.wires { position: absolute; bottom: -40px; left: 0; right: 0; height: 30px; display: flex; justify-content: space-around; padding: 0 40px; }
+.wire { width: 2px; height: 100%; background: linear-gradient(180deg, #333 0%, #1a1a1a 100%); opacity: 0.6; }
+
+/* ===== META INFO ===== */
+.meta-info {
+  margin-top: 50px; text-align: center; opacity: 0; transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); pointer-events: none;
+}
+.meta-info.visible { opacity: 1; transform: translateY(0); }
+.meta-era {
+  font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600; color: #ffc864;
+  letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;
+  text-shadow: 0 0 20px rgba(255, 200, 100, 0.3);
+}
+.meta-period { font-size: 0.9rem; color: #ff8c20; letter-spacing: 0.3em; margin-bottom: 12px; opacity: 0.8; }
+.meta-place { font-family: 'Cinzel', serif; font-size: 0.85rem; color: #888; letter-spacing: 0.2em; text-transform: uppercase; }
+.meta-divider {
+  width: 60px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,140,40,0.4), transparent);
+  margin: 12px auto; opacity: 0; transform: scaleX(0); transition: all 0.6s ease 0.3s;
+}
+.meta-info.visible .meta-divider { opacity: 1; transform: scaleX(1); }
+
+.label {
+  position: absolute; bottom: -70px; left: 50%; transform: translateX(-50%);
+  font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: #333; white-space: nowrap;
+}
+
+.ambient-glow {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse at center, rgba(255, 100, 20, 0.04) 0%, transparent 70%);
+  pointer-events: none; z-index: 1;
+}
+</style>
+</head>
+<body>
+
+<canvas id="noiseCanvas"></canvas>
+<div class="ambient-glow"></div>
+<div class="crt-overlay"></div>
+<div class="dust" id="dust"></div>
+
+<div class="nixie-container" id="nixieContainer">
+  <div class="tubes-row" id="tubesRow"></div>
+
+  <div class="meta-info" id="metaInfo">
+    <div class="meta-era" id="metaEra">Old Kingdom</div>
+    <div class="meta-period" id="metaPeriod">2560 BCE</div>
+    <div class="meta-divider"></div>
+    <div class="meta-place" id="metaPlace">Giza, Egypt</div>
+  </div>
+
+  <div class="wires"><div class="wire"></div><div class="wire"></div><div class="wire"></div><div class="wire"></div></div>
+  <div class="label">Chronometer Model VII</div>
+</div>
+
+<script>
+const TUBE_COUNT = 4;
+const DIGIT_HEIGHT = 100;
+
+// ---------- Build tubes + digit strips (was 4x duplicated HTML blocks) ----------
+const tubesRow = document.getElementById('tubesRow');
+const digitsHTML = Array.from({ length: 10 }, (_, n) => `<div class="digit">${n}</div>`).join('');
+const pinsHTML = '<div class="pin"></div>'.repeat(5);
+
+for (let i = 0; i < TUBE_COUNT; i++) {
+  const tube = document.createElement('div');
+  tube.className = 'tube';
+  tube.id = 'tube-' + i;
+  tube.innerHTML = `
+    <div class="tube-glass"></div>
+    <div class="digit-window">
+      <div class="digit-strip" id="strip-${i}">${digitsHTML}</div>
+    </div>
+    <div class="tube-base"></div>
+    <div class="tube-pins">${pinsHTML}</div>`;
+  tubesRow.appendChild(tube);
+}
+
+// ---------- CRT noise ----------
+const noiseCanvas = document.getElementById('noiseCanvas');
+const noiseCtx = noiseCanvas.getContext('2d');
+function resizeNoise() {
+  noiseCanvas.width = window.innerWidth;
+  noiseCanvas.height = window.innerHeight;
+}
+resizeNoise();
+window.addEventListener('resize', resizeNoise);
+
+function drawNoise() {
+  const { width: w, height: h } = noiseCanvas;
+  const idata = noiseCtx.createImageData(w, h);
+  const buffer = new Uint32Array(idata.data.buffer);
+  for (let i = 0; i < buffer.length; i++) {
+    const v = (Math.random() * 255) | 0;
+    buffer[i] = (255 << 24) | (v << 16) | (v << 8) | v;
+  }
+  noiseCtx.putImageData(idata, 0, 0);
+  requestAnimationFrame(drawNoise);
+}
+drawNoise();
+
+// ---------- Dust particles ----------
+const dustContainer = document.getElementById('dust');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDelay = Math.random() * 20 + 's';
+  p.style.animationDuration = (15 + Math.random() * 15) + 's';
+  dustContainer.appendChild(p);
+}
+
+// ---------- Digit display helpers ----------
+function setDigit(tubeIndex, value, flickerChance = 0, settled = false) {
+  const strip = document.getElementById('strip-' + tubeIndex);
+  strip.style.transform = `translateY(-${value * DIGIT_HEIGHT}px)`;
+  strip.querySelectorAll('.digit').forEach((d, i) => {
+    d.classList.remove('active', 'flicker', 'settled');
+    if (i === value) {
+      d.classList.add('active');
+      if (settled) d.classList.add('settled');
+      if (flickerChance && Math.random() > 1 - flickerChance) d.classList.add('flicker');
+    }
+  });
+}
+
+function smoothSettle(tubeIndex, value, onDone) {
+  const strip = document.getElementById('strip-' + tubeIndex);
+  strip.classList.add('smooth');
+  strip.style.transform = `translateY(-${value * DIGIT_HEIGHT}px)`;
+  setTimeout(() => {
+    setDigit(tubeIndex, value, 0, true);
+    strip.classList.remove('smooth');
+    onDone?.();
+  }, 520);
+}
+
+// ---------- Roll-to-year animation ----------
+const container = document.getElementById('nixieContainer');
+const metaInfo = document.getElementById('metaInfo');
+
+function rollToYear(targetYear, duration, era, period, place) {
+  const targetDigits = String(targetYear).padStart(4, '0').split('').map(Number);
+  const digitStates = Array.from({ length: TUBE_COUNT }, () => ({
+    settleAt: 0.35 + Math.random() * 0.45,
+    speed: 0.8 + Math.random() * 0.6,
+    cycles: 3 + Math.floor(Math.random() * 4),
+    settled: false
+  }));
+
+  let settledCount = 0;
+  const startTime = performance.now();
+  metaInfo.classList.remove('visible');
+  container.classList.add('shaking');
+
+  function revealMeta() {
+    document.getElementById('metaEra').textContent = era;
+    document.getElementById('metaPeriod').textContent = period;
+    document.getElementById('metaPlace').textContent = place;
+    setTimeout(() => metaInfo.classList.add('visible'), 300);
+  }
+
+  function tick(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+
+    digitStates.forEach((state, i) => {
+      if (state.settled) return;
+
+      if (progress < state.settleAt) {
+        const rollProgress = progress / state.settleAt;
+        const eased = 1 - Math.pow(1 - rollProgress, 2);
+        const value = Math.floor((eased * state.cycles * 10 * state.speed) % 10);
+        setDigit(i, value, 0.4);
+      } else {
+        state.settled = true;
+        smoothSettle(i, targetDigits[i], () => {
+          if (++settledCount === TUBE_COUNT) {
+            container.classList.remove('shaking');
+            revealMeta();
+          }
+        });
+      }
+    });
+
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+}
+
+// ---------- Initial state ----------
+[2, 0, 2, 6].forEach((v, i) => setDigit(i, v, 0, true));
+metaInfo.classList.add('visible');
+
+// ---------- Destinations ----------
+const DESTINATIONS = [
+  { year: 2560, era: 'Old Kingdom', period: '2560 BCE', place: 'Giza, Egypt' },
+  { year: 220, era: 'Qin Dynasty', period: '220 BCE', place: "Xi'an, China" },
+  { year: 1200, era: 'Ancestral Puebloan', period: '1200 CE', place: 'Colorado, USA' },
+  { year: 1250, era: 'Rapa Nui Period', period: '1250 CE', place: 'Easter Island, Chile' },
+  { year: 1492, era: 'Age of Discovery', period: '1492 CE', place: 'Palos, Spain' },
+  { year: 1776, era: 'Enlightenment', period: '1776 CE', place: 'Philadelphia, USA' },
+  { year: 1969, era: 'Space Age', period: '1969 CE', place: 'Cape Canaveral, USA' },
+  { year: 1066, era: 'High Middle Ages', period: '1066 CE', place: 'Hastings, England' },
+  { year: 476, era: 'Late Antiquity', period: '476 CE', place: 'Ravenna, Italy' }
+];
+
+container.addEventListener('click', () => {
+  const d = DESTINATIONS[Math.floor(Math.random() * DESTINATIONS.length)];
+  rollToYear(d.year, 2800, d.era, d.period, d.place);
+});
+
+// Auto-roll demo
+setTimeout(() => rollToYear(2560, 2800, 'Old Kingdom', '2560 BCE', 'Giza, Egypt'), 1800);
+</script>
+
+</body>
+</html>

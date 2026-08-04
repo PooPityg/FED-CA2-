@@ -5,6 +5,7 @@
 @import "tailwindcss";
 @import "./pages/index.css";
 @import "./pages/visit-us.css";
+@import "./pages/collection.css";
 
 @theme {
     --font-instrument-serif: "Instrument Serif", serif;
@@ -32,4 +33,10 @@ nav button:hover {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.exhibit-card {
+    @apply rounded-2xl bg-white/5 backdrop-blur-md border border-white/10
+           transition duration-300
+           group-hover:scale-105;
 }
