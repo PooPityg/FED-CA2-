@@ -13,6 +13,19 @@
     text-align: left;
     cursor: pointer;
     transition: all 0.2s ease;
+    min-height: 3rem;
+}
+
+@media (max-width: 640px) {
+    .opt {
+        padding: 0.8rem 0.85rem;
+        gap: 0.6rem;
+        min-height: 3.25rem;
+    }
+
+    .opt-letter {
+        font-size: 0.95rem;
+    }
 }
 .opt:last-child {
     margin-bottom: 0;

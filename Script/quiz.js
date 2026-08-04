@@ -1,74 +1,106 @@
-let score = 0 
+let score = 0
 let current = 0
 let progress = 1
-let answered = false 
+let answered = false
 let a_question = []
+const STORAGE_KEY = 'quizProgress'
 
 async function loadQuestion() {
-    try{
+    try {
         const res = await fetch('../assets/quiz/questions.json')
-        if(!res.ok){
+        if (!res.ok) {
             throw new Error(`HTTP error Status:${res.status}`)
         }
         const ques = await res.json()
         return ques
-    }
-    catch(error){
+    } catch (error) {
         console.error(`An error occured ${error.message}`)
         return []
     }
 }
 
-window.addEventListener('load', async () => {
-    a_question = await loadQuestion() 
-    console.log('Loaded', a_question.length, 'questions')
-})
-
-
-function updatebar(){
-    const percentage = (progress/a_question.length) * 100
-    document.getElementById('progress-bar').style.width = percentage + '%';  
+function updateIntroButton(hasProgress) {
+    const startBtn = document.getElementById('startBtn')
+    if (startBtn) {
+        startBtn.textContent = hasProgress ? 'Continue Quiz' : 'Begin Quiz'
+    }
 }
 
-function render_questions(){
+function saveProgress() {
+    if (!a_question.length) return
+    const nextQuestion = Math.min(current + 1, a_question.length)
+    localStorage.setItem(STORAGE_KEY, String(nextQuestion))
+}
+
+function clearProgress() {
+    localStorage.removeItem(STORAGE_KEY)
+}
+
+function restoreProgress() {
+    const savedValue = Number(localStorage.getItem(STORAGE_KEY))
+
+    if (!Number.isInteger(savedValue) || savedValue < 0 || savedValue >= a_question.length) {
+        current = 0
+        progress = 1
+        updateIntroButton(false)
+        return
+    }
+
+    current = savedValue
+    progress = savedValue + 1
+    updateIntroButton(true)
+}
+
+window.addEventListener('load', async () => {
+    a_question = await loadQuestion()
+    console.log('Loaded', a_question.length, 'questions')
+    restoreProgress()
+})
+
+function updatebar() {
+    const percentage = (progress / a_question.length) * 100
+    document.getElementById('progress-bar').style.width = percentage + '%'
+}
+
+function render_questions() {
     answered = false
     const ques = a_question[current]
-    document.getElementById("lognum").textContent = `QUESTION${current+1}/${a_question.length}`
-    document.getElementById("logscore").textContent = `SCORE ${score}`
-    document.getElementById("question").textContent = ques.q
-    const el = document.getElementById("opions")
-    const letter = ["A","B","C","D"]
-    el.innerHTML=''
-    ques.option.forEach((opt,i)=>{
+    document.getElementById('lognum').textContent = `QUESTION${current + 1}/${a_question.length}`
+    document.getElementById('logscore').textContent = `SCORE ${score}`
+    document.getElementById('question').textContent = ques.q
+    const el = document.getElementById('opions')
+    const letter = ['A', 'B', 'C', 'D']
+    el.innerHTML = ''
+    ques.option.forEach((opt, i) => {
         const btn = document.createElement('button')
-        btn.className="opt"
-        btn.innerHTML=`<span class="opt-letter">${letter[i]}</span><span class="opt-text">${opt}</span>`
-        btn.onclick = () => sel_answer(i,btn)
+        btn.className = 'opt'
+        btn.innerHTML = `<span class="opt-letter">${letter[i]}</span><span class="opt-text">${opt}</span>`
+        btn.onclick = () => sel_answer(i, btn)
         el.appendChild(btn)
     })
-    document.getElementById("qcontext").classList.add("hidden")
-    document.getElementById("action").classList.add("hidden")
-    document.getElementById("nextBtn").textContent = current === a_question.length-1 ? 'See results' : 'Next Question' 
+    document.getElementById('qcontext').classList.add('hidden')
+    document.getElementById('action').classList.add('hidden')
+    document.getElementById('nextBtn').textContent = current === a_question.length - 1 ? 'See results' : 'Next Question'
     updatebar()
 }
 
-function toQuiz(){
-    document.getElementById("intro").classList.add("hidden")
-    document.getElementById("quiz").classList.remove("hidden")
+function toQuiz() {
+    document.getElementById('intro').classList.add('hidden')
+    document.getElementById('quiz').classList.remove('hidden')
     render_questions()
 }
 
-function sel_answer(i,btn){
-    if(answered) return
-    answered = true 
+function sel_answer(i, btn) {
+    if (answered) return
+    answered = true
     const q = a_question[current]
-    const allopt = document.querySelectorAll("#opions .opt")
-    allopt.forEach(o=>o.disabled = true)
+    const allopt = document.querySelectorAll('#opions .opt')
+    allopt.forEach(o => o.disabled = true)
 
-    if(i === q.correct){
+    if (i === q.correct) {
         score++
         btn.classList.add('correct')
-    } else{
+    } else {
         btn.classList.add('incorrect')
         allopt[q.correct].classList.add('correct')
     }
@@ -78,36 +110,45 @@ function sel_answer(i,btn){
     cxt.textContent = q.context
     cxt.classList.remove('hidden')
     document.getElementById('action').classList.remove('hidden')
+    saveProgress()
 }
 
-function nextQues(){
+function nextQues() {
     current++
     progress++
-    if(current >= a_question.length){
+    if (current >= a_question.length) {
         showEnd()
-    }else{
+    } else {
+        saveProgress()
         render_questions()
     }
 }
 
-function showEnd(){
+function showEnd() {
+    clearProgress()
     document.getElementById('quiz').classList.add('hidden')
     document.getElementById('end').classList.remove('hidden')
-    document.getElementById('finalscore').innerHTML =`${score}<span>/${a_question.length}</span>`
+    document.getElementById('finalscore').innerHTML = `${score}<span>/${a_question.length}</span>`
     let line
-    if(score >=9) line = "Amazing"
-    else if(score >= 7) line = "WOW"
-    else if(score >=4) line = "Can do better"
-    else line ="Failure"
+    if (score >= 9) line = 'Amazing'
+    else if (score >= 7) line = 'WOW'
+    else if (score >= 4) line = 'Can do better'
+    else line = 'Failure'
     document.getElementById('resultline').textContent = line
-
 }
 
-function restartQuiz(){
+function restartQuiz() {
     current = 0
     score = 0
-    progress = 1 
+    progress = 1
+    clearProgress()
     document.getElementById('end').classList.add('hidden')
     document.getElementById('quiz').classList.remove('hidden')
+    updateIntroButton(false)
     render_questions()
+}
+
+function returnCollection() {
+    saveProgress()
+    window.location.href = './collection.html'
 }
