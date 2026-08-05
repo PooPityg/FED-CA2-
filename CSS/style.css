@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
 
 @import "tailwindcss";
 @import "./pages/index.css";
 @import "./pages/visit-us.css";
 @import "./pages/collection.css";
+@import "./pages/egypt.css";
 
 @theme {
     --font-instrument-serif: "Instrument Serif", serif;
     --font-instrument-sans: "Instrument Sans", sans-serif;
     --font-mono: "Intel One Mono", monospace;
+    --font-caesar: "Caesar Dressing", monospace;
 }
 
 #hero-canvas {
@@ -18,10 +21,6 @@
 }
 
 nav a:not(#brand):hover {
-    @apply font-semibold;
-}
-
-nav button:hover {
     @apply font-semibold;
 }
 
@@ -39,4 +38,8 @@ nav button:hover {
     @apply rounded-2xl bg-white/5 backdrop-blur-md border border-white/10
            transition duration-300
            group-hover:scale-105;
+}
+
+html {
+  scroll-behavior: smooth;
 }

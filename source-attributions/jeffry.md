@@ -7,3 +7,4 @@ index.html:
     https://myjourneyasafantasywriter.wordpress.com/tag/egyptian-architecture/
     https://ambientcg.com/view?id=Marble016 (Egypt Model)
     https://poly.pizza/m/2L1BNfBSXrP (Mayan Model)
+    https://en.wikipedia.org/wiki/Tutankhamun

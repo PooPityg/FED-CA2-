@@ -4,7 +4,7 @@ const frameCount = 192;
 const images = [];
 
 function currentFrame(index) {
-    return `../Assets/index/museum-background/frames/frame_${String(index).padStart(4, "0")}.webp`;
+    return `../assets/index/museum-background/frames/frame_${String(index).padStart(4, "0")}.webp`;
 }
 
 let current = 0;
