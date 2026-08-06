@@ -21,6 +21,7 @@ const STORAGE_KEY = 'quizProgress'
 const SCORE_KEY = 'quizScore'
 const COMPLETED_KEY = 'quizCompleted'
 const FSCORE_KEY = 'quizFinalScore'
+const PROGRESS_PERCENT_KEY = 'quizProgressPercent'
 
 function updateIntroButton(hasProgress) {
     const startBtn = document.getElementById('startBtn')
@@ -32,13 +33,17 @@ function updateIntroButton(hasProgress) {
 function saveProgress() {
     if (!a_question.length) return
     const nextQuestion = Math.min(current + 1, a_question.length)
+    const percent = Math.round(((nextQuestion) / a_question.length) * 100)
     localStorage.setItem(STORAGE_KEY, String(nextQuestion))
     localStorage.setItem(SCORE_KEY, String(score))
+    localStorage.setItem(PROGRESS_PERCENT_KEY, String(percent))
 }
 
 function clearProgress() {
     localStorage.removeItem(STORAGE_KEY)
     localStorage.removeItem(SCORE_KEY)
+    localStorage.removeItem(PROGRESS_PERCENT_KEY)
+    localStorage.removeItem(FSCORE_KEY)
     updateIntroButton(false)
 }
 
@@ -155,8 +160,9 @@ function nextQues() {
 }
 
 function showEnd() {
-    clearProgress()
+    localStorage.setItem(FSCORE_KEY, String(score))
     markCompleted()
+    clearProgress()
     document.getElementById('quiz').classList.add('hidden')
     document.getElementById('end').classList.remove('hidden')
     document.getElementById('finalscore').innerHTML = `${score}<span>/${a_question.length}</span>`

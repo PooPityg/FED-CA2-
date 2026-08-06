@@ -1,4 +1,4 @@
-function setOverall(percent){
+function setOverall(percent){  //Set the overall progress bar by getting the cumilated percent
     const text = document.getElementById('overallTxt')
     const circle = document.getElementById('overallProgress')
     const circumfrance = 251.1
@@ -8,13 +8,43 @@ function setOverall(percent){
     circle.style.strokeDashoffset = offset
     text.innerText = `${percent}%`
 }
+ 
+function getQuizStatus() {                      //Gets the data from localdata 
+    const percent = Number(localStorage.getItem('quizProgressPercent'))
+    const finalScoreValue = localStorage.getItem('quizFinalScore')
+    return {
+        progressPercent: Number.isFinite(percent) ? percent : 0,
+        finalScore: finalScoreValue !== null ? Number(finalScoreValue) : null,
+        hasStarted: localStorage.getItem('quizProgressPercent') !== null,
+        isComplete: finalScoreValue !== null
+    }
+}
 
-function render(){
+function updateQuizProgress() {        //builds the quiz progress bar
+    const quizText = document.getElementById('quizText')
+    const quizProgress = document.getElementById('quizProgress')
+    const { progressPercent, finalScore, hasStarted, isComplete } = getQuizStatus()
+
+    if (isComplete) {
+        quizText.innerText = `Quiz Score: ${finalScore}`
+        quizProgress.style.width = '100%'
+    } else if (hasStarted) {
+        quizText.innerText = 'Quiz in progress'
+        quizProgress.style.width = `${progressPercent}%`
+    } else {
+        quizText.innerText = 'Quiz not started'
+        quizProgress.style.width = '0%'
+    }
+}
+
+function render(){     //builds the progress bars and the stamp cards
     const grid = document.getElementById('stamp-grid')
     const text = document.getElementById('stamp-progress')
     const collected = getstamp()
     const preBadge = (collected.length/exhibitStamps.length)*100
     grid.innerHTML = ''
+
+    updateQuizProgress()
 
     exhibitStamps.forEach((stamp) => {
         const isCollected = collected.includes(stamp.id)
@@ -36,17 +66,16 @@ function render(){
     document.getElementById('badgeText').textContent = `${collected.length}/${exhibitStamps.length}`
 }
 
-function resetStamp(){
-    localStorage.removeItem(stampkey)
+function reset(){      //clear the stamps collected array and quiz progress
+    localStorage.clear()
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {     //Runs after the html finshes loading/DOM tree builded and renders
     render()
-
     const resetButton = document.getElementById('reset')
     if (resetButton) {
         resetButton.addEventListener('click', () => {
-            resetStamp()
+            reset()
             render()
         })
     }
