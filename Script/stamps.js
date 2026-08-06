@@ -1,10 +1,10 @@
 const stampkey = "musuem_stamp"
 
 const exhibitStamps = [
-    {id:"aztec", label:"Aztec", icon:"../assests/"},
-    {id:"chinese", label:"Terracotta Amry", icon:"../assests/"},
-    {id:"egypt", label:"Ancient Egypt", icon:"../assests/"},
-    {id:"easter", label:"Easter Island", icon:"../assests/"}
+    {id:"aztec", label:"Aztec", icon:"../assets/index/featured/native-american.webp"},
+    {id:"chinese", label:"Terracotta Army", icon:"../assets/Terracotta/terracotta-army.jpg"},
+    {id:"egypt", label:"Ancient Egypt", icon:"../assets/index/featured/egypt.avif"},
+    {id:"easter", label:"Easter Island", icon:"../assets/index/featured/easter-island.jpg"}
 ]
 
 function getstamp(){

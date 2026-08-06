@@ -2,26 +2,25 @@ let score = 0
 let current = 0
 let progress = 1
 let answered = false
-let a_question = []
+let a_question = [
+    {   
+        "q":"long long long long long long long long long long long long long long",
+        "option":["Yes","longlonglonglonglonglonglonglonglonglonglonglonglong","long long long long long long long long long long long long long long long long long",""],
+        "correct":3,
+        "context":"long long long long long long long long long long long long long long long"
+    },
+    {   
+        "q":"Placeholder",
+        "option":["opion","opion","opion","opion"],
+        "correct":3,
+        "context":""
+    }
+]
 let numQues = 0
 const STORAGE_KEY = 'quizProgress'
 const SCORE_KEY = 'quizScore'
 const COMPLETED_KEY = 'quizCompleted'
 const FSCORE_KEY = 'quizFinalScore'
-
-async function loadQuestion() {
-    try {
-        const res = await fetch('../assets/quiz/questions.json')
-        if (!res.ok) {
-            throw new Error(`HTTP error Status:${res.status}`)
-        }
-        const ques = await res.json()
-        return ques
-    } catch (error) {
-        console.error(`An error occured ${error.message}`)
-        return []
-    }
-}
 
 function updateIntroButton(hasProgress) {
     const startBtn = document.getElementById('startBtn')
@@ -78,8 +77,7 @@ function restoreProgress() {
     updateIntroButton(true)
 }
 
-window.addEventListener('load', async () => {
-    a_question = await loadQuestion()
+window.addEventListener('load', () => {
     console.log('Loaded', a_question.length, 'questions')
     restoreProgress()
 })

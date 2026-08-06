@@ -13,15 +13,18 @@ function render(){
     const grid = document.getElementById('stamp-grid')
     const text = document.getElementById('stamp-progress')
     const collected = getstamp()
-    const preBadge = collected.length/exhibitStamps.length*100
+    const preBadge = (collected.length/exhibitStamps.length)*100
     grid.innerHTML = ''
 
     exhibitStamps.forEach((stamp) => {
         const isCollected = collected.includes(stamp.id)
         const div = document.createElement('div')
         div.className = `flex aspect-square flex-col items-center justify-center gap-2 rounded-2xl border p-4 text-center text-sm font-medium shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg ${isCollected ? 'border-amber-400/70 bg-amber-500/90 text-stone-900' : 'border-white/15 bg-white/10 text-neutral-100'}`
+        const iconHtml = isCollected
+            ? `<img src="${stamp.icon}" alt="${stamp.label}" class="h-14 w-14 rounded-full object-cover" />`
+            : '<span class="text-3xl">?</span>'
         div.innerHTML = `
-            <span class="text-2xl ${isCollected ? 'text-stone-900' : 'text-neutral-100'}">${isCollected ? stamp.icon : '?'}</span>
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-white/10">${iconHtml}</div>
             <span class="text-sm font-semibold tracking-wide">${stamp.label}</span>
         `
         grid.appendChild(div)
@@ -29,7 +32,7 @@ function render(){
 
     text.textContent = `${collected.length}/${exhibitStamps.length} stamps collected`
 
-    document.getElementById('badgeProgress').style.width = preBadge
+    document.getElementById('badgeProgress').style.width = `${preBadge}%`
     document.getElementById('badgeText').textContent = `${collected.length}/${exhibitStamps.length}`
 }
 
