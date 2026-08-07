@@ -33,6 +33,22 @@ const gallaryData=[
     ]
 ]
 
+function getRandomEntrance() {
+    const directions = [
+        { x: '-80px', y: '-60px' },
+        { x: '80px', y: '-60px' },
+        { x: '-80px', y: '60px' },
+        { x: '80px', y: '60px' },
+        { x: '0px', y: '-80px' },
+        { x: '0px', y: '80px' },
+        { x: '-80px', y: '0px' },
+        { x: '80px', y: '0px' }
+    ]
+
+    const pick = directions[Math.floor(Math.random() * directions.length)]
+    return pick
+}
+
 function renderGallery(){  //build the gallery
     const gallery = document.getElementById('gallery')
 
@@ -46,7 +62,11 @@ function renderGallery(){  //build the gallery
 
         const rowspan = item.rowSpan || 'row-span-1'
         const span = item.span || 'col-span-1'
-        div.className = `gallery-item group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-stone-900/80 shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${rowspan} ${span} min-h-[220px] sm:min-h-[240px]`
+        const entrance = getRandomEntrance()
+        div.className = `gallery-item group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-stone-900/80 shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${rowspan} ${span} min-h-[220px] sm:min-h-[240px] opacity-0 will-change-transform will-change-opacity`
+        div.style.setProperty('--start-x', entrance.x)
+        div.style.setProperty('--start-y', entrance.y)
+        div.style.setProperty('--delay', `${Math.random() * 120}ms`)
 
         if(item.image){
             const img = document.createElement('img')
@@ -58,6 +78,22 @@ function renderGallery(){  //build the gallery
         }
 
         gallery.appendChild(div)
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                div.classList.remove('opacity-0')
+                div.classList.add('opacity-100')
+                div.animate([
+                    { opacity: 0, transform: `translate(${entrance.x}, ${entrance.y}) scale(0.95)` },
+                    { opacity: 1, transform: 'translate(0, 0) scale(1)' }
+                ], {
+                    duration: 600,
+                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                    delay: parseFloat(div.style.getPropertyValue('--delay')) || 0,
+                    fill: 'forwards'
+                })
+            })
+        })
     })
 }
 
