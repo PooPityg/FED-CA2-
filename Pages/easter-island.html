@@ -6,8 +6,9 @@
     <title>Museum Collection</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../CSS/pages/easter-island.css">
-    <link rel="stylesheet" href="../CSS/output.css">
+ <link rel="stylesheet" href="../CSS/pages/easter-island.css">
+ <link rel="stylesheet" href="../CSS/output.css">
+
     <script src="../Script/easter-island.js" defer></script>
     <script src="../Script/main.js" defer></script>
 </head>
@@ -93,16 +94,34 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="hero" class="h-screen relative isolate flex min-h-[90vh] w-full items-center justify-center overflow-hidden bg-stone-900/60 font-instrument-serif">
+            <div class="absolute inset-0">
+                <img src="https://thepointsguy.global.ssl.fastly.net/us/originals/2019/02/tpmb_easterisland_raraku1_bb.jpg" alt="Easter Island" class="h-full w-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,113,113,0.24),transparent_35%)]"></div>
+            </div>
 
-        <div class="overlay">
-            <h1>MYSTERY OF EASTER ISLAND🗿🗿🗿</h1>
-        </div>
-
-    </section>
+            <div class="relative z-10 max-w-2xl ml-10 space-y-6 px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
+                <p class="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">Easter Island</p>
+                <h1 class="font-instrument-serif text-4xl font-semibold leading-tight tracking-wide text-white sm:text-5xl lg:text-6xl">
+                    The Enigma of Rapa Nui
+                </h1>
+                <p class="max-w-xl text-lg leading-relaxed text-neutral-200 sm:text-xl">
+                    Discover the mysteries of Easter Island and its incredible moai statues.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="collection.html" class="text-sm font-semibold uppercase tracking-[0.25em] text-amber-300 transition hover:text-amber-200">
+                        Explore Other Exhibition →
+                    </a>
+                    <a href="quiz.html" class="text-sm font-semibold uppercase tracking-[0.25em] text-neutral-200 transition hover:text-white">
+                        Take the Quiz →
+                    </a>
+                </div>
+            </div>
+        </section>
 
     <!-- History Section -->
-    <section class="history reveal">
+    <section class="history reveal font-instrument-serif">
 
         <div class="image">
             <img src="" alt="img of easter island">
@@ -125,28 +144,28 @@
     </section>
 
     <!-- Question Cards -->
-    <section class="facts reveal">
+    <section class="facts-reveal font-instrument-serif">
 
-        <h2>Fun Facts</h2>
+        <h2 class="text-3xl font-bold text-center mb-8">Fun Facts</h2>
 
         <div class="cards">
 
             <div class="card">
-                <h3></h3>
-                <h4></h4>
-                <p></p>
+                <h3>⚖️</h3>
+                <h4>Weight</h4>
+                <p>Most weigh about 14 tons, with some reaching up to 82 tons.</p>
             </div>
 
             <div class="card">
-                <h3></h3>
-                <h4></h4>
-                <p></p>
+                <h3>🪨</h3>
+                <h4>Material</h4>
+                <p>The moai are carved from volcanic tuff, a compressed volcanic ash, found at Rano Raraku. However, there are 3 moai carved from basalt, 22 from trachyte and 17 from fragile red scoria.</p>
             </div>
 
             <div class="card">
-                <h3>cool</h3>
-                <h4>awesome</h4>
-                <p>67</p>
+                <h3>🗿</h3>
+                <h4>Number of Moai</h4>
+                <p>There are over 900 moai statues on Easter Island.</p>
             </div>
 
         </div>
@@ -154,7 +173,7 @@
     </section>
 
     <!-- Significance Section -->
-    <section class="significance reveal">
+    <section class="significance reveal font-instrument-serif">
 
         <h2>67</h2>
 
