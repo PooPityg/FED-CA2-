@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carpe Diem</title>
-    <link rel="stylesheet" href="../CSS/output.css">
-    <script src="../Script/index.js" defer></script>
-    <script src="../Script/main.js" defer></script>
+    <link rel="stylesheet" href="./CSS/output.css">
+    <script src="./Script/index.js" defer></script>
+    <script src="./Script/main.js" defer></script>
 </head>
 <body class="page-index">
     <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out">
@@ -14,8 +14,8 @@
 
             <!-- Left -->
             <div class="hidden md:flex justify-around">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
+                <a href="./index.html">Home</a>
+                <a href="./Pages/about.html">About</a>
             </div>
 
             <!-- Hamburger (mobile only) -->
@@ -28,7 +28,7 @@
             </div>
 
             <!-- Center -->
-            <a href="index.html" class="justify-self-center" id="brand">
+            <a href="./index.html" class="justify-self-center" id="brand">
                 <div class="flex flex-col items-center">
                     <span class="bg-red-400">VIM</span>
                     <span class="font-instrument-serif text-xl sm:text-2xl md:text-3xl mt-1">
@@ -46,26 +46,26 @@
                     </button>
                     <div id="exploreDropdown" class="absolute top-full right-0 w-56 translate-x-1/2 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
                         <div class="rounded-xl bg-black/90 mt-4">
-                            <a href="virtual-museum.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                            <a href="./Pages/museum.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
                                 <span class="block font-medium">3D Virtual Museum</span>
                                 <span class="block text-xs text-neutral-400 mt-0.5">Walk the immersive halls</span>
                             </a>
-                            <a href="collections.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors" role="menuitem">
+                            <a href="./Pages/collections.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors" role="menuitem">
                                 <span class="block font-medium">Collections</span>
                                 <span class="block text-xs text-neutral-400 mt-0.5">Browse artifacts by era</span>
                             </a>
-                            <a href="passport.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors" role="menuitem">
+                            <a href="./Pages/passport.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors" role="menuitem">
                                 <span class="block font-medium">My Achievement</span>
                                 <span class="block text-xs text-neutral-400 mt-0.5">View your passport & badges</span>
                             </a>
-                            <a href="quiz.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl" role="menuitem">
+                            <a href="./Pages/quiz.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl" role="menuitem">
                                 <span class="block font-medium">Quiz</span>
                                 <span class="block text-xs text-neutral-400 mt-0.5">Test your knowledge</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <a href="visit-us.html">Visit Us</a>
+                <a href="./Pages/visit-us.html">Visit Us</a>
             </div>
         </nav>
 
@@ -77,13 +77,13 @@
                     transition-all duration-300 ease-in-out"
         >
             <div class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans">
-                <a href="index.html" class="py-3 border-b border-white/10">Home</a>
-                <a href="about.html" class="py-3 border-b border-white/10">About</a>
-                <a href="virtual-museum.html" class="py-3 border-b border-white/10">3D Virtual Museum</a>
-                <a href="collections.html" class="py-3 border-b border-white/10">Collections</a>
-                <a href="achievement.html" class="py-3 border-b border-white/10">My Achievement</a>
-                <a href="quiz.html" class="py-3 border-b border-white/10">Quiz</a>
-                <a href="visit-us.html" class="py-3">Visit Us</a>
+                <a href="./index.html" class="py-3 border-b border-white/10">Home</a>
+                <a href="./Pages/about.html" class="py-3 border-b border-white/10">About</a>
+                <a href="./Pages/museum.html" class="py-3 border-b border-white/10">3D Virtual Museum</a>
+                <a href="./Pages/collections.html" class="py-3 border-b border-white/10">Collections</a>
+                <a href="./Pages/passport.html" class="py-3 border-b border-white/10">My Achievement</a>
+                <a href="./Pages/quiz.html" class="py-3 border-b border-white/10">Quiz</a>
+                <a href="./Pages/visit-us.html" class="py-3">Visit Us</a>
             </div>
         </div>
     </header>
@@ -91,7 +91,7 @@
             <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
                 <div class="absolute inset-0">
                     <img
-                        src="../assets/index/museum-hero.png"
+                        src="./assets/index/museum-hero.png"
                         class="w-full h-full object-cover"
                         alt="Museum hero"
                     >
@@ -107,14 +107,14 @@
                         To put to rout all that was not life; and not, when I had come to die, discover that I had not lived.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-lg">
-                        <a id="enterMuseumBtn" href="museum.html" 
+                        <a id="enterMuseumBtn" href="./Pages/museum.html" 
                             class="cursor-pointer font-instrument-serif border-1 
                             border-olive-900 bg-white/80 text-olive-900 rounded-lg
                             hover:bg-white transition-all duration-300 hover:-translate-y-0.5">
                             Enter the Museum
                         </a>
                         <a 
-                            href="collection.html" 
+                            href="./Pages/collections.html" 
                             class="font-instrument-serif rounded-lg border-1
                                 border-white/30 bg-white/5 text-white
                                 hover:bg-white/10 hover:border-white/50 transition-all duration-300 hover:-translate-y-0.5"
@@ -145,9 +145,9 @@
                     <!-- Card 1: Ancient Egypt -->
                     <article class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-olive-700/30 transition-all duration-300">
                         <div class="aspect-[4/3] bg-neutral-800 relative overflow-hidden">
-                            <a href="egypt.html" class="block h-full cursor-pointer">
+                            <a href="./Pages/egypt.html" class="block h-full cursor-pointer">
                                 <img
-                                    src="../assets/index/featured/egypt.avif"
+                                    src="./assets/index/featured/egypt.avif"
                                     alt="Ancient Egypt"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     loading="lazy"
@@ -169,7 +169,7 @@
                                 Journey through the land of pharaohs and uncover the mysteries of pyramids, temples, and forgotten tombs.
                             </p>
 
-                            <a href="egypt.html" class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
+                            <a href="./Pages/egypt.html" class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
                                 Enter
                                 <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -181,9 +181,9 @@
                     <!-- Card 2: Imperial China -->
                     <article class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-olive-700/30 transition-all duration-300">
                         <div class="aspect-[4/3] bg-neutral-800 relative overflow-hidden">
-                            <a href="warriors.html" class="cursor-pointer">
+                            <a href="./Pages/warriors.html" class="cursor-pointer">
                                 <img
-                                    src="../assets/index/featured/china.jpeg"
+                                    src="./assets/index/featured/china.jpeg"
                                     alt="Imperial China"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     loading="lazy"
@@ -205,7 +205,7 @@
                                 Explore the dynasties of the Middle Kingdom through ancient inventions, porcelain, and imperial traditions.
                             </p>
 
-                            <a href="warriors.html" class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
+                            <a href="./Pages/warriors.html" class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
                                 Enter
                                 <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -217,9 +217,9 @@
                     <!-- Card 3: Native American -->
                     <article class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-olive-700/30 transition-all duration-300">
                         <div class="aspect-[4/3] bg-neutral-800 relative overflow-hidden">
-                            <a href="artifact.html" class="block h-full cursor-pointer">
+                            <a href="./Pages/collections.html" class="block h-full cursor-pointer">
                                 <img
-                                    src="../assets/index/featured/native-american.webp"
+                                    src="./assets/index/featured/native-american.webp"
                                     alt="Native American"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     loading="lazy"
@@ -241,7 +241,7 @@
                                 Discover the rich cultures, traditions, and craftsmanship of Indigenous peoples across North America.
                             </p>
 
-                            <a href="artifact.html" class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
+                            <a href="./Pages/collections.html" class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
                                 Enter
                                 <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -253,9 +253,9 @@
                     <!-- Card 4: Easter Island -->
                     <article class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-olive-700/30 transition-all duration-300">
                         <div class="aspect-[4/3] bg-neutral-800 relative overflow-hidden">
-                            <a href="artifact.html" class="block h-full cursor-pointer">
+                            <a href="./Pages/easter-island.html" class="block h-full cursor-pointer">
                                 <img
-                                    src="../assets/index/featured/easter-island.jpg"
+                                    src="./assets/index/featured/easter-island.jpg"
                                     alt="Easter Island"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     loading="lazy"
@@ -277,7 +277,7 @@
                                 Encounter the monumental Moai statues and explore one of history's most enigmatic island civilizations.
                             </p>
 
-                            <a href="artifact.html" class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
+                            <a href="./Pages/easter-island.html" class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
                                 Enter
                                 <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -295,7 +295,7 @@
                 <canvas id="hero-canvas" class="fixed inset-0 w-screen h-screen -z-10"></canvas>
                 <section class="font-instrument-sans flex items-center justify-center h-screen">
                     <h1 id="test">Virtual Interactive Museum</h1>
-                    <a href="museum.html">Enter Museum</a>
+                    <a href="./Pages/museum.html">Enter Museum</a>
                 </section>
             </div>
         </main>

@@ -4,11 +4,11 @@ const nextBtn = document.getElementById('nextBtn')
 
 const gallaryData=[
     [   //Terracotta warriors  
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/stone_linedUp.jpg'},
-        {id:2 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/Terracotta/stone_poseUp.jpg'},
-        {id:3 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/Terracotta/stone_Kneeling.jpg'},
-        {id:4 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/Terracotta/stone_Frontfacing.jpg'},
-        {id:5 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/Terracotta/stone_closeUp.jpg'}
+        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/stone-linedUp.jpg'},
+        {id:2 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/Terracotta/stone-poseUp.jpg'},
+        {id:3 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/Terracotta/stone-Kneeling.jpg'},
+        {id:4 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/Terracotta/stone-Frontfacing.jpg'},
+        {id:5 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/Terracotta/stone-closeUp.jpg'}
     ],
 
     [  //Hourse and Chariots
