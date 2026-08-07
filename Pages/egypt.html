@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpe Diem | Egypt</title>
+    <link rel="stylesheet" href="../CSS/output.css">
+    <script src="../Script/main.js" defer></script>
+    <script src="../Script/egypt.js" defer></script>
+</head>
+<body class="page-egypt">
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out">
+        <nav id="navInner" class="grid grid-cols-3 items-center font-instrument-sans text-neutral-100 py-3 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
+
+            <!-- Left -->
+            <div class="hidden md:flex justify-around">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <!-- Hamburger (mobile only) -->
+            <div class="flex md:hidden justify-start">
+                <button id="hamburgerBtn" class="flex flex-col justify-center items-center gap-1.5 w-8 h-8" aria-label="Toggle menu" aria-expanded="false">
+                    <span id="barTop" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+                    <span id="barMid" class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"></span>
+                    <span id="barBot" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+                </button>
+            </div>
+
+            <!-- Center -->
+            <a href="index.html" class="justify-self-center" id="brand">
+                <div class="flex flex-col items-center">
+                    <span class="bg-red-400">VIM</span>
+                    <span class="font-instrument-serif text-xl sm:text-2xl md:text-3xl mt-1">
+                        CARPE DIEM
+                    </span>
+                </div>
+            </a>
+
+            <!-- Right -->
+            <div class="hidden md:flex justify-around">
+                <div class="relative" id="exploreMenu">
+                    <button id="exploreBtn" class="flex items-center gap-1 cursor-pointer">
+                        Explore
+                        <span id="exploreArrow">▾</span>
+                    </button>
+                    <div id="exploreDropdown" class="absolute top-full right-0 w-56 translate-x-1/2 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+                        <div class="rounded-xl bg-black/90 mt-4">
+                            <a href="virtual-museum.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                                <span class="block font-medium">3D Virtual Museum</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">Walk the immersive halls</span>
+                            </a>
+                            <a href="collections.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors" role="menuitem">
+                                <span class="block font-medium">Collections</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">Browse artifacts by era</span>
+                            </a>
+                            <a href="achievement.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors" role="menuitem">
+                                <span class="block font-medium">My Achievement</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">View your passport & badges</span>
+                            </a>
+                            <a href="quiz.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl" role="menuitem">
+                                <span class="block font-medium">Quiz</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">Test your knowledge</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="visit-us.html">Visit Us</a>
+            </div>
+        </nav>
+
+        <!-- Mobile dropdown panel -->
+        <div
+            id="mobileMenu"
+            class="md:hidden overflow-hidden max-h-0 opacity-0
+                    bg-olive-900/95 backdrop-blur-lg
+                    transition-all duration-300 ease-in-out"
+        >
+            <div class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans">
+                <a href="index.html" class="py-3 border-b border-white/10">Home</a>
+                <a href="about.html" class="py-3 border-b border-white/10">About</a>
+                <a href="virtual-museum.html" class="py-3 border-b border-white/10">3D Virtual Museum</a>
+                <a href="collections.html" class="py-3 border-b border-white/10">Collections</a>
+                <a href="achievement.html" class="py-3 border-b border-white/10">My Achievement</a>
+                <a href="quiz.html" class="py-3 border-b border-white/10">Quiz</a>
+                <a href="visit-us.html" class="py-3">Visit Us</a>
+            </div>
+        </div>
+    </header>
+        <main>
+            <section id="intro" class="fixed inset-0 z-[100] h-screen overflow-hidden">                
+                <video
+                    id="intro-video"
+                    class="w-full h-full object-cover"
+                    autoplay
+                    muted
+                    playsinline>
+                    <source src="../assets/exhibits/egypt/egypt-intro.mp4">
+                </video>
+
+                <div id="intro-overlay"
+                    class="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-1000 flex items-center justify-center">
+                </div>
+
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-center pointer-events-none">
+                    <h1
+                        id="intro-title"
+                        class="font-caesar
+                        text-6xl text-neutral-200 opacity-0 translate-y-6
+                        transition-all duration-1000
+                        "
+                    >
+                        Egypt
+                    </h1>
+                    <p
+                        id="intro-subtitle"
+                        class="mt-6 uppercase text-yellow-300 opacity-0 translate-y-6 transition-all duration-1000"
+                    >
+                        1323 BC
+                    </p>
+                    <div
+                        id="scrollHint"
+                        class="absolute text-neutral-200 bottom-12 opacity-0 transition-opacity duration-1000"
+                    >
+                        Scroll to Explore ↓
+                    </div>
+                </div>
+            </section>
+            <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0">
+                    <img
+                        src="../assets/exhibits/egypt/egypt-hero.jpg"
+                        class="w-full h-full object-cover"
+                        alt="Egypt Exhibit Image"
+                    >
+                    <div class="absolute inset-0 bg-black/40"></div>
+                </div>
+
+                <div class="relative z-10 text-white text-center px-3">
+                    <h1 class="text-6xl sm:text-7xl lg:text-[9rem] font-caesar leading-none shadow-black">
+                        Egypt
+                    </h1>
+                    <p class="text-olive-200 text-xl sm:text-4xl tracking-[0.3em] uppercase mb-4 font-mono font-bold shadow-black">1323 BC</p>
+<!--                      <p class="text-neutral-200 text-sm sm:text-base max-w-lg font-instrument-sans mx-auto mb-6 leading-relaxed">
+                        Beyond these gilded doors lies the resting place of Tutankhamun.
+                    </p> -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-lg">
+                        <a 
+                            href="collection.html" 
+                            class="font-instrument-serif p-2 rounded-sm border-1 shadow-black tracking-wide
+                                border-white/30 bg-white/20 text-white
+                                hover:bg-white/30 hover:border-white/50 transition-all duration-300 hover:-translate-y-0.5"
+                        >
+                            Enter the Exhibition
+                        </a>                   
+                    </div>
+                </div>
+            </section>
+
+            <section class="relative flex flex-col items-center justify-center px-4 md:px-10 lg:px-16 min-h-screen bg-stone-950 py-30">
+                <!-- Section Heading -->
+                <div class="flex justify-center mb-8">
+                    <div class="text-center">
+                        <p class="text-yellow-400 text-shadow-2xl text-xs tracking-[0.3em] uppercase mb-3 font-medium">Valley of the Kings</p>
+                        <h2 class="text-neutral-100 text-3xl sm:text-4xl lg:text-5xl font-semibold font-instrument-serif trakcing-wide mb-3">
+                           The Tomb of Tutankhamun
+                        </h2>
+                        <p class="text-neutral-200 max-w-xl mx-auto text-sm sm:text-base">
+                            Beyond these gilded doors lies the resting place of Tutankhamun.
+                        </p>
+                    </div>
+                </div>
+                <div class="max-w-6xl mx-auto px-6 text-neutral-100">
+                    <h2 class="font-instrument-serif text-4xl mb-8">
+                        The Discovery of King Tutankhamun's Tomb
+                    </h2>
+
+                    <img
+                        src="../Assets/exhibits/egypt/king-tut.avif"
+                        alt="The entrance to King Tutankhamun's tomb"
+                        class="float-left w-full sm:w-80 aspect-[4/5] object-cover rounded-xl mr-8 mb-4 shadow-2xl"
+                    >
+
+                    <p class="font-instrument-sans leading-8 text-neutral-300">
+                        Hidden beneath the sands of Egypt's Valley of the Kings for more than
+                        three thousand years, the tomb of King Tutankhamun remained largely
+                        untouched until its remarkable discovery in 1922 by British
+                        archaeologist Howard Carter. Unlike many royal tombs that had been
+                        looted over centuries, Tutankhamun's burial chamber was found almost
+                        intact, preserving over 5,000 extraordinary artifacts that offered an
+                        unprecedented glimpse into the wealth, craftsmanship, and spiritual
+                        beliefs of Ancient Egypt.
+                    </p>
+
+                    <p class="mt-6 font-instrument-sans leading-8 text-neutral-300">
+                        Among the treasures were the iconic solid gold funerary mask, elaborate
+                        gilded shrines, ceremonial chariots, jewelry, weapons, furniture, and
+                        everyday objects carefully placed to accompany the young pharaoh into
+                        the afterlife. The discovery transformed modern Egyptology, revealing
+                        not only the splendor of New Kingdom royal burials but also the
+                        meticulous rituals surrounding death, rebirth, and eternal life in
+                        ancient Egyptian civilization.
+                    </p>
+
+                    <div class="clear-both"></div>
+                </div>
+            </section>
+            <section class="relative flex flex-col items-center justify-center px-4 md:px-10 lg:px-16 min-h-screen bg-stone-950 text-neutral-200">
+
+                <div class="text-center mb-16">
+
+                    <h2 class="font-instrument-serif text-4xl md:text-5xl font-semibold mb-4">
+                        Timeline of Tutankhamun
+                    </h2>
+
+                    <p class="text-neutral-300 max-w-2xl mx-auto">
+                        Though his reign lasted only about nine years, Tutankhamun played a
+                        significant role in restoring Egypt's traditional religion and left
+                        behind one of history's greatest archaeological discoveries.
+                    </p>
+                </div>
+
+                <div class="relative border-l border-yellow-500/40 ml-6">
+
+                    <!-- Event -->
+                    <div class="relative pl-10 pb-12">
+                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-yellow-400 border-4 border-black"></div>
+
+                        <span class="text-yellow-400 font-semibold">c. 1341 BCE</span>
+
+                        <h3 class="mt-2 text-2xl font-instrument-serif">
+                            Birth of Tutankhamun
+                        </h3>
+
+                        <p class="mt-2 text-neutral-300 leading-7">
+                            Born into Egypt's 18th Dynasty, Tutankhamun was likely the son of
+                            Pharaoh Akhenaten during the turbulent Amarna Period.
+                        </p>
+                    </div>
+
+                    <!-- Event -->
+                    <div class="relative pl-10 pb-12">
+                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-yellow-400 border-4 border-black"></div>
+
+                        <span class="text-yellow-400 font-semibold">c. 1332 BCE</span>
+
+                        <h3 class="mt-2 text-2xl font-instrument-serif">
+                            Ascends the Throne
+                        </h3>
+
+                        <p class="mt-2 text-neutral-300 leading-7">
+                            At approximately nine years old, Tutankhamun became Pharaoh of
+                            Egypt, ruling under the guidance of powerful advisors.
+                        </p>
+                    </div>
+
+                    <!-- Event -->
+                    <div class="relative pl-10 pb-12">
+                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-yellow-400 border-4 border-black"></div>
+
+                        <span class="text-yellow-400 font-semibold">Year 1–2</span>
+
+                        <h3 class="mt-2 text-2xl font-instrument-serif">
+                            Restoration of Ancient Traditions
+                        </h3>
+
+                        <p class="mt-2 text-neutral-300 leading-7">
+                            The worship of Amun and Egypt's traditional gods was restored.
+                            The young king changed his name from <em>Tutankhaten</em> to
+                            <em>Tutankhamun</em>, symbolizing the return to the old faith.
+                        </p>
+                    </div>
+
+                    <!-- Event -->
+                    <div class="relative pl-10 pb-12">
+                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-yellow-400 border-4 border-black"></div>
+
+                        <span class="text-yellow-400 font-semibold">Year 3–6</span>
+
+                        <h3 class="mt-2 text-2xl font-instrument-serif">
+                            Temple Restoration
+                        </h3>
+
+                        <p class="mt-2 text-neutral-300 leading-7">
+                            Temples and monuments across Egypt were repaired and reopened,
+                            reversing many of the religious changes introduced by Akhenaten.
+                        </p>
+                    </div>
+
+                    <!-- Event -->
+                    <div class="relative pl-10 pb-12">
+                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-yellow-400 border-4 border-black"></div>
+
+                        <span class="text-yellow-400 font-semibold">Year 5–8</span>
+
+                        <h3 class="mt-2 text-2xl font-instrument-serif">
+                            Diplomacy & Military Campaigns
+                        </h3>
+
+                        <p class="mt-2 text-neutral-300 leading-7">
+                            Egyptian officials restored influence in Nubia and neighboring
+                            regions while strengthening trade and diplomatic relations.
+                        </p>
+                    </div>
+
+                    <!-- Event -->
+                    <div class="relative pl-10 pb-12">
+                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-yellow-400 border-4 border-black"></div>
+
+                        <span class="text-yellow-400 font-semibold">c. 1323 BCE</span>
+
+                        <h3 class="mt-2 text-2xl font-instrument-serif">
+                            Death of the Boy King
+                        </h3>
+
+                        <p class="mt-2 text-neutral-300 leading-7">
+                            Tutankhamun died unexpectedly at around eighteen or nineteen
+                            years of age after ruling Egypt for roughly nine years.
+                        </p>
+                    </div>
+
+                    <!-- Event -->
+                    <div class="relative pl-10 pb-12">
+                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-yellow-400 border-4 border-black"></div>
+
+                        <span class="text-yellow-400 font-semibold">c. 1323 BCE</span>
+
+                        <h3 class="mt-2 text-2xl font-instrument-serif">
+                            Burial in the Valley of the Kings
+                        </h3>
+
+                        <p class="mt-2 text-neutral-300 leading-7">
+                            Buried in tomb KV62 alongside more than 5,000 treasures prepared
+                            for his eternal journey into the afterlife.
+                        </p>
+                    </div>
+
+                    <!-- Highlight -->
+                    <div class="relative pl-10">
+                        <div class="absolute -left-[10px] top-2 w-5 h-5 rounded-full bg-yellow-300 shadow-lg shadow-yellow-400/50 border-4 border-black"></div>
+
+                        <span class="text-yellow-300 font-semibold">1922 CE</span>
+
+                        <h3 class="mt-2 text-2xl font-instrument-serif">
+                            Howard Carter Discovers the Tomb
+                        </h3>
+
+                        <p class="mt-2 text-neutral-300 leading-7">
+                            Nearly 3,200 years after Tutankhamun's death, British archaeologist
+                            Howard Carter uncovered the remarkably intact tomb, revealing one
+                            of the greatest archaeological discoveries in history.
+                        </p>
+                    </div>
+                </div>
+            </section>
+    </main>
+</body>
+</html>
