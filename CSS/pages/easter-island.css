@@ -1,10 +1,4 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-scroll-behavior:smooth;
-}
+
 
 body{
 
@@ -228,7 +222,7 @@ transform:translateY(0);
 
 }
 
-/* Mobile */
+
 
 @media(max-width:900px){
 

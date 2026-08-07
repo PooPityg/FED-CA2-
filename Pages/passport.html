@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../CSS/output.css">
-    <link rel="stylesheet" href="../CSS/pages/passport.css">
     <script src="../Script/stamps.js" defer></script>
+    <script src="../Script/main.js" defer></script>
     <script src="../Script/passport.js" defer></script>
     <title>Passport</title>
   </head>
@@ -41,7 +41,7 @@
                 <span class="block font-medium">Collections</span>
                 <span class="mt-0.5 block text-xs text-neutral-400">Browse artifacts by era</span>
               </a>
-              <a href="achievement.html" class="block px-4 py-3 text-sm transition-colors hover:bg-white/10" role="menuitem">
+              <a href="./passport.html" class="block px-4 py-3 text-sm transition-colors hover:bg-white/10" role="menuitem">
                 <span class="block font-medium">My Achievement</span>
                 <span class="mt-0.5 block text-xs text-neutral-400">View your passport & badges</span>
               </a>
@@ -78,17 +78,17 @@
                   <span id="quizText" class="text-xs font-semibold tracking-wide text-neutral-200">3/12</span>
                 </div>
                 <div class="h-3 overflow-hidden rounded-full bg-stone-300/70">
-                  <div id="quizProgress" class="h-full rounded-full bg-blue-700" style="width: 25%"></div>
+                  <div id="quizProgress" class="h-full rounded-full bg-blue-700" style="width: 0%"></div>
                 </div>
               </div>
 
               <div class="rounded-xl border border-white/10 bg-white/10 p-3 sm:p-4">
                 <div class="mb-4 flex items-center justify-between">
                   <span class="text-sm font-semibold tracking-wide text-white">Badges Earned</span>
-                  <span id="badgeText" class="text-xs font-semibold tracking-wide text-neutral-200">4/10</span>
+                  <span id="badgeText" class="text-xs font-semibold tracking-wide text-neutral-200"></span>
                 </div>
                 <div class="h-3 overflow-hidden rounded-full bg-stone-300/70">
-                  <div id="badgeProgress" class="h-full rounded-full bg-emerald-600" style="width: 40%"></div>
+                  <div id="badgeProgress" class="h-full rounded-full bg-emerald-600" style="width:0%"></div>
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@
       </section>
 
       <section id="stampcollection" class="mx-auto mt-8 max-w-6xl rounded-2xl border border-white/10 bg-white/10 p-4 text-sm text-neutral-300 sm:p-6">
-        <h1 class="text-3xl sm:text-6xl text-center">My Musuem Passport</h1>
+        <h1 class="text-3xl sm:text-6xl text-center text-white">My Musuem Passport</h1>
         <p class="text-center my-4">Your collected stamps and badges will appear here.</p>
         <div class="text-center mb-4" id="stamp-progress"></div>
         <div class="mb-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" id="stamp-grid"></div>
@@ -119,6 +119,12 @@
           <button class="rounded-sm border border-black px-5 py-3 transition hover:bg-[#2A3348] cursor-pointer" id="reset">Reset all</button>
         </div>
       </section>
-    </main>
+      <section class="flex flex-col gap-3">
+        <button type="button" class="rounded-2xl border border-white cursor-pointer" onclick="collectstamp('chinese'); render();">Chinese</button>
+        <button type="button" class="rounded-2xl border border-white cursor-pointer" onclick="collectstamp('aztec'); render();">Native</button>
+        <button type="button" class="rounded-2xl border border-white cursor-pointer" onclick="collectstamp('easter'); render();">Easter</button>
+        <button type="button" class="rounded-2xl border border-white cursor-pointer" onclick="collectstamp('egypt'); render();">Egypt</button>
+      </section>
+      </main>
   </body>
 </html>
