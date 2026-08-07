@@ -6,16 +6,18 @@
   & .page-header h1 {
     font-size: 22px;
     margin: 0;
+    text-align: center;
   }
 
   & .page-header p {
     margin: 4px 0 0;
     color: #a3a3a3;
     font-size: 13px;
+    text-align: center;
   }
 
   & .grid {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -29,9 +31,10 @@
     padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
     transition: transform 0.15s ease, background 0.15s ease;
     width: 100%;  
+    min-height: 450px;
   }
 
   & .card:hover {
@@ -54,7 +57,7 @@
 
   & .card-img {
     background: #3a3a3a;
-    height: 110px;
+    height: 160px;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -73,18 +76,18 @@
   }
 
   & .card-title {
-    font-size: 15px;
+    font-size: 30px;
     margin: 0;
   }
 
   & .card-year {
-    font-size: 12px;
+    font-size: 20px;
     color: #a3a3a3;
     margin: -6px 0 0;
   }
 
   & .card-desc {
-    font-size: 12.5px;
+    font-size: 16px;
     color: #a3a3a3;
     line-height: 1.45;
     margin: 0;
