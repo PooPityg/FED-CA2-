@@ -108,10 +108,7 @@ margin-bottom:20px;
 }
 
 #more{
-
-display:none;
 margin-top:15px;
-
 }
 
 #readBtn{
@@ -194,14 +191,11 @@ line-height:2;
 /* Scroll Top */
 
 #topBtn{
-
-position:fixed;
-bottom:30px;
-right:30px;
-display:none;
-font-size:22px;
-padding:15px;
-
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    font-size:22px;
+    padding:15px;
 }
 
 /* Animation */
