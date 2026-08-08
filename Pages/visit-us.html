@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
@@ -101,22 +102,21 @@
 
     <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg mt-15"> 
 
-    <h1 class="serif text-8xl text-center m-10 p-5">KEY INFORMATION</h1>
+    <h1 class="serif text-8xl text-center m-10 p-2 md:text-8xl">INFORMATION</h1>
 
-    <section class="flex justify-center gap-10">
+    <section class="flex flex-col items-center gap-10 md:flex-row md:justify-center">
         <div class="card flex flex-col items-center">
-            <h1 class="py-4 text-5xl serif">Opening Hours</h1>
+            <h1 class="py-4 text-7xl serif">Opening Hours</h1>
             <p class="p-1"> <strong>Weekdays:</strong> 10am-9pm</p>
             <p class="p-1"> <strong>Weekends:</strong> 11am-8am</p>
-            <p class="p-1"> <strong>Public Holidays:</strong> Closed</p>
         </div>
         <div class="flex flex-col items-center card">
-            <h1 class="py-4 text-5xl serif">Ticket Prices</h1>
+            <h1 class="py-4 text-7xl serif">Ticket Prices</h1>
             <p class="pb-2 text-white/80">From $10/exhibit</p>
             <a href="#ticketdiv"><button class="border-2 border-white/30 rounded-md border-dashed p-5 px-10 cursor-pointer bg-black hover:bg-slate-950"> Learn more </button></a>
         </div>
         <div class="card flex flex-col items-center">
-            <h1 class="py-4 text-5xl serif">Address</h1>
+            <h1 class="py-4 text-7xl serif">Address</h1>
             <p class="pb-2"> 2 Bayfront Avenue</p>
             <p class="pb-2"> Singapore, 018972</p> 
             <a href="#transportdiv"> <button class="py-2 bg-black border-2 border-white/30 border-dashed rounded-md p-1 hover:bg-slate-950 cursor-pointer"> Learn more </button> </a>
@@ -125,17 +125,17 @@
 
     <hr id="transportdiv" class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15"> 
 
-    <section class="flex justify-center gap-10">
-        <div class="border-3 border-white/10 p-10 w-[30%]">
-            <h1 class="serif text-7xl text-center pb-10">TRANSPORT</h1>
-            <ol class="list-disc bg-linear-br from-gray-800 to-gray-900 space-y-4 text-white/70"> 
-                <li class="text-xl">10-minute walk from Bayfront MRT (DTL/CCL)</li> 
-                <li class="text-xl">Located inside Marina Bay Sands</li>
-                <li class="text-xl">5-min walk from Marina Bay Sands Theatre bus stop</li>
-                <li class="text-xl">2-min walk from Helix Bridge! </li>
+    <section class="flex flex-col justify-center md:gap-10 md:flex-row md:justify-center">
+        <div class="border-3 border-white/10 p-6 md:p-10 w-[80%] mx-auto md:mx-0 md:w-[30%] bg-gradient-to-br from-gray-900/80 to-black">
+            <h1 class="serif text-5xl md:text-7xl text-center pb-6 md:pb-10">TRANSPORT</h1>
+            <ol class="list-disc  space-y-4 text-white/70 pl-5"> 
+                <li class="text-lg md:text-xl">10-minute walk from Bayfront MRT (DTL/CCL)</li> 
+                <li class="text-lg md:text-xl">Located inside Marina Bay Sands</li>
+                <li class="text-lg md:text-xl">5-min walk from Marina Bay Sands Theatre bus stop</li>
+                <li class="text-lg md:text-xl">2-min walk from Helix Bridge!</li>
             </ol>
         </div>
-        <div class="border-3 border-white/10 p-10 w-[50%]">
+        <div class="border-3 border-white/10 p-10 w-[50%] bg-gradient-to-br from-gray-900/80 to-black">
             <h1 class="serif text-7xl text-center mb-10">GETTING THERE</h1>
             <iframe class="w-[100%] mx-auto rounded-xl overflow-hidden" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6758.919695322001!2d103.85591794933656!3d1.2856972194028085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1906fa938819%3A0x4af3bb1fea6f86c!2s2%20Bayfront%20Ave%2C%20Singapore%20018972!5e0!3m2!1sen!2ssg!4v1784909038216!5m2!1sen!2ssg" 
                 width="750" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>    
@@ -144,15 +144,15 @@
 
     <hr id="ticketdiv" class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15">
 
-    <section class="flex justify-center gap-10">
-        <div class="flex justify-center flex-col border-3 border-white/10 p-10 w-[50%]">
-            <h1 class="serif text-8xl text-center  mb-10">TICKET PRICING</h1>
-            <table class="border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-md border border-gray-300">
+    <section class="flex flex-col justify-center gap-10 md:flex-row md:justify-center">
+        <div class="flex justify-center flex-col border-3 border-white/10 p-10 w-[45%]">
+            <h1 class="serif text-7xl text-center  mb-10">TICKET PRICING</h1>
+            <table class="border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-md border border-gray-300 ">
                 <thead>
                     <tr class="transition-colors bg-white/20">
                         <th> Age Group</th>
                         <th> Price/Exhibit</th>
-                        <th> Full Museum Package (4 Exhibits)</th>
+                        <th> All 4 Exhibits</th>
                     </tr>
                 </thead>
                 <tr class="hover:bg-white/10 transition-colors bg-white/5">
@@ -166,7 +166,7 @@
                     <td>$35</td>
                 </tr>
                 <tr class="hover:bg-white/10 transition-colors bg-white/5">
-                    <td>Adults (19-64)</td>
+                    <td>Adult (19-64)</td>
                     <td>$17</td>
                     <td>$42</td>
                 </tr>
@@ -177,7 +177,7 @@
                 </tr>
             </table>
         </div>
-        <div class="border-3 border-white/10 p-10 w-[30%]">
+        <div class="border-3 border-white/10 p-5 w-[35%] ">
             <img src="../assets/visit-us/museumticket.png" class="object-cover w-full h-full"></img>
         </div>
     </section> 
@@ -187,8 +187,8 @@
     <section class="flex justify-center">
         <div class="flex border-3 border-white/10 w-[80%] h-100">
             <div class="w-[30%] bg-white/5 h-[100%]">
-                <h1 class="serif text-9xl px-10 pt-10">FAQ.</h1>
-                <h1 class="serif text-2xl px-10 pt-2">Frequently Asked Questions</h1>
+                <h1 class="serif text-9xl px-10 pt-10">FAQ</h1>
+                <h1 class="serif text-2xl px-10 pt-2">Hover over the boxes!</h1>
             </div>
             <div class="w-[30%] bg-white/8 h-[100%]">
                 <button class="faq serif text-4xl text-white/20 border-3 border-white/10 w-full h-[25%] transition-colors">Parking Locations</button>
