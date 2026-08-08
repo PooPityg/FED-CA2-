@@ -172,3 +172,26 @@ if (topBtn) {
         });
     });
 }
+
+// ==========================
+// Feedback button
+// ==========================
+
+const feedbtn = document.getElementById("feedbackBtn")
+const heroSec = document.getElementById("hero")
+
+//Show button after hero section
+window.addEventListener('scroll',()=>{
+    const heroBottom = heroSec.offsetHeight
+    const scrollTopCheck = window.scrollY
+
+    if (scrollTopCheck > heroBottom){
+        feedbtn.classList.remove('hidden')
+    }else{
+        feedbtn.classList.add('hidden')
+    }
+})
+
+feedbtn.addEventListener('click',()=>{
+    window.location.href="feedback.html"
+})
