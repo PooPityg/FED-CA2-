@@ -43,3 +43,9 @@ nav a:not(#brand):hover {
 html {
   scroll-behavior: smooth;
 }
+
+@media (max-width: 249px) {
+  body {
+    width: fit-content;
+  }
+}
