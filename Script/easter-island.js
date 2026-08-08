@@ -33,25 +33,3 @@ function reveal() {
 window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 
-// ==========================
-// Scroll To Top Button
-// ==========================
-
-const topBtn = document.getElementById("topBtn");
-
-if (topBtn) {
-    window.addEventListener("scroll", function () {
-        if (document.documentElement.scrollTop > 300) {
-            topBtn.classList.remove("hidden");
-        } else {
-            topBtn.classList.add("hidden");
-        }
-    });
-
-    topBtn.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-}

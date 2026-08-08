@@ -4,7 +4,6 @@
   font-family: system-ui, sans-serif;
 
   & .page-header h1 {
-    font-size: 22px;
     margin: 0;
     text-align: center;
   }
