@@ -93,7 +93,7 @@ document.addEventListener("click", (e) => {
 
 // Close mobile menu automatically if the viewport is resized to desktop width
 window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768 && mobileOpened) { // 768px = Tailwind's `md` breakpoint
+    if (window.innerWidth >= 640 && mobileOpened) { 
         closeMobileMenu();
     }
 });

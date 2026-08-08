@@ -17,7 +17,7 @@ function clearFallback() {
     }
 }
 
-function runOutro() {
+function runOutro(skipAnimation = false) {
     if (triggered) return;
     triggered = true;
     clearFallback();
@@ -27,6 +27,20 @@ function runOutro() {
 
     overlay.classList.remove("opacity-0");
     overlay.classList.add("opacity-40");
+
+    if (skipAnimation) {
+        // Jump straight to the final state, no staggered reveal
+        title.classList.remove("opacity-0", "translate-y-6");
+        subtitle.classList.remove("opacity-0", "translate-y-6");
+        scrollHint.classList.remove("opacity-0");
+        document.body.style.overflow = "";
+
+        intro.classList.remove("fixed", "z-[100]");
+        intro.classList.add("relative", "z-30");
+
+        navbar.classList.remove("opacity-0", "-translate-y-4", "pointer-events-none");
+        return;
+    }
 
     setTimeout(() => {
         title.classList.remove("opacity-0", "translate-y-6");
@@ -46,6 +60,8 @@ function runOutro() {
         navbar.classList.remove("opacity-0", "-translate-y-4", "pointer-events-none");
     }, 2600);
 }
+
+document.addEventListener("click", () => runOutro(true));
 
 video.addEventListener("timeupdate", () => {
     if (triggered) return;
