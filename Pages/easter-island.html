@@ -13,7 +13,7 @@
     <script src="../Script/main.js" defer></script>
 </head>
 
-<body class='page-easter'>
+<body class="page-easter bg-black text-white font-instrument-sans">
     <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out">
         <nav id="navInner" class="grid grid-cols-3 items-center font-instrument-sans text-neutral-100 py-3 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
 
@@ -121,69 +121,69 @@
         </section>
 
     <!-- History Section -->
-    <section class="history reveal font-instrument-serif">
+    <section class="reveal grid gap-16 px-6 py-24 font-instrument-serif sm:px-8 lg:grid-cols-2 lg:px-12 lg:py-28">
 
-        <div class="image">
-            <img src="" alt="img of easter island">
+        <div class="overflow-hidden rounded-[2rem] shadow-2xl shadow-black/40">
+            <img src="https://thepointsguy.global.ssl.fastly.net/us/originals/2019/02/tpmb_easterisland_raraku1_bb.jpg" alt="Easter Island landscape" class="h-full w-full object-cover transition duration-500 hover:scale-105">
         </div>
 
-        <div class="text">
-            <h2>About Easter Island</h2>
+        <div class="space-y-6">
+            <h2 class="text-3xl font-semibold text-white sm:text-4xl">About Easter Island</h2>
 
-            <p id="short">
+            <p id="short" class="leading-relaxed text-neutral-300">
                 Easter Island also known as Rapa Nui is an island and special territory of Chile in the southeastern Pacific Ocean, at the southeasternmost point of the Polynesian Triangle in Oceania. The island is renowned for its nearly 1,000 extant monumental statues, called moai, which were created by the early Rapa Nui people.
             </p>
 
-            <p id="more">
+            <p id="more" class="hidden leading-relaxed text-neutral-300">
                 The moai statues are monolithic human figures carved from stone by the Rapa Nui people, on Rapa Nui (Easter Island) in eastern Polynesia between the years 1250 and 1500. The average Moai stands about 13 feet tall . However, the tallest erected Moai, called Paro, is nearly 33 feet tall.
             </p>
 
-            <button id="readBtn">Read More</button>
+            <button id="readBtn" class="inline-flex items-center rounded-full bg-amber-600 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition duration-300 hover:-translate-y-1 hover:bg-amber-500">Read More</button>
         </div>
 
     </section>
 
     <!-- Question Cards -->
-    <section class="facts-reveal reveal font-instrument-serif">
+    <section class="reveal px-6 py-24 font-instrument-serif sm:px-8 lg:px-12">
 
-        <h2 class="text-3xl font-bold text-center mb-8">Fun Facts</h2>
+        <h2 class="mb-8 text-center text-3xl font-bold text-white">Fun Facts</h2>
 
-        <div class="cards">
+        <div class="mt-10 grid gap-8 md:grid-cols-3">
 
-            <div class="card">
-                <h3>⚖️</h3>
-                <h4>Weight</h4>
-                <p>Most weigh about 14 tons, with some reaching up to 82 tons.</p>
+            <div class="rounded-[1.5rem] border border-white/10 bg-neutral-900/80 p-8 text-center shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-2 hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
+                <h3 class="mb-3 text-4xl">⚖️</h3>
+                <h4 class="mb-2 text-xl font-semibold text-amber-300">Weight</h4>
+                <p class="leading-relaxed text-neutral-300">Most weigh about 14 tons, with some reaching up to 82 tons.</p>
             </div>
 
-            <div class="card">
-                <h3>🪨</h3>
-                <h4>Material</h4>
-                <p>The moai are carved from volcanic tuff, a compressed volcanic ash, found at Rano Raraku. However, there are 3 moai carved from basalt, 22 from trachyte and 17 from fragile red scoria.</p>
+            <div class="rounded-[1.5rem] border border-white/10 bg-neutral-900/80 p-8 text-center shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-2 hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
+                <h3 class="mb-3 text-4xl">🪨</h3>
+                <h4 class="mb-2 text-xl font-semibold text-amber-300">Material</h4>
+                <p class="leading-relaxed text-neutral-300">The moai are carved from volcanic tuff, a compressed volcanic ash, found at Rano Raraku. However, there are 3 moai carved from basalt, 22 from trachyte and 17 from fragile red scoria.</p>
             </div>
 
-            <div class="card">
-                <h3>🗿</h3>
-                <h4>Number of Moai</h4>
-                <p>There are over 900 moai statues on Easter Island.</p>
+            <div class="rounded-[1.5rem] border border-white/10 bg-neutral-900/80 p-8 text-center shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-2 hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
+                <h3 class="mb-3 text-4xl">🗿</h3>
+                <h4 class="mb-2 text-xl font-semibold text-amber-300">Number of Moai</h4>
+                <p class="leading-relaxed text-neutral-300">There are over 900 moai statues on Easter Island.</p>
             </div>
 
         </div>
 
     </section>
 
-<section class="border-2 bg-black/20 border-white/5">
-            <div class="flex justify-center items-center">
-                <h1 class="text-8xl serif text-cyan-200 mt-10"> Issues that easter island is currently facing</h1>
+<section class="border border-white/10 bg-black/20 px-6 py-24 sm:px-8 lg:px-12">
+            <div class="flex flex-col items-center justify-center gap-4 text-center md:flex-row">
+                <h1 class="mt-10 text-4xl font-semibold text-cyan-200 sm:text-5xl lg:text-6xl">Issues that Easter Island is currently facing</h1>
                 <svg class="w-20 h-20 ml-5 mt-10 text-cyan-300 dark:text-cyan-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z" clip-rule="evenodd"/> <path fill-rule="evenodd" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z" clip-rule="evenodd"/> </svg> 
             </div>
-            <div class="carousel">
-                <div class="group">
+            <div class="carousel mt-12 flex overflow-x-auto overflow-y-hidden cursor-grab select-none">
+                <div class="group flex shrink-0 items-center justify-center gap-4 pr-4">
                     <div class="carouselcard"> <h1 class="serif text-cyan-400">Erosion</h1>
                         <p class="text-xl m-2 text-cyan-100">The volcanic tuff used to carve the Moai is susceptible to erosion from wind and rain, gradually wearing away the statues' features. </p>
                         <img src="../assets/easter/Erosion.jpg" alt="Effect of erosion on Easter Island" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
                     </div>
-                    <div class="carouselcard"> <h1 class="serif text-cyan-400">Tourism Impact</h1>
+                        <div class="carouselcard flex h-80 w-72 flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-white/30"> <h1 class="font-semibold text-cyan-400">Tourism Impact</h1>
                         <p class="text-xl m-2 text-cyan-100">Tourism brings revenure but also poses a threat to the Moai through physical damage and environmental stress.</p>
                         <img src="../assets/easter/impact.png" alt="Impact of tourism on Easter Island" class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
                     </div>
@@ -197,8 +197,8 @@
                     </div>
                 </div>
                 <div>
-                    <div aria-hidden class="group">
-                        <div class="carouselcard"> <h1 class="serif text-cyan-400">Erosion</h1>
+                    <div aria-hidden class="group flex shrink-0 items-center justify-center gap-4 pr-4">
+                        <div class="carouselcard flex h-80 w-72 flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-white/30"> <h1 class="font-semibold text-cyan-400">Erosion</h1>
                         <p class="text-xl m-2 text-cyan-100">The volcanic tuff used to carve the Moai is susceptible to erosion from wind and rain, gradually wearing away the statues' features. </p>
                         <img src="../assets/easter/Erosion.jpg" alt="Effect of erosion on Easter Island" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
                     </div>
@@ -218,8 +218,7 @@
             </div>
         </section>
     <!-- Scroll To Top -->
-    <button id="topBtn">⬆</button>
-
-   
+    <button id="topBtn" class="fixed bottom-8 right-8 z-50 hidden rounded-full bg-amber-600 p-4 text-xl text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-amber-500">⬆</button>
+    
 </body>
 </html>
