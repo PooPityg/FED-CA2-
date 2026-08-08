@@ -5,14 +5,22 @@ const title = document.getElementById("intro-title");
 const subtitle = document.getElementById("intro-subtitle");
 const scrollHint = document.getElementById("scrollHint");
 
-// Prevent scrolling during intro
 document.body.style.overflow = "hidden";
 
 let triggered = false;
+let hardFallbackTimer = null;
+
+function clearFallback() {
+    if (hardFallbackTimer) {
+        clearTimeout(hardFallbackTimer);
+        hardFallbackTimer = null;
+    }
+}
 
 function runOutro() {
     if (triggered) return;
     triggered = true;
+    clearFallback();
 
     video.pause();
     video.classList.add("freeze");
@@ -41,15 +49,25 @@ function runOutro() {
 
 video.addEventListener("timeupdate", () => {
     if (triggered) return;
-    // Freeze 0.15 seconds before the video actually ends
-    if (video.duration - video.currentTime < 0.15) {
+    if (video.duration && video.duration - video.currentTime < 0.15) {
         runOutro();
     }
 });
 
-// Fallback: if the video fails to load/play, don't leave the page stuck
+// Once we know the real duration, set a fallback slightly longer than the
+// video itself, in case timeupdate never fires near the end (e.g. tab
+// throttling, seeking issues, codec quirks).
+video.addEventListener("loadedmetadata", () => {
+    clearFallback();
+    if (isFinite(video.duration)) {
+        hardFallbackTimer = setTimeout(runOutro, (video.duration * 1000) + 500);
+    } else {
+        // duration unknown (e.g. Infinity) — fall back to a generous flat timer
+        hardFallbackTimer = setTimeout(runOutro, 15000);
+    }
+});
+
 video.addEventListener("error", runOutro);
 
-// Fallback: if autoplay is blocked or timeupdate never fires for some reason,
-// force the outro after a max wait so the page never gets permanently locked.
-setTimeout(runOutro, 8000);
+// Safety net in case metadata never loads at all (blocked autoplay, bad src, etc.)
+hardFallbackTimer = setTimeout(runOutro, 8000);
