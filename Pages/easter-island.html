@@ -117,7 +117,7 @@
                     </a>
                 </div>
             </div>
-        </section>
+    </section>
 
     <!-- History Section -->
     <section class="reveal grid gap-16 px-6 py-24 font-instrument-serif sm:px-8 lg:grid-cols-2 lg:px-12 lg:py-28">
@@ -171,7 +171,7 @@
 
     </section>
 
-<section class="border border-white/10 bg-black/20 px-6 py-24 sm:px-8 lg:px-12">
+    <section class="border border-white/10 bg-black/20 px-6 py-24 sm:px-8 lg:px-12">
             <div class="flex flex-col items-center justify-center gap-4 text-center md:flex-row">
                 <h1 class="mt-10 text-4xl font-semibold text-cyan-200 sm:text-5xl lg:text-6xl">Issues that Easter Island is currently facing</h1>
                 <svg class="w-20 h-20 ml-5 mt-10 text-cyan-300 dark:text-cyan-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z" clip-rule="evenodd"/> <path fill-rule="evenodd" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z" clip-rule="evenodd"/> </svg> 
@@ -215,14 +215,21 @@
                     </div>
                 </div>
             </div>
-        </section>
+    </section>
     <!-- Scroll To Top -->
-    <button id="topBtn" class="fixed bottom-8 right-8 z-50 hidden rounded-full bg-amber-600 p-4 text-xl text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-amber-500">⬆</button>
-    <button 
-        id="feedbackBtn" 
-        class="fixed right-8 bottom-8 hidden bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 z-40 whitespace-nowrap"
-        aria-label="Send feedback">
-        📝
-    </button>
+    <div id="sideBtnContainer" class="fixed bottom-8 right-8 z-50 flex flex-col gap-4 opacity-0 transition-opacity duration-500 pointer-events-none">
+        <button 
+            id="feedbackBtn" 
+            class="bg-emerald-600 hover:bg-emerald-700 text-white p-2 sm:p-4 text-sm sm:text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 whitespace-nowrap"
+            aria-label="Send feedback">
+            📝
+        </button>
+    
+        <button 
+            id="topBtn" 
+            class="rounded-full bg-amber-600 p-2 sm:p-4 text-lg sm:text-xl text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-amber-500">
+            ⬆
+        </button>
+    </div>
 </body>
 </html>
