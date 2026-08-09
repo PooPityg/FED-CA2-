@@ -106,10 +106,7 @@ margin-bottom:20px;
 }
 
 #more{
-
-display:none;
 margin-top:15px;
-
 }
 
 #readBtn{
@@ -124,20 +121,6 @@ border-radius:30px;
 transition:.3s;
 
 }
-
-#topBtn{
-
-margin-top:25px;
-padding:12px 30px;
-background:#b8860b;
-border:none;
-color:white;
-cursor:pointer;
-border-radius:30px;
-transition:.3s;
-
-}
-
 
 button:hover{
 
@@ -190,17 +173,6 @@ line-height:2;
 
 
 /* Scroll Top */
-
-#topBtn{
-
-position:fixed;
-bottom:30px;
-right:30px;
-display:none;
-font-size:22px;
-padding:15px;
-
-}
 
 /* Animation */
 
