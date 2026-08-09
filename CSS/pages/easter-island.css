@@ -63,7 +63,7 @@ transform:scale(1.08);
 
 /* Sections */
 
-section{
+section:not(#intro){
 
 padding:90px 10%;
 
@@ -202,12 +202,6 @@ font-size:45px;
 
 }
 
-nav{
-
-flex-direction:column;
-gap:20px;
-
-}
 
 }
 /* carousel styles*/
@@ -227,7 +221,7 @@ gap:20px;
     display: none;
 }
 
-.group {
+.carousel-group {
     display: flex;
     align-items: center;
     justify-content: center;

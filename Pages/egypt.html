@@ -6,7 +6,7 @@
     <title>Carpe Diem | Egypt</title>
     <link rel="stylesheet" href="../CSS/output.css" />
     <script src="../Script/main.js" defer></script>
-    <script src="../Script/egypt.js" defer></script>
+    <script src="../Script/cut-scene-loader.js" defer></script>
   </head>
   <body class="page-egypt">
     <header
@@ -20,14 +20,14 @@
         <!-- Left -->
         <div class="hidden sm:flex justify-around min-w-0">
           <a href="../index.html">Home</a>
-          <a href="./Pages/about.html">About</a>
+          <a href="../index.html#about">About</a>
         </div>
 
         <!-- Hamburger (mobile only) -->
         <div class="flex sm:hidden justify-start min-w-0">
           <button
             id="hamburgerBtn"
-            class="flex flex-col justify-center items-center gap-1.5 w-8 h-8"
+            class="flex flex-col justify-center items-center gap-1.5"
             aria-label="Toggle menu"
             aria-expanded="false"
           >
@@ -74,11 +74,11 @@
               class="flex items-center gap-1 cursor-pointer"
             >
               Explore
-              <span id="exploreArrow">▾</span>
+              <span id="exploreArrow" class="transition-transform duration-150">▾</span>
             </button>
             <div
               id="exploreDropdown"
-              class="absolute top-full right-0 w-56 translate-x-1/2 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
+              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
             >
               <div class="rounded-xl bg-black/90 mt-4">
                 <a
@@ -123,7 +123,44 @@
               </div>
             </div>
           </div>
-          <a href="visit-us.html">Visit Us</a>
+          <div class="relative" id="visitMenu">
+            <button
+              id="visitBtn"
+              class="flex items-center gap-1 cursor-pointer"
+            >
+              Visit
+              <span id="visitArrow" class="transition-transform duration-150">▾</span>
+            </button>
+
+            <div
+              id="visitDropdown"
+              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
+            >
+              <div class="rounded-xl bg-black/90 mt-4">
+                
+                <a
+                  href="./visit-us.html"
+                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
+                >
+                  <span class="block font-medium">Visit Us</span>
+                  <span class="block text-xs text-neutral-400 mt-0.5">
+                    Plan your museum visit
+                  </span>
+                </a>
+
+                <a
+                  href="./tickets.html"
+                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
+                >
+                  <span class="block font-medium">Book Tickets</span>
+                  <span class="block text-xs text-neutral-400 mt-0.5">
+                    Reserve your museum admission
+                  </span>
+                </a>
+
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
 
@@ -153,7 +190,8 @@
           <a href="./quiz.html" class="py-3 border-b border-white/10"
             >Quiz</a
           >
-          <a href="./visit-us.html" class="py-3">Visit Us</a>
+          <a href="./visit-us.html" class="py-3 border-b border-white/10"">Visit Us</a>
+          <a href="./tickets.html" class="py-3">Book Tickets</a>
         </div>
       </div>
     </header>
@@ -182,15 +220,15 @@
         >
           <h1
             id="intro-title"
-            class="font-caesar text-6xl text-neutral-200 opacity-0 translate-y-6 transition-all sm:text-7xl lg:text-[7.5rem] leading-non"
+            class="font-caesar text-6xl text-neutral-200 opacity-0 translate-y-6 transition-all sm:text-7xl lg:text-[8rem] leading-non"
           >
             Egypt
           </h1>
           <p
             id="intro-subtitle"
-            class="mt-3 uppercase text-amber-300 opacity-0 translate-y-6 transition-all duration-1000 text-xl sm:text-4xl tracking-[0.3em] font-mono font-bold"
+            class="mt-3 uppercase text-amber-300 opacity-0 translate-y-6 transition-all duration-1000 text-xl sm:text-4xl tracking-[0.15em] font-mono font-bold"
           >
-            1323 BC
+            1332–1323 BCE
           </p>
           <div
             id="scrollHint"
@@ -202,7 +240,7 @@
       </section>
 
       <section
-        class="relative z-10 flex flex-col items-center w-full justify-center px-7 md:px-10 lg:px-16 bg-stone-950 py-20 sm:py-24"
+        class="relative z-10 flex flex-col items-center w-full justify-center px-7 md:px-10 lg:px-16 bg-stone-950 py-20 sm:py-28"
       >
         <!-- Section Header -->
         <header class="text-center mb-8 sm:mb-10">
@@ -289,7 +327,7 @@
               class="w-[50vw] min-w-[220px] sm:w-56 md:w-64 mx-auto sm:mx-0 sm:float-right sm:ml-6 mb-4"
             >
               <img
-                src="../Assets/exhibits/egypt/valley-of-the-kings.jpg"
+                src="../assets/exhibits/egypt/valley-of-the-kings.jpg"
                 alt="The Valley of the Kings where Tutankhamun's tomb was discovered"
                 class="w-full aspect-[4/5] object-cover rounded-xl"
                 loading="lazy"
