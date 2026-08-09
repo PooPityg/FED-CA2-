@@ -56,12 +56,11 @@ function renderGallery(){  //build the gallery
 
     gallery.innerHTML=''
     const items = gallaryData[currentPage]
-    
+    const isMobile = window.innerWidth < 640
     items.forEach(item => {
         const div = document.createElement('div')
-
-        const rowspan = item.rowSpan || 'row-span-1'
-        const span = item.span || 'col-span-1'
+        const rowspan = isMobile ? 'row-span-1':(item.rowSpan || 'row-span-1')  // if mobile make div 1x1
+        const span =isMobile ? 'col-span-1':(item.span || 'col-span-1')
         const entrance = getRandomEntrance()
         div.className = `gallery-item group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-stone-900/80 shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${rowspan} ${span} min-h-[220px] sm:min-h-[240px] opacity-0 will-change-transform will-change-opacity`
         div.style.setProperty('--start-x', entrance.x)   //adds style property value custom css
@@ -119,6 +118,6 @@ function back(){  //prev func
 
 backBtn.addEventListener('click', back)
 nextBtn.addEventListener('click', next)
-
+window.addEventListener('resize', renderGallery)
 window.addEventListener('DOMContentLoaded',renderGallery)   //call render after DOM tree built
 
