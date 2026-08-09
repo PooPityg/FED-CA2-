@@ -1,332 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museum Collection</title>
 
     <!-- CSS -->
- <link rel="stylesheet" href="../CSS/pages/easter-island.css">
- <link rel="stylesheet" href="../CSS/output.css">
+    <link rel="stylesheet" href="../CSS/output.css">
+    <link rel="stylesheet" href="../CSS/pages/easter-island.css">
 
+    <script src="../Script/cut-scene-loader.js" defer></script>
     <script src="../Script/easter-island.js" defer></script>
     <script src="../Script/main.js" defer></script>
 </head>
 
 <body class='page-easter'>
-    <header
-      id="navbar"
-      class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
-    >
-      <nav
-        id="navInner"
-        class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30"
-      >
-        <!-- Left -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#about">About</a>
-        </div>
-
-        <!-- Hamburger (mobile only) -->
-        <div class="flex sm:hidden justify-start min-w-0">
-          <button
-            id="hamburgerBtn"
-            class="flex flex-col justify-center items-center gap-1.5"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-          >
-            <span
-              id="barTop"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
-            <span
-              id="barMid"
-              class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"
-            ></span>
-            <span
-              id="barBot"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
-          </button>
-        </div>
-
-        <!-- Center -->
-        <a
-          href="../index.html"
-          class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0"
-          id="brand"
-        >
-          <div class="flex flex-col items-center min-w-0">
-            <span
-              class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap"
-            >
-              CARPE DIEM
-            </span>
-            <span
-              class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60"
-            >
-              EST. 2026
-            </span>
-          </div>
-        </a>
-
-        <!-- Right -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <div class="relative" id="exploreMenu">
-            <button
-              id="exploreBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Explore
-              <span id="exploreArrow">▾</span>
-            </button>
-            <div
-              id="exploreDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                <a
-                  href="./Pages/museum.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">3D Virtual Museum</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Walk the immersive halls</span
-                  >
-                </a>
-                <a
-                  href="./collections.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                  role="menuitem"
-                >
-                  <span class="block font-medium">Collections</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Browse artifacts by era</span
-                  >
-                </a>
-                <a
-                  href="./passport.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                  role="menuitem"
-                >
-                  <span class="block font-medium">My Achievement</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >View your passport & badges</span
-                  >
-                </a>
-                <a
-                  href="./quiz.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                  role="menuitem"
-                >
-                  <span class="block font-medium">Quiz</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Test your knowledge</span
-                  >
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="relative" id="visitMenu">
-            <button
-              id="visitBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Visit
-              <span id="visitArrow">▾</span>
-            </button>
-
-            <div
-              id="visitDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                
-                <a
-                  href="./visit-us.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">Visit Us</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Plan your museum visit
-                  </span>
-                </a>
-
-                <a
-                  href="./tickets.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                >
-                  <span class="block font-medium">Book Tickets</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Reserve your museum admission
-                  </span>
-                </a>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <!-- Mobile dropdown panel -->
-      <div
-        id="mobileMenu"
-        class="sm:hidden overflow-hidden max-h-0 opacity-0 bg-olive-900/95 backdrop-blur-lg transition-all duration-300 ease-in-out"
-      >
-        <div
-          class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans"
-        >
-          <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
-          <a href="./about.html" class="py-3 border-b border-white/10"
-            >About</a
-          >
-          <a href="./Pages/museum.html" class="py-3 border-b border-white/10"
-            >3D Virtual Museum</a
-          >
-          <a
-            href="./collections.html"
-            class="py-3 border-b border-white/10"
-            >Collections</a
-          >
-          <a href="./passport.html" class="py-3 border-b border-white/10"
-            >My Achievement</a
-          >
-          <a href="./quiz.html" class="py-3 border-b border-white/10"
-            >Quiz</a
-          >
-          <a href="./visit-us.html" class="py-3 border-b border-white/10"">Visit Us</a>
-          <a href="./tickets.html" class="py-3">Book Tickets</a>
-        </div>
-      </div>
-    </header>
-    <!-- Hero Section -->
-    <section id="hero" class="h-screen relative isolate flex min-h-[90vh] w-full items-center justify-center overflow-hidden bg-stone-900/60 font-instrument-serif">
-            <div class="absolute inset-0">
-                <img src="https://thepointsguy.global.ssl.fastly.net/us/originals/2019/02/tpmb_easterisland_raraku1_bb.jpg" alt="Easter Island" class="h-full w-full object-cover" />
-                <div class="absolute inset-0 bg-linear-to-r from-black via-black/70 to-black/30"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,113,113,0.24),transparent_35%)]"></div>
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out">
+        <nav id="navInner"
+            class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
+            <!-- Left -->
+            <div class="hidden sm:flex justify-around min-w-0">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#about">About</a>
             </div>
 
-            <div class="relative z-10 max-w-2xl ml-10 space-y-6 px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
-                <p class="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">Easter Island</p>
-                <h1 class="font-instrument-serif text-4xl font-semibold leading-tight tracking-wide text-white sm:text-5xl lg:text-6xl">
-                    The Enigma of Rapa Nui
-                </h1>
-                <p class="max-w-xl text-lg leading-relaxed text-neutral-200 sm:text-xl">
-                    Discover the mysteries of Easter Island and its incredible moai statues.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="collections.html" class="text-sm font-semibold uppercase tracking-[0.25em] text-amber-300 transition hover:text-amber-200">
-                        Explore Other Exhibition →
-                    </a>
-                    <a href="quiz.html" class="text-sm font-semibold uppercase tracking-[0.25em] text-neutral-200 transition hover:text-white">
-                        Take the Quiz →
-                    </a>
+            <!-- Hamburger (mobile only) -->
+            <div class="flex sm:hidden justify-start min-w-0">
+                <button id="hamburgerBtn" class="flex flex-col justify-center items-center gap-1.5"
+                    aria-label="Toggle menu" aria-expanded="false">
+                    <span id="barTop"
+                        class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+                    <span id="barMid"
+                        class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"></span>
+                    <span id="barBot"
+                        class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+                </button>
+            </div>
+
+            <!-- Center -->
+            <a href="../index.html"
+                class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0"
+                id="brand">
+                <div class="flex flex-col items-center min-w-0">
+                    <span class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap">
+                        CARPE DIEM
+                    </span>
+                    <span class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60">
+                        EST. 2026
+                    </span>
+                </div>
+            </a>
+
+            <!-- Right -->
+            <div class="hidden sm:flex justify-around min-w-0">
+                <div class="relative" id="exploreMenu">
+                    <button id="exploreBtn" class="flex items-center gap-1 cursor-pointer">
+                        Explore
+                        <span id="exploreArrow" class="transition-transform duration-150">▾</span>
+                    </button>
+                    <div id="exploreDropdown"
+                        class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+                        <div class="rounded-xl bg-black/90 mt-4">
+                            <a href="./Pages/museum.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                                <span class="block font-medium">3D Virtual Museum</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">Walk the immersive halls</span>
+                            </a>
+                            <a href="./collections.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors" role="menuitem">
+                                <span class="block font-medium">Collections</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">Browse artifacts by era</span>
+                            </a>
+                            <a href="./passport.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors" role="menuitem">
+                                <span class="block font-medium">My Achievement</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">View your passport & badges</span>
+                            </a>
+                            <a href="./quiz.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
+                                role="menuitem">
+                                <span class="block font-medium">Quiz</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">Test your knowledge</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" id="visitMenu">
+                    <button id="visitBtn" class="flex items-center gap-1 cursor-pointer">
+                        Visit
+                        <span id="visitArrow" class="transition-transform duration-150">▾</span>
+                    </button>
+
+                    <div id="visitDropdown"
+                        class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+                        <div class="rounded-xl bg-black/90 mt-4">
+
+                            <a href="./visit-us.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                                <span class="block font-medium">Visit Us</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">
+                                    Plan your museum visit
+                                </span>
+                            </a>
+
+                            <a href="./tickets.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl">
+                                <span class="block font-medium">Book Tickets</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">
+                                    Reserve your museum admission
+                                </span>
+                            </a>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </nav>
 
-    <!-- History Section -->
-    <section class="history reveal font-instrument-serif">
+        <!-- Mobile dropdown panel -->
+        <div id="mobileMenu"
+            class="sm:hidden overflow-hidden max-h-0 opacity-0 bg-olive-900/95 backdrop-blur-lg transition-all duration-300 ease-in-out">
+            <div class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans">
+                <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
+                <a href="./about.html" class="py-3 border-b border-white/10">About</a>
+                <a href="./Pages/museum.html" class="py-3 border-b border-white/10">3D Virtual Museum</a>
+                <a href="./collections.html" class="py-3 border-b border-white/10">Collections</a>
+                <a href="./passport.html" class="py-3 border-b border-white/10">My Achievement</a>
+                <a href="./quiz.html" class="py-3 border-b border-white/10">Quiz</a>
+                <a href="./visit-us.html" class="py-3 border-b border-white/10"">Visit Us</a>
+          <a href=" ./tickets.html" class="py-3">Book Tickets</a>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section id="intro" class="fixed inset-0 z-[100] h-screen overflow-hidden">
+        <video id="intro-video" class="w-full h-full object-cover" autoplay muted playsinline>
+            <source src="../assets/exhibits/easter/easter-intro.mp4" />
+        </video>
 
-        <div class="image">
-            <img src="" alt="img of easter island">
+        <!-- Fade into title -->
+        <div id="intro-overlay" class="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-[1600ms]">
         </div>
 
-        <div class="text">
-            <h2>About Easter Island</h2>
+        <!-- Title -->
+        <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
+            <h1 id="intro-title"
+                class="translate-y-6 font-inika text-5xl leading-none tracking-tight text-neutral-100 opacity-0 transition-all duration-[1200ms] sm:text-7xl lg:text-[8rem]">
+                Easter Island
+            </h1>
 
-            <p id="short">
-                Easter Island also known as Rapa Nui is an island and special territory of Chile in the southeastern Pacific Ocean, at the southeasternmost point of the Polynesian Triangle in Oceania. The island is renowned for its nearly 1,000 extant monumental statues, called moai, which were created by the early Rapa Nui people.
+            <p id="intro-subtitle"
+                class="mt-5 translate-y-6 font-instrument-sans text-sm font-medium uppercase tracking-[0.4em] text-amber-300 opacity-0 transition-all duration-[1200ms] sm:text-lg">
+                Rapa Nui · 1200–1600 CE
             </p>
 
-            <p id="more">
-                The moai statues are monolithic human figures carved from stone by the Rapa Nui people, on Rapa Nui (Easter Island) in eastern Polynesia between the years 1250 and 1500. The average Moai stands about 13 feet tall . However, the tallest erected Moai, called Paro, is nearly 33 feet tall.
+            <!-- Continue -->
+            <div id="scrollHint"
+                class="absolute bottom-10 flex flex-col items-center gap-2 opacity-0 transition-opacity duration-1000">
+                <span class="font-instrument-sans text-[10px] uppercase tracking-[0.35em] text-neutral-300">
+                    Scroll to Explore
+                </span>
+
+                <span class="text-lg text-amber-300 animate-bounce">
+                    ↓
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibition Hero -->
+    <section class="relative isolate flex min-h-dvh items-center overflow-hidden bg-neutral-950">
+        <!-- Background -->
+        <div class="absolute inset-0 -z-10">
+            <img
+                src="https://thepointsguy.global.ssl.fastly.net/us/originals/2019/02/tpmb_easterisland_raraku1_bb.jpg"
+                alt="Moai statues at Rano Raraku, Easter Island"
+                class="h-full w-full object-cover object-[65%_center] sm:object-center"
+            />
+
+            <!-- Cinematic overlays -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(245,158,11,0.16),transparent_40%)]"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 w-full max-w-7xl px-0 py-6 sm:px-8 sm:py-10 md:px-12 lg:px-16">
+            <div class="max-w-3xl">
+
+                <!-- Exhibition label -->
+                <div class="mb-2 flex items-center gap-2 sm:mb-4 sm:gap-4">
+                    <span class="h-px w-6 bg-amber-400 sm:w-12"></span>
+                    <p class="font-instrument-sans text-[10px] font-semibold uppercase tracking-[0.4em] text-amber-300 sm:text-xs">
+                        Exhibition 04
+                    </p>
+                </div>
+
+                <!-- Location -->
+                <p class="mb-1 font-instrument-sans text-[9px] font-medium uppercase tracking-[0.3em] text-neutral-300 sm:mb-2 sm:text-sm">
+                    Rapa Nui · Polynesia
+                </p>
+
+                <!-- Title -->
+                <h1 class="font-instrument-serif text-3xl font-semibold leading-[0.95] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+                    The Enigma
+                    <span class="block text-neutral-300">of Rapa Nui</span>
+                </h1>
+
+                <!-- Description -->
+                <p class="mt-3 max-w-xl font-instrument-sans text-[12px] leading-relaxed text-neutral-200 sm:mt-5 sm:text-base">
+                    Journey to the remote island of Rapa Nui, where monumental
+                    moai stand as silent witnesses to a civilization shaped by
+                    ambition, ancestry, and the forces of nature.
+                </p>
+
+                <!-- Metadata -->
+                <div class="mt-3 flex flex-wrap gap-x-6 gap-y-1 border-y border-white/10 py-2 sm:mt-5 sm:gap-x-8 sm:gap-y-2 sm:py-3">
+                    <div class="min-w-[100px]">
+                        <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+                            Location
+                        </p>
+                        <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
+                            Easter Island, Chile
+                        </p>
+                    </div>
+
+                    <div class="min-w-[100px]">
+                        <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+                            Era
+                        </p>
+                        <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
+                            c. 1200–1600 CE
+                        </p>
+                    </div>
+
+                    <div class="min-w-[100px]">
+                        <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+                            Collection
+                        </p>
+                        <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
+                            Pacific Civilizations
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="mt-4 flex flex-wrap items-center gap-3 sm:mt-5 sm:gap-6">
+                    <a
+                        href="quiz.html"
+                        class="group inline-flex items-center gap-2 border border-amber-300/60 px-5 py-3 font-instrument-sans text-[8px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-amber-200 transition duration-300 hover:border-amber-200 hover:bg-amber-300 hover:text-black sm:px-6 sm:py-3 sm:text-xs"
+                    >
+                        Test Your Knowledge
+                        <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+
+                    <a
+                        href="collections.html"
+                        class="group inline-flex items-center gap-2 font-instrument-sans text-[8px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-neutral-300 transition hover:text-white sm:text-xs"
+                    >
+                        Other Exhibitions
+                        <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Exhibition marker -->
+        <div class="absolute bottom-4 right-4 hidden text-right sm:bottom-8 sm:right-8 sm:block">
+            <p class="font-instrument-sans text-[10px] uppercase tracking-[0.35em] text-neutral-500">
+                Virtual Museum
+            </p>
+            <p class="mt-1 font-instrument-serif text-base text-neutral-300 sm:text-lg">
+                04 / 04
+            </p>
+        </div>
+
+    </section>
+
+    <section id="hero"
+        class="h-screen relative isolate flex min-h-[90vh] w-full items-center justify-center overflow-hidden bg-stone-900/60 font-instrument-serif">
+        <div class="absolute inset-0">
+            <img src="https://thepointsguy.global.ssl.fastly.net/us/originals/2019/02/tpmb_easterisland_raraku1_bb.jpg"
+                alt="Easter Island" class="h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-linear-to-r from-black via-black/70 to-black/30"></div>
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,113,113,0.24),transparent_35%)]">
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-2xl space-y-6 px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
+            <p class="text-sm font-instrument-sans font-semibold uppercase tracking-[0.35em] text-amber-300">Easter
+                Island</p>
+            <h1
+                class="font-instrument-serif text-4xl font-semibold leading-tight tracking-wide text-white sm:text-5xl lg:text-6xl">
+                The Enigma of Rapa Nui
+            </h1>
+            <p class="max-w-xl text-lg leading-relaxed text-neutral-200 sm:text-xl">
+                Discover the mysteries of Easter Island and its incredible moai statues.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="collections.html"
+                    class="text-sm font-semibold uppercase tracking-[0.25em] text-amber-300 transition hover:text-amber-200">
+                    Explore Other Exhibition →
+                </a>
+                <a href="quiz.html"
+                    class="text-sm font-semibold uppercase tracking-[0.25em] text-neutral-200 transition hover:text-white">
+                    Take the Quiz →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="reveal grid gap-16 px-6 py-24 font-instrument-serif sm:px-8 lg:grid-cols-2 lg:px-12 lg:py-28">
+
+        <div class="overflow-hidden rounded-[2rem] shadow-2xl shadow-black/40">
+            <img src="https://thepointsguy.global.ssl.fastly.net/us/originals/2019/02/tpmb_easterisland_raraku1_bb.jpg"
+                alt="Easter Island landscape"
+                class="h-full w-full object-cover transition duration-500 hover:scale-105">
+        </div>
+
+        <div class="space-y-6">
+            <h2 class="text-3xl font-semibold text-white sm:text-4xl">About Easter Island</h2>
+
+            <p id="short" class="leading-relaxed text-neutral-300">
+                Easter Island also known as Rapa Nui is an island and special territory of Chile in the southeastern
+                Pacific Ocean, at the southeasternmost point of the Polynesian Triangle in Oceania. The island is
+                renowned for its nearly 1,000 extant monumental statues, called moai, which were created by the early
+                Rapa Nui people.
             </p>
 
-            <button id="readBtn">Read More</button>
+            <p id="more" class="hidden leading-relaxed text-neutral-300">
+                The moai statues are monolithic human figures carved from stone by the Rapa Nui people, on Rapa Nui
+                (Easter Island) in eastern Polynesia between the years 1250 and 1500. The average Moai stands about 13
+                feet tall . However, the tallest erected Moai, called Paro, is nearly 33 feet tall.
+            </p>
+
+            <button id="readBtn"
+                class="inline-flex items-center rounded-full bg-amber-600 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition duration-300 hover:-translate-y-1 hover:bg-amber-500">Read
+                More</button>
         </div>
 
     </section>
 
     <!-- Question Cards -->
-    <section class="facts-reveal reveal font-instrument-serif">
+    <section class="reveal px-6 py-24 font-instrument-serif sm:px-8 lg:px-12">
 
-        <h2 class="text-3xl font-bold text-center mb-8">Fun Facts</h2>
+        <h2 class="mb-8 text-center text-3xl font-bold text-white">Fun Facts</h2>
 
-        <div class="cards">
+        <div class="mt-10 grid gap-8 md:grid-cols-3">
 
-            <div class="card">
-                <h3>⚖️</h3>
-                <h4>Weight</h4>
-                <p>Most weigh about 14 tons, with some reaching up to 82 tons.</p>
+            <div
+                class="rounded-[1.5rem] border border-white/10 bg-neutral-900/80 p-8 text-center shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-2 hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
+                <h3 class="mb-3 text-4xl">⚖️</h3>
+                <h4 class="mb-2 text-xl font-semibold text-amber-300">Weight</h4>
+                <p class="leading-relaxed text-neutral-300">Most weigh about 14 tons, with some reaching up to 82 tons.
+                </p>
             </div>
 
-            <div class="card">
-                <h3>🪨</h3>
-                <h4>Material</h4>
-                <p>The moai are carved from volcanic tuff, a compressed volcanic ash, found at Rano Raraku. However, there are 3 moai carved from basalt, 22 from trachyte and 17 from fragile red scoria.</p>
+            <div
+                class="rounded-[1.5rem] border border-white/10 bg-neutral-900/80 p-8 text-center shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-2 hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
+                <h3 class="mb-3 text-4xl">🪨</h3>
+                <h4 class="mb-2 text-xl font-semibold text-amber-300">Material</h4>
+                <p class="leading-relaxed text-neutral-300">The moai are carved from volcanic tuff, a compressed
+                    volcanic ash, found at Rano Raraku. However, there are 3 moai carved from basalt, 22 from trachyte
+                    and 17 from fragile red scoria.</p>
             </div>
 
-            <div class="card">
-                <h3>🗿</h3>
-                <h4>Number of Moai</h4>
-                <p>There are over 900 moai statues on Easter Island.</p>
+            <div
+                class="rounded-[1.5rem] border border-white/10 bg-neutral-900/80 p-8 text-center shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-2 hover:border-amber-400/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
+                <h3 class="mb-3 text-4xl">🗿</h3>
+                <h4 class="mb-2 text-xl font-semibold text-amber-300">Number of Moai</h4>
+                <p class="leading-relaxed text-neutral-300">There are over 900 moai statues on Easter Island.</p>
             </div>
 
         </div>
 
     </section>
 
-<section class="border-2 bg-black/20 border-white/5">
-            <div class="flex justify-center items-center">
-                <h1 class="text-8xl serif text-cyan-200 mt-10"> Issues that easter island is currently facing</h1>
-                <svg class="w-20 h-20 ml-5 mt-10 text-cyan-300 dark:text-cyan-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z" clip-rule="evenodd"/> <path fill-rule="evenodd" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z" clip-rule="evenodd"/> </svg> 
+    <section class="border border-white/10 bg-black/20 px-6 py-24 sm:px-8 lg:px-12">
+        <div class="flex flex-col items-center justify-center gap-4 text-center md:flex-row">
+            <h1 class="mt-10 text-4xl font-semibold text-cyan-200 sm:text-5xl lg:text-6xl">Issues that Easter Island is
+                currently facing</h1>
+            <svg class="w-20 h-20 ml-5 mt-10 text-cyan-300 dark:text-cyan-500" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z"
+                    clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                    d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z"
+                    clip-rule="evenodd" />
+            </svg>
+        </div>
+        <div class="carousel mt-12 flex overflow-x-auto overflow-y-hidden cursor-grab select-none">
+            <div class="carousel-group flex shrink-0 items-center justify-center gap-4 pr-4">
+                <div class="carouselcard">
+                    <h1 class="font-instrument-serif text-cyan-400">Erosion</h1>
+                    <p class="text-xl m-2 text-cyan-100">The volcanic tuff used to carve the Moai is susceptible to
+                        erosion from wind and rain, gradually wearing away the statues' features. </p>
+                    <img src="../assets/exhibits/easter/Erosion.jpg" alt="Effect of erosion on Easter Island"
+                        class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+                </div>
+                <div
+                    class="carouselcard flex h-80 w-72 flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-white/30">
+                    <h1 class="font-instrument-serif text-cyan-400">Tourism Impact</h1>
+                    <p class="text-xl m-2 text-cyan-100">Tourism brings revenure but also poses a threat to the Moai
+                        through physical damage and environmental stress.</p>
+                    <img src="../assets/exhibits/easter/impact.png" alt="Impact of tourism on Easter Island"
+                        class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+                </div>
+                <div class="carouselcard">
+                    <h1 class="font-instrument-serif text-cyan-400">Climate change</h1>
+                    <p class="text-xl m-2 text-cyan-100">Rising sea levels and increased storm activity threaten the
+                        coastal ahu platforms, putting the Moai at risk of damage or collapse.</p>
+                    <img src="../assets/exhibits/easter/climate.webp" alt="Effect of climate change on Easter Island"
+                        class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+                </div>
+                <div class="carouselcard">
+                    <h1 class="font-instrument-serif text-cyan-400">Cultural Sensitivity</h1>
+                    <p class="text-xl m-2 text-cyan-100"> Efforts are being made to balance tourism with respect for the
+                        Rapa Nui culture, ensuring that the Moai remain a symbol of their heritage.</p>
+                    <img src="" alt="Cultural sensitivity on Easter Island"
+                        class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+                </div>
             </div>
-            <div class="carousel">
-                <div class="group">
-                    <div class="carouselcard"> <h1 class="serif text-cyan-400">Erosion</h1>
-                        <p class="text-xl m-2 text-cyan-100">The volcanic tuff used to carve the Moai is susceptible to erosion from wind and rain, gradually wearing away the statues' features. </p>
-                        <img src="../assets/exhibits/easter/Erosion.jpg" alt="Effect of erosion on Easter Island" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+            <div>
+                <div aria-hidden class="carousel-group flex shrink-0 items-center justify-center gap-4 pr-4">
+                    <div
+                        class="carouselcard flex h-80 w-72 flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-white/30">
+                        <h1 class="font-instrument-serif text-cyan-400">Erosion</h1>
+                        <p class="text-xl m-2 text-cyan-100">The volcanic tuff used to carve the Moai is susceptible to
+                            erosion from wind and rain, gradually wearing away the statues' features. </p>
+                        <img src="../assets/exhibits/easter/Erosion.jpg" alt="Effect of erosion on Easter Island"
+                            class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
                     </div>
-                    <div class="carouselcard"> <h1 class="serif text-cyan-400">Tourism Impact</h1>
-                        <p class="text-xl m-2 text-cyan-100">Tourism brings revenure but also poses a threat to the Moai through physical damage and environmental stress.</p>
-                        <img src="../assets/exhibits/easter/impact.png" alt="Impact of tourism on Easter Island" class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+                    <div class="carouselcard">
+                        <h1 class="font-instrument-serif text-cyan-400">Tourism Impact</h1>
+                        <p class="text-xl m-2 text-cyan-100">Tourism brings revenure but also poses a threat to the Moai
+                            through physical damage and environmental stress.</p>
+                        <img src="../assets/exhibits/easter/impact.png" alt="Impact of tourism on Easter Island"
+                            class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
                     </div>
-                    <div class="carouselcard"><h1 class="serif text-cyan-400">Climate change</h1>
-                        <p class="text-xl m-2 text-cyan-100">Rising sea levels and increased storm activity threaten the coastal ahu platforms, putting the Moai at risk of damage or collapse.</p>
-                        <img src="../assets/exhibits/easter/climate.webp" alt="Effect of climate change on Easter Island" class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+                    <div class="carouselcard">
+                        <h1 class="font-instrument-serif text-cyan-400">Climate change</h1>
+                        <p class="text-xl m-2 text-cyan-100"> Rising sea levels and increased storm activity threaten
+                            the coastal ahu platforms, putting the Moai at risk of damage or collapse.</p>
+                        <img src="../assets/exhibits/easter/climate.webp"
+                            alt="Effect of climate change on Easter Island"
+                            class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
                     </div>
-                    <div class="carouselcard"><h1 class="serif text-cyan-400">Cultural Sensitivity</h1>
-                        <p class="text-xl m-2 text-cyan-100"> Efforts are being made to balance tourism with respect for the Rapa Nui culture, ensuring that the Moai remain a symbol of their heritage.</p>
-                        <img src="" alt="Cultural sensitivity on Easter Island" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+                    <div class="carouselcard">
+                        <h1 class="font-instrument-serif text-cyan-400">Cultural Sensitivity</h1>
+                        <p class="text-xl m-2 text-cyan-100"> Efforts are being made to balance tourism with respect for
+                            the Rapa Nui culture, ensuring that the Moai remain a symbol of their heritage.</p>
+                        <img src="" alt="Cultural sensitivity on Easter Island"
+                            class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
                     </div>
                 </div>
-                <div>
-                    <div aria-hidden class="group">
-                        <div class="carouselcard"> <h1 class="serif text-cyan-400">Erosion</h1>
-                        <p class="text-xl m-2 text-cyan-100">The volcanic tuff used to carve the Moai is susceptible to erosion from wind and rain, gradually wearing away the statues' features. </p>
-                        <img src="../assets/exhibits/easter/Erosion.jpg" alt="Effect of erosion on Easter Island" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                    <div class="carouselcard"> <h1 class="serif text-cyan-400">Tourism Impact</h1>
-                        <p class="text-xl m-2 text-cyan-100">Tourism brings revenure but also poses a threat to the Moai through physical damage and environmental stress.</p>
-                        <img src="../assets/exhibits/easter/impact.png" alt="Impact of tourism on Easter Island" class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                    <div class="carouselcard"><h1 class="serif text-cyan-400">Climate change</h1>
-                        <p class="text-xl m-2 text-cyan-100"> Rising sea levels and increased storm activity threaten the coastal ahu platforms, putting the Moai at risk of damage or collapse.</p>
-                        <img src="../assets/exhibits/easter/climate.webp" alt="Effect of climate change on Easter Island" class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                    <div class="carouselcard"><h1 class="serif text-cyan-400">Cultural Sensitivity</h1>
-                        <p class="text-xl m-2 text-cyan-100"> Efforts are being made to balance tourism with respect for the Rapa Nui culture, ensuring that the Moai remain a symbol of their heritage.</p>
-                        <img src="" alt="Cultural sensitivity on Easter Island" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                </div>
             </div>
-        </section>
+    </section>
     <!-- Scroll To Top -->
-    <button id="topBtn">⬆</button>
+    <div id="sideBtnContainer"
+        class="fixed bottom-8 right-8 z-50 flex flex-col gap-4 opacity-0 transition-opacity duration-500 pointer-events-none">
+        <button id="feedbackBtn"
+            class="bg-emerald-600 hover:bg-emerald-700 text-white p-2 sm:p-4 text-sm sm:text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 whitespace-nowrap"
+            aria-label="Send feedback">
+            📝
+        </button>
 
-   
+        <button id="topBtn"
+            class="rounded-full bg-amber-600 p-2 sm:p-4 text-lg sm:text-xl text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-amber-500">
+            ⬆
+        </button>
+    </div>
 </body>
+
 </html>

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap');
 
 @import "tailwindcss";
 @import "./pages/index.css";
@@ -14,6 +15,7 @@
     --font-instrument-sans: "Instrument Sans", sans-serif;
     --font-mono: "Intel One Mono", monospace;
     --font-caesar: "Caesar Dressing", monospace;
+    --font-inika: "Inika", serif;
 }
 
 #hero-canvas {
@@ -48,4 +50,15 @@ html {
   body {
     width: fit-content;
   }
+}
+
+#intro-video {
+    transition: filter 2s ease
+}
+
+.freeze{
+    filter:
+        grayscale(100%)
+        brightness(50%)
+        contrast(1.15);
 }

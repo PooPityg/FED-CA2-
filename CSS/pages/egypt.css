@@ -2,15 +2,4 @@
     & .shadow-black {
         text-shadow: 2px 1px 20px black;
     }
-
-    & #intro-video {
-        transition: filter 2s ease
-    }
-
-    & .freeze{
-        filter:
-            grayscale(100%)
-            brightness(50%)
-            contrast(1.15);
-    }
 }
