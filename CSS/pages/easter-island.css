@@ -6,21 +6,6 @@ color:white;
 }
 
 
-/* Hero */
-
-.hero{
-
-height:100vh;
-
-background:url("https://tse2.mm.bing.net/th/id/OIP.wLNQCyiUYoTIzIUrHvHGOgHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3")
-center/cover;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-}
-
 .overlay{
 
 background:rgba(0,0,0,.65);
