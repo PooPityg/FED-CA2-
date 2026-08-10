@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carpe Diem</title>
+    <link rel="stylesheet" href="./css/output.css">
+    <script src="./script/index.js" defer></script>
+    <script src="./script/main.js" defer></script>
+</head>
+
+<body class="page-index">
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out">
+        <nav id="navInner"
+            class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
+            <!-- Left -->
+            <div class="hidden sm:flex justify-around min-w-0">
+                <a href="./index.html">Home</a>
+                <a href="#about">About</a>
+            </div>
+
+            <!-- Hamburger (mobile only) -->
+            <div class="flex sm:hidden justify-start min-w-0">
+                <button id="hamburgerBtn" class="flex flex-col justify-center items-center gap-1.5"
+                    aria-label="Toggle menu" aria-expanded="false">
+                    <span id="barTop"
+                        class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+                    <span id="barMid"
+                        class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"></span>
+                    <span id="barBot"
+                        class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+                </button>
+            </div>
+
+            <!-- Center -->
+            <a href="./index.html"
+                class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0"
+                id="brand">
+                <div class="flex flex-col items-center min-w-0">
+                    <span class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap">
+                        CARPE DIEM
+                    </span>
+                    <span class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60">
+                        EST. 2026
+                    </span>
+                </div>
+            </a>
+
+            <!-- Right -->
+            <div class="hidden sm:flex justify-around min-w-0">
+                <div class="relative" id="exploreMenu">
+                    <button id="exploreBtn" class="flex items-center gap-1 cursor-pointer">
+                        Explore
+                        <span id="exploreArrow" class="transition-transform duration-150">▾</span>
+                    </button>
+                    <div id="exploreDropdown"
+                        class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+                        <div class="rounded-xl bg-black/90 mt-4">
+                            <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                                <span class="block font-medium">3D Virtual Museum</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">Walk the immersive halls</span>
+                            </a>
+                            <a href="./pages/collections.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors">
+                                <span class="block font-medium">Collections</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">Browse artifacts by era</span>
+                            </a>
+                            <a href="./pages/passport.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors">
+                                <span class="block font-medium">My Achievement</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">View your passport & badges</span>
+                            </a>
+                            <a href="./pages/quiz.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl">
+                                <span class="block font-medium">Quiz</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">Test your knowledge</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" id="visitMenu">
+                    <button id="visitBtn" class="flex items-center gap-1 cursor-pointer">
+                        Visit
+                        <span id="visitArrow" class="transition-transform duration-150">▾</span>
+                    </button>
+
+                    <div id="visitDropdown"
+                        class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+                        <div class="rounded-xl bg-black/90 mt-4">
+
+                            <a href="./pages/visit-us.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                                <span class="block font-medium">Visit Us</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">
+                                    Plan your museum visit
+                                </span>
+                            </a>
+
+                            <a href="./pages/tickets.html"
+                                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl">
+                                <span class="block font-medium">Book Tickets</span>
+                                <span class="block text-xs text-neutral-400 mt-0.5">
+                                    Reserve your museum admission
+                                </span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile dropdown panel -->
+        <div id="mobileMenu"
+            class="sm:hidden pointer-events-none max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+            <div class="flex flex-col px-4  text-neutral-100 font-instrument-sans bg-olive-900/95 backdrop-blur-lg ">
+                <a href="./index.html" class="py-3 border-b border-white/10">Home</a>
+                <a href="./index.html#about" class="py-3 border-b border-white/10">About</a>
+                <a href="./pages/museum.html" class="py-3 border-b border-white/10">3D Virtual Museum</a>
+                <a href="./pages/collections.html" class="py-3 border-b border-white/10">Collections</a>
+                <a href="./pages/passport.html" class="py-3 border-b border-white/10">My Achievement</a>
+                <a href="./pages/quiz.html" class="py-3 border-b border-white/10">Quiz</a>
+                <a href="./pages/visit-us.html" class="py-3 border-b border-white/10">Visit Us</a>
+                <a href=" ./pages/tickets.html" class="py-3">Book Tickets</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="./assets/index/museum-hero.png" class="w-full h-full object-cover" alt="Museum hero">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+
+            <div class="relative z-10 text-white text-center px-3">
+                <p class="text-olive-200 text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 font-medium">Virtual
+                    Interactive Museum</p>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-instrument-serif font-semibold mb-1 leading-tight">
+                    Seize the Day.
+                </h1>
+                <p class="text-neutral-200 text-sm sm:text-base max-w-lg mx-auto mb-6 leading-relaxed">
+                    To put to rout all that was not life; and not, when I had come to die, discover that I had not
+                    lived.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-base sm:text-lg">
+                    <a id="enterMuseumBtn" href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/" class="cursor-pointer font-instrument-serif border-1 
+                            border-olive-900 bg-white/80 text-olive-900 rounded-lg
+                            hover:bg-white transition-all duration-300 hover:-translate-y-0.5 tracking-wide p-2">
+                        Enter the Museum
+                    </a>
+                    <a href="./pages/collections.html"
+                        class="font-instrument-serif rounded-lg border-1 
+                                border-white/40 bg-white/5 text-white
+                                hover:bg-white/10 hover:border-white/60 transition-all duration-300 hover:-translate-y-0.5 tracking-wide p-2">
+                        Browse Collection
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="relative flex flex-col items-center justify-center px-4 md:px-10 lg:px-16 min-h-screen bg-stone-950 py-30">
+            <!-- Section Heading -->
+            <div class="flex justify-center mb-8">
+                <div class="text-center">
+                    <p class="text-yellow-400 text-shadow-2xl text-xs tracking-[0.3em] uppercase mb-3 font-medium">Your
+                        Journey</p>
+                    <h2
+                        class="text-neutral-100 text-3xl sm:text-4xl lg:text-5xl font-semibold font-instrument-serif trakcing-wide mb-3">
+                        Featured Exhibits
+                    </h2>
+                    <p class="text-neutral-200 max-w-xl mx-auto text-sm sm:text-base">
+                        Explore this week's curated collection of artifacts from across ancient civilizations.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exhibit Grid -->
+            <div class="grid grid-cols-1 px-4 sm:px-0 sm:grid-cols-2 md:grid-cols-4 gap-4">
+
+                <!-- Card 1: Ancient Egypt -->
+                <article
+                    class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-olive-700/30 transition-all duration-300">
+                    <div class="aspect-[4/3] bg-neutral-800 relative overflow-hidden">
+                        <a href="./pages/egypt.html" class="block h-full cursor-pointer">
+                            <img src="./assets/index/featured/egypt.avif" alt="Ancient Egypt"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy">
+                        </a>
+                        <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/60 to-transparent">
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-olive-400 text-[10px] tracking-[0.2em] uppercase mb-2">
+                            Region
+                        </p>
+
+                        <h3 class="font-instrument-serif text-xl mb-2 text-neutral-200">
+                            Ancient Egypt
+                        </h3>
+
+                        <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                            Journey through the land of pharaohs and uncover the mysteries of pyramids, temples, and
+                            forgotten tombs.
+                        </p>
+
+                        <a href="./pages/egypt.html"
+                            class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
+                            Enter
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 2: Imperial China -->
+                <article
+                    class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-olive-700/30 transition-all duration-300">
+                    <div class="aspect-[4/3] bg-neutral-800 relative overflow-hidden">
+                        <a href="./pages/warriors.html" class="cursor-pointer">
+                            <img src="./assets/index/featured/china.jpeg" alt="Imperial China"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy">
+                        </a>
+                        <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/60 to-transparent">
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-olive-400 text-[10px] tracking-[0.2em] uppercase mb-2">
+                            Region
+                        </p>
+
+                        <h3 class="font-instrument-serif text-xl mb-2 text-neutral-200">
+                            Imperial China
+                        </h3>
+
+                        <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                            Explore the dynasties of the Middle Kingdom through ancient inventions, porcelain, and
+                            imperial traditions.
+                        </p>
+
+                        <a href="./pages/warriors.html"
+                            class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
+                            Enter
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 3: Native American -->
+                <article
+                    class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-olive-700/30 transition-all duration-300">
+                    <div class="aspect-[4/3] bg-neutral-800 relative overflow-hidden">
+                        <a href="./pages/nativeam.html" class="block h-full cursor-pointer">
+                            <img src="./assets/index/featured/native-american.webp" alt="Native American"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy">
+                        </a>
+                        <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/60 to-transparent">
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-olive-400 text-[10px] tracking-[0.2em] uppercase mb-2">
+                            Region
+                        </p>
+
+                        <h3 class="font-instrument-serif text-xl mb-2 text-neutral-200">
+                            Native American
+                        </h3>
+
+                        <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                            Discover the rich cultures, traditions, and craftsmanship of Indigenous peoples across North
+                            America.
+                        </p>
+
+                        <a href="./pages/nativeam.html"
+                            class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
+                            Enter
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 4: Easter Island -->
+                <article
+                    class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-olive-700/30 transition-all duration-300">
+                    <div class="aspect-[4/3] bg-neutral-800 relative overflow-hidden">
+                        <a href="./pages/easter-island.html" class="block h-full cursor-pointer">
+                            <img src="./assets/index/featured/easter-island.jpg" alt="Easter Island"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy">
+                        </a>
+                        <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/60 to-transparent">
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-olive-400 text-[10px] tracking-[0.2em] uppercase mb-2">
+                            Region
+                        </p>
+
+                        <h3 class="font-instrument-serif text-xl mb-2 text-neutral-200">
+                            Easter Island
+                        </h3>
+
+                        <p class="text-neutral-400 text-sm leading-relaxed mb-4">
+                            Encounter the monumental Moai statues and explore one of history's most enigmatic island
+                            civilizations.
+                        </p>
+
+                        <a href="./pages/easter-island.html"
+                            class="mt-auto inline-flex items-center gap-1 text-sm text-neutral-200 transition-transform duration-150 hover:text-neutral-100">
+                            Enter
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+                <span class="text-white/50 font-bold">↓</span>
+            </div>
+        </section>
+
+        <section class="relative" id="about">    
+            <canvas id="hero-canvas" class="fixed inset-0 w-screen h-screen -z-10"></canvas>
+            <div class="relative px-6 py-20 md:px-10 lg:px-16">
+                <div class="mx-auto max-w-6xl">
+                    <!-- Section Heading -->
+                    <div class="relative mb-12 text-center">
+
+                        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-olive-800 [text-shadow:0_2px_18px_rgba(255,255,255,0.95)]">
+                            Our Institution
+                        </p>
+
+                        <h2 class="mb-4 font-instrument-serif text-4xl font-semibold tracking-wide text-neutral-950 [text-shadow:0_2px_20px_rgba(255,255,255,1)] sm:text-5xl">
+                            Our Purpose
+                        </h2>
+
+                        <p class="mx-auto max-w-2xl text-sm leading-relaxed text-neutral-700 [text-shadow:0_2px_18px_rgba(255,255,255,0.95)] sm:text-base">
+                            Discover what drives our institution and our commitment to
+                            preserving and sharing humanity 
+                        </p>
+                    </div>
+
+                    <!-- Vision & Mission -->
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+                        <!-- Vision -->
+                        <div class="rounded-2xl border border-black/15 bg-neutral-50/90 p-8 shadow-md backdrop-blur-md
+                                    transition duration-300 hover:-translate-y-1 hover:bg-neutral-50/95 hover:shadow-lg">
+
+                            <p class="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-olive-800">
+                                Vision
+                            </p>
+
+                            <h3 class="mb-4 font-instrument-serif text-3xl text-neutral-950">
+                                Inspiring Curiosity
+                            </h3>
+
+                            <p class="text-sm leading-7 text-neutral-700 sm:text-base">
+                                To inspire curiosity and appreciation for humanity's shared
+                                heritage by making history, art, and culture accessible
+                                through meaningful and immersive experiences.
+                            </p>
+                        </div>
+
+                        <!-- Mission -->
+                        <div class="rounded-2xl border border-black/15 bg-neutral-50/90 p-8 shadow-md backdrop-blur-md
+                                transition duration-300 hover:-translate-y-1 hover:bg-neutral-50/95 hover:shadow-lg">
+
+                            <p class="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-olive-800">
+                                Mission
+                            </p>
+
+                            <h3 class="mb-4 font-instrument-serif text-3xl text-neutral-950">
+                                Connecting Past & Present
+                            </h3>
+
+                            <p class="text-sm leading-7 text-neutral-700 sm:text-base">
+                                To preserve, present, and promote cultural heritage through
+                                engaging exhibitions and interactive experiences. We strive
+                                to connect visitors with the stories behind historical
+                                artifacts, encourage exploration and learning, and create a
+                                space where the past can be discovered through both
+                                traditional and modern approaches.
+                            </p>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </section>
+    </main>
+  <footer
+    class="grid grid-cols-1 md:grid-cols-7 gap-6 md:gap-8 p-8 md:p-12 lg:p-16 bg-stone-950 border-t border-white/5">
+    <!-- First div - Larger -->
+    <div class="md:col-span-2 flex flex-col justify-between pb-6 md:pb-0">
+      <div>
+        <h1
+          class="font-instrument-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 tracking-wide text-neutral-100">
+          CARPE DIEM</h1>
+        <p class="text-neutral-200 text-base md:text-lg leading-relaxed">Preserving the past for long term heritage</p>
+      </div>
+    </div>
+
+    <!-- EXPLORE -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        EXPLORE</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./pages/collections.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Collection</a>
+        <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Virtual</a>
+      </nav>
+    </div>
+
+    <!-- PLAN YOUR VISIT -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        PLAN YOUR VISIT</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./pages/visit-us.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Visit
+          Us</a>
+        <a href="./pages/tickets.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Tickets</a>
+      </nav>
+    </div>
+
+    <!-- LEARN & PLAY -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        LEARN & PLAY</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./pages/quiz.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
+          Quiz</a>
+        <a href="./pages/passport.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
+          Passport</a>
+      </nav>
+    </div>
+
+    <!-- EXHIBITIONS -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        EXHIBITIONS</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./pages/nativeam.html"
+          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Native
+          American</a>
+        <a href="./pages/warriors.html"
+          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Terracotta
+          Warriors</a>
+        <a href="./pages/egypt.html"
+          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Egyptian
+          Tomb</a>
+        <a href="./pages/easter-island.html"
+          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Easter
+          Island</a>
+      </nav>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        FEEDBACK</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./feedback.html"
+          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Send
+          Feedback</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
