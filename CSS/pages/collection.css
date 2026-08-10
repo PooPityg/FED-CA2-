@@ -1,236 +1,109 @@
-.page-collection {
-    background: #0a0a0a;
+.page-collection{ 
+  background: #0a0a0a;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+
+  & .page-header h1 {
+    margin: 0;
+    text-align: center;
+  }
+
+  & .page-header p {
+    margin: 4px 0 0;
+    color: #a3a3a3;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  & .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  & .card {
+    background: #1c1c1c;
+    border: 1px solid #2e2e2e;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.15s ease, background 0.15s ease;
+    width: 100%;  
+    min-height: 450px;
+  }
+
+  & .card:hover {
+    background: #242424;
+    transform: translateY(-3px);
+  }
+
+  & .card {
+    cursor: pointer;
+  }
+
+  & .card.zoomed {
+    transform: scale(1.08);
+    background: #242424;
+    border-color: #666;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    position: relative;
+  }
+
+  & .card-img {
+    background: #3a3a3a;
+    height: 160px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 12px;
+    text-transform: uppercase;
+    overflow: hidden;
+  }
+
+  & .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  & .card-title {
+    font-size: 30px;
+    margin: 0;
+  }
+
+  & .card-year {
+    font-size: 20px;
+    color: #a3a3a3;
+    margin: -6px 0 0;
+  }
+
+  & .card-desc {
+    font-size: 16px;
+    color: #a3a3a3;
+    line-height: 1.45;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  & .browse-btn {
+    border: 1px solid #4a4a4a;
     color: #fff;
-    font-family: var(--font-instrument-sans);
+    padding: 7px 0;
+    border-radius: 6px;
+    font-size: 12.5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.15s;
+  }
 
-    & .page-header {
-        margin-bottom: 3rem;
-    }
-
-    & .page-header h1 {
-        margin: 0;
-        text-align: center;
-        font-family: var(--font-instrument-serif);
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-        font-weight: 500;
-        letter-spacing: -0.02em;
-    }
-
-    & .page-header p {
-        max-width: 600px;
-        margin: 0.5rem auto 0;
-        color: #a3a3a3;
-        font-size: clamp(0.75rem, 1.5vw, 0.95rem);
-        line-height: 1.6;
-        text-align: center;
-    }
-
-    /* Collection grid */
-    & .collection-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.5rem;
-    }
-
-    /* Card */
-    & .card {
-        width: 100%;
-        min-width: 0;
-        min-height: 460px;
-
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-
-        padding: 1rem;
-
-        background: #151515;
-        border: 1px solid #292929;
-        border-radius: 12px;
-
-        cursor: pointer;
-
-        transition:
-            transform 0.25s ease,
-            background 0.25s ease,
-            border-color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    & .card:hover {
-        background: #1c1c1c;
-        border-color: #414141;
-        transform: translateY(-5px);
-        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
-    }
-
-    /* Image */
-    & .card-img {
-        width: 100%;
-        height: 190px;
-
-        overflow: hidden;
-        border-radius: 8px;
-
-        background: #292929;
-    }
-
-    & .card-img img {
-        width: 100%;
-        height: 100%;
-
-        display: block;
-
-        object-fit: cover;
-
-        transition: transform 0.5s ease;
-    }
-
-    & .card:hover .card-img img {
-        transform: scale(1.04);
-    }
-
-    /* Title */
-    & .card-title {
-        margin: 0.25rem 0 0;
-
-        font-family: var(--font-instrument-serif);
-        font-size: clamp(1.5rem, 3vw, 2.1rem);
-        font-weight: 500;
-        line-height: 1.05;
-        letter-spacing: -0.01em;
-    }
-
-    /* Year */
-    & .card-year {
-        margin: 0;
-
-        color: #8f8f8f;
-
-        font-family: var(--font-instrument-sans);
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-    }
-
-    /* Description */
-    & .card-desc {
-        flex-grow: 1;
-
-        margin: 0.15rem 0 0;
-
-        color: #a3a3a3;
-
-        font-family: var(--font-instrument-sans);
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    /* Browse button */
-    & .browse-btn {
-        display: block;
-
-        width: 100%;
-        padding: 0.65rem 0;
-
-        border: 1px solid #3a3a3a;
-        border-radius: 6px;
-
-        color: #d4d4d4;
-
-        font-family: var(--font-instrument-sans);
-        font-size: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.18em;
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
-
-        transition:
-            background 0.2s ease,
-            color 0.2s ease,
-            border-color 0.2s ease;
-    }
-
-    & .browse-btn:hover {
-        background: #f5f5f5;
-        border-color: #f5f5f5;
-        color: #111;
-    }
-
-    /* Zoomed card */
-    & .card.zoomed {
-        position: relative;
-        z-index: 5;
-
-        background: #1c1c1c;
-        border-color: #666;
-
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-
-        transform: scale(1.04);
-    }
-
-    /* Tablet */
-    @media (max-width: 700px) {
-        & .collection-grid {
-            gap: 1rem;
-        }
-
-        & .card {
-            min-height: 420px;
-            padding: 0.8rem;
-        }
-
-        & .card-img {
-            height: 150px;
-        }
-
-        & .card-desc {
-            font-size: 0.78rem;
-        }
-    }
-
-    /* Mobile */
-    @media (max-width: 480px) {
-        & .collection-grid {
-            grid-template-columns: 1fr;
-        }
-
-        & .card {
-            min-height: 0;
-        }
-
-        & .card-img {
-            height: 190px;
-        }
-
-        & .card-title {
-            font-size: 1.8rem;
-        }
-    }
-
-    /* Very small screens */
-    @media (max-width: 300px) {
-        & .card {
-            padding: 0.7rem;
-        }
-
-        & .card-img {
-            height: 150px;
-        }
-
-        & .card-title {
-            font-size: 1.5rem;
-        }
-
-        & .card-desc {
-            font-size: 0.75rem;
-        }
-
-        & .browse-btn {
-            font-size: 0.6rem;
-        }
-    }
+  & .browse-btn:hover {
+    background: #fff;
+    color: #111;
+  }
 }
