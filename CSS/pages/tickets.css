@@ -18,6 +18,8 @@ html {
   --font-poppins: "Poppins", sans-serif;
 }
 
+/* Font classes */
+
 .sans {
   font-family: var(--font-sans);
 }
@@ -33,6 +35,8 @@ html {
 .poppins {
   font-family: var(--font-poppins);
 }
+
+/* Input styles */
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1); 
@@ -59,12 +63,3 @@ input:hover {
     border-color: white;
 }
 
-
-.card {
-    transition: all 0.3s ease;
-}
-
-.card:hover {  
-  transform: translateY(-0.2rem); /* -translate-y-2 = -8px, or -0.5rem */
-  box-shadow: 0 50px 50px -12px rgba(250, 249, 249, 0.040); /* shadow-2xl */
-}
