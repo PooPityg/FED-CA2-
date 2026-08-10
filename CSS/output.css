@@ -696,6 +696,9 @@
   .w-\[90\%\] {
     width: 90%;
   }
+  .w-\[92\%\] {
+    width: 92%;
+  }
   .w-\[95\%\] {
     width: 95%;
   }
@@ -752,6 +755,9 @@
   }
   .min-w-\[220px\] {
     min-width: 220px;
+  }
+  .min-w-\[500px\] {
+    min-width: 500px;
   }
   .flex-1 {
     flex: 1;
@@ -933,6 +939,9 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .overflow-x-auto {
+    overflow-x: auto;
   }
   .overflow-x-hidden {
     overflow-x: hidden;
@@ -2456,6 +2465,11 @@
       width: 30%;
     }
   }
+  .sm\:w-\[85\%\] {
+    @media (width >= 40rem) {
+      width: 85%;
+    }
+  }
   .sm\:w-auto {
     @media (width >= 40rem) {
       width: auto;
@@ -2507,6 +2521,11 @@
       gap: calc(var(--spacing) * 6);
     }
   }
+  .sm\:gap-8 {
+    @media (width >= 40rem) {
+      gap: calc(var(--spacing) * 8);
+    }
+  }
   .sm\:space-y-14 {
     @media (width >= 40rem) {
       :where(& > :not(:last-child)) {
@@ -2534,6 +2553,11 @@
   .sm\:object-center {
     @media (width >= 40rem) {
       object-position: center;
+    }
+  }
+  .sm\:p-3 {
+    @media (width >= 40rem) {
+      padding: calc(var(--spacing) * 3);
     }
   }
   .sm\:p-4 {
@@ -2831,6 +2855,11 @@
   .md\:w-\[60\%\] {
     @media (width >= 48rem) {
       width: 60%;
+    }
+  }
+  .md\:w-\[80\%\] {
+    @media (width >= 48rem) {
+      width: 80%;
     }
   }
   .md\:w-\[90\%\] {
@@ -3158,6 +3187,11 @@
       width: 30%;
     }
   }
+  .lg\:w-\[35\%\] {
+    @media (width >= 64rem) {
+      width: 35%;
+    }
+  }
   .lg\:w-\[40\%\] {
     @media (width >= 64rem) {
       width: 40%;
@@ -3236,6 +3270,11 @@
   .lg\:gap-8 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 8);
+    }
+  }
+  .lg\:gap-10 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 10);
     }
   }
   .lg\:p-10 {
