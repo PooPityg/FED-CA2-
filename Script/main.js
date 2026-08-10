@@ -41,9 +41,7 @@ function closeExploreMenu() {
 }
 
 function toggleExploreMenu() {
-    exploreOpened
-        ? closeExploreMenu()
-        : openExploreMenu();
+    exploreOpened ? closeExploreMenu() : openExploreMenu();
 }
 
 
@@ -90,9 +88,7 @@ function closeVisitMenu() {
 }
 
 function toggleVisitMenu() {
-    visitOpened
-        ? closeVisitMenu()
-        : openVisitMenu();
+    visitOpened ? closeVisitMenu() : openVisitMenu();
 }
 
 
@@ -203,12 +199,14 @@ function openMobileMenu() {
 
     mobileMenu.classList.remove(
         "max-h-0",
-        "opacity-0"
+        "opacity-0",
+        "pointer-events-none"
     );
 
     mobileMenu.classList.add(
         "max-h-96",
-        "opacity-100"
+        "opacity-100",
+            "pointer-events-auto"
     );
 
     barTop.classList.add(
@@ -242,12 +240,14 @@ function closeMobileMenu() {
 
     mobileMenu.classList.add(
         "max-h-0",
-        "opacity-0"
+        "opacity-0",
+        "pointer-events-none"
     );
 
     mobileMenu.classList.remove(
         "max-h-96",
-        "opacity-100"
+        "opacity-100",
+        "pointer-events-auto"
     );
 
     barTop.classList.remove(

@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Water+Brush&display=swap');
 
 @import "tailwindcss";
 @import "./pages/index.css";
@@ -16,6 +17,7 @@
     --font-mono: "Intel One Mono", monospace;
     --font-caesar: "Caesar Dressing", monospace;
     --font-inika: "Inika", serif;
+    --font-brush: "Water Brush", cursive;
 }
 
 #hero-canvas {
@@ -46,10 +48,8 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (max-width: 249px) {
-  body {
+body {
     width: fit-content;
-  }
 }
 
 #intro-video {
