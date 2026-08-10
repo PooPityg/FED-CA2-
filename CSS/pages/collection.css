@@ -78,9 +78,10 @@
   }
 
   & .card-year {
-    font-size: 20px;
+    font-size: 16px;
     color: #a3a3a3;
     margin: -6px 0 0;
+    font-family: var(--font-instrument-sans);
   }
 
   & .card-desc {
@@ -89,6 +90,7 @@
     line-height: 1.45;
     margin: 0;
     flex-grow: 1;
+    font-family: var(--font-instrument-sans);
   }
 
   & .browse-btn {
@@ -96,10 +98,11 @@
     color: #fff;
     padding: 7px 0;
     border-radius: 6px;
-    font-size: 12.5px;
+    font-size: 14px;
     text-decoration: none;
     text-align: center;
     transition: background 0.15s;
+    font-family: var(--font-instrument-sans);
   }
 
   & .browse-btn:hover {
