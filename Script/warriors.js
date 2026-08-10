@@ -4,32 +4,26 @@ const nextBtn = document.getElementById('nextBtn')
 
 const gallaryData=[
     [   //Terracotta warriors  
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/stone-linedUp.jpg'},
-        {id:2 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/stone-poseUp.jpg'},
-        {id:3 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/stone-Kneeling.jpg'},
-        {id:4 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/stone-Frontfacing.jpg'},
-        {id:5 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/stone-closeUp.jpg'}
+        {title:'A line of Stone Warriors' , id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/stone-linedUp.jpg'},
+        {title:'A stone warrior in a fighting stance' , id:2 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/stone-poseUp.jpg'},
+        {title:'Stone warrior kneeling' , id:3 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/stone-kneeling.jpg'},
+        {title:'A front shot of a stone warrior' , id:4 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/stone-frontFacing.jpg'},
+        {title:'A front shot of a stone general' , id:5 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/stone-closeUp.jpg'}
     ],
 
     [  //Hourse and Chariots
-        {id:6 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/horse-linedUp'},
-        {id:7 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/horse-frontFacing'},
-        {id:8 ,span:'col-span-2',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/horse-'},
-        {id:9 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/horse-'},
+        {title:'A horse in front a carrage' , id:6 ,span:'col-span-2',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/horse-frontFacing.jpg'},
+        {title:'A line of warriors in front of a line of stone horse' , id:7 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/horse-backedUp.jpg'},
+        {title:'A  horse beind a stone warrior' , id:8 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/horse-rightBehindMe.jpg'},
+        {title:'A row of stone horses' , id:9 ,span:'col-span-3',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/horse-faceLinedup.jpg'},
     ],
     [  //Weapons and armor
-        {id:10 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
-        {id:11 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
-        {id:12 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
-        {id:13 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
-        {id:14 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'}
+        {title:'' , id:10 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/armor-wornFace.jpg'},
+        {title:'' , id:11 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/weapons-tipFacingSword.jpg'},
+        {title:'' , id:12 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/armor-bodySet.jpg'},
+        {title:'' , id:13 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/armor-fullSet.jpg'},
+        {title:'' , id:14 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/armor-shoeSet.jpg'}
     ],
-    [  //Command and Rituals
-        {id:15 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
-        {id:16 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
-        {id:17 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
-        {id:18 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'}
-    ]
 ]
 
 function getRandomEntrance() { //get random x and y value
