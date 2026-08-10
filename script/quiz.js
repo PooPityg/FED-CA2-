@@ -281,9 +281,9 @@ function showEnd() {
     let finalScore = score
     localStorage.setItem(FSCORE_KEY,String(score))
     let line
-    if (score >= 9) line = 'Amazing'
-    else if (score >= 7) line = 'WOW'
-    else if (score >= 4) line = 'Can do better'
+    if (score >= 18) line = 'Amazing'
+    else if (score >= 15) line = 'WOW'
+    else if (score >= 10) line = 'Can do better'
     else line = 'Failure'
     document.getElementById('resultline').textContent = line
 }
@@ -302,5 +302,5 @@ function restartQuiz() {
 
 function returnCollection() {
     saveProgress()
-    window.location.href = './collection.html'
+    window.location.href = './collections.html'
 }
