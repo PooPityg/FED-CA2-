@@ -4,6 +4,8 @@
 <head>
   <link rel="stylesheet" href="../css/pages/nativeam.css">
   <link rel="stylesheet" href="../css/output.css">
+  <script src="../script/stamps.js" defer></script>
+  <script src="../script/side.js" defer></script>
   <script src="../script/main.js" defer></script>
   <script src="../script/nativeam.js" defer></script>
   <script src="../script/cut-scene-loader.js" defer></script>
@@ -311,14 +313,27 @@
       </div>
     </div>
   </section>
- <!-- About Section-->
-        <section class="flex flex-col align-center my-15 border-2 bg-black/20 border-white/5">
-            <h1 class="flex flex-row items-center text-8xl serif mx-auto pl-15 pt-5 text-orange-200"> About The Sun Stone <svg class="w-20 h-20 ml-5 text-orange-400 dark:text-orange-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 14H4m6.5 3L8 20m5.5-3 2.5 3M4.88889 17H19.1111c.4909 0 .8889-.4157.8889-.9286V4.92857C20 4.41574 19.602 4 19.1111 4H4.88889C4.39797 4 4 4.41574 4 4.92857V16.0714c0 .5129.39797.9286.88889.9286ZM13 14v-3h4v3h-4Z"/></svg> </h1>
-            <div class="flex flex-col lg:flex-row items-center">
-                <p class="lg:text-lg p-10 max-w-8xl md:text-3xl leading-relaxed lg:ml-30 xl:text-xl 2xl:text-2xl"> &emsp; The Aztec Sun Stone, also known as the Calendar Stone, is a large stone disc that was discovered in Mexico City in 1790. It is one of the most famous artifacts from the Aztec civilization and is believed to have been created during the Aztec Period from 1502 to 1521. Featuring the face of the Sun God Tonatiuh of the Aztecs at the center of its structure, it represents the five suns, which also symbolise the five eras of the Aztec cosmology. In this system, we would currently be in the fifth era, indicated by its innermost section where the many features at the center would translate to "Four Movements". In this page, we'll explore each of these eras, and see how they fell, as well as how our current era is said to end.</p>
-                <img alt="Aztec Sun Stone Diagram" src="../assets/exhibits/nativeam/aztecsunstone_diagram.jpg" class="zoomimg w-[800px] lg:w-[400px] xl:w-[400px] md:border-4 border-2 border-white/10 border-dashed m-5 pl-0 lg:mr-30">
-            </div>
-        </section>
+  <!-- About Section-->
+  <section class="flex flex-col align-center my-15 border-2 bg-black/20 border-white/5">
+    <h1 class="flex flex-row items-center text-8xl serif mx-auto pl-15 pt-5 text-orange-200"> About The Sun Stone <svg
+        class="w-20 h-20 ml-5 text-orange-400 dark:text-orange-400" aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M20 14H4m6.5 3L8 20m5.5-3 2.5 3M4.88889 17H19.1111c.4909 0 .8889-.4157.8889-.9286V4.92857C20 4.41574 19.602 4 19.1111 4H4.88889C4.39797 4 4 4.41574 4 4.92857V16.0714c0 .5129.39797.9286.88889.9286ZM13 14v-3h4v3h-4Z" />
+      </svg> </h1>
+    <div class="flex flex-col lg:flex-row items-center">
+      <p class="lg:text-lg p-10 max-w-8xl md:text-3xl leading-relaxed lg:ml-30 xl:text-xl 2xl:text-2xl"> &emsp; The
+        Aztec Sun Stone, also known as the Calendar Stone, is a large stone disc that was discovered in Mexico City in
+        1790. It is one of the most famous artifacts from the Aztec civilization and is believed to have been created
+        during the Aztec Period from 1502 to 1521. Featuring the face of the Sun God Tonatiuh of the Aztecs at the
+        center of its structure, it represents the five suns, which also symbolise the five eras of the Aztec cosmology.
+        In this system, we would currently be in the fifth era, indicated by its innermost section where the many
+        features at the center would translate to "Four Movements". In this page, we'll explore each of these eras, and
+        see how they fell, as well as how our current era is said to end.</p>
+      <img src="../assets/exhibits/nativeam/aztecsunstone_diagram.jpg" alt="Aztec Sun Stone Diagram"
+        class="zoomimg w-[800px] lg:w-[400px] xl:w-[400px] md:border-4 border-2 border-white/10 border-dashed m-5 pl-0 lg:mr-30">
+    </div>
+  </section>
   <!--Split Cards Section-->
   <section class="flex flex-col align-center mb-15 border-2 bg-black/20 border-white/5">
     <h1 class="text-8xl serif p-5 pb-2 mx-auto text-orange-200"> The Five Eras </h1>
@@ -390,7 +405,7 @@
   </section>
   <!-- Artifact Gallery  -->
   <footer
-    class="grid grid-cols-1  md:grid-cols-6 gap-6 md:gap-8 p-8 md:p-12 lg:p-16 bg-stone-950 border-t border-white/5">
+    class="grid grid-cols-1 md:grid-cols-7 gap-6 md:gap-8 p-8 md:p-12 lg:p-16 bg-stone-950 border-t border-white/5">
     <!-- First div - Larger -->
     <div class="md:col-span-2 flex flex-col justify-between pb-6 md:pb-0">
       <div>
@@ -408,9 +423,9 @@
         EXPLORE</h1>
       <nav class="flex flex-col gap-3">
         <a href="./collections.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Collection</a>
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Collection</a>
         <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Virtual</a>
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Virtual</a>
       </nav>
     </div>
 
@@ -421,10 +436,10 @@
         PLAN YOUR VISIT</h1>
       <nav class="flex flex-col gap-3">
         <a href="./visit-us.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Visit
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Visit
           Us</a>
         <a href="./tickets.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Tickets</a>
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Tickets</a>
       </nav>
     </div>
 
@@ -435,10 +450,10 @@
         LEARN & PLAY</h1>
       <nav class="flex flex-col gap-3">
         <a href="./quiz.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Museum
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
           Quiz</a>
         <a href="./passport.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Museum
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
           Passport</a>
       </nav>
     </div>
@@ -450,17 +465,29 @@
         EXHIBITIONS</h1>
       <nav class="flex flex-col gap-3">
         <a href="./nativeam.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Native
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Native
           American</a>
         <a href="./warriors.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Terracotta
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Terracotta
           Warriors</a>
         <a href="./egypt.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Egyptian
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Egyptian
           Tomb</a>
         <a href="./easter-island.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Easter
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Easter
           Island</a>
+      </nav>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        FEEDBACK</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./feedback.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Send
+          Feedback</a>
       </nav>
     </div>
   </footer>

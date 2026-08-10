@@ -37,6 +37,24 @@ function updateQuizProgress() {        //builds the quiz progress bar
     }
 }
 
+function calculateOverallProgress() {   //Calculate combined progress from quiz + badges
+    const { progressPercent: quizProgress, isComplete: quizComplete } = getQuizStatus()
+    const collected = getstamp()
+    const badgeProgress = (collected.length / exhibitStamps.length) * 100
+    
+    // Quiz counts as 50%, badges count as 50% (adjust weights as needed)
+    const quizWeight = 0.5
+    const badgeWeight = 0.5
+    
+    // If quiz is complete, use 100%, otherwise use current progress
+    const quizContribution = quizComplete ? 100 * quizWeight : quizProgress * quizWeight
+    const badgeContribution = badgeProgress * badgeWeight
+    
+    const overallPercent = Math.round(quizContribution + badgeContribution)
+    
+    return overallPercent
+}
+
 function render(){     //builds the progress bars and the stamp cards
     const grid = document.getElementById('stamp-grid')
     const text = document.getElementById('stamp-progress')
@@ -45,6 +63,10 @@ function render(){     //builds the progress bars and the stamp cards
     grid.innerHTML = ''
 
     updateQuizProgress()
+    
+    // Calculate and display overall progress
+    const overallPercent = calculateOverallProgress()
+    setOverall(overallPercent)
 
     exhibitStamps.forEach((stamp) => {
         const isCollected = collected.includes(stamp.id)

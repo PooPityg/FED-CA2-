@@ -1,528 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/output.css">
-    <script src="../script/main.js" defer></script>
-    <script src="../script/cut-scene-loader.js" defer></script>
-    <script src="../script/warriors.js" defer></script>
-    <title>Warriors Exhibit</title> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/output.css">
+  <script src="../script/main.js" defer></script>
+  <script src="../script/side.js" defer></script>
+  <script src="../script/stamps.js" defer></script>
+  <script src="../script/cut-scene-loader.js" defer></script>
+  <script src="../script/warriors.js" defer></script>
+  <title>Warriors Exhibit</title>
 </head>
+
 <body class="bg-stone-950 text-neutral-100 w-fit">
-    <header
-      id="navbar"
-      class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
-    >
-      <nav
-        id="navInner"
-        class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30"
-      >
-        <!-- Left -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#about">About</a>
-        </div>
+  <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out">
+    <nav id="navInner"
+      class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
+      <!-- Left -->
+      <div class="hidden sm:flex justify-around min-w-0">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+      </div>
 
-        <!-- Hamburger (mobile only) -->
-        <div class="flex sm:hidden justify-start min-w-0">
-          <button
-            id="hamburgerBtn"
-            class="flex flex-col justify-center items-center gap-1.5"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-          >
-            <span
-              id="barTop"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
-            <span
-              id="barMid"
-              class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"
-            ></span>
-            <span
-              id="barBot"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
+      <!-- Hamburger (mobile only) -->
+      <div class="flex sm:hidden justify-start min-w-0">
+        <button id="hamburgerBtn" class="flex flex-col justify-center items-center gap-1.5" aria-label="Toggle menu"
+          aria-expanded="false">
+          <span id="barTop" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+          <span id="barMid" class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"></span>
+          <span id="barBot" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+        </button>
+      </div>
+
+      <!-- Center -->
+      <a href="../index.html"
+        class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0" id="brand">
+        <div class="flex flex-col items-center min-w-0">
+          <span class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap">
+            CARPE DIEM
+          </span>
+          <span class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60">
+            EST. 2026
+          </span>
+        </div>
+      </a>
+
+      <!-- Right -->
+      <div class="hidden sm:flex justify-around min-w-0">
+        <div class="relative" id="exploreMenu">
+          <button id="exploreBtn" class="flex items-center gap-1 cursor-pointer">
+            Explore
+            <span id="exploreArrow" class="transition-transform duration-150">▾</span>
           </button>
-        </div>
-
-        <!-- Center -->
-        <a
-          href="../index.html"
-          class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0"
-          id="brand"
-        >
-          <div class="flex flex-col items-center min-w-0">
-            <span
-              class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap"
-            >
-              CARPE DIEM
-            </span>
-            <span
-              class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60"
-            >
-              EST. 2026
-            </span>
-          </div>
-        </a>
-
-        <!-- Right -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <div class="relative" id="exploreMenu">
-            <button
-              id="exploreBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Explore
-              <span id="exploreArrow" class="transition-transform duration-150">▾</span>
-            </button>
-            <div
-              id="exploreDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                <a
-                  href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">3D Virtual Museum</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Walk the immersive halls</span
-                  >
-                </a>
-                <a
-                  href="./collections.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                >
-                  <span class="block font-medium">Collections</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Browse artifacts by era</span
-                  >
-                </a>
-                <a
-                  href="./passport.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                >
-                  <span class="block font-medium">My Achievement</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >View your passport & badges</span
-                  >
-                </a>
-                <a
-                  href="./quiz.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                >
-                  <span class="block font-medium">Quiz</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Test your knowledge</span
-                  >
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="relative" id="visitMenu">
-            <button
-              id="visitBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Visit
-              <span id="visitArrow" class="transition-transform duration-150">▾</span>
-            </button>
-
-            <div
-              id="visitDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                
-                <a
-                  href="./visit-us.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">Visit Us</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Plan your museum visit
-                  </span>
-                </a>
-
-                <a
-                  href="./tickets.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                >
-                  <span class="block font-medium">Book Tickets</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Reserve your museum admission
-                  </span>
-                </a>
-
-              </div>
+          <div id="exploreDropdown"
+            class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+            <div class="rounded-xl bg-black/90 mt-4">
+              <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                <span class="block font-medium">3D Virtual Museum</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Walk the immersive halls</span>
+              </a>
+              <a href="./collections.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors">
+                <span class="block font-medium">Collections</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Browse artifacts by era</span>
+              </a>
+              <a href="./passport.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors">
+                <span class="block font-medium">My Achievement</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">View your passport & badges</span>
+              </a>
+              <a href="./quiz.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl">
+                <span class="block font-medium">Quiz</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Test your knowledge</span>
+              </a>
             </div>
           </div>
         </div>
-      </nav>
+        <div class="relative" id="visitMenu">
+          <button id="visitBtn" class="flex items-center gap-1 cursor-pointer">
+            Visit
+            <span id="visitArrow" class="transition-transform duration-150">▾</span>
+          </button>
 
-      <!-- Mobile dropdown panel -->
-      <div
-        id="mobileMenu"
-          class="sm:hidden pointer-events-none max-h-0 opacity-0 transition-all duration-300 ease-in-out">
-        <div
-          class="flex flex-col px-4 text-neutral-100 font-instrument-sans bg-olive-900/95 backdrop-blur-lg"
-        >
-          <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
-          <a href="../index.html#about" class="py-3 border-b border-white/10"
-            >About</a
-          >
-          <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/" class="py-3 border-b border-white/10"
-            >3D Virtual Museum</a
-          >
-          <a
-            href="./collections.html"
-            class="py-3 border-b border-white/10"
-            >Collections</a
-          >
-          <a href="./passport.html" class="py-3 border-b border-white/10"
-            >My Achievement</a
-          >
-          <a href="./quiz.html" class="py-3 border-b border-white/10"
-            >Quiz</a
-          >
-          <a href="./visit-us.html" class="py-3 border-b border-white/10">Visit Us</a>
-          <a href="./tickets.html" class="py-3">Book Tickets</a>
+          <div id="visitDropdown"
+            class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+            <div class="rounded-xl bg-black/90 mt-4">
+
+              <a href="./visit-us.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                <span class="block font-medium">Visit Us</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">
+                  Plan your museum visit
+                </span>
+              </a>
+
+              <a href="./tickets.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl">
+                <span class="block font-medium">Book Tickets</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">
+                  Reserve your museum admission
+                </span>
+              </a>
+
+            </div>
+          </div>
         </div>
       </div>
-    </header>
-    <main>
-        <!-- Intro Section -->
-        <section id="intro" class="fixed inset-0 z-[100] h-screen overflow-hidden">
-            <video id="intro-video" class="w-full h-full object-cover" autoplay muted playsinline>
-                <source src="../assets/exhibits/Terracotta/china-intro.mp4" />
-            </video>
+    </nav>
 
-            <!-- Fade into title -->
-            <div id="intro-overlay" class="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-[1600ms]">
-            </div>
+    <!-- Mobile dropdown panel -->
+    <div id="mobileMenu"
+      class="sm:hidden pointer-events-none max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+      <div class="flex flex-col px-4 text-neutral-100 font-instrument-sans bg-olive-900/95 backdrop-blur-lg">
+        <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
+        <a href="../index.html#about" class="py-3 border-b border-white/10">About</a>
+        <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/" class="py-3 border-b border-white/10">3D
+          Virtual Museum</a>
+        <a href="./collections.html" class="py-3 border-b border-white/10">Collections</a>
+        <a href="./passport.html" class="py-3 border-b border-white/10">My Achievement</a>
+        <a href="./quiz.html" class="py-3 border-b border-white/10">Quiz</a>
+        <a href="./visit-us.html" class="py-3 border-b border-white/10">Visit Us</a>
+        <a href="./tickets.html" class="py-3">Book Tickets</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- Intro Section -->
+    <section id="intro" class="fixed inset-0 z-[100] h-screen overflow-hidden">
+      <video id="intro-video" class="w-full h-full object-cover" autoplay muted playsinline>
+        <source src="../assets/exhibits/Terracotta/china-intro.mp4" />
+      </video>
 
-            <!-- Title -->
-            <div class="pointer-events-none absolute px-3 inset-0 flex flex-col items-center justify-center text-center">
-                <h1 id="intro-title"
-                    class="translate-y-6 font-brush text-5xl leading-none tracking-tight text-neutral-100 opacity-0 transition-all duration-[1200ms] sm:text-7xl lg:text-[8rem]">
-                    Imperial China
-                </h1>
+      <!-- Fade into title -->
+      <div id="intro-overlay" class="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-[1600ms]">
+      </div>
 
-                <p id="intro-subtitle"
-                    class="mt-5 translate-y-6 font-instrument-sans text-sm font-medium uppercase tracking-[0.4em] text-amber-300 opacity-0 transition-all duration-[1200ms] sm:text-lg">
-                    Qin Dynasty · 259-210 BCE
-                </p>
+      <!-- Title -->
+      <div class="pointer-events-none absolute px-3 inset-0 flex flex-col items-center justify-center text-center">
+        <h1 id="intro-title"
+          class="translate-y-6 font-brush text-5xl leading-none tracking-tight text-neutral-100 opacity-0 transition-all duration-[1200ms] sm:text-7xl lg:text-[8rem]">
+          Imperial China
+        </h1>
 
-                <!-- Continue -->
-                <div id="scrollHint"
-                    class="absolute bottom-10 flex flex-col items-center gap-2 opacity-0 transition-opacity duration-1000">
-                    <span class="font-instrument-sans text-[10px] uppercase tracking-[0.35em] text-neutral-300">
-                        Scroll to Explore
-                    </span>
+        <p id="intro-subtitle"
+          class="mt-5 translate-y-6 font-instrument-sans text-sm font-medium uppercase tracking-[0.4em] text-amber-300 opacity-0 transition-all duration-[1200ms] sm:text-lg">
+          Qin Dynasty · 259-210 BCE
+        </p>
 
-                    <span class="text-lg text-amber-300 animate-bounce">
-                        ↓
-                    </span>
-                </div>
-            </div>
-        </section>
-        <!-- Exhibition Hero -->
-        <section id="hero" class="relative isolate flex min-h-dvh items-center overflow-hidden bg-neutral-950">
-            <!-- Background -->
-            <div class="absolute inset-0 -z-10">
-                <img
-                    src="../assets/exhibits/Terracotta/terracotta-army.jpg"
-                    alt="Terracotta Army"
-                    class="h-full w-full object-cover object-[65%_center] sm:object-center"
-                />
+        <!-- Continue -->
+        <div id="scrollHint"
+          class="absolute bottom-10 flex flex-col items-center gap-2 opacity-0 transition-opacity duration-1000">
+          <span class="font-instrument-sans text-[10px] uppercase tracking-[0.35em] text-neutral-300">
+            Scroll to Explore
+          </span>
 
-                <!-- Cinematic overlays -->
-                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+          <span class="text-lg text-amber-300 animate-bounce">
+            ↓
+          </span>
+        </div>
+      </div>
+    </section>
+    <!-- Exhibition Hero -->
+    <section id="hero" class="relative isolate flex min-h-dvh items-center overflow-hidden bg-neutral-950">
+      <!-- Background -->
+      <div class="absolute inset-0 -z-10">
+        <img src="../assets/exhibits/Terracotta/terracotta-army.jpg" alt="Terracotta Army"
+          class="h-full w-full object-cover object-[65%_center] sm:object-center" />
 
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(245,158,11,0.16),transparent_40%)]"></div>
-            </div>
+        <!-- Cinematic overlays -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
 
-            <!-- Content -->
-            <div class="relative z-10 w-full max-w-7xl px-8 py-6 sm:px-8 sm:py-10 md:px-12 lg:px-16">
-                <div class="max-w-3xl">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(245,158,11,0.16),transparent_40%)]">
+        </div>
+      </div>
 
-                    <!-- Exhibition label -->
-                    <div class="mb-2 flex items-center gap-2 sm:mb-4 sm:gap-4">
-                        <span class="h-px w-6 bg-amber-400 sm:w-12"></span>
-                        <p class="font-instrument-sans text-[10px] font-semibold uppercase tracking-[0.4em] text-amber-300 sm:text-xs">
-                            Exhibition 02
-                        </p>
-                    </div>
+      <!-- Content -->
+      <div class="relative z-10 w-full max-w-7xl px-8 py-6 sm:px-8 sm:py-10 md:px-12 lg:px-16">
+        <div class="max-w-3xl">
 
-                    <!-- Location -->
-                    <p class="mb-1 font-instrument-sans text-[9px] font-medium uppercase tracking-[0.3em] text-neutral-300 sm:mb-2 sm:text-sm">
-                      Xi'an · Ancient China
-                    </p>
+          <!-- Exhibition label -->
+          <div class="mb-2 flex items-center gap-2 sm:mb-4 sm:gap-4">
+            <span class="h-px w-6 bg-amber-400 sm:w-12"></span>
+            <p
+              class="font-instrument-sans text-[10px] font-semibold uppercase tracking-[0.4em] text-amber-300 sm:text-xs">
+              Exhibition 02
+            </p>
+          </div>
 
-                    <!-- Title -->
-                    <h1 class="font-instrument-serif text-3xl font-semibold leading-[0.95] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-                        The Army
-                        <span class="text-amber-300"> of Qin</span>
-                    </h1>
-
-                    <!-- Description -->
-                    <p class="mt-3 max-w-xl font-instrument-sans text-[12px] leading-relaxed text-neutral-200 sm:mt-5 sm:text-base">
-                      Enter the underground world of the Terracotta Army, where thousands
-                      of life-sized warriors stand in eternal formation, guarding the
-                      tomb of Qin Shi Huang, China's first emperor.
-                    </p>
-
-                    <!-- Metadata -->
-                    <div class="mt-3 flex flex-wrap gap-x-6 gap-y-1 border-y border-white/10 py-2 sm:mt-5 sm:gap-x-8 sm:gap-y-2 sm:py-3">
-                        <div class="min-w-[100px]">
-                            <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
-                                Location
-                            </p>
-                            <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
-                              Xi'an, China
-                            </p>
-                        </div>
-
-                        <div class="min-w-[100px]">
-                            <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
-                                Era
-                            </p>
-                            <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
-                              c. 210–209 BCE
-                            </p>
-                        </div>
-
-                        <div class="min-w-[100px]">
-                            <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
-                                Collection
-                            </p>
-                            <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
-                                Terracotta Army
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Actions -->
-                    <div class="mt-4 flex flex-wrap items-center gap-3 sm:mt-5 sm:gap-6">
-                        <a
-                            href="quiz.html"
-                            class="group inline-flex items-center gap-2 border border-amber-300/60 px-5 py-3 font-instrument-sans text-[8px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-amber-200 transition duration-300 hover:border-amber-200 hover:bg-amber-300 hover:text-black sm:px-6 sm:py-3 sm:text-xs"
-                        >
-                            Test Your Knowledge
-                            <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                        </a>
-
-                        <a
-                            href="collections.html"
-                            class="group inline-flex items-center gap-2 font-instrument-sans text-[8px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-neutral-300 transition hover:text-white sm:text-xs"
-                        >
-                            Other Exhibitions
-                            <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Exhibition marker -->
-            <div class="absolute bottom-4 right-4 hidden text-right sm:bottom-8 sm:right-8 sm:block">
-                <p class="font-instrument-sans text-[10px] uppercase tracking-[0.35em] text-neutral-500">
-                    Virtual Museum
-                </p>
-                <p class="mt-1 font-instrument-serif text-base text-neutral-300 sm:text-lg">
-                    02 / 04
-                </p>
-            </div>
-
-        </section>  
-
-        <section class="min-h-[90vh] bg-stone-950 flex items-stretch mt-16">
-            <div class="mx-4 flex min-h-full min-h-0 flex-col rounded-xl border border-white/10 bg-stone-900/70 shadow-2xl shadow-black/30 overflow-hidden md:mx-10 lg:mx-14 py-8 md:py-12">
-                <div class="h-36 bg-gradient-to-r from-amber-900/80 via-stone-950 to-emerald-900/70 flex flex-col items-center justify-center gap-3 px-6 text-center">
-                    <h1 class="text-3xl font-instrument-serif font-semibold text-white sm:text-4xl">Pits that were uncovered</h1>
-                    <p class="max-w-3xl text-sm leading-6 text-neutral-300 sm:text-base sm:text-xl">
-                        These pits housed the stone army, stone horses, and living quarters of the Qin emperor's terracotta warriors.
-                    </p>
-                </div>
-                <div class="grid flex-1 gap-6 p-6 md:grid-cols-3">
-                    <article id="pit1" class="exhibit-card p-6 space-y-4">
-                        <div class="overflow-hidden rounded-3xl bg-stone-950 shadow-inner shadow-black/30">
-                            <img src="../assets/exhibits/terracotta/pit-1.jpg" alt="Pit 1 terracotta warriors" class="h-48 w-full object-cover object-center" />
-                        </div>
-                        <h2 class="text-2xl font-instrument-serif font-semibold">Pit 1</h2>
-                        <p class="text-sm leading-6 text-neutral-300">
-                            The largest pit (14,260 square meters). It holds the main battle formation of an estimated 6,000 warriors and horses, featuring parallel corridors with infantry and chariots.
-                        </p>
-                    </article>
-                    <article id="pit2" class="exhibit-card p-6 space-y-4">
-                        <div class="overflow-hidden rounded-3xl bg-stone-950 shadow-inner shadow-black/30">
-                            <img src="../assets/exhibits/terracotta/pit-2.jpg" alt="Pit 2 terracotta warriors" class="h-48 w-full object-cover object-center" />
-                        </div>
-                        <h2 class="text-2xl font-instrument-serif font-semibold">Pit 2</h2>
-                        <p class="text-sm leading-6 text-neutral-300">
-                            A more complex, highly diverse unit covering 6,000 square meters. It contains a mixed force of cavalry, archers/crossbowmen, infantry, and chariots.
-                        </p>
-                    </article>
-                    <article id="pit3" class="exhibit-card p-6 space-y-4">
-                        <div class="overflow-hidden rounded-3xl bg-stone-950 shadow-inner shadow-black/30">
-                            <img src="../assets/exhibits/terracotta/pit-3.jpg" alt="Pit 3 terracotta warriors" class="h-48 w-full object-cover object-center" />
-                        </div>
-                        <h2 class="text-2xl font-instrument-serif font-semibold">Pit 3</h2>
-                        <p class="text-sm leading-6 text-neutral-300">
-                            The smallest command post (520 square meters). It represents the upper military headquarters with high-ranking officers and a single chariot.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="bg-stone-950 py-16">
-            <div class="mx-6 rounded-3xl border border-white/10 bg-stone-900/70 px-6 py-12 shadow-2xl shadow-black/30 md:mx-10 lg:mx-14">
-                <div class="mb-10 text-center">
-                    <p class="text-sm uppercase tracking-[0.35em] text-amber-300 font-semibold">Archaeological Finds</p>
-                    <h2 class="mt-4 text-4xl font-instrument-serif font-semibold text-white">What was discovered across the pits</h2>
-                    <p class="mx-auto mt-3 max-w-3xl text-base leading-7 text-neutral-300 sm:text-lg">
-                        The three Terracotta Army pits revealed a rich record of Qin dynasty military organization, equipment, and burial ritual.
-                    </p>
-                </div>
-                <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-                    <article class="exhibit-card p-6 space-y-4">
-                        <h3 class="text-2xl font-instrument-serif font-semibold">Terracotta Warriors</h3>
-                        <p class="text-sm leading-6 text-neutral-300">
-                            Thousands of handcrafted clay soldiers in rank-formation, each with unique facial features, hairstyles, and uniforms.
-                        </p>
-                    </article>
-                    <article class="exhibit-card p-6 space-y-4">
-                        <h3 class="text-2xl font-instrument-serif font-semibold">Horses & Chariots</h3>
-                        <p class="text-sm leading-6 text-neutral-300">
-                            Life-size horses and war chariots were found in position, showing the army's mobility and battlefield support system.
-                        </p>
-                    </article>
-                    <article class="exhibit-card p-6 space-y-4">
-                        <h3 class="text-2xl font-instrument-serif font-semibold">Weapons & Armor</h3>
-                        <p class="text-sm leading-6 text-neutral-300">
-                            Bronze swords, spears, crossbows, and armor fragments reveal the real equipment used by Qin forces.
-                        </p>
-                    </article>
-                    <article class="exhibit-card p-6 space-y-4">
-                        <h3 class="text-2xl font-instrument-serif font-semibold">Command & Ritual</h3>
-                        <p class="text-sm leading-6 text-neutral-300">
-                            Pit 3’s command post, banners, and carefully arranged figures highlight the emperor’s control over the afterlife army.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="bg-stone-950 py-16">
-            <div class="mx-6 rounded-sm px-6">
-                <div id="gallery" class="grid gap-4 sm:gap-6 md:grid-cols-3"></div>
-               <div class="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                    <p id="galleryNum" class="min-w-10 rounded-full bg-stone-800/80 px-3 py-1 text-center text-sm font-instrument-serif font-semibold text-amber-200">1</p>
-                    <div id="silderbutton" class="flex items-center gap-2">
-                        <button id="backBtn" class="rounded-full border border-white/10 bg-white/5 p-2 text-neutral-100 transition hover:bg-white/10" aria-label="Previous gallery image">
-                            <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                                <path stroke="currentColor" 
-                                        stroke-linecap="round" 
-                                        stroke-linejoin="round" 
-                                        stroke-width="2" 
-                                        d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" 
-                                        class="text-gray-800 dark:text-white">
-                                </path>
-                            </svg>  
-                        </button>
-                        <button id="nextBtn" class="rounded-full border border-white/10 bg-white/5 p-2 text-neutral-100 transition hover:bg-white/10" aria-label="Next gallery image">
-                            <svg class="h-6 w-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-<section class="relative z-10 flex flex-col items-center w-full justify-center px-7 md:px-10 lg:px-16 bg-stone-950 py-20 sm:py-24">
-        <!-- Section Header -->
-        <header class="text-center mb-8 sm:mb-10">
-          <p class="text-amber-300 text-xs tracking-[0.3em] uppercase mb-2 font-medium">
-            Xi'an, China
+          <!-- Location -->
+          <p
+            class="mb-1 font-instrument-sans text-[9px] font-medium uppercase tracking-[0.3em] text-neutral-300 sm:mb-2 sm:text-sm">
+            Xi'an · Ancient China
           </p>
-          <h2 id="terracotta-heading" class="text-neutral-100 text-3xl sm:text-4xl lg:text-5xl font-semibold font-instrument-serif tracking-wide mb-3">
-            The Terracotta Army
-          </h2>
-          <p class="text-neutral-200 max-w-xl mx-auto text-sm sm:text-base">
-            An ancient legion of warriors frozen in clay, guarding an empire for millennia.
+
+          <!-- Title -->
+          <h1
+            class="font-instrument-serif text-3xl font-semibold leading-[0.95] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+            The Army
+            <span class="text-amber-300"> of Qin</span>
+          </h1>
+
+          <!-- Description -->
+          <p
+            class="mt-3 max-w-xl font-instrument-sans text-[12px] leading-relaxed text-neutral-200 sm:mt-5 sm:text-base">
+            Enter the underground world of the Terracotta Army, where thousands
+            of life-sized warriors stand in eternal formation, guarding the
+            tomb of Qin Shi Huang, China's first emperor.
           </p>
-        </header>
 
-        <div class="max-w-6xl mx-auto space-y-10 sm:space-y-14 px-0 sm:px-4 md:px-6">
-          <!-- Article 1 -->
-          <article class="text-neutral-100">
-            <h3 class="font-instrument-serif text-3xl text-center sm:text-4xl sm:text-left mb-5">
-              The Discovery of the Terracotta Army
-            </h3>
-
-            <figure class="w-[50vw] min-w-[220px] sm:w-56 md:w-64     mx-auto sm:mx-0 sm:float-left sm:mr-6 mb-4">
-              <img src="../assets/exhibits/Terracotta/rows-stoneWarriors.jpg" alt="Rows of terracotta warriors standing in formation in the burial pit" class="w-full aspect-[4/5] object-cover rounded-xl">
-            </figure>
-
-            <div class="font-instrument-sans leading-8 text-neutral-300 space-y-4">
-              <p>
-                In <time datetime="1974-03">March 1974</time>, local farmers digging a well near Xi'an, China stumbled upon fragments of pottery that would lead to one of the most remarkable archaeological discoveries of the modern era. What they had found were the remains of the
-                <span class="text-yellow-400">
-                  Terracotta Army, an ancient legion of life-sized warriors
-                </span>
-                created over 2,000 years ago. The discovery revealed thousands of intricately crafted clay soldiers, horses, and chariots that had been
-                <span class="text-yellow-400">
-                  buried to protect China's First Emperor in the afterlife
-                </span>.
+          <!-- Metadata -->
+          <div
+            class="mt-3 flex flex-wrap gap-x-6 gap-y-1 border-y border-white/10 py-2 sm:mt-5 sm:gap-x-8 sm:gap-y-2 sm:py-3">
+            <div class="min-w-[100px]">
+              <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+                Location
               </p>
-
-              <p>
-                These extraordinary artifacts were commissioned by Qin Shi Huang, the First Emperor of unified China, during the 3rd century BCE. The
-                <span class="text-yellow-400">
-                  Terracotta Army consists of thousands of life-sized figures
-                </span>
-                arranged in military formation, each warrior individually crafted with unique facial features, armor, and expressions. The level of detail and craftsmanship demonstrated by these ancient artisans provides an unparalleled window into the military organization, technology, and artistic achievements of ancient China.
+              <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
+                Xi'an, China
               </p>
             </div>
 
-            <div class="clear-both"></div>
+            <div class="min-w-[100px]">
+              <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+                Era
+              </p>
+              <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
+                c. 210–209 BCE
+              </p>
+            </div>
+
+            <div class="min-w-[100px]">
+              <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+                Collection
+              </p>
+              <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
+                Terracotta Army
+              </p>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="mt-4 flex flex-wrap items-center gap-3 sm:mt-5 sm:gap-6">
+            <a href="quiz.html"
+              class="group inline-flex items-center gap-2 border border-amber-300/60 px-5 py-3 font-instrument-sans text-[8px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-amber-200 transition duration-300 hover:border-amber-200 hover:bg-amber-300 hover:text-black sm:px-6 sm:py-3 sm:text-xs">
+              Test Your Knowledge
+              <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
+
+            <a href="collections.html"
+              class="group inline-flex items-center gap-2 font-instrument-sans text-[8px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-neutral-300 transition hover:text-white sm:text-xs">
+              Other Exhibitions
+              <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Exhibition marker -->
+      <div class="absolute bottom-4 right-4 hidden text-right sm:bottom-8 sm:right-8 sm:block">
+        <p class="font-instrument-sans text-[10px] uppercase tracking-[0.35em] text-neutral-500">
+          Virtual Museum
+        </p>
+        <p class="mt-1 font-instrument-serif text-base text-neutral-300 sm:text-lg">
+          02 / 04
+        </p>
+      </div>
+
+    </section>
+
+    <section class="min-h-[90vh] bg-stone-950 flex items-stretch mt-16">
+      <div
+        class="mx-4 flex min-h-full min-h-0 flex-col rounded-xl border border-white/10 bg-stone-900/70 shadow-2xl shadow-black/30 overflow-hidden md:mx-10 lg:mx-14 py-8 md:py-12">
+        <div
+          class="h-36 bg-gradient-to-r from-amber-900/80 via-stone-950 to-emerald-900/70 flex flex-col items-center justify-center gap-3 px-6 text-center">
+          <h1 class="text-3xl font-instrument-serif font-semibold text-white sm:text-4xl">Pits that were uncovered</h1>
+          <p class="max-w-3xl text-sm leading-6 text-neutral-300 sm:text-base sm:text-xl">
+            These pits housed the stone army, stone horses, and living quarters of the Qin emperor's terracotta
+            warriors.
+          </p>
+        </div>
+        <div class="grid flex-1 gap-6 p-6 md:grid-cols-3">
+          <article id="pit1" class="exhibit-card p-6 space-y-4">
+            <div class="overflow-hidden rounded-3xl bg-stone-950 shadow-inner shadow-black/30">
+              <img src="../assets/exhibits/terracotta/pit-1.jpg" alt="Pit 1 terracotta warriors"
+                class="h-48 w-full object-cover object-center" />
+            </div>
+            <h2 class="text-2xl font-instrument-serif font-semibold">Pit 1</h2>
+            <p class="text-sm leading-6 text-neutral-300">
+              The largest pit (14,260 square meters). It holds the main battle formation of an estimated 6,000 warriors
+              and horses, featuring parallel corridors with infantry and chariots.
+            </p>
           </article>
-
-          <!-- Article 2 -->
-          <article class="text-neutral-100">
-            <h3 class="font-instrument-serif text-3xl text-center sm:text-4xl sm:text-right mb-5">
-              Creation and Historical Significance
-            </h3>
-
-            <figure class="w-[50vw] min-w-[220px] sm:w-56 md:w-64 mx-auto sm:mx-0 sm:float-right sm:ml-6 mb-4">
-              <img src="../assets/exhibits/Terracotta/stone-fullBody.jpg" alt="Terracotta warriors in full armor and formation within the excavation site" class="w-full aspect-[4/5] object-cover rounded-xl" loading="lazy" width="256" height="320" decoding="async">
-            </figure>
-
-            <div class="font-instrument-sans leading-8 text-neutral-300 space-y-4">
-              <p>
-                The Terracotta Army was constructed under the reign of Qin Shi Huang (259-210 BCE), the visionary ruler who
-                <span class="text-yellow-400">
-                  unified China for the first time in history
-                </span>. Approximately 700,000 workers labored for nearly four decades to create this monumental underground army. The project reflected the emperor's belief that he would need protection and military might in the afterlife, a concept deeply rooted in ancient Chinese philosophy and burial practices.
-              </p>
-
-              <p>
-                Each terracotta warrior was meticulously crafted from local clay, with
-                <span class="text-yellow-400">
-                  individualized faces, hairstyles, and armor designs
-                </span>
-                that reflected the diverse ranks and roles within an actual army. The soldiers were arranged in three large pits discovered near Xi'an, positioned as if ready for battle. Beyond the warriors, the complex also included terracotta horses, chariots, officials, musicians, and acrobats—a complete microcosm of the imperial court and military force. This UNESCO World Heritage Site stands as a testament to the organizational prowess, artistic sophistication, and ambition of the Qin Dynasty, forever preserving the vision of one of history's greatest emperors.
-              </p>
+          <article id="pit2" class="exhibit-card p-6 space-y-4">
+            <div class="overflow-hidden rounded-3xl bg-stone-950 shadow-inner shadow-black/30">
+              <img src="../assets/exhibits/terracotta/pit-2.jpg" alt="Pit 2 terracotta warriors"
+                class="h-48 w-full object-cover object-center" />
             </div>
-            <div class="clear-both"></div>
+            <h2 class="text-2xl font-instrument-serif font-semibold">Pit 2</h2>
+            <p class="text-sm leading-6 text-neutral-300">
+              A more complex, highly diverse unit covering 6,000 square meters. It contains a mixed force of cavalry,
+              archers/crossbowmen, infantry, and chariots.
+            </p>
+          </article>
+          <article id="pit3" class="exhibit-card p-6 space-y-4">
+            <div class="overflow-hidden rounded-3xl bg-stone-950 shadow-inner shadow-black/30">
+              <img src="../assets/exhibits/terracotta/pit-3.jpg" alt="Pit 3 terracotta warriors"
+                class="h-48 w-full object-cover object-center" />
+            </div>
+            <h2 class="text-2xl font-instrument-serif font-semibold">Pit 3</h2>
+            <p class="text-sm leading-6 text-neutral-300">
+              The smallest command post (520 square meters). It represents the upper military headquarters with
+              high-ranking officers and a single chariot.
+            </p>
           </article>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+    <section class="bg-stone-950 py-16">
+      <div
+        class="mx-6 rounded-3xl border border-white/10 bg-stone-900/70 px-6 py-12 shadow-2xl shadow-black/30 md:mx-10 lg:mx-14">
+        <div class="mb-10 text-center">
+          <p class="text-sm uppercase tracking-[0.35em] text-amber-300 font-semibold">Archaeological Finds</p>
+          <h2 class="mt-4 text-4xl font-instrument-serif font-semibold text-white">What was discovered across the pits
+          </h2>
+          <p class="mx-auto mt-3 max-w-3xl text-base leading-7 text-neutral-300 sm:text-lg">
+            The three Terracotta Army pits revealed a rich record of Qin dynasty military organization, equipment, and
+            burial ritual.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article class="exhibit-card p-6 space-y-4">
+            <h3 class="text-2xl font-instrument-serif font-semibold">Terracotta Warriors</h3>
+            <p class="text-sm leading-6 text-neutral-300">
+              Thousands of handcrafted clay soldiers in rank-formation, each with unique facial features, hairstyles,
+              and uniforms.
+            </p>
+          </article>
+          <article class="exhibit-card p-6 space-y-4">
+            <h3 class="text-2xl font-instrument-serif font-semibold">Horses & Chariots</h3>
+            <p class="text-sm leading-6 text-neutral-300">
+              Life-size horses and war chariots were found in position, showing the army's mobility and battlefield
+              support system.
+            </p>
+          </article>
+          <article class="exhibit-card p-6 space-y-4">
+            <h3 class="text-2xl font-instrument-serif font-semibold">Weapons & Armor</h3>
+            <p class="text-sm leading-6 text-neutral-300">
+              Bronze swords, spears, crossbows, and armor fragments reveal the real equipment used by Qin forces.
+            </p>
+          </article>
+          <article class="exhibit-card p-6 space-y-4">
+            <h3 class="text-2xl font-instrument-serif font-semibold">Command & Ritual</h3>
+            <p class="text-sm leading-6 text-neutral-300">
+              Pit 3’s command post, banners, and carefully arranged figures highlight the emperor’s control over the
+              afterlife army.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="bg-stone-950 py-16">
+      <div class="mx-6 rounded-sm px-6">
+        <div id="gallery" class="grid gap-4 sm:gap-6 md:grid-cols-3"></div>
+        <div class="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <p id="galleryNum"
+            class="min-w-10 rounded-full bg-stone-800/80 px-3 py-1 text-center text-sm font-instrument-serif font-semibold text-amber-200">
+            1</p>
+          <div id="silderbutton" class="flex items-center gap-2">
+            <button id="backBtn"
+              class="rounded-full border border-white/10 bg-white/5 p-2 text-neutral-100 transition hover:bg-white/10"
+              aria-label="Previous gallery image">
+              <svg class="h-6 w-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13" class="text-gray-800 dark:text-white">
+                </path>
+              </svg>
+            </button>
+            <button id="nextBtn"
+              class="rounded-full border border-white/10 bg-white/5 p-2 text-neutral-100 transition hover:bg-white/10"
+              aria-label="Next gallery image">
+              <svg class="h-6 w-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 8 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="relative z-10 flex flex-col items-center w-full justify-center px-7 md:px-10 lg:px-16 bg-stone-950 py-20 sm:py-24">
+      <!-- Section Header -->
+      <header class="text-center mb-8 sm:mb-10">
+        <p class="text-amber-300 text-xs tracking-[0.3em] uppercase mb-2 font-medium">
+          Xi'an, China
+        </p>
+        <h2 id="terracotta-heading"
+          class="text-neutral-100 text-3xl sm:text-4xl lg:text-5xl font-semibold font-instrument-serif tracking-wide mb-3">
+          The Terracotta Army
+        </h2>
+        <p class="text-neutral-200 max-w-xl mx-auto text-sm sm:text-base">
+          An ancient legion of warriors frozen in clay, guarding an empire for millennia.
+        </p>
+      </header>
+
+      <div class="max-w-6xl mx-auto space-y-10 sm:space-y-14 px-0 sm:px-4 md:px-6">
+        <!-- Article 1 -->
+        <article class="text-neutral-100">
+          <h3 class="font-instrument-serif text-3xl text-center sm:text-4xl sm:text-left mb-5">
+            The Discovery of the Terracotta Army
+          </h3>
+
+          <figure class="w-[50vw] min-w-[220px] sm:w-56 md:w-64     mx-auto sm:mx-0 sm:float-left sm:mr-6 mb-4">
+            <img src="../assets/exhibits/Terracotta/rows-stoneWarriors.jpg"
+              alt="Rows of terracotta warriors standing in formation in the burial pit"
+              class="w-full aspect-[4/5] object-cover rounded-xl">
+          </figure>
+
+          <div class="font-instrument-sans leading-8 text-neutral-300 space-y-4">
+            <p>
+              In <time datetime="1974-03">March 1974</time>, local farmers digging a well near Xi'an, China stumbled
+              upon fragments of pottery that would lead to one of the most remarkable archaeological discoveries of the
+              modern era. What they had found were the remains of the
+              <span class="text-yellow-400">
+                Terracotta Army, an ancient legion of life-sized warriors
+              </span>
+              created over 2,000 years ago. The discovery revealed thousands of intricately crafted clay soldiers,
+              horses, and chariots that had been
+              <span class="text-yellow-400">
+                buried to protect China's First Emperor in the afterlife
+              </span>.
+            </p>
+
+            <p>
+              These extraordinary artifacts were commissioned by Qin Shi Huang, the First Emperor of unified China,
+              during the 3rd century BCE. The
+              <span class="text-yellow-400">
+                Terracotta Army consists of thousands of life-sized figures
+              </span>
+              arranged in military formation, each warrior individually crafted with unique facial features, armor, and
+              expressions. The level of detail and craftsmanship demonstrated by these ancient artisans provides an
+              unparalleled window into the military organization, technology, and artistic achievements of ancient
+              China.
+            </p>
+          </div>
+
+          <div class="clear-both"></div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="text-neutral-100">
+          <h3 class="font-instrument-serif text-3xl text-center sm:text-4xl sm:text-right mb-5">
+            Creation and Historical Significance
+          </h3>
+
+          <figure class="w-[50vw] min-w-[220px] sm:w-56 md:w-64 mx-auto sm:mx-0 sm:float-right sm:ml-6 mb-4">
+            <img src="../assets/exhibits/Terracotta/stone-fullBody.jpg"
+              alt="Terracotta warriors in full armor and formation within the excavation site"
+              class="w-full aspect-[4/5] object-cover rounded-xl" loading="lazy" width="256" height="320"
+              decoding="async">
+          </figure>
+
+          <div class="font-instrument-sans leading-8 text-neutral-300 space-y-4">
+            <p>
+              The Terracotta Army was constructed under the reign of Qin Shi Huang (259-210 BCE), the visionary ruler
+              who
+              <span class="text-yellow-400">
+                unified China for the first time in history
+              </span>. Approximately 700,000 workers labored for nearly four decades to create this monumental
+              underground army. The project reflected the emperor's belief that he would need protection and military
+              might in the afterlife, a concept deeply rooted in ancient Chinese philosophy and burial practices.
+            </p>
+
+            <p>
+              Each terracotta warrior was meticulously crafted from local clay, with
+              <span class="text-yellow-400">
+                individualized faces, hairstyles, and armor designs
+              </span>
+              that reflected the diverse ranks and roles within an actual army. The soldiers were arranged in three
+              large pits discovered near Xi'an, positioned as if ready for battle. Beyond the warriors, the complex also
+              included terracotta horses, chariots, officials, musicians, and acrobats—a complete microcosm of the
+              imperial court and military force. This UNESCO World Heritage Site stands as a testament to the
+              organizational prowess, artistic sophistication, and ambition of the Qin Dynasty, forever preserving the
+              vision of one of history's greatest emperors.
+            </p>
+          </div>
+          <div class="clear-both"></div>
+        </article>
+      </div>
+    </section>
+    <!-- Collection Section -->
+    <section id="collection" class="min-h-[50vh] sm:min-h-[55vh] lg:min-h-[60vh]
+           bg-stone-950 flex items-center justify-center
+           px-5 sm:px-8 md:px-12 lg:px-16 py-16 sm:py-20 lg:py-24">
+
+      <div class="w-full max-w-3xl text-center">
+
+        <!-- Heading -->
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                   font-instrument-serif font-semibold text-white
+                   leading-tight mb-4 sm:mb-6">
+          Collect your stamp here
+        </h2>
+
+        <!-- Description -->
+        <p class="text-sm sm:text-base md:text-lg
+                   font-instrument-sans
+                   leading-6 sm:leading-7
+                   text-neutral-300
+                   max-w-xl sm:max-w-2xl
+                   mx-auto mb-6 sm:mb-8">
+          Collect the stamp to mark your journey through history. Each stamp represents an exhibit you have explored and
+          brings you one step closer to completing your museum collection.
+        </p>
+
+        <!-- Button -->
+        <button data-stamp="chinese" id="collectBtn" onclick="collectstamp('chinese')" class="inline-flex items-center justify-center
+                   w-full sm:w-auto
+                   px-7 sm:px-8 py-3
+                   text-sm sm:text-base
+                   font-instrument-sans font-semibold
+                   rounded-lg
+                   bg-amber-600 text-white
+                   hover:bg-amber-700
+                   active:bg-amber-800
+                   transition-colors duration-200">
+          Collect stamp
+        </button>
+
+      </div>
+    </section>
+    <div id="sideBtnContainer"
+      class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col gap-4 opacity-0 transition-opacity duration-500 pointer-events-none">
+      <button id="feedbackBtn"
+        class="bg-emerald-600 hover:bg-emerald-700 text-white p-2 sm:p-4 text-sm sm:text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 whitespace-nowrap"
+        aria-label="Send feedback">
+        📝
+      </button>
+
+      <button id="topBtn"
+        class="rounded-full bg-amber-600 p-2 sm:p-4 text-lg sm:text-xl text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-amber-500">
+        ⬆
+      </button>
+    </div>
+  </main>
   <footer
-    class="grid grid-cols-1  md:grid-cols-6 gap-6 md:gap-8 p-8 md:p-12 lg:p-16 bg-stone-950 border-t border-white/5">
+    class="grid grid-cols-1 md:grid-cols-7 gap-6 md:gap-8 p-8 md:p-12 lg:p-16 bg-stone-950 border-t border-white/5">
     <!-- First div - Larger -->
     <div class="md:col-span-2 flex flex-col justify-between pb-6 md:pb-0">
       <div>
@@ -540,9 +565,9 @@
         EXPLORE</h1>
       <nav class="flex flex-col gap-3">
         <a href="./collections.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Collection</a>
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Collection</a>
         <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Virtual</a>
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Virtual</a>
       </nav>
     </div>
 
@@ -553,10 +578,10 @@
         PLAN YOUR VISIT</h1>
       <nav class="flex flex-col gap-3">
         <a href="./visit-us.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Visit
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Visit
           Us</a>
         <a href="./tickets.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Tickets</a>
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Tickets</a>
       </nav>
     </div>
 
@@ -567,10 +592,10 @@
         LEARN & PLAY</h1>
       <nav class="flex flex-col gap-3">
         <a href="./quiz.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Museum
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
           Quiz</a>
         <a href="./passport.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Museum
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
           Passport</a>
       </nav>
     </div>
@@ -582,19 +607,32 @@
         EXHIBITIONS</h1>
       <nav class="flex flex-col gap-3">
         <a href="./nativeam.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Native
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Native
           American</a>
         <a href="./warriors.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Terracotta
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Terracotta
           Warriors</a>
         <a href="./egypt.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Egyptian
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Egyptian
           Tomb</a>
         <a href="./easter-island.html"
-          class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Easter
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Easter
           Island</a>
+      </nav>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        FEEDBACK</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./feedback.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Send
+          Feedback</a>
       </nav>
     </div>
   </footer>
 </body>
+
 </html>
