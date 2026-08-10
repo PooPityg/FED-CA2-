@@ -387,3 +387,22 @@ window.addEventListener("scroll", () => {
 });
 
 
+// Protect all Virtual Museum links from mobile access
+function protectVirtualMuseumLinks() {
+  // Find ALL links containing "Carpe-Diem-Virtual-Museum"
+  const virtualLinks = document.querySelectorAll('a[href*="Carpe-Diem-Virtual-Museum"]');
+  
+  virtualLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const isMobile = window.innerWidth < 640;
+      
+      if (isMobile) {
+        e.preventDefault();
+        alert('The Virtual Museum does not support mobile devices. Please access it from a desktop or tablet.');
+      }
+    });
+  });
+}
+
+// Call when DOM is ready
+document.addEventListener('DOMContentLoaded', protectVirtualMuseumLinks);
