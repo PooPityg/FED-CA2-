@@ -1,342 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../CSS/pages/nativeam.css">
-        <link rel="stylesheet" href="../CSS/output.css">
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <script src="../Script/main.js" defer></script>
-        <script src="../Script/nativeam.js" defer></script>
-        <title>CARPE DIEM: Artifact Exhibition</title>
-    </head>
-    <body class="flex flex-col bg-linear-to-br from-gray-900 to-black text-white overflow-x-hidden background-no-repeat bg-cover bg-center">
-    <header
-      id="navbar"
-      class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
-    >
-      <nav
-        id="navInner"
-        class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30"
-      >
-        <!-- Left -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#about">About</a>
-        </div>
 
-        <!-- Hamburger (mobile only) -->
-        <div class="flex sm:hidden justify-start min-w-0">
-          <button
-            id="hamburgerBtn"
-            class="flex flex-col justify-center items-center gap-1.5"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-          >
-            <span
-              id="barTop"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
-            <span
-              id="barMid"
-              class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"
-            ></span>
-            <span
-              id="barBot"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/pages/nativeam.css">
+  <link rel="stylesheet" href="../CSS/output.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="../Script/main.js" defer></script>
+  <script src="../Script/nativeam.js" defer></script>
+  <script src="../Script/cut-scene-loader.js" defer></script>
+  <title>CARPE DIEM: Artifact Exhibition</title>
+</head>
+
+<body
+  class="flex flex-col bg-linear-to-br from-gray-900 to-black text-white overflow-x-hidden background-no-repeat bg-cover bg-center">
+  <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out">
+    <nav id="navInner"
+      class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
+      <!-- Left -->
+      <div class="hidden sm:flex justify-around min-w-0">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+      </div>
+
+      <!-- Hamburger (mobile only) -->
+      <div class="flex sm:hidden justify-start min-w-0">
+        <button id="hamburgerBtn" class="flex flex-col justify-center items-center gap-1.5" aria-label="Toggle menu"
+          aria-expanded="false">
+          <span id="barTop" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+          <span id="barMid" class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"></span>
+          <span id="barBot" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+        </button>
+      </div>
+
+      <!-- Center -->
+      <a href="../index.html"
+        class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0" id="brand">
+        <div class="flex flex-col items-center min-w-0">
+          <span class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap">
+            CARPE DIEM
+          </span>
+          <span class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60">
+            EST. 2026
+          </span>
+        </div>
+      </a>
+
+      <!-- Right -->
+      <div class="hidden sm:flex justify-around min-w-0">
+        <div class="relative" id="exploreMenu">
+          <button id="exploreBtn" class="flex items-center gap-1 cursor-pointer">
+            Explore
+            <span id="exploreArrow" class="transition-transform duration-150">▾</span>
           </button>
-        </div>
-
-        <!-- Center -->
-        <a
-          href="../index.html"
-          class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0"
-          id="brand"
-        >
-          <div class="flex flex-col items-center min-w-0">
-            <span
-              class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap"
-            >
-              CARPE DIEM
-            </span>
-            <span
-              class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60"
-            >
-              EST. 2026
-            </span>
-          </div>
-        </a>
-
-        <!-- Right -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <div class="relative" id="exploreMenu">
-            <button
-              id="exploreBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Explore
-              <span id="exploreArrow" class="transition-transform duration-150">▾</span>
-            </button>
-            <div
-              id="exploreDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                <a
-                  href="./Pages/museum.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">3D Virtual Museum</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Walk the immersive halls</span
-                  >
-                </a>
-                <a
-                  href="./collections.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                >
-                  <span class="block font-medium">Collections</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Browse artifacts by era</span
-                  >
-                </a>
-                <a
-                  href="./passport.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                >
-                  <span class="block font-medium">My Achievement</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >View your passport & badges</span
-                  >
-                </a>
-                <a
-                  href="./quiz.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                >
-                  <span class="block font-medium">Quiz</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Test your knowledge</span
-                  >
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="relative" id="visitMenu">
-            <button
-              id="visitBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Visit
-              <span id="visitArrow" class="transition-transform duration-150">▾</span>
-            </button>
-
-            <div
-              id="visitDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                
-                <a
-                  href="./visit-us.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">Visit Us</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Plan your museum visit
-                  </span>
-                </a>
-
-                <a
-                  href="./tickets.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                >
-                  <span class="block font-medium">Book Tickets</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Reserve your museum admission
-                  </span>
-                </a>
-
-              </div>
+          <div id="exploreDropdown"
+            class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+            <div class="rounded-xl bg-black/90 mt-4">
+              <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                <span class="block font-medium">3D Virtual Museum</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Walk the immersive halls</span>
+              </a>
+              <a href="./collections.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors">
+                <span class="block font-medium">Collections</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Browse artifacts by era</span>
+              </a>
+              <a href="./passport.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors">
+                <span class="block font-medium">My Achievement</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">View your passport & badges</span>
+              </a>
+              <a href="./quiz.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl">
+                <span class="block font-medium">Quiz</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Test your knowledge</span>
+              </a>
             </div>
           </div>
         </div>
-      </nav>
+        <div class="relative" id="visitMenu">
+          <button id="visitBtn" class="flex items-center gap-1 cursor-pointer">
+            Visit
+            <span id="visitArrow" class="transition-transform duration-150">▾</span>
+          </button>
 
-      <!-- Mobile dropdown panel -->
-      <div
-        id="mobileMenu"
-        class="sm:hidden overflow-hidden max-h-0 opacity-0 bg-olive-900/95 backdrop-blur-lg transition-all duration-300 ease-in-out"
-      >
-        <div
-          class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans"
-        >
-          <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
-          <a href="./about.html" class="py-3 border-b border-white/10"
-            >About</a
-          >
-          <a href="./Pages/museum.html" class="py-3 border-b border-white/10"
-            >3D Virtual Museum</a
-          >
-          <a
-            href="./collections.html"
-            class="py-3 border-b border-white/10"
-            >Collections</a
-          >
-          <a href="./passport.html" class="py-3 border-b border-white/10"
-            >My Achievement</a
-          >
-          <a href="./quiz.html" class="py-3 border-b border-white/10"
-            >Quiz</a
-          >
-          <a href="./visit-us.html" class="py-3 border-b border-white/10">Visit Us</a>
-          <a href="./tickets.html" class="py-3">Book Tickets</a>
+          <div id="visitDropdown"
+            class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+            <div class="rounded-xl bg-black/90 mt-4">
+
+              <a href="./visit-us.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                <span class="block font-medium">Visit Us</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">
+                  Plan your museum visit
+                </span>
+              </a>
+
+              <a href="./tickets.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl">
+                <span class="block font-medium">Book Tickets</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">
+                  Reserve your museum admission
+                </span>
+              </a>
+
+            </div>
+          </div>
         </div>
       </div>
-    </header>
-    <!-- Hero section -->
-    <section class="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end text-center px-4 sm:px-6 pb-16 sm:pb-24 gap-4 sm:gap-6">    
-        <img class="absolute inset-0 w-full h- pt-20 object-cover md:h-full" id="herobanner" src="https://image.jimcdn.com/app/cms/image/transf/none/path/s2217cd0bb1220415/image/i3e16325c88b18aa9/version/1741251105/mayan-pyramid-of-chich%C3%A9n-itz%C3%A1-in-mexico-bathed-in-the-warm-hues-of-a-sunset-the-stone-structure-stands-tall-with-its-steep-steps-leading-to-a-small-temple-at-the-top.jpg" alt="Hero Banner">
-        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-black/10"></div>
-        <div class="relative z-10 my-auto pt-40 flex flex-col items-center gap-4 sm:gap-6">
-            <img class="w-[80%] w-8xl lg:w-8xl md:w-8xl" src="https://see.fontimg.com/api/rf5/rv0V8/OGRkNTM2ZmE3OWE1NDk5YWJlNTliM2ZjNzE5N2FlYjYudHRm/TmF0aXZlIEFtZXJpY2E/origin-tech.png?r=fs&h=114&w=1750&fg=F6A10C&bg=F9F9F9&tb=1&s=65" alt="Native American Heritage">
-            <p class="serif text-3xl md:text-7xl lg:text-5xl text-yellow-100">1500 AD.</p>
-            <p class="w-lg md:w-2xl lg:w-4xl text-2xl md:text-3xl lg:text-2xl leading-relaxed text-neutral-200">
-            Carved over 500 years ago, the Aztec Sun Stone remains one of history's greatest mysteries. Is it just a calendar, or does its meaning hide something much more sinister that the Aztecs knew,
-            <strong>but we didn't?</strong>
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="collection.html" class="text-xs sm:text-4xl lg:text-xl font-semibold uppercase text-amber-300 transition hover:text-amber-500">
-                Explore Others →
-                </a>
-                <a href="quiz.html" class="text-xs sm:text-4xl lg:text-xl font-semibold uppercase text-neutral-200 transition hover:text-white/50">
-                Take the Quiz →
-                </a>
-            </div>
-        </div>
-    </section>  
-        <hr class="w-[90%] items-center mx-auto border-1 border-white/20 rounded-lg m-10">
+    </nav>
 
-    <!-- Header section -->
-        <section class="flex md:flex-col lg:flex-row justify-center items-center md:items-start gap-8 md:gap-20 my-2 py-10 px-6 border-2 bg-black/20 border-white/5">
-    <img src="../assets/nativeam/sunstone.jpg" alt="Picture of the Aztec Sun Stone" class="zoomimg w-full lg:w-130 lg:h-130 h-auto md:h-200 md:w-200 md:border-4 md:mx-auto rounded-xl border-dashed shadow-lg border-3 border-white/10">
-    <div class="w-full">
-        <p class="serif text-2xl md:text-5xl lg:text-3xl text-orange-400 md:text-center lg:text-left">"Eternal Sun's Stone of Time"</p>
-        <h1 class="text-5xl md:text-8xl lg:text-8xl lg:text-left text-center serif text-orange-100">AZTEC SUN STONE</h1>
-        <div>
-            <div class="stat m-2 my-8 border-2 rounded-xl border-white/20 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
-                <h2 class="text-2xl md:text-5xl md:p-6 lg:text-4xl p-4 serif flex flex-row items-center"> <svg class="w-12 h-12 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"> <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/> </svg>
-                <strong>&nbsp;Discovery: </strong> &nbsp;1790, Mexico City. </h2>
-            </div>
-            <div class="stat m-2 my-8 border-2 rounded-xl border-white/20 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
-                <h2 class="text-2xl md:text-5xl md:p-6 lg:text-4xl p-4 serif flex flex-row items-center"> <svg class="w-12 h-12 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"> <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/> </svg>
-                <strong>Origin: </strong> &nbsp;Aztec Period: 1502-1521.</h2>
-            </div>
-            <div class="stat m-2 my-8 border-2 rounded-xl border-white/20 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
-                <h2 class="text-2xl md:text-5xl md:p-6 lg:text-4xl p-4 serif flex flex-row items-center"> <svg class="w-12 h-12 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"> <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4H4m0 0v4m0-4 5 5m7-5h4m0 0v4m0-4-5 5M8 20H4m0 0v-4m0 4 5-5m7 5h4m0 0v-4m0 4-5-5"/> </svg>
-                <strong>Dimensions: </strong> &nbsp; 358 x 98 cm </h2>
-            </div>
-        </div>
+    <!-- Mobile dropdown panel -->
+    <div id="mobileMenu"
+      class="sm:hidden pointer-events-none max-h-0 opacity-0 transition-all duration-300 ease-in-out">
+      <div class="flex flex-col px-4 text-neutral-100 font-instrument-sans bg-olive-900/95 backdrop-blur-lg">
+        <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
+        <a href="../index.html#about" class="py-3 border-b border-white/10">About</a>
+        <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/" class="py-3 border-b border-white/10">3D
+          Virtual Museum</a>
+        <a href="./collections.html" class="py-3 border-b border-white/10">Collections</a>
+        <a href="./passport.html" class="py-3 border-b border-white/10">My Achievement</a>
+        <a href="./quiz.html" class="py-3 border-b border-white/10">Quiz</a>
+        <a href="./visit-us.html" class="py-3 border-b border-white/10">Visit Us</a>
+        <a href="./tickets.html" class="py-3">Book Tickets</a>
+      </div>
     </div>
-</section>
-    <!-- About Section-->
-        <section class="flex flex-col align-center my-15 border-2 bg-black/20 border-white/5">
-            <h1 class="flex flex-row items-center text-8xl serif mx-auto pl-15 pt-5 text-orange-200"> About The Sun Stone <svg class="w-20 h-20 ml-5 text-orange-400 dark:text-orange-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 14H4m6.5 3L8 20m5.5-3 2.5 3M4.88889 17H19.1111c.4909 0 .8889-.4157.8889-.9286V4.92857C20 4.41574 19.602 4 19.1111 4H4.88889C4.39797 4 4 4.41574 4 4.92857V16.0714c0 .5129.39797.9286.88889.9286ZM13 14v-3h4v3h-4Z"/></svg> </h1>
-            <div class="flex flex-col lg:flex-row items-center">
-                <p class="lg:text-lg p-10 max-w-8xl md:text-3xl leading-relaxed "> &emsp; The Aztec Sun Stone, also known as the Calendar Stone, is a large stone disc that was discovered in Mexico City in 1790. It is one of the most famous artifacts from the Aztec civilization and is believed to have been created during the Aztec Period from 1502 to 1521. Featuring the face of the Sun God Tonatiuh of the Aztecs at the center of its structure, it represents the five suns, which also symbolise the five eras of the Aztec cosmology. In this system, we would currently be in the fifth era, indicated by its innermost section where the many features at the center would translate to "Four Movements". In this page, we'll explore each of these eras, and see how they fell, as well as how our current era is said to end.</p>
-                <img src="../assets/nativeam/aztec_sunspic.png" class="zoomimg lg:w-[450px] lg:h-[200px] md:w-[800px] md:w-[000px] md:border-4 border-2 border-white/10 border-dashed p-2 m-5">
-            </div>
-        </section>
-    <!--Split Cards Section-->
-        <section class="flex flex-col align-center mb-15 border-2 bg-black/20 border-white/5">
-            <h1 class="text-8xl serif p-5 pb-2 mx-auto text-orange-200"> The Five Eras </h1>
-            <h2 class="lg:text-md md:text-2xl font-semibold uppercase mx-auto text-orange-400"> Hover over each tab to explore the times long gone...</h2>
-            <div class="flex flex-col items-center">
-                <div class="buttoncontainer">
-                    <button class="button md:text-2xl lg:text-sm">JAGUAR</button>
-                    <button class="button md:text-2xl lg:text-sm">WIND</button>
-                    <button class="button md:text-2xl lg:text-sm">FIRE-RAIN</button>
-                    <button class="button md:text-2xl lg:text-sm">WATER</button>
-                    <button class="button md:text-2xl lg:text-sm underline">MOVEMENT</button>
-                </div>
-                <div class="flex justify-center">
-                    <div class="my-5 lg:w-[820px] lg:min-h-[350px] md:w-[900px] md:min-h-[450px] relative border-2 border-white/20 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
-                        <div class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
-                            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 " src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Tepeyollotl_1.jpg/250px-Tepeyollotl_1.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail">
-                            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Nahui-Ocelotl" Jaguar:</strong> In the first world, a heated clash between two gods, Tezcatlipoca and Quetzalcoatl, disrupted the cosmos. After a strike from the sky by Quetzalcoatl, Tezcatlipoca became enraged, transforming himself into a mighty jaguar and summoning countless smaller ones. These jaguars would then go on to hunt down every living being, bringing the First Era to an end. </p>
-                        </div>
-                        <div class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
-                            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZdLpOTI7QFFjsbbarpIgZXx2YyIStoCdVw&s">
-                            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Quetzalcoatl" Wind:</strong> After the First Era ended, Quetzalcoatl took over as ruler of the world and restored humanity. However, Tezcatlipoca seeked revenge and summoned devastating hurricanes and winds that tore apart forests, mountains and cities. While most people died, those who survived turned into monkeys, marking the end of the Second Era. </p>
-                        </div>
-                        <div class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
-                            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrU2Hxgji1EztmQQAOZuQ80MuaocJqjWFS0w&s">
-                            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Quiahuitl" Fire Rain:</strong> The Third Era was associated with Tlaloc, the Aztec god of rain and fertility. At first, the Earth prospered, but a vengeful Tezcatlipoca returned again and took away Tlaloc's wife. Tlaloc stopped sending rain down to earth, and unleashed his anger with fiery rocks and volcanic ash raining down from the heavens, putting an end to the world once more. </p>
-                        </div>
-                        <div class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
-                            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjbX53mtxq5T6EzvXShmugoMmJ2Sjaoi_yDw&s">
-                            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Atl" Water:</strong> Following the Third Era, the Fourth Era was ruled by Chalchiuhtlicue, the goddess of rivers, lakes and oceans. Her once peaceful reign was disrupted by Tezcatlipoca accusing her of pretending to care for humanity just for praise. Chalchiuhtlicue was deeply hurt by this and cried endlessly, her tears flooding the entire planet. Humans transformed into fish as this era ended.</p>
-                        </div>
-                        <div class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
-                            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDraj5zLoir0nXPYiPvBmhh-XobncMyl8DbQ&s">
-                            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Ollin" Movement:</strong> We arrive at the Fifth Era, which is the present that is represented by Sun God Tonatiuh. After the previous worlds ended, the gods gathered to create a new sun. At first, the sun was motionless, and many gods had to sacrifice themselves to give it the power to move. The Aztecs believed this era would end in catastrophic earthquakes before starting a new era and restarting the cycle.  </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> 
-    <!-- Artifact Gallery -->
-        <section class="border-2 bg-black/20 border-white/5">
-            <div class="flex justify-center items-center">
-                <h1 class="text-8xl serif text-orange-200 mt-10"> Artifact Gallery</h1>
-                <svg class="w-20 h-20 ml-5 mt-10 text-orange-300 dark:text-orange-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z" clip-rule="evenodd"/> <path fill-rule="evenodd" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z" clip-rule="evenodd"/> </svg> 
-            </div>
-            <div class="carousel">
-                <div class="group">
-                    <div class="carouselcard"> <h1 class="serif text-orange-400">Where is it now?</h1>
-                        <p class="text-xl m-2 text-orange-100"> A picture of the display of the Sun Stone at the Aztec Hall of the National Museum of Anthropology in Mexico City.</p>
-                        <img src="../assets/nativeam/sunstoneenclosure.png" alt="Picture of the Aztec Sun Stone Enclosure" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                    <div class="carouselcard"> <h1 class="serif text-orange-400">Size</h1>
-                        <p class="text-xl m-2 text-orange-100"> An old picture of a few people beneath the Sun Stone, showcasing its size.</p>
-                        <img src="../assets/nativeam/sunstone_old.jpg" alt="Old picture of the Aztec Sun Stone" class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                    <div class="carouselcard"><h1 class="serif text-orange-400">Where it was found</h1>
-                        <p class="text-xl m-2 text-orange-100"> The Zocalo in Mexico City, where the Sun Stone was found buried in 1790.</p>
-                        <img src="https://media.cntraveler.com/photos/5a92f25dc6516a534a5304e9/4:3/w_748%2Cc_limit/Metropolitan-Cathedral_GettyImages-115006326.jpg" alt="Picture of the location where the Sun Stone was found" class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                    <div class="carouselcard"><h1 class="serif text-orange-400">Original Appearance</h1>
-                        <p class="text-xl m-2 text-orange-100"> A replica of the original appearance of the Sun Stone before it was discovered, with its original colors and details.</p>
-                        <img src="../assets/nativeam/sunstone_replica.jpg" alt="Replica of the original Aztec Sun Stone" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                </div>
-                <div>
-                    <div aria-hidden class="group">
-                        <div class="carouselcard"> <h1 class="serif text-orange-400">Where is it now?</h1>
-                        <p class="text-xl m-2 text-orange-100"> A picture of the display of the Sun Stone at the Aztec Hall of the National Museum of Anthropology in Mexico City.</p>
-                        <img src="../assets/nativeam/sunstoneenclosure.png" alt="Picture of the Aztec Sun Stone Enclosure" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                    <div class="carouselcard"> <h1 class="serif text-orange-400">Size</h1>
-                        <p class="text-xl m-2 text-orange-100"> An old picture of a few people beneath the Sun Stone, showcasing its size.</p>
-                        <img src="../assets/nativeam/sunstone_old.jpg" alt="Old picture of the Aztec Sun Stone" class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                    <div class="carouselcard"><h1 class="serif text-orange-400">Where it was found</h1>
-                        <p class="text-xl m-2 text-orange-100"> The Zocalo in Mexico City, where the Sun Stone was found buried in 1790.</p>
-                        <img src="https://media.cntraveler.com/photos/5a92f25dc6516a534a5304e9/4:3/w_748%2Cc_limit/Metropolitan-Cathedral_GettyImages-115006326.jpg" alt="Picture of the location where the Sun Stone was found" class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                    <div class="carouselcard"><h1 class="serif text-orange-400">Original Appearance</h1>
-                        <p class="text-xl m-2 text-orange-100"> A replica of the original appearance of the Sun Stone before it was discovered, with its original colors and details.</p>
-                        <img src="../assets/nativeam/sunstone_replica.jpg" alt="Replica of the original Aztec Sun Stone" class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
-                    </div>
-                </div>
+  </header>
+  <!-- Hero section -->
+  <section id="intro" class="fixed inset-0 z-[100] h-screen overflow-hidden">
+    <video id="intro-video" class="w-full h-full object-cover" autoplay muted playsinline>
+      <source src="../assets/exhibits/nativeam/native-america-intro.mp4" />
+    </video>
 
-            </div>
-        </section>
+    <!-- Fade into title -->
+    <div id="intro-overlay" class="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-[1600ms]">
+    </div>
 
-        <hr class="w-[90%] items-center mx-auto border-1 border-white/20 rounded-lg m-10">
+    <!-- Title -->
+    <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
+      <h1 id="intro-title"
+        class="translate-y-6 font-caesar text-5xl leading-none tracking-tight text-neutral-100 opacity-0 transition-all duration-[1200ms] sm:text-7xl lg:text-[8rem]">
+        Native America
+      </h1>
+
+      <p id="intro-subtitle"
+        class="mt-5 translate-y-6 font-instrument-sans text-sm font-medium uppercase tracking-[0.4em] text-amber-300 opacity-0 transition-all duration-[1200ms] sm:text-lg">
+        Aztec · 1502-1521 BCE
+      </p>
+
+      <!-- Continue -->
+      <div id="scrollHint"
+        class="absolute bottom-10 flex flex-col items-center gap-2 opacity-0 transition-opacity duration-1000">
+        <span class="font-instrument-sans text-[10px] uppercase tracking-[0.35em] text-neutral-300">
+          Scroll to Explore
+        </span>
+
+        <span class="text-lg text-amber-300 animate-bounce">
+          ↓
+        </span>
+      </div>
+    </div>
+  </section>
+  <!-- Exhibition Hero -->
+  <section id="hero" class="relative isolate flex min-h-dvh items-center overflow-hidden bg-neutral-950">
+    <!-- Background -->
+    <div class="absolute inset-0 -z-10">
+      <img src="../assets/exhibits/nativeam/native-hero.jpg" alt="Mayan Pyramid"
+        class="h-full w-full object-cover object-[65%_center] sm:object-center" />
+
+      <!-- Cinematic overlays -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(245,158,11,0.16),transparent_40%)]"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 w-full max-w-7xl px-8 py-6 sm:px-8 sm:py-10 md:px-12 lg:px-16">
+      <div class="max-w-3xl">
+
+        <!-- Exhibition label -->
+        <div class="mb-2 flex items-center gap-2 sm:mb-4 sm:gap-4">
+          <span class="h-px w-6 bg-amber-400 sm:w-12"></span>
+          <p
+            class="font-instrument-sans text-[10px] font-semibold uppercase tracking-[0.4em] text-amber-300 sm:text-xs">
+            Exhibition 03
+          </p>
+        </div>
+
+        <!-- Location -->
+        <p
+          class="mb-1 font-instrument-sans text-[9px] font-medium uppercase tracking-[0.3em] text-neutral-300 sm:mb-2 sm:text-sm">
+          Tenochtitlan · Aztec Empire
+        </p>
+
+        <!-- Title -->
+        <h1
+          class="font-instrument-serif text-3xl font-semibold leading-[0.95] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+          The
+          <span class="text-amber-300">Aztec </span>
+          Sun Stone
+        </h1>
+
+        <!-- Description -->
+        <p class="mt-3 max-w-xl font-instrument-sans text-[12px] leading-relaxed text-neutral-200 sm:mt-5 sm:text-base">
+          Discover the Aztec Sun Stone, a monumental carving that reveals
+          the Mexica understanding of time, creation, and the cosmos.
+          At its center lies the sun deity, surrounded by symbols representing the cycles of existence and
+          the legendary Five Suns.
+        </p>
+
+        <!-- Metadata -->
+        <div
+          class="mt-3 flex flex-wrap gap-x-6 gap-y-1 border-y border-white/10 py-2 sm:mt-5 sm:gap-x-8 sm:gap-y-2 sm:py-3">
+          <div class="min-w-[100px]">
+            <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+              Location
+            </p>
+            <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
+              Tenochtitlan, Aztec Empire
+            </p>
+          </div>
+
+          <div class="min-w-[100px]">
+            <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+              Era
+            </p>
+            <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
+              c. 1502-1521 CE
+            </p>
+          </div>
+
+          <div class="min-w-[100px]">
+            <p class="font-instrument-sans text-[10px] uppercase tracking-[0.3em] text-neutral-500">
+              Collection
+            </p>
+            <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
+              Native America
+            </p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="mt-4 flex flex-wrap items-center gap-3 sm:mt-5 sm:gap-6">
+          <a href="quiz.html"
+            class="group inline-flex items-center gap-2 border border-amber-300/60 px-5 py-3 font-instrument-sans text-[8px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-amber-200 transition duration-300 hover:border-amber-200 hover:bg-amber-300 hover:text-black sm:px-6 sm:py-3 sm:text-xs">
+            Test Your Knowledge
+            <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+
+          <a href="collections.html"
+            class="group inline-flex items-center gap-2 font-instrument-sans text-[8px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-neutral-300 transition hover:text-white sm:text-xs">
+            Other Exhibitions
+            <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Exhibition marker -->
+    <div class="absolute bottom-4 right-4 hidden text-right sm:bottom-8 sm:right-8 sm:block">
+      <p class="font-instrument-sans text-[10px] uppercase tracking-[0.35em] text-neutral-500">
+        Virtual Museum
+      </p>
+      <p class="mt-1 font-instrument-serif text-base text-neutral-300 sm:text-lg">
+        03 / 04
+      </p>
+    </div>
+
+  </section>
+  <!-- Header section -->
+  <section
+    class="flex md:flex-col lg:flex-row justify-center items-center md:items-start gap-8 md:gap-20 my-2 py-10 px-6 border-2 bg-black/20 border-white/5">
+    <img src="../assets/exhibits/nativeam/sunstone.jpg" alt="Picture of the Aztec Sun Stone"
+      class="zoomimg w-full lg:w-130 lg:h-130 h-auto md:h-200 md:w-200 md:border-4 md:mx-auto rounded-xl border-dashed shadow-lg border-3 border-white/10">
+    <div class="w-full">
+      <p class="serif text-2xl md:text-5xl lg:text-3xl text-orange-400 md:text-center lg:text-left">"Eternal Sun's Stone
+        of Time"</p>
+      <h1 class="text-5xl md:text-8xl lg:text-8xl lg:text-left text-center serif text-orange-100">AZTEC SUN STONE</h1>
+      <div>
+        <div
+          class="stat m-2 my-8 border-2 rounded-xl border-white/20 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
+          <h2 class="text-2xl md:text-5xl md:p-6 lg:text-4xl p-4 serif flex flex-row items-center"> <svg
+              class="w-12 h-12 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+            </svg>
+            <strong>&nbsp;Discovery: </strong> &nbsp;1790, Mexico City.
+          </h2>
+        </div>
+        <div
+          class="stat m-2 my-8 border-2 rounded-xl border-white/20 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
+          <h2 class="text-2xl md:text-5xl md:p-6 lg:text-4xl p-4 serif flex flex-row items-center"> <svg
+              class="w-12 h-12 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <strong>Origin: </strong> &nbsp;Aztec Period: 1502-1521.
+          </h2>
+        </div>
+        <div
+          class="stat m-2 my-8 border-2 rounded-xl border-white/20 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
+          <h2 class="text-2xl md:text-5xl md:p-6 lg:text-4xl p-4 serif flex flex-row items-center"> <svg
+              class="w-12 h-12 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 4H4m0 0v4m0-4 5 5m7-5h4m0 0v4m0-4-5 5M8 20H4m0 0v-4m0 4 5-5m7 5h4m0 0v-4m0 4-5-5" />
+            </svg>
+            <strong>Dimensions: </strong> &nbsp; 358 x 98 cm
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About Section-->
+  <section class="flex flex-col align-center my-15 border-2 bg-black/20 border-white/5">
+    <h1 class="flex flex-row items-center text-8xl serif mx-auto pl-15 pt-5 text-orange-200"> About The Sun Stone <svg
+        class="w-20 h-20 ml-5 text-orange-400 dark:text-orange-400" aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M20 14H4m6.5 3L8 20m5.5-3 2.5 3M4.88889 17H19.1111c.4909 0 .8889-.4157.8889-.9286V4.92857C20 4.41574 19.602 4 19.1111 4H4.88889C4.39797 4 4 4.41574 4 4.92857V16.0714c0 .5129.39797.9286.88889.9286ZM13 14v-3h4v3h-4Z" />
+      </svg> </h1>
+    <div class="flex flex-col lg:flex-row items-center">
+      <p class="lg:text-lg p-10 max-w-8xl md:text-3xl leading-relaxed "> &emsp; The Aztec Sun Stone, also known as the
+        Calendar Stone, is a large stone disc that was discovered in Mexico City in 1790. It is one of the most famous
+        artifacts from the Aztec civilization and is believed to have been created during the Aztec Period from 1502 to
+        1521. Featuring the face of the Sun God Tonatiuh of the Aztecs at the center of its structure, it represents the
+        five suns, which also symbolise the five eras of the Aztec cosmology. In this system, we would currently be in
+        the fifth era, indicated by its innermost section where the many features at the center would translate to "Four
+        Movements". In this page, we'll explore each of these eras, and see how they fell, as well as how our current
+        era is said to end.</p>
+      <img src="../assets/exhibits/nativeam/aztec_sunspic.png"
+        class="zoomimg lg:w-[450px] lg:h-[200px] md:w-[800px] md:w-[000px] md:border-4 border-2 border-white/10 border-dashed p-2 m-5">
+    </div>
+  </section>
+  <!--Split Cards Section-->
+  <section class="flex flex-col align-center mb-15 border-2 bg-black/20 border-white/5">
+    <h1 class="text-8xl serif p-5 pb-2 mx-auto text-orange-200"> The Five Eras </h1>
+    <h2 class="lg:text-md md:text-2xl font-semibold uppercase mx-auto text-orange-400"> Hover over each tab to explore
+      the times long gone...</h2>
+    <div class="flex flex-col items-center">
+      <div class="buttoncontainer">
+        <button class="button md:text-2xl lg:text-sm">JAGUAR</button>
+        <button class="button md:text-2xl lg:text-sm">WIND</button>
+        <button class="button md:text-2xl lg:text-sm">FIRE-RAIN</button>
+        <button class="button md:text-2xl lg:text-sm">WATER</button>
+        <button class="button md:text-2xl lg:text-sm underline">MOVEMENT</button>
+      </div>
+      <div class="flex justify-center">
+        <div
+          class="my-5 lg:w-[820px] lg:min-h-[350px] md:w-[900px] md:min-h-[450px] relative border-2 border-white/20 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
+          <div
+            class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
+            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 "
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Tepeyollotl_1.jpg/250px-Tepeyollotl_1.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail">
+            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Nahui-Ocelotl" Jaguar:</strong> In the first world, a
+              heated clash between two gods, Tezcatlipoca and Quetzalcoatl, disrupted the cosmos. After a strike from
+              the sky by Quetzalcoatl, Tezcatlipoca became enraged, transforming himself into a mighty jaguar and
+              summoning countless smaller ones. These jaguars would then go on to hunt down every living being, bringing
+              the First Era to an end. </p>
+          </div>
+          <div
+            class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
+            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 "
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqZdLpOTI7QFFjsbbarpIgZXx2YyIStoCdVw&s">
+            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Quetzalcoatl" Wind:</strong> After the First Era
+              ended, Quetzalcoatl took over as ruler of the world and restored humanity. However, Tezcatlipoca seeked
+              revenge and summoned devastating hurricanes and winds that tore apart forests, mountains and cities. While
+              most people died, those who survived turned into monkeys, marking the end of the Second Era. </p>
+          </div>
+          <div
+            class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
+            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 "
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrU2Hxgji1EztmQQAOZuQ80MuaocJqjWFS0w&s">
+            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Quiahuitl" Fire Rain:</strong> The Third Era was
+              associated with Tlaloc, the Aztec god of rain and fertility. At first, the Earth prospered, but a vengeful
+              Tezcatlipoca returned again and took away Tlaloc's wife. Tlaloc stopped sending rain down to earth, and
+              unleashed his anger with fiery rocks and volcanic ash raining down from the heavens, putting an end to the
+              world once more. </p>
+          </div>
+          <div
+            class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
+            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 "
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjbX53mtxq5T6EzvXShmugoMmJ2Sjaoi_yDw&s">
+            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Atl" Water:</strong> Following the Third Era, the
+              Fourth Era was ruled by Chalchiuhtlicue, the goddess of rivers, lakes and oceans. Her once peaceful reign
+              was disrupted by Tezcatlipoca accusing her of pretending to care for humanity just for praise.
+              Chalchiuhtlicue was deeply hurt by this and cried endlessly, her tears flooding the entire planet. Humans
+              transformed into fish as this era ended.</p>
+          </div>
+          <div
+            class="sun inset-0 opacity-0 pointer-events-none transition-opacity duration-300 flex flex-row items-center justify-center">
+            <img class="p-5 m-5 md:w-[350px] md:h-[350px] lg:w-auto lg:h-auto bg-black border-2 border-white/20 "
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDraj5zLoir0nXPYiPvBmhh-XobncMyl8DbQ&s">
+            <p class="lg:text-lg md:text-2xl p-5"> &emsp; <strong>"Ollin" Movement:</strong> We arrive at the Fifth Era,
+              which is the present that is represented by Sun God Tonatiuh. After the previous worlds ended, the gods
+              gathered to create a new sun. At first, the sun was motionless, and many gods had to sacrifice themselves
+              to give it the power to move. The Aztecs believed this era would end in catastrophic earthquakes before
+              starting a new era and restarting the cycle. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Artifact Gallery -->
+  <section class="border-2 bg-black/20 border-white/5">
+    <div class="flex justify-center items-center">
+      <h1 class="text-8xl serif text-orange-200 mt-10"> Artifact Gallery</h1>
+      <svg class="w-20 h-20 ml-5 mt-10 text-orange-300 dark:text-orange-400" aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z" clip-rule="evenodd" />
+        <path fill-rule="evenodd"
+          d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z"
+          clip-rule="evenodd" />
+      </svg>
+    </div>
+    <div class="carousel">
+      <div class="group">
+        <div class="carouselcard">
+          <h1 class="serif text-orange-400">Where is it now?</h1>
+          <p class="text-xl m-2 text-orange-100"> A picture of the display of the Sun Stone at the Aztec Hall of the
+            National Museum of Anthropology in Mexico City.</p>
+          <img src="../assets/exhibits/nativeam/sunstoneenclosure.png" alt="Picture of the Aztec Sun Stone Enclosure"
+            class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+        </div>
+        <div class="carouselcard">
+          <h1 class="serif text-orange-400">Size</h1>
+          <p class="text-xl m-2 text-orange-100"> An old picture of a few people beneath the Sun Stone, showcasing its
+            size.</p>
+          <img src="../assets/exhibits/nativeam/sunstone_old.jpg" alt="Old picture of the Aztec Sun Stone"
+            class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+        </div>
+        <div class="carouselcard">
+          <h1 class="serif text-orange-400">Where it was found</h1>
+          <p class="text-xl m-2 text-orange-100"> The Zocalo in Mexico City, where the Sun Stone was found buried in
+            1790.</p>
+          <img
+            src="https://media.cntraveler.com/photos/5a92f25dc6516a534a5304e9/4:3/w_748%2Cc_limit/Metropolitan-Cathedral_GettyImages-115006326.jpg"
+            alt="Picture of the location where the Sun Stone was found"
+            class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+        </div>
+        <div class="carouselcard">
+          <h1 class="serif text-orange-400">Original Appearance</h1>
+          <p class="text-xl m-2 text-orange-100"> A replica of the original appearance of the Sun Stone before it was
+            discovered, with its original colors and details.</p>
+          <img src="../assets/exhibits/nativeam/sunstone_replica.jpg" alt="Replica of the original Aztec Sun Stone"
+            class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+        </div>
+      </div>
+      <div>
+        <div aria-hidden class="group">
+          <div class="carouselcard">
+            <h1 class="serif text-orange-400">Where is it now?</h1>
+            <p class="text-xl m-2 text-orange-100"> A picture of the display of the Sun Stone at the Aztec Hall of the
+              National Museum of Anthropology in Mexico City.</p>
+            <img src="../assets/exhibits/nativeam/sunstoneenclosure.png" alt="Picture of the Aztec Sun Stone Enclosure"
+              class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+          </div>
+          <div class="carouselcard">
+            <h1 class="serif text-orange-400">Size</h1>
+            <p class="text-xl m-2 text-orange-100"> An old picture of a few people beneath the Sun Stone, showcasing its
+              size.</p>
+            <img src="../assets/exhibits/nativeam/sunstone_old.jpg" alt="Old picture of the Aztec Sun Stone"
+              class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+          </div>
+          <div class="carouselcard">
+            <h1 class="serif text-orange-400">Where it was found</h1>
+            <p class="text-xl m-2 text-orange-100"> The Zocalo in Mexico City, where the Sun Stone was found buried in
+              1790.</p>
+            <img
+              src="https://media.cntraveler.com/photos/5a92f25dc6516a534a5304e9/4:3/w_748%2Cc_limit/Metropolitan-Cathedral_GettyImages-115006326.jpg"
+              alt="Picture of the location where the Sun Stone was found"
+              class="m-2 mx-auto w-80 h-50 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+          </div>
+          <div class="carouselcard">
+            <h1 class="serif text-orange-400">Original Appearance</h1>
+            <p class="text-xl m-2 text-orange-100"> A replica of the original appearance of the Sun Stone before it was
+              discovered, with its original colors and details.</p>
+            <img src="../assets/exhibits/nativeam/sunstone_replica.jpg" alt="Replica of the original Aztec Sun Stone"
+              class="m-2 mx-auto w-70 h-45 max-w-5xl rounded-xl border-dashed shadow-lg shadow-black/50 border-3 border-white/5">
+          </div>
+        </div>
+
+      </div>
+  </section>
+
+  <hr class="w-[90%] items-center mx-auto border-1 border-white/20 rounded-lg m-10">
 
 
-    </body>
-    
+</body>
+
 </html>

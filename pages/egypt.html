@@ -82,7 +82,7 @@
             >
               <div class="rounded-xl bg-black/90 mt-4">
                 <a
-                  href="./Pages/museum.html"
+                  href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/"
                   class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
                 >
                   <span class="block font-medium">3D Virtual Museum</span>
@@ -164,16 +164,15 @@
       <!-- Mobile dropdown panel -->
       <div
         id="mobileMenu"
-        class="sm:hidden overflow-hidden max-h-0 opacity-0 bg-olive-900/95 backdrop-blur-lg transition-all duration-300 ease-in-out"
-      >
+          class="sm:hidden pointer-events-none max-h-0 opacity-0 transition-all duration-300 ease-in-out">
         <div
-          class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans"
+          class="flex flex-col px-4 text-neutral-100 font-instrument-sans bg-olive-900/95 backdrop-blur-lg"
         >
           <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
-          <a href="./about.html" class="py-3 border-b border-white/10"
+          <a href="../index.html#about" class="py-3 border-b border-white/10"
             >About</a
           >
-          <a href="./Pages/museum.html" class="py-3 border-b border-white/10"
+          <a href="https://asperadesu.github.io/Carpe-Diem-Virtual-Museum/dist/" class="py-3 border-b border-white/10"
             >3D Virtual Museum</a
           >
           <a
@@ -193,49 +192,40 @@
       </div>
     </header>
     <main>
-      <section
-        id="intro"
-        class="fixed inset-0 z-[100] h-screen overflow-hidden"
-      >
-        <video
-          id="intro-video"
-          class="w-full h-full object-cover"
-          autoplay
-          muted
-          playsinline
-        >
-          <source src="../assets/exhibits/egypt/egypt-intro.mp4" />
-        </video>
+      <section id="intro" class="fixed inset-0 z-[100] h-screen overflow-hidden">
+          <video id="intro-video" class="w-full h-full object-cover" autoplay muted playsinline>
+              <source src="../assets/exhibits/egypt/egypt-intro.mp4" />
+          </video>
 
-        <div
-          id="intro-overlay"
-          class="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-1000 flex items-center justify-center"
-        ></div>
-
-        <div
-          class="absolute inset-0 flex flex-col justify-center items-center text-center pointer-events-none"
-        >
-          <h1
-            id="intro-title"
-            class="font-caesar text-6xl text-neutral-200 opacity-0 translate-y-6 transition-all sm:text-7xl lg:text-[8rem] leading-non"
-          >
-            Egypt
-          </h1>
-          <p
-            id="intro-subtitle"
-            class="mt-3 uppercase text-amber-300 opacity-0 translate-y-6 transition-all duration-1000 text-xl sm:text-4xl tracking-[0.15em] font-mono font-bold"
-          >
-            1332–1323 BCE
-          </p>
-          <div
-            id="scrollHint"
-            class="absolute text-neutral-200 font-instrument-sans bottom-12 opacity-0 transition-opacity duration-1000"
-          >
-            Scroll to Explore ↓
+          <!-- Fade into title -->
+          <div id="intro-overlay" class="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-[1600ms]">
           </div>
-        </div>
-      </section>
 
+          <!-- Title -->
+          <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
+              <h1 id="intro-title"
+                  class="translate-y-6 font-caesar text-5xl leading-none tracking-tight text-neutral-100 opacity-0 transition-all duration-[1200ms] sm:text-7xl lg:text-[8rem]">
+                  Egypt
+              </h1>
+
+              <p id="intro-subtitle"
+                  class="mt-5 translate-y-6 font-instrument-sans text-sm font-medium uppercase tracking-[0.4em] text-amber-300 opacity-0 transition-all duration-[1200ms] sm:text-lg">
+                  Thebes · 1332–1323 BCE
+              </p>
+
+              <!-- Continue -->
+              <div id="scrollHint"
+                  class="absolute bottom-10 flex flex-col items-center gap-2 opacity-0 transition-opacity duration-1000">
+                  <span class="font-instrument-sans text-[10px] uppercase tracking-[0.35em] text-neutral-300">
+                      Scroll to Explore
+                  </span>
+
+                  <span class="text-lg text-amber-300 animate-bounce">
+                      ↓
+                  </span>
+              </div>
+          </div>
+      </section>
       <!-- Exhibition Hero -->
       <section id="hero" class="relative isolate flex min-h-dvh items-center overflow-hidden bg-neutral-950">
           <!-- Background -->
@@ -308,7 +298,7 @@
                               Collection
                           </p>
                           <p class="mt-0.5 font-instrument-sans text-xs text-neutral-200 sm:text-sm">
-                              Ancient Egyptian Civilization
+                              Ancient Egypt
                           </p>
                       </div>
                   </div>

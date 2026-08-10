@@ -72,7 +72,7 @@ html {
     display: none;
 }
 
-.group {
+.carouselgroup {
     display: flex;
     align-items: center;
     justify-content: center;
