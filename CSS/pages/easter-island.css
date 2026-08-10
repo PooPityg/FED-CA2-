@@ -206,46 +206,54 @@ font-size:45px;
 }
 /* carousel styles*/
 .carousel {
-    margin: 50px auto;
-    width: 90%;
-    border: 3px solid rgba(255, 255, 255, 0.08);
-    padding: 20px 0 20px 0;
-    display: flex;
+    margin: 0 auto;
+    width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.25rem 0 1rem;
     cursor: grab;
-    user-select: none;     
-    overflow-y: hidden;    
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    touch-action: pan-x;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(250, 204, 21, 0.7) transparent;
 }
 
 .carousel::-webkit-scrollbar {
-    display: none;
+    height: 8px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background: rgba(250, 204, 21, 0.7);
+    border-radius: 999px;
+}
+
+.carousel::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .carousel-group {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    animation: spin 100s infinite linear;
-    padding-right: 1em;
+    align-items: stretch;
+    gap: 1rem;
+    min-width: max-content;
+    padding: 0.25rem 0.25rem 0.5rem;
 }
 
 .carouselcard {
-    flex: 0 0 10em;
-    height: 8em;
-    padding: .5em;
-    padding-top: .3em;
+    flex: 0 0 min(84vw, 20rem);
+    width: min(84vw, 20rem);
+    max-width: 20rem;
+    min-height: 18rem;
+    padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
-    font-size: 3rem;
-    border-radius: .2em;
+    border-radius: 1rem;
     border: 2px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     overflow: hidden;
-}
-
-@keyframes spin {
-    from {translate: 0;}
-    to {translate: -100%;}
+    scroll-snap-align: start;
 }
 
 .carouselcard:hover {
@@ -254,4 +262,35 @@ font-size:45px;
     border-color: rgba(250, 204, 21, 0.5);
     transform: translateY(-4px);
     filter: drop-shadow(0 0 30px rgba(250, 204, 21, 0.2));
+}
+
+.carousel-btn {
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    background: rgba(250, 204, 21, 0.15);
+    color: #fef3c7;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(250, 204, 21, 0.3);
+    transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+    .carouselcard {
+        flex-basis: min(32vw, 20rem);
+        width: min(32vw, 20rem);
+    }
+}
+
+@media (max-width: 640px) {
+    .carouselcard {
+        min-height: 16rem;
+        padding: 0.85rem;
+    }
 }
