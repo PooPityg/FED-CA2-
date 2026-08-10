@@ -222,7 +222,7 @@
         <hr class="w-[90%] items-center mx-auto border-1 border-white/20 rounded-lg m-10">
 
     <!-- Header section -->
-        <section class="flex justify-center align-center gap-20 my-2 py-10 border-2 bg-black/20 border-white/5">
+        <section id="hero" class="flex justify-center align-center gap-20 my-2 py-10 border-2 bg-black/20 border-white/5">
             <img src="../assets/nativeam/sunstone.jpg" alt="Picture of the Aztec Sun Stone" class="zoomimg w-120 h-120 max-w-5xl rounded-xl border-dashed shadow-lg border-3 border-white/10">
             <div class="w-[44%]">
                 <p class="serif text-3xl text-orange-400 right-155">"Eternal Sun's Stone of Time"</p>
@@ -337,7 +337,65 @@
 
         <hr class="w-[90%] items-center mx-auto border-1 border-white/20 rounded-lg m-10">
 
+        <div id="sideBtnContainer"
+            class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-100 flex flex-col gap-4 opacity-0 transition-opacity duration-500 pointer-events-none">
+            <button id="feedbackBtn"
+                class="bg-emerald-600 hover:bg-emerald-700 text-white p-2 sm:p-4 text-sm sm:text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 whitespace-nowrap"
+                aria-label="Send feedback">
+                📝
+            </button>
 
+            <button id="topBtn"
+                class="rounded-full bg-amber-600 p-2 sm:p-4 text-lg sm:text-xl text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-amber-500">
+                ⬆
+            </button>
+        </div>
+        <footer class="grid grid-cols-1 md:grid-cols-6 gap-6 md:gap-8 p-8 md:p-12 lg:p-16 bg-stone-950 border-t border-white/5">
+          <!-- First div - Larger -->
+          <div class="md:col-span-2 flex flex-col justify-between pb-6 md:pb-0">
+            <div>
+              <h1 class="font-instrument-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 tracking-wide text-neutral-100">CARPE DIEM</h1>
+              <p class="text-neutral-200 text-base md:text-lg leading-relaxed">Preserving the past for long term heritage</p>
+            </div>
+          </div>
+ 
+          <!-- EXPLORE -->
+          <div class="flex flex-col gap-4">
+            <h1 class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">EXPLORE</h1>
+              <nav class="flex flex-col gap-3">
+                <a href="./collections.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Collection</a>
+                <a href="./museum.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Virtual</a>
+              </nav>
+          </div>
+                
+          <!-- PLAN YOUR VISIT -->
+          <div class="flex flex-col gap-4">
+            <h1 class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">PLAN YOUR VISIT</h1>
+                    <nav class="flex flex-col gap-3">
+                        <a href="./visit-us.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Visit Us</a>
+                        <a href="./tickets.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Tickets</a>
+                    </nav>
+                </div>
+ 
+                <!-- LEARN & PLAY -->
+                <div class="flex flex-col gap-4">
+                    <h1 class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">LEARN & PLAY</h1>
+                    <nav class="flex flex-col gap-3">
+                        <a href="./quiz.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Museum Quiz</a>
+                        <a href="./passport.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Museum Passport</a>
+                    </nav>
+                </div>
+ 
+                <!-- EXHIBITIONS -->
+                <div class="flex flex-col gap-4">
+                    <h1 class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">EXHIBITIONS</h1>
+                    <nav class="flex flex-col gap-3">
+                        <a href="./nativeam.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Native American</a>
+                        <a href="./warriors.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Terracotta Warriors</a>
+                        <a href="./egypt.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Egyptian Tomb</a>
+                        <a href="./easter-island.html" class="text-neutral-200 hover:text-olive-400 transition-colors duration-200 hover:underline text-sm md:text-base">Easter Island</a>
+                    </nav>
+                </div>
+            </footer>
     </body>
-    
 </html>
