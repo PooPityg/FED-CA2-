@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Gallery</title>
+
+  <link rel="stylesheet" href="../CSS/output.css">
+  <script src="../Script/collection.js" defer></script>
+  <script src="../Script/main.js" defer></script>
+</head>
+
+<body class="page-collection">
     <header
       id="navbar"
       class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
@@ -162,10 +175,10 @@
           class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans"
         >
           <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
-          <a href="../index.html#about" class="py-3 border-b border-white/10"
+          <a href="./about.html" class="py-3 border-b border-white/10"
             >About</a
           >
-          <a href="../museum" class="py-3 border-b border-white/10"
+          <a href="./Pages/museum.html" class="py-3 border-b border-white/10"
             >3D Virtual Museum</a
           >
           <a
@@ -184,3 +197,54 @@
         </div>
       </div>
     </header>
+  <div class="page-header mt-30 font-instrument-serif h-auto">
+    <h1 class="text-5xl">Collection Gallery</h1>
+    <p>5 items</p>
+  </div>
+
+  <div class="grid collection-grid px-4 md:px-10 lg:px-16">
+
+    <div class="card font-instrument-serif">
+      <div class="card-img">
+        <img src="../assets/collection/moai.webp" alt="aura"> <!--https://th.bing.com/th/id/OSK.HEROJ-a-ZXo3ODD5HK3y1v3XTQDblpoJ40UviyalEB4oJrc?r=0&o=7&rm=3&rs=1&pid=ImgDetMain-->
+      </div>
+      <h3 class="card-title">Easter Island</h3>
+      <p class="card-year">1250 - 1500 CE</p>
+      <p class="card-desc">Welcome to Rapa Nui, better known as Easter Island—home to the famous Moai statues and a fascinating history of culture, innovation, and survival.</p>
+      <a class="browse-btn" href="easter-island.html">Browse</a>
+    </div>
+
+    <div class="card font-instrument-serif">
+      <div class="card-img"></div>
+      <h3 class="card-title"></h3>
+      <p class="card-year"></p>
+      <p class="card-desc"></p>
+      <a class="browse-btn" href="">Browse</a>
+    </div>
+
+    <div class="card font-instrument-serif">
+      <div class="card-img"></div>
+      <h3 class="card-title"></h3>
+      <p class="card-year"></p>
+      <p class="card-desc"></p>
+      <a class="browse-btn" href="">Browse</a>
+    </div>
+
+    <div class="card font-instrument-serif">
+      <div class="card-img"></div>
+      <h3 class="card-title"></h3>
+      <p class="card-year"></p>
+      <p class="card-desc"></p>
+      <a class="browse-btn" href="">Browse</a>
+    </div>
+
+    <div class="card font-instrument-serif">
+      <div class="card-img"></div>
+      <h3 class="card-title"></h3>
+      <p class="card-year"></p>
+      <p class="card-desc"></p>
+      <a class="browse-btn" href="">Browse</a>
+    </div>
+  </div>
+</body>
+</html>

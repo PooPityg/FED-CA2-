@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    <!--Make buttons bigger and result section bigger-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="../Script/quiz.js" defer></script>
+    <script src="../Script/main.js" defer></script>
+    <link rel="stylesheet" href="../CSS/pages/progressbar.css">
+    <link rel="stylesheet" href="../CSS/output.css">
+</head>
+<body class="min-h-screen">
     <header
       id="navbar"
       class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
@@ -162,10 +174,10 @@
           class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans"
         >
           <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
-          <a href="../index.html#about" class="py-3 border-b border-white/10"
+          <a href="./about.html" class="py-3 border-b border-white/10"
             >About</a
           >
-          <a href="../museum" class="py-3 border-b border-white/10"
+          <a href="./Pages/museum.html" class="py-3 border-b border-white/10"
             >3D Virtual Museum</a
           >
           <a
@@ -184,3 +196,44 @@
         </div>
       </div>
     </header>
+    <main class="flex justify-center items-center bg-stone-950 px-3 sm:px-6 pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-16 min-h-screen">
+        <header class="max-w-xl w-full text-neutral-200" id="stage">
+            <!-- Intro-->
+            <div class="w-full h-2 bg-gray-100 rounded border border-gray-300 overflow-hidden mb-3">
+                <div id="progress-bar" class="h-full bg-yellow-400 transition-all duration-500 rounded ease-in-out" style="width: 0%"></div>
+            </div>
+            <section class="bg-parchment text-inkText rounded-sm border border-white/10 card-shadow px-4 sm:px-6 md:px-9 pt-6 sm:pt-8 md:pt-10 pb-6 sm:pb-8 text-center font-instrument-serif" id="intro">
+                <p class="tracking-widest uppercase mb-6 sm:mb-8 text-[11px] sm:text-[12px]">Carpe Diem Musuem</p>
+                <h1 class="text-3xl sm:text-4xl leading-tight mb-3">Title</h1><!--add a title for the quiz-->
+                <p class="leading-relaxed mb-6 max-w-md mx-auto text-sm sm:text-base">Context</p><!--Add Context paragraph for User-->
+                <button id="startBtn" class="w-full sm:w-auto font-mono text-xs tracking-widest uppercase px-6 py-3 rounded-sm hover:bg-[#2A3348] transition cursor-pointer" onclick="toQuiz()">Begin Quiz</button>
+            </section>
+            <!--quiz-->
+            <section class="hidden rounded-sm border border-black/5 card-shadow px-4 sm:px-6 md:px-9 pt-6 sm:pt-8 md:pt-10 pb-6 sm:pb-8" id="quiz">
+                <div class="flex items-center justify-between gap-2 mb-3 pb-4 sm:pb-6 border-b border-black/10 tracking-widest uppercase text-[13px] sm:text-[15px] font-instrument-serif" id="log">
+                    <span id="lognum" class="text-left"></span>
+                    <span id="logscore" class="text-right"></span>
+                </div>
+                <h1 class="font-instrument-serif text-xl sm:text-2xl leading-snug mb-4 sm:mb-6" id="question"></h1>
+                <div class="flex flex-col gap-2.5 font-instrument-serif text-lg sm:text-2xl tracking-widest" id="opions"></div>
+                <div class="hidden font-instrument-serif tracking-widest my-3 text-sm sm:text-base" id="qcontext"></div>
+                <div class="font-instrument-serif tracking-wide flex flex-row gap-3 mt-4 hidden md:flex-row md:justify-between md:items-center" id="action">
+                    <button id="returnBtn" class="w-full md:w-auto px-4 py-2 rounded-sm border border-[#6b7280] hover:bg-[#2A3348] transition cursor-pointer" onclick="returnCollection()">Back to Collection</button>
+                    <button id="nextBtn" class="w-full md:w-auto px-4 py-2 rounded-sm border border-[#6b7280] hover:bg-[#2A3348] transition cursor-pointer" onclick="nextQues()"></button>
+                </div>
+            </section>
+            <!--results-->
+            <section class="hidden rounded-sm border border-black card-shadow px-4 sm:px-6 md:px-9 pt-6 sm:pt-8 md:pt-10 pb-6 sm:pb-8 text-center font-instrument-serif" id="end">
+                <p class="text-[11px] mb-3 uppercase tracking-widest">Quiz completed</p>
+                <h1 class="text-2xl sm:text-3xl mb-2">Your Result</h1>
+                <div class="leading-none text-5xl sm:text-6xl my-2 font-bold" id="finalscore">0<span> /10</span></div>
+                <div class="text-base sm:text-lg leading-none italic" id="resultline"></div>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center my-3" id="b_row">
+                    <button class="w-full sm:w-auto rounded-sm border-black border px-3 py-2 hover:bg-[#2A3348] transition cursor-pointer" id="visitBtn" onclick="window.location.href='visit-us.html';">Plan your visit</button>
+                    <button class="w-full sm:w-auto rounded-sm border-black border px-3 py-2 hover:bg-[#2A3348] transition cursor-pointer" id="retakeBtn" onclick="restartQuiz()">Retake the quiz</button>
+                </div>
+            </section>
+        </header>
+    </main>
+</body>
+</html>

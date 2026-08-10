@@ -1,151 +1,424 @@
-const menu = document.getElementById("exploreMenu");
-const dropdown = document.getElementById("exploreDropdown");
-const arrow = document.getElementById("exploreArrow");
-const btn = document.getElementById('exploreBtn');
+// ========================================
+// EXPLORE DROPDOWN
+// ========================================
 
-let opened = false;
+const exploreMenu = document.getElementById("exploreMenu");
+const exploreDropdown = document.getElementById("exploreDropdown");
+const exploreArrow = document.getElementById("exploreArrow");
+const exploreBtn = document.getElementById("exploreBtn");
 
-function openMenu() {
-    opened = true;
-    dropdown.classList.remove("invisible", "opacity-0", "translate-y-2");
-    arrow.classList.add("rotate-180");
-    btn.classList.add("font-bold"); 
+let exploreOpened = false;
+
+function openExploreMenu() {
+    if (visitOpened) closeVisitMenu();
+
+    exploreOpened = true;
+
+    exploreDropdown.classList.remove(
+        "invisible",
+        "opacity-0",
+        "translate-y-2"
+    );
+
+    exploreArrow.classList.add("rotate-180");
+    exploreBtn.classList.add("font-bold");
 }
 
-function closeMenu() {
-    opened = false;
-    dropdown.classList.add("invisible", "opacity-0", "translate-y-2");
-    arrow.classList.remove("rotate-180");
-    lastScrollY = window.scrollY; // prevent a stale-scroll jump on next scroll event
-    btn.classList.remove("font-bold");
+function closeExploreMenu() {
+    exploreOpened = false;
+
+    exploreDropdown.classList.add(
+        "invisible",
+        "opacity-0",
+        "translate-y-2"
+    );
+
+    exploreArrow.classList.remove("rotate-180");
+    exploreBtn.classList.remove("font-bold");
+
+    // Prevent a stale-scroll jump on next scroll event
+    lastScrollY = window.scrollY;
 }
 
-function toggleMenu() {
-    opened ? closeMenu() : openMenu();
+function toggleExploreMenu() {
+    exploreOpened
+        ? closeExploreMenu()
+        : openExploreMenu();
 }
+
+
+// ========================================
+// VISIT DROPDOWN
+// ========================================
+
+const visitMenu = document.getElementById("visitMenu");
+const visitDropdown = document.getElementById("visitDropdown");
+const visitArrow = document.getElementById("visitArrow");
+const visitBtn = document.getElementById("visitBtn");
+
+let visitOpened = false;
+
+function openVisitMenu() {
+    if (exploreOpened) closeExploreMenu();
+
+    visitOpened = true;
+
+    visitDropdown.classList.remove(
+        "invisible",
+        "opacity-0",
+        "translate-y-2"
+    );
+
+    visitArrow.classList.add("rotate-180");
+    visitBtn.classList.add("font-bold");
+}
+
+function closeVisitMenu() {
+    visitOpened = false;
+
+    visitDropdown.classList.add(
+        "invisible",
+        "opacity-0",
+        "translate-y-2"
+    );
+
+    visitArrow.classList.remove("rotate-180");
+    visitBtn.classList.remove("font-bold");
+
+    // Prevent a stale-scroll jump on next scroll event
+    lastScrollY = window.scrollY;
+}
+
+function toggleVisitMenu() {
+    visitOpened
+        ? closeVisitMenu()
+        : openVisitMenu();
+}
+
+
+// ========================================
+// DESKTOP DROPDOWNS
+// ========================================
 
 const supportsHover = window.matchMedia("(hover: hover)").matches;
 
 if (supportsHover) {
-    // Cursor devices: hover opens/closes
-    menu.addEventListener("mouseenter", openMenu);
-    menu.addEventListener("mouseleave", (e) => {
-        if (menu.contains(e.relatedTarget)) return;
-        closeMenu();
-    });
+
+    // ------------------------------------
+    // Explore hover
+    // ------------------------------------
+
+    exploreMenu.addEventListener(
+        "mouseenter",
+        openExploreMenu
+    );
+
+    exploreMenu.addEventListener(
+        "mouseleave",
+        (e) => {
+            if (exploreMenu.contains(e.relatedTarget)) return;
+            closeExploreMenu();
+        }
+    );
+
+
+    // ------------------------------------
+    // Visit hover
+    // ------------------------------------
+
+    visitMenu.addEventListener(
+        "mouseenter",
+        openVisitMenu
+    );
+
+    visitMenu.addEventListener(
+        "mouseleave",
+        (e) => {
+            if (visitMenu.contains(e.relatedTarget)) return;
+            closeVisitMenu();
+        }
+    );
 }
 
-btn.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent this click from also triggering the document listener
-    toggleMenu();
+
+// ----------------------------------------
+// Explore button click
+// ----------------------------------------
+
+exploreBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleExploreMenu();
 });
 
-// Non-cursor devices: tap anywhere outside closes the menu
-document.addEventListener("click", (e) => {
-    if (!opened) return;
-    if (menu.contains(e.target)) return; // click was inside the menu, ignore
-    closeMenu();
+
+// ----------------------------------------
+// Visit button click
+// ----------------------------------------
+
+visitBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleVisitMenu();
 });
+
+
+// ----------------------------------------
+// Click outside dropdowns
+// ----------------------------------------
+
+document.addEventListener("click", (e) => {
+
+    if (
+        exploreOpened &&
+        !exploreMenu.contains(e.target)
+    ) {
+        closeExploreMenu();
+    }
+
+    if (
+        visitOpened &&
+        !visitMenu.contains(e.target)
+    ) {
+        closeVisitMenu();
+    }
+});
+
+
+// ========================================
+// MOBILE MENU
+// ========================================
 
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const mobileMenu = document.getElementById("mobileMenu");
+
 const barTop = document.getElementById("barTop");
 const barMid = document.getElementById("barMid");
 const barBot = document.getElementById("barBot");
+
+const navInner = document.getElementById("navInner");
 
 let mobileOpened = false;
 
 function openMobileMenu() {
     mobileOpened = true;
-    mobileMenu.classList.remove("max-h-0", "opacity-0");
-    mobileMenu.classList.add("max-h-96", "opacity-100");
-    barTop.classList.add("rotate-45", "translate-y-2");
+
+    mobileMenu.classList.remove(
+        "max-h-0",
+        "opacity-0"
+    );
+
+    mobileMenu.classList.add(
+        "max-h-96",
+        "opacity-100"
+    );
+
+    barTop.classList.add(
+        "rotate-45",
+        "translate-y-2"
+    );
+
     barMid.classList.add("opacity-0");
-    barBot.classList.add("-rotate-45", "-translate-y-2");
-    hamburgerBtn.setAttribute("aria-expanded", "true");
+
+    barBot.classList.add(
+        "-rotate-45",
+        "-translate-y-2"
+    );
+
+    hamburgerBtn.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+    navInner.classList.remove(
+        "bg-olive-900/30"
+    );
+
+    navInner.classList.add(
+        "bg-black/90"
+    );
 }
 
 function closeMobileMenu() {
     mobileOpened = false;
-    mobileMenu.classList.add("max-h-0", "opacity-0");
-    mobileMenu.classList.remove("max-h-96", "opacity-100");
-    barTop.classList.remove("rotate-45", "translate-y-2");
+
+    mobileMenu.classList.add(
+        "max-h-0",
+        "opacity-0"
+    );
+
+    mobileMenu.classList.remove(
+        "max-h-96",
+        "opacity-100"
+    );
+
+    barTop.classList.remove(
+        "rotate-45",
+        "translate-y-2"
+    );
+
     barMid.classList.remove("opacity-0");
-    barBot.classList.remove("-rotate-45", "-translate-y-2");
-    hamburgerBtn.setAttribute("aria-expanded", "false");
+
+    barBot.classList.remove(
+        "-rotate-45",
+        "-translate-y-2"
+    );
+
+    hamburgerBtn.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    navInner.classList.remove(
+        "bg-black/90"
+    );
+
+    navInner.classList.add(
+        "bg-olive-900/30"
+    );
 }
 
 function toggleMobileMenu() {
-    mobileOpened ? closeMobileMenu() : openMobileMenu();
+    mobileOpened
+        ? closeMobileMenu()
+        : openMobileMenu();
 }
+
+
+// ----------------------------------------
+// Hamburger click
+// ----------------------------------------
 
 hamburgerBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleMobileMenu();
 });
 
-// Close mobile menu when tapping outside it
+
+// ----------------------------------------
+// Click outside mobile menu
+// ----------------------------------------
+
 document.addEventListener("click", (e) => {
+
     if (!mobileOpened) return;
-    if (mobileMenu.contains(e.target) || hamburgerBtn.contains(e.target)) return;
+
+    if (
+        mobileMenu.contains(e.target) ||
+        hamburgerBtn.contains(e.target)
+    ) {
+        return;
+    }
+
     closeMobileMenu();
 });
 
-// Close mobile menu automatically if the viewport is resized to desktop width
+
+// ----------------------------------------
+// Close mobile menu on desktop resize
+// ----------------------------------------
+
 window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768 && mobileOpened) { // 768px = Tailwind's `md` breakpoint
+
+    if (
+        window.innerWidth >= 640 &&
+        mobileOpened
+    ) {
         closeMobileMenu();
     }
 });
 
+
+// ========================================
+// NAVBAR SCROLL BEHAVIOR
+// ========================================
+
 const navbar = document.getElementById("navbar");
+
 let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
-    if (opened) return; // don't hide the navbar while the explore dropdown is open
+
+    // Don't hide navbar while either dropdown is open
+    if (
+        exploreOpened ||
+        visitOpened
+    ) {
+        return;
+    }
 
     const currentScrollY = window.scrollY;
 
+
+    // ------------------------------------
     // Always show navbar near the top
+    // ------------------------------------
+
     if (currentScrollY <= 10) {
-        navbar.classList.remove("-translate-y-full");
+
+        navbar.classList.remove(
+            "-translate-y-full"
+        );
     }
+
+
+    // ------------------------------------
     // Scrolling down
+    // ------------------------------------
+
     else if (currentScrollY > lastScrollY) {
-        navbar.classList.add("-translate-y-full");
+
+        navbar.classList.add(
+            "-translate-y-full"
+        );
     }
+
+
+    // ------------------------------------
     // Scrolling up
+    // ------------------------------------
+
     else {
-        navbar.classList.remove("-translate-y-full");
+
+        navbar.classList.remove(
+            "-translate-y-full"
+        );
     }
 
     lastScrollY = currentScrollY;
 });
 
-const navInner = document.getElementById("navInner");
 
-function openMobileMenu() {
-    mobileOpened = true;
-    mobileMenu.classList.remove("max-h-0", "opacity-0");
-    mobileMenu.classList.add("max-h-96", "opacity-100");
-    barTop.classList.add("rotate-45", "translate-y-2");
-    barMid.classList.add("opacity-0");
-    barBot.classList.add("-rotate-45", "-translate-y-2");
-    hamburgerBtn.setAttribute("aria-expanded", "true");
+const topBtn = document.getElementById("topBtn");
+const feedbtn = document.getElementById("feedbackBtn");
+const buttonContainer = document.getElementById("sideBtnContainer");
+const heroSec = document.getElementById("hero");
 
-    navInner.classList.remove("bg-olive-900/30");
-    navInner.classList.add("bg-black/90");
+// Show/hide entire container after hero section
+window.addEventListener('scroll', () => {
+    const heroBottom = heroSec.offsetHeight;
+    const scrollTopCheck = window.scrollY;
+
+    if (scrollTopCheck > heroBottom) {
+        buttonContainer.classList.remove('opacity-0' , 'pointer-events-none');
+        buttonContainer.classList.add('opacity-100', 'pointer-events-auto'); //enable user to click on btn
+    } else {
+        buttonContainer.classList.add('opacity-0' , 'pointer-events-none');
+        buttonContainer.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+});
+
+// Top button - smooth scroll to top
+if (topBtn) {
+    topBtn.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 }
 
-function closeMobileMenu() {
-    mobileOpened = false;
-    mobileMenu.classList.add("max-h-0", "opacity-0");
-    mobileMenu.classList.remove("max-h-96", "opacity-100");
-    barTop.classList.remove("rotate-45", "translate-y-2");
-    barMid.classList.remove("opacity-0");
-    barBot.classList.remove("-rotate-45", "-translate-y-2");
-    hamburgerBtn.setAttribute("aria-expanded", "false");
-
-    navInner.classList.remove("bg-black/90");
-    navInner.classList.add("bg-olive-900/30");
+// Feedback button - navigate on click
+if (feedbtn) {
+    feedbtn.addEventListener('click', () => {
+        window.location.href = "feedback.html";
+    });
 }

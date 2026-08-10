@@ -43,34 +43,39 @@ code, pre {
   font-family: var(--font-mono);
 }
 
-
-/* Card styles */
-/*
-.card {
-  background: linear-gradient(to bottom right, #333232,#0b0b0b);
-    width: 25%;
-    height: 12.5rem;
-    border-radius: 0.2em;
-    transition: all 0.3s ease;
-}
-
-.card:hover {  
-  transform: translateY(-0.5rem);
-  box-shadow: 0 50px 50px -12px rgba(250, 249, 249, 0.074); 
-    background: linear-gradient(to bottom right, #696868, #050505);
-}
-
-*/
+/* cards styles*/
 .card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 3px solid rgba(255, 255, 255, 0.1);
-  width: 25%;
-  height: 12.5rem;
   border-radius: 1rem;
   transition: all 0.3s ease;
   text-shadow: 0px 5px 10px rgba(128, 128, 128, 0.5);
+
+  width: 70%;
+  height: 16  rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 25%;
+    height: 18rem;
+  }
+  .card h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: 25%;
+    height: 15rem;
+  }
+  .card h1 {
+    font-size: 3rem;
+  }
 }
 
 .card:hover {

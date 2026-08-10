@@ -5,19 +5,12 @@
 const readBtn = document.getElementById("readBtn");
 const more = document.getElementById("more");
 
-readBtn.onclick = function () {
-
-    if (more.style.display === "block") {
-
-        more.style.display = "none";
-        readBtn.innerHTML = "Read More";
-
-    } else {
-
-        more.style.display = "block";
-        readBtn.innerHTML = "Read Less";
-    }
-};
+if (readBtn && more) {
+    readBtn.addEventListener("click", function () {
+        const isHidden = more.classList.toggle("hidden");
+        readBtn.innerHTML = isHidden ? "Read More" : "Read Less";
+    });
+}
 // ==========================
 // Reveal Animation
 // ==========================
@@ -40,25 +33,3 @@ function reveal() {
 window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 
-// ==========================
-// Scroll To Top Button
-// ==========================
-
-const topBtn = document.getElementById("topBtn");
-
-if (topBtn) {
-    window.addEventListener("scroll", function () {
-        if (document.documentElement.scrollTop > 300) {
-            topBtn.style.display = "block";
-        } else {
-            topBtn.style.display = "none";
-        }
-    });
-
-    topBtn.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-}

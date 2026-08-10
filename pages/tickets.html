@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="../Script/main.js" defer></script>
+    <script src="../Script/tickets.js" defer></script>
+    <link rel="stylesheet" href="../CSS/pages/tickets.css">
+    <title> CARPE DIEM | Tickets</title>
+</head>
+
+<body class="flex flex-col bg-linear-to-br from-gray-900 to-black text-white overflow-x-hidden background-no-repeat bg-cover bg-center">
+
     <header
       id="navbar"
       class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
@@ -162,10 +178,10 @@
           class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans"
         >
           <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
-          <a href="../index.html#about" class="py-3 border-b border-white/10"
+          <a href="./about.html" class="py-3 border-b border-white/10"
             >About</a
           >
-          <a href="../museum" class="py-3 border-b border-white/10"
+          <a href="./Pages/museum.html" class="py-3 border-b border-white/10"
             >3D Virtual Museum</a
           >
           <a
@@ -184,3 +200,33 @@
         </div>
       </div>
     </header>
+
+
+    <section class="flex justify-center align-center items-center gap-10">
+
+        <div class="w-[40%] flex flex-col items-center">
+            <h1 class="mt-17 text-6xl p-5 serif bg-clip-text">Book Your Visit</h1>
+            <form class="flex flex-col border-white/10 border-2 rounded-xl w-full px-5 pt-5 mb-2">
+                <label class="p-3 text-white/60 underline">Visit Date</label>
+                <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white" type="date" id="visitDate" name="visitDate" min="2026-06-07" max="2026-12-31">
+
+                <label class="p-3 text-white/60 underline">Time Slot</label>
+                <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white" type="time" id="timeSlot" name="timeSlot">
+
+                <label class="p-3 text-white/60 underline">Number of Exhibits</label>
+                <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white" type="number" id="exhibits" name="exhibits" min="1" max="4" placeholder="1-4">
+
+                <label class="p-3 text-white/60 underline">Age</label>
+                <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white" type="number" id="ageGroup" name="ageGroup" min="10" max="120" placeholder="Enter age">
+
+                <div class="flex justify-between p-10">
+                    <button class="border-2 rounded-xl bg-green-400/10 text-green-400 hover:bg-green-400/20 shadow-md hover:shadow-lg shadow-green-200/20 w-[30%] h-10 cursor-pointer">Place Order!</button>
+                    <button class="border-2 rounded-xl bg-red-400/10 text-red-400 hover:bg-red-400/20 shadow-md hover:shadow-lg shadow-red-200/20 w-[30%] h-10 cursor-pointer">Reset</button>
+                </div>
+            </form>
+        </div>
+
+    </section>
+</body>
+
+</html>

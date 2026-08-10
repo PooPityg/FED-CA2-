@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carpe Diem | Egypt</title>
+    <link rel="stylesheet" href="../CSS/output.css" />
+    <script src="../Script/main.js" defer></script>
+    <script src="../Script/cut-scene-loader.js" defer></script>
+  </head>
+  <body class="page-egypt">
+    <header
+      id="navbar"
+      class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
+    >
+      <nav
+        id="navInner"
+        class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30"
+      >
+        <!-- Left -->
+        <div class="hidden sm:flex justify-around min-w-0">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#about">About</a>
+        </div>
+
+        <!-- Hamburger (mobile only) -->
+        <div class="flex sm:hidden justify-start min-w-0">
+          <button
+            id="hamburgerBtn"
+            class="flex flex-col justify-center items-center gap-1.5"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            <span
+              id="barTop"
+              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
+            ></span>
+            <span
+              id="barMid"
+              class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"
+            ></span>
+            <span
+              id="barBot"
+              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
+            ></span>
+          </button>
+        </div>
+
+        <!-- Center -->
+        <a
+          href="../index.html"
+          class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0"
+          id="brand"
+        >
+          <div class="flex flex-col items-center min-w-0">
+            <span
+              class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap"
+            >
+              CARPE DIEM
+            </span>
+            <span
+              class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60"
+            >
+              EST. 2026
+            </span>
+          </div>
+        </a>
+
+        <!-- Right -->
+        <div class="hidden sm:flex justify-around min-w-0">
+          <div class="relative" id="exploreMenu">
+            <button
+              id="exploreBtn"
+              class="flex items-center gap-1 cursor-pointer"
+            >
+              Explore
+              <span id="exploreArrow" class="transition-transform duration-150">▾</span>
+            </button>
+            <div
+              id="exploreDropdown"
+              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
+            >
+              <div class="rounded-xl bg-black/90 mt-4">
+                <a
+                  href="./Pages/museum.html"
+                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
+                >
+                  <span class="block font-medium">3D Virtual Museum</span>
+                  <span class="block text-xs text-neutral-400 mt-0.5"
+                    >Walk the immersive halls</span
+                  >
+                </a>
+                <a
+                  href="./collections.html"
+                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
+                  role="menuitem"
+                >
+                  <span class="block font-medium">Collections</span>
+                  <span class="block text-xs text-neutral-400 mt-0.5"
+                    >Browse artifacts by era</span
+                  >
+                </a>
+                <a
+                  href="./passport.html"
+                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
+                  role="menuitem"
+                >
+                  <span class="block font-medium">My Achievement</span>
+                  <span class="block text-xs text-neutral-400 mt-0.5"
+                    >View your passport & badges</span
+                  >
+                </a>
+                <a
+                  href="./quiz.html"
+                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
+                  role="menuitem"
+                >
+                  <span class="block font-medium">Quiz</span>
+                  <span class="block text-xs text-neutral-400 mt-0.5"
+                    >Test your knowledge</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="relative" id="visitMenu">
+            <button
+              id="visitBtn"
+              class="flex items-center gap-1 cursor-pointer"
+            >
+              Visit
+              <span id="visitArrow" class="transition-transform duration-150">▾</span>
+            </button>
+
+            <div
+              id="visitDropdown"
+              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
+            >
+              <div class="rounded-xl bg-black/90 mt-4">
+                
+                <a
+                  href="./visit-us.html"
+                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
+                >
+                  <span class="block font-medium">Visit Us</span>
+                  <span class="block text-xs text-neutral-400 mt-0.5">
+                    Plan your museum visit
+                  </span>
+                </a>
+
+                <a
+                  href="./tickets.html"
+                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
+                >
+                  <span class="block font-medium">Book Tickets</span>
+                  <span class="block text-xs text-neutral-400 mt-0.5">
+                    Reserve your museum admission
+                  </span>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile dropdown panel -->
+      <div
+        id="mobileMenu"
+        class="sm:hidden overflow-hidden max-h-0 opacity-0 bg-olive-900/95 backdrop-blur-lg transition-all duration-300 ease-in-out"
+      >
+        <div
+          class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans"
+        >
+          <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
+          <a href="./about.html" class="py-3 border-b border-white/10"
+            >About</a
+          >
+          <a href="./Pages/museum.html" class="py-3 border-b border-white/10"
+            >3D Virtual Museum</a
+          >
+          <a
+            href="./collections.html"
+            class="py-3 border-b border-white/10"
+            >Collections</a
+          >
+          <a href="./passport.html" class="py-3 border-b border-white/10"
+            >My Achievement</a
+          >
+          <a href="./quiz.html" class="py-3 border-b border-white/10"
+            >Quiz</a
+          >
+          <a href="./visit-us.html" class="py-3 border-b border-white/10"">Visit Us</a>
+          <a href="./tickets.html" class="py-3">Book Tickets</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section
+        id="intro"
+        class="fixed inset-0 z-[100] h-screen overflow-hidden"
+      >
+        <video
+          id="intro-video"
+          class="w-full h-full object-cover"
+          autoplay
+          muted
+          playsinline
+        >
+          <source src="../assets/exhibits/egypt/egypt-intro.mp4" />
+        </video>
+
+        <div
+          id="intro-overlay"
+          class="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-1000 flex items-center justify-center"
+        ></div>
+
+        <div
+          class="absolute inset-0 flex flex-col justify-center items-center text-center pointer-events-none"
+        >
+          <h1
+            id="intro-title"
+            class="font-caesar text-6xl text-neutral-200 opacity-0 translate-y-6 transition-all sm:text-7xl lg:text-[8rem] leading-non"
+          >
+            Egypt
+          </h1>
+          <p
+            id="intro-subtitle"
+            class="mt-3 uppercase text-amber-300 opacity-0 translate-y-6 transition-all duration-1000 text-xl sm:text-4xl tracking-[0.15em] font-mono font-bold"
+          >
+            1332–1323 BCE
+          </p>
+          <div
+            id="scrollHint"
+            class="absolute text-neutral-200 font-instrument-sans bottom-12 opacity-0 transition-opacity duration-1000"
+          >
+            Scroll to Explore ↓
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="relative z-10 flex flex-col items-center w-full justify-center px-7 md:px-10 lg:px-16 bg-stone-950 py-20 sm:py-28"
+      >
+        <!-- Section Header -->
+        <header class="text-center mb-8 sm:mb-10">
+          <p
+            class="text-amber-300 text-xs tracking-[0.3em] uppercase mb-2 font-medium"
+          >
+            Valley of the Kings
+          </p>
+          <h2
+            id="tomb-heading"
+            class="text-neutral-100 text-3xl sm:text-4xl lg:text-5xl font-semibold font-instrument-serif tracking-wide mb-3"
+          >
+            The Tomb of Tutankhamun
+          </h2>
+          <p class="text-neutral-200 max-w-xl mx-auto text-sm sm:text-base">
+            Beyond these gilded doors lies the resting place of Tutankhamun.
+          </p>
+        </header>
+
+        <div
+          class="max-w-6xl mx-auto space-y-10 sm:space-y-14 px-0 sm:px-4 md:px-6"
+        >
+          <!-- Article 1 -->
+          <article class="text-neutral-100">
+            <h3
+              class="font-instrument-serif text-3xl text-center sm:text-4xl sm:text-left mb-5"
+            >
+              The Discovery of King Tutankhamun's Tomb
+            </h3>
+
+            <figure
+              class="w-[50vw] min-w-[220px] sm:w-56 md:w-64     mx-auto sm:mx-0 sm:float-left sm:mr-6 mb-4"
+            >
+              <img
+                src="../assets/exhibits/egypt/king-tut.avif"
+                alt="Golden sarcophagus of Tutankhamun displayed in his tomb"
+                class="w-full aspect-[4/5] object-cover rounded-xl"
+              />
+            </figure>
+
+            <div
+              class="font-instrument-sans leading-8 text-neutral-300 space-y-4"
+            >
+              <p>
+                Tutankhamun
+                <span class="text-yellow-400">
+                  became Pharaoh of Egypt during the 18th Dynasty
+                </span>
+                of the New Kingdom, taking the throne while still a child. His
+                reign lasted only a short period, but his actions had a lasting
+                impact on Egyptian history. After the religious revolution of
+                his predecessor Akhenaten, Tutankhamun
+                <span class="text-yellow-400">
+                  restored traditional Egyptian worship
+                </span>
+                and returned the kingdom to its former beliefs.
+              </p>
+
+              <p>
+                Located in the
+                <span class="text-yellow-400">Valley of the Kings</span>,
+                Tutankhamun's tomb, known as KV62, was smaller and less
+                decorated than many royal tombs of the same period. It was
+                likely not originally built for him, but was
+                <span class="text-yellow-400">
+                  adapted after his unexpected death
+                </span>
+                to serve as his final resting place.
+              </p>
+            </div>
+
+            <div class="clear-both"></div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="text-neutral-100">
+            <h3
+              class="font-instrument-serif text-3xl text-center sm:text-4xl sm:text-right mb-5"
+            >
+              A Tomb Lost Beneath the Sands
+            </h3>
+
+            <figure
+              class="w-[50vw] min-w-[220px] sm:w-56 md:w-64 mx-auto sm:mx-0 sm:float-right sm:ml-6 mb-4"
+            >
+              <img
+                src="../assets/exhibits/egypt/valley-of-the-kings.jpg"
+                alt="The Valley of the Kings where Tutankhamun's tomb was discovered"
+                class="w-full aspect-[4/5] object-cover rounded-xl"
+                loading="lazy"
+                width="256"
+                height="320"
+                decoding="async"
+              />
+            </figure>
+
+            <div
+              class="font-instrument-sans leading-8 text-neutral-300 space-y-4"
+            >
+              <p>
+                The tomb's hidden location helped protect it from the
+                large-scale looting that affected many other Egyptian royal
+                tombs. Covered by debris and forgotten for thousands of years,
+                KV62 preserved a rare glimpse of an untouched royal burial.
+              </p>
+
+              <p>
+                In <time datetime="1922-11">November 1922</time>, archaeologist
+                Howard Carter discovered the steps leading down to the sealed
+                entrance. When asked if he could see anything by his patron Lord
+                Carnarvon, Carter famously replied,
+                <span class="text-yellow-400">"Yes, wonderful things."</span>
+                The subsequent excavation revealed thousands of artifacts,
+                including the iconic golden death mask that has become a symbol
+                of ancient Egypt.
+              </p>
+            </div>
+
+            <div class="clear-both"></div>
+          </article>
+        </div>
+      </section>
+      <section
+        class="relative flex flex-col items-center justify-center px-4 md:px-10 lg:px-16 min-h-screen bg-stone-950 text-neutral-200"
+      >
+        <div class="text-center mb-16">
+          <h2
+            class="font-instrument-serif text-4xl md:text-5xl font-semibold mb-4"
+          >
+            Timeline of Tutankhamun
+          </h2>
+
+          <p class="text-neutral-300 max-w-2xl mx-auto">
+            Though his reign lasted only about nine years, Tutankhamun played a
+            significant role in restoring Egypt's traditional religion and left
+            behind one of history's greatest archaeological discoveries.
+          </p>
+        </div>
+
+        <div class="relative border-l border-yellow-500/40 ml-6">
+          <!-- Event -->
+          <div class="relative pl-10 pb-12">
+            <div
+              class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-amber-300 border-4 border-black"
+            ></div>
+
+            <span class="text-amber-300 font-semibold">c. 1341 BCE</span>
+
+            <h3 class="mt-2 text-2xl font-instrument-serif">
+              Birth of Tutankhamun
+            </h3>
+
+            <p class="mt-2 text-neutral-300 leading-7">
+              Born into Egypt's 18th Dynasty, Tutankhamun was likely the son of
+              Pharaoh Akhenaten during the turbulent Amarna Period.
+            </p>
+          </div>
+
+          <!-- Event -->
+          <div class="relative pl-10 pb-12">
+            <div
+              class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-amber-300 border-4 border-black"
+            ></div>
+
+            <span class="text-amber-300 font-semibold">c. 1332 BCE</span>
+
+            <h3 class="mt-2 text-2xl font-instrument-serif">
+              Ascends the Throne
+            </h3>
+
+            <p class="mt-2 text-neutral-300 leading-7">
+              At approximately nine years old, Tutankhamun became Pharaoh of
+              Egypt, ruling under the guidance of powerful advisors.
+            </p>
+          </div>
+
+          <!-- Event -->
+          <div class="relative pl-10 pb-12">
+            <div
+              class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-amber-300 border-4 border-black"
+            ></div>
+
+            <span class="text-amber-300 font-semibold">Year 1–2</span>
+
+            <h3 class="mt-2 text-2xl font-instrument-serif">
+              Restoration of Ancient Traditions
+            </h3>
+
+            <p class="mt-2 text-neutral-300 leading-7">
+              The worship of Amun and Egypt's traditional gods was restored. The
+              young king changed his name from <em>Tutankhaten</em> to
+              <em>Tutankhamun</em>, symbolizing the return to the old faith.
+            </p>
+          </div>
+
+          <!-- Event -->
+          <div class="relative pl-10 pb-12">
+            <div
+              class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-amber-300 border-4 border-black"
+            ></div>
+
+            <span class="text-amber-300 font-semibold">Year 3–6</span>
+
+            <h3 class="mt-2 text-2xl font-instrument-serif">
+              Temple Restoration
+            </h3>
+
+            <p class="mt-2 text-neutral-300 leading-7">
+              Temples and monuments across Egypt were repaired and reopened,
+              reversing many of the religious changes introduced by Akhenaten.
+            </p>
+          </div>
+
+          <!-- Event -->
+          <div class="relative pl-10 pb-12">
+            <div
+              class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-amber-300 border-4 border-black"
+            ></div>
+
+            <span class="text-amber-300 font-semibold">Year 5–8</span>
+
+            <h3 class="mt-2 text-2xl font-instrument-serif">
+              Diplomacy & Military Campaigns
+            </h3>
+
+            <p class="mt-2 text-neutral-300 leading-7">
+              Egyptian officials restored influence in Nubia and neighboring
+              regions while strengthening trade and diplomatic relations.
+            </p>
+          </div>
+
+          <!-- Event -->
+          <div class="relative pl-10 pb-12">
+            <div
+              class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-amber-300 border-4 border-black"
+            ></div>
+
+            <span class="text-amber-300 font-semibold">c. 1323 BCE</span>
+
+            <h3 class="mt-2 text-2xl font-instrument-serif">
+              Death of the Boy King
+            </h3>
+
+            <p class="mt-2 text-neutral-300 leading-7">
+              Tutankhamun died unexpectedly at around eighteen or nineteen years
+              of age after ruling Egypt for roughly nine years.
+            </p>
+          </div>
+
+          <!-- Event -->
+          <div class="relative pl-10 pb-12">
+            <div
+              class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-amber-300 border-4 border-black"
+            ></div>
+
+            <span class="text-amber-300 font-semibold">c. 1323 BCE</span>
+
+            <h3 class="mt-2 text-2xl font-instrument-serif">
+              Burial in the Valley of the Kings
+            </h3>
+
+            <p class="mt-2 text-neutral-300 leading-7">
+              Buried in tomb KV62 alongside more than 5,000 treasures prepared
+              for his eternal journey into the afterlife.
+            </p>
+          </div>
+
+          <!-- Highlight -->
+          <div class="relative pl-10">
+            <div
+              class="absolute -left-[10px] top-2 w-5 h-5 rounded-full bg-yellow-300 shadow-lg shadow-amber-300/50 border-4 border-black"
+            ></div>
+
+            <span class="text-yellow-300 font-semibold">1922 CE</span>
+
+            <h3 class="mt-2 text-2xl font-instrument-serif">
+              Howard Carter Discovers the Tomb
+            </h3>
+
+            <p class="mt-2 text-neutral-300 leading-7">
+              Nearly 3,200 years after Tutankhamun's death, British
+              archaeologist Howard Carter uncovered the remarkably intact tomb,
+              revealing one of the greatest archaeological discoveries in
+              history.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
