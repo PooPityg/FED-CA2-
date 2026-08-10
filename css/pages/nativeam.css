@@ -4,7 +4,7 @@
 @import "tailwindcss";
 
 body {
-  font-family: var(--font-poppins)
+  font-family: var(--font-poppins);
 }
 
 html {
@@ -50,10 +50,9 @@ html {
 }
 
 .stat:hover {
-    filter: brightness(3);
+    filter: brightness(3) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
     border-color: rgba(255, 255, 255, 0.67);
     transform: translateY(-4px);
-    filter:drop-shadow(0 0 30px, rgba(255, 255, 255, 0.1))
 }
 
 /* carousel styles*/
@@ -100,10 +99,9 @@ html {
 
 .carouselcard:hover {
     text-shadow: 0px 5px 10px rgba(128, 128, 128, 0.225);
-    filter: brightness(1.1);
+    filter: brightness(1.1) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
     border-color: rgba(255, 255, 255, 0.372);
     transform: translateY(-4px);
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
 }
 
 /* zoom image styles */
@@ -113,9 +111,8 @@ html {
 
 .zoomimg:hover {
     transform: scale(1.01);
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
+    filter: brightness(1.1) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
     border-color: rgba(255, 255, 255, 0.372);
-    filter: brightness(1.1);
 }
 
 /* card styles */
@@ -175,4 +172,3 @@ html {
     color: white;
     text-shadow: 0px 5px 10px gray;
 }
-
