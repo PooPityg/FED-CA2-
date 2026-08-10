@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../CSS/output.css">
     <script src="../Script/main.js" defer></script>
     <script src="../Script/warriors.js" defer></script>
+    <script src="../Script/stamps.js"></script>
     <title>Warriors Exhibit</title>
 </head>
 
@@ -129,11 +130,12 @@
         </div>
     </header>
     <main class="pt-20">
+        <!--Hero section-->
         <section id="hero"
             class="relative isolate flex min-h-[90vh] w-full items-center justify-center overflow-hidden bg-stone-900/60">
             <div class="absolute inset-0">
-                <img src="../assets/exhibits/Terracotta/terracotta-army.jpg"
-                    alt="Terracotta warriors arranged in a vast archaeological chamber"
+                <img src="../assets/exhibits/terracotta/terracotta-army.jpg"
+                    alt="terracotta warriors arranged in a vast archaeological chamber"
                     class="h-full w-full object-cover" />
                 <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30"></div>
                 <div
@@ -143,7 +145,7 @@
 
             <div class="relative z-10 max-w-2xl ml-10 space-y-6 px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
                 <p class="text-sm font-intsrument-sans font-semibold uppercase tracking-[0.35em] text-amber-300">
-                    Terracotta Warriors</p>
+                    terracotta Warriors</p>
                 <h1
                     class="font-instrument-serif font-semibold text-4xl leading-tight tracking-wide text-white sm:text-5xl lg:text-6xl">
                     Guarding Eternity for 2,000 Years
@@ -164,6 +166,7 @@
                 </div>
             </div>
         </section>
+        <!--pits discovered-->
         <section class="min-h-[90vh] bg-stone-950 flex items-stretch mt-16">
             <div
                 class="mx-4 flex min-h-full min-h-0 flex-col rounded-xl border border-white/10 bg-stone-900/70 shadow-2xl shadow-black/30 overflow-hidden md:mx-10 lg:mx-14 py-8 md:py-12">
@@ -179,7 +182,7 @@
                 <div class="grid flex-1 gap-6 p-6 md:grid-cols-3">
                     <article id="pit1" class="exhibit-card p-6 space-y-4">
                         <div class="overflow-hidden rounded-3xl bg-stone-950 shadow-inner shadow-black/30">
-                            <img src="../assets/exhibits/Terracotta/pit-1.jpg" alt="Pit 1 terracotta warriors"
+                            <img src="../assets/exhibits/terracotta/pit-1.jpg" alt="Pit 1 terracotta warriors"
                                 class="h-48 w-full object-cover object-center" />
                         </div>
                         <h2 class="text-2xl font-instrument-serif font-semibold">Pit 1</h2>
@@ -190,7 +193,7 @@
                     </article>
                     <article id="pit2" class="exhibit-card p-6 space-y-4">
                         <div class="overflow-hidden rounded-3xl bg-stone-950 shadow-inner shadow-black/30">
-                            <img src="../assets/exhibits/Terracotta/pit-2.jpg" alt="Pit 2 terracotta warriors"
+                            <img src="../assets/exhibits/terracotta/pit-2.jpg" alt="Pit 2 terracotta warriors"
                                 class="h-48 w-full object-cover object-center" />
                         </div>
                         <h2 class="text-2xl font-instrument-serif font-semibold">Pit 2</h2>
@@ -201,7 +204,7 @@
                     </article>
                     <article id="pit3" class="exhibit-card p-6 space-y-4">
                         <div class="overflow-hidden rounded-3xl bg-stone-950 shadow-inner shadow-black/30">
-                            <img src="../assets/exhibits/Terracotta/pit-3.jpg" alt="Pit 3 terracotta warriors"
+                            <img src="../assets/exhibits/terracotta/pit-3.jpg" alt="Pit 3 terracotta warriors"
                                 class="h-48 w-full object-cover object-center" />
                         </div>
                         <h2 class="text-2xl font-instrument-serif font-semibold">Pit 3</h2>
@@ -213,6 +216,7 @@
                 </div>
             </div>
         </section>
+        <!--Found in pits-->
         <section class="bg-stone-950 py-16">
             <div
                 class="mx-6 rounded-3xl border border-white/10 bg-stone-900/70 px-6 py-12 shadow-2xl shadow-black/30 md:mx-10 lg:mx-14">
@@ -257,6 +261,7 @@
                 </div>
             </div>
         </section>
+        <!--Gallery section-->
         <section class="bg-stone-950 py-16">
             <div class="mx-6 rounded-sm px-6">
                 <div id="gallery" class="grid gap-4 sm:gap-6 md:grid-cols-3"></div>
@@ -390,6 +395,46 @@
                     </div>
                     <div class="clear-both"></div>
                 </article>
+            </div>
+        </section>
+        <!-- Collection Section -->
+        <section id="collection" class="min-h-[50vh] sm:min-h-[55vh] lg:min-h-[60vh]
+           bg-stone-950 flex items-center justify-center
+           px-5 sm:px-8 md:px-12 lg:px-16 py-16 sm:py-20 lg:py-24">
+
+            <div class="w-full max-w-3xl text-center">
+
+                <!-- Heading -->
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                   font-instrument-serif font-semibold text-white
+                   leading-tight mb-4 sm:mb-6">
+                    Collect your stamp here
+                </h2>
+
+                <!-- Description -->
+                <p class="text-sm sm:text-base md:text-lg
+                   font-instrument-sans
+                   leading-6 sm:leading-7
+                   text-neutral-300
+                   max-w-xl sm:max-w-2xl
+                   mx-auto mb-6 sm:mb-8">
+                    Collect the stamp to mark your journey through history. Each stamp represents an exhibit you have explored and brings you one step closer to completing your museum collection.
+                </p>
+
+                <!-- Button -->
+                <button data-stamp="chinese" id="collectBtn" onclick="collectstamp('chinese')" class="inline-flex items-center justify-center
+                   w-full sm:w-auto
+                   px-7 sm:px-8 py-3
+                   text-sm sm:text-base
+                   font-instrument-sans font-semibold
+                   rounded-lg
+                   bg-amber-600 text-white
+                   hover:bg-amber-700
+                   active:bg-amber-800
+                   transition-colors duration-200">
+                    Collect stamp
+                </button>
+
             </div>
         </section>
         <div id="sideBtnContainer"
