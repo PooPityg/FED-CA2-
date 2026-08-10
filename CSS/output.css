@@ -19,6 +19,7 @@
     --color-orange-200: oklch(90.1% 0.076 70.697);
     --color-orange-300: oklch(83.7% 0.128 66.29);
     --color-orange-400: oklch(75% 0.183 55.934);
+    --color-amber-100: oklch(96.2% 0.059 95.617);
     --color-amber-200: oklch(92.4% 0.12 95.746);
     --color-amber-300: oklch(87.9% 0.169 91.605);
     --color-amber-400: oklch(82.8% 0.189 84.429);
@@ -702,8 +703,8 @@
   .w-\[95\%\] {
     width: 95%;
   }
-  .w-\[300px\] {
-    width: 300px;
+  .w-\[800px\] {
+    width: 800px;
   }
   .w-fit {
     width: fit-content;
@@ -1528,9 +1529,6 @@
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
-  .pt-10 {
-    padding-top: calc(var(--spacing) * 10);
-  }
   .pt-24 {
     padding-top: calc(var(--spacing) * 24);
   }
@@ -1554,6 +1552,9 @@
   }
   .pb-16 {
     padding-bottom: calc(var(--spacing) * 16);
+  }
+  .pl-0 {
+    padding-left: 0;
   }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);
@@ -2777,11 +2778,6 @@
       bottom: calc(var(--spacing) * 8);
     }
   }
-  .md\:mx-0 {
-    @media (width >= 48rem) {
-      margin-inline: 0;
-    }
-  }
   .md\:mx-10 {
     @media (width >= 48rem) {
       margin-inline: calc(var(--spacing) * 10);
@@ -2835,11 +2831,6 @@
   .md\:w-200 {
     @media (width >= 48rem) {
       width: calc(var(--spacing) * 200);
-    }
-  }
-  .md\:w-\[000px\] {
-    @media (width >= 48rem) {
-      width: 000px;
     }
   }
   .md\:w-\[40\%\] {
@@ -2927,11 +2918,6 @@
       align-items: flex-start;
     }
   }
-  .md\:items-stretch {
-    @media (width >= 48rem) {
-      align-items: stretch;
-    }
-  }
   .md\:justify-between {
     @media (width >= 48rem) {
       justify-content: space-between;
@@ -2947,11 +2933,6 @@
       gap: calc(var(--spacing) * 4);
     }
   }
-  .md\:gap-10 {
-    @media (width >= 48rem) {
-      gap: calc(var(--spacing) * 10);
-    }
-  }
   .md\:gap-20 {
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 20);
@@ -2961,11 +2942,6 @@
     @media (width >= 48rem) {
       border-style: var(--tw-border-style);
       border-width: 4px;
-    }
-  }
-  .md\:p-3 {
-    @media (width >= 48rem) {
-      padding: calc(var(--spacing) * 3);
     }
   }
   .md\:p-5 {
@@ -3122,9 +3098,19 @@
       margin-top: 0;
     }
   }
+  .lg\:mr-30 {
+    @media (width >= 64rem) {
+      margin-right: calc(var(--spacing) * 30);
+    }
+  }
   .lg\:mb-0 {
     @media (width >= 64rem) {
       margin-bottom: 0;
+    }
+  }
+  .lg\:ml-30 {
+    @media (width >= 64rem) {
+      margin-left: calc(var(--spacing) * 30);
     }
   }
   .lg\:flex {
@@ -3150,11 +3136,6 @@
   .lg\:h-\[25\%\] {
     @media (width >= 64rem) {
       height: 25%;
-    }
-  }
-  .lg\:h-\[200px\] {
-    @media (width >= 64rem) {
-      height: 200px;
     }
   }
   .lg\:h-\[300px\] {
@@ -3205,11 +3186,6 @@
   .lg\:w-\[400px\] {
     @media (width >= 64rem) {
       width: 400px;
-    }
-  }
-  .lg\:w-\[450px\] {
-    @media (width >= 64rem) {
-      width: 450px;
     }
   }
   .lg\:w-\[820px\] {
@@ -3383,6 +3359,11 @@
       font-size: 8rem;
     }
   }
+  .xl\:w-\[400px\] {
+    @media (width >= 80rem) {
+      width: 400px;
+    }
+  }
   .xl\:grid-cols-4 {
     @media (width >= 80rem) {
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3403,6 +3384,18 @@
     @media (width >= 80rem) {
       font-size: var(--text-7xl);
       line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+  }
+  .xl\:text-xl {
+    @media (width >= 80rem) {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
+  .\32 xl\:text-2xl {
+    @media (width >= 96rem) {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
     }
   }
   .dark\:text-orange-400 {
@@ -3667,167 +3660,96 @@ table, tr, td, th {
 .page-collection {
   background: #0a0a0a;
   color: #fff;
-  font-family: var(--font-instrument-sans);
-  & .page-header {
-    margin-bottom: 3rem;
-  }
+  font-family: system-ui, sans-serif;
   & .page-header h1 {
     margin: 0;
     text-align: center;
-    font-family: var(--font-instrument-serif);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 500;
-    letter-spacing: -0.02em;
   }
   & .page-header p {
-    max-width: 600px;
-    margin: 0.5rem auto 0;
+    margin: 4px 0 0;
     color: #a3a3a3;
-    font-size: clamp(0.75rem, 1.5vw, 0.95rem);
-    line-height: 1.6;
+    font-size: 13px;
     text-align: center;
   }
   & .collection-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: 18px;
   }
   & .card {
-    width: 100%;
-    min-width: 0;
-    min-height: 460px;
+    background: #1c1c1c;
+    border: 1px solid #2e2e2e;
+    border-radius: 10px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    padding: 1rem;
-    background: #151515;
-    border: 1px solid #292929;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    gap: 14px;
+    transition: transform 0.15s ease, background 0.15s ease;
+    width: 100%;
+    min-height: 450px;
   }
   & .card:hover {
-    background: #1c1c1c;
-    border-color: #414141;
-    transform: translateY(-5px);
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+    background: #242424;
+    transform: translateY(-3px);
+  }
+  & .card {
+    cursor: pointer;
+  }
+  & .card.zoomed {
+    transform: scale(1.08);
+    background: #242424;
+    border-color: #666;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    position: relative;
   }
   & .card-img {
-    width: 100%;
-    height: 190px;
+    background: #3a3a3a;
+    height: 160px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 12px;
+    text-transform: uppercase;
     overflow: hidden;
-    border-radius: 8px;
-    background: #292929;
   }
   & .card-img img {
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  & .card:hover .card-img img {
-    transform: scale(1.04);
+    display: block;
   }
   & .card-title {
-    margin: 0.25rem 0 0;
-    font-family: var(--font-instrument-serif);
-    font-size: clamp(1.5rem, 3vw, 2.1rem);
-    font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
+    font-size: 30px;
+    margin: 0;
   }
   & .card-year {
-    margin: 0;
-    color: #8f8f8f;
-    font-family: var(--font-instrument-sans);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-size: 20px;
+    color: #a3a3a3;
+    margin: -6px 0 0;
   }
   & .card-desc {
-    flex-grow: 1;
-    margin: 0.15rem 0 0;
+    font-size: 16px;
     color: #a3a3a3;
-    font-family: var(--font-instrument-sans);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.45;
+    margin: 0;
+    flex-grow: 1;
   }
   & .browse-btn {
-    display: block;
-    width: 100%;
-    padding: 0.65rem 0;
-    border: 1px solid #3a3a3a;
+    border: 1px solid #4a4a4a;
+    color: #fff;
+    padding: 7px 0;
     border-radius: 6px;
-    color: #d4d4d4;
-    font-family: var(--font-instrument-sans);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-align: center;
+    font-size: 12.5px;
     text-decoration: none;
-    text-transform: uppercase;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+    transition: background 0.15s;
   }
   & .browse-btn:hover {
-    background: #f5f5f5;
-    border-color: #f5f5f5;
+    background: #fff;
     color: #111;
-  }
-  & .card.zoomed {
-    position: relative;
-    z-index: 5;
-    background: #1c1c1c;
-    border-color: #666;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    transform: scale(1.04);
-  }
-  @media (max-width: 700px) {
-    & .collection-grid {
-      gap: 1rem;
-    }
-    & .card {
-      min-height: 420px;
-      padding: 0.8rem;
-    }
-    & .card-img {
-      height: 150px;
-    }
-    & .card-desc {
-      font-size: 0.78rem;
-    }
-  }
-  @media (max-width: 480px) {
-    & .collection-grid {
-      grid-template-columns: 1fr;
-    }
-    & .card {
-      min-height: 0;
-    }
-    & .card-img {
-      height: 190px;
-    }
-    & .card-title {
-      font-size: 1.8rem;
-    }
-  }
-  @media (max-width: 300px) {
-    & .card {
-      padding: 0.7rem;
-    }
-    & .card-img {
-      height: 150px;
-    }
-    & .card-title {
-      font-size: 1.5rem;
-    }
-    & .card-desc {
-      font-size: 0.75rem;
-    }
-    & .browse-btn {
-      font-size: 0.6rem;
-    }
   }
 }
 .page-egypt {
