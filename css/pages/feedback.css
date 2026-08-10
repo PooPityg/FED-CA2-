@@ -66,7 +66,7 @@
     transition: all 0.3s ease;
 }
 
-.page-feedback button:hover {
+.page-feedback form button:hover {
     background: var(--color-amber-400);
     transform: scale(1.02);
 }
