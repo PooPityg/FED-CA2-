@@ -4,76 +4,80 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 1rem;
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url("https://live.staticflickr.com/5459/29839741913_42cd3b53a0_b.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* Form container */
-    & .container{
+
+    & .container {
         background: rgb(0, 0, 0);
         color: white;
-        width: 400px;
-        padding: 25px;
+        width: 100%;
+        max-width: 400px;
+        padding: 1.5rem;
         border-radius: 10px;
         box-shadow: 0 0 10px gray;
-          
+        box-sizing: border-box;
     }
 
-    /* Heading */
-    & h1{
+    & h1 {
         text-align: center;
         margin-bottom: 20px;
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
     }
 
-    /* Labels */
-    & label{
+    & label {
         display: block;
         margin-top: 10px;
         margin-bottom: 5px;
         font-weight: bold;
     }
-    input,
-    select,
-    textarea{
+
+    & input,
+    & select,
+    & textarea {
         width: 100%;
         padding: 10px;
         border: 1px solid gray;
         border-radius: 5px;
         margin-bottom: 10px;
         box-sizing: border-box;
+        font-size: 1rem;
     }
 
-    /* Button */
-    & .container button{
+    & textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    & .container button {
         width: 100%;
         padding: 12px;
-        background: #0077cc;
-        color: white;
+        background: var(--color-amber-300);
+        color: black;
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 1rem;
         transition: all 0.3s ease;
     }
 
-    /* Hover effect */
-    & button:hover{
-        background: #005fa3;
-        transform: scale(1.05);
+    & button:hover {
+        background: var(--color-amber-400);
+        transform: scale(1.02);
     }
 
-    /* Success message */
-    & #message{
+    & #message {
         text-align: center;
         margin-top: 15px;
         font-weight: bold;
         color: green;
     }
 
-    & select option{
+    & select option {
         background: #000;
         color: white;
     }
