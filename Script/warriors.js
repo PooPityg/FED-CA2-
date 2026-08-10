@@ -104,6 +104,8 @@ function next(){   //next func
     const galleryNum = document.getElementById('galleryNum')
     if (galleryNum) galleryNum.textContent = `${currentPage+1}`
     renderGallery()
+    const gallery = document.getElementById("gallery")
+    window.scrollTo({ top: gallery.offsetTop -100 , behavior: "smooth" })
 }
 
 function back(){  //prev func
@@ -114,6 +116,8 @@ function back(){  //prev func
     const galleryNum = document.getElementById('galleryNum')
     if (galleryNum) galleryNum.textContent = `${currentPage+1}`
     renderGallery()
+    const gallery = document.getElementById("gallery")
+    window.scrollTo({ top: gallery.offsetTop -100 , behavior: "smooth" })
 }
 
 backBtn.addEventListener('click', back)
