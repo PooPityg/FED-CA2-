@@ -1,12 +1,15 @@
 .page-feedback {
 
-    background-color: rgb(0, 0, 0);
+ 
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-        
+   background-image: url("https://i.pinimg.com/736x/0c/f9/b6/0cf9b6fd6eae3f72482997f08ab1cf6a.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     /* Form container */
     & .container{
         background: rgb(0, 0, 0);
@@ -15,6 +18,7 @@
         padding: 25px;
         border-radius: 10px;
         box-shadow: 0 0 10px gray;
+          
     }
 
     /* Heading */
