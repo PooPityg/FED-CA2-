@@ -5,6 +5,32 @@ color:white;
 
 }
 
+<<<<<<< HEAD
+=======
+
+.overlay{
+
+background:rgba(0,0,0,.65);
+
+padding:60px;
+text-align:center;
+
+}
+
+.overlay h1{
+
+font-size:70px;
+
+}
+
+.overlay p{
+
+margin:20px;
+font-size:22px;
+
+}
+
+>>>>>>> origin/fixing
 .btn{
 
 display:inline-block;
