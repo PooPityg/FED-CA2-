@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="../CSS/output.css">
 
     <script src="../Script/main.js" defer></script>
+    <script src="../Script/feedback.js" defer></script>
 </head>
-<body class="font-instrument-serif">
+<body class="font-instrument-serif page-feedback">
     <header
       id="navbar"
       class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
@@ -76,7 +77,7 @@
               class="flex items-center gap-1 cursor-pointer"
             >
               Explore
-              <span id="exploreArrow">▾</span>
+              <span id="exploreArrow" class="transition-transform duration-150">▾</span>
             </button>
             <div
               id="exploreDropdown"
@@ -131,7 +132,7 @@
               class="flex items-center gap-1 cursor-pointer"
             >
               Visit
-              <span id="visitArrow">▾</span>
+              <span id="visitArrow" class="transition-transform duration-150">▾</span>
             </button>
 
             <div
@@ -197,43 +198,43 @@
         </div>
       </div>
     </header>
-    <div class="container font-instrument-serif tracking-wider">
-        <h1>Feedback Form</h1>
+    <main>
+      <div class="container font-instrument-serif tracking-wider">
+          <h1>Feedback Form</h1>
 
-        <form id="feedbackForm">
+          <form id="feedbackForm">
 
-            <!-- Name -->
-            <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Enter your name">
+              <!-- Name -->
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Enter your name">
 
-            <!-- Email -->
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email">
+              <!-- Email -->
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Enter your email">
 
-            <!-- Rating -->
-            <label for="rating">Rating</label>
-            <select id="rating">
-                <option value="">Choose a rating</option>
-                <option>1 - Poor⭐</option>
-                <option>2 - Fair⭐⭐</option>
-                <option>3 - Good⭐⭐⭐</option>
-                <option>4 - Very Good⭐⭐⭐⭐</option>
-                <option>5 - Excellent⭐⭐⭐⭐⭐</option>
-            </select>
+              <!-- Rating -->
+              <label for="rating">Rating</label>
+              <select id="rating">
+                  <option value="">Choose a rating</option>
+                  <option>1 - Poor⭐</option>
+                  <option>2 - Fair⭐⭐</option>
+                  <option>3 - Good⭐⭐⭐</option>
+                  <option>4 - Very Good⭐⭐⭐⭐</option>
+                  <option>5 - Excellent⭐⭐⭐⭐⭐</option>
+              </select>
 
-            <!-- Feedback -->
-            <div class="hidden" id="feedbackSection">
-                <label id="feedbackLabel" for="feedback"></label>
-                <textarea id="feedback" rows="5" placeholder=""></textarea>
-            </div>
-            <button type="submit">Submit Feedback</button>
+              <!-- Feedback -->
+              <div class="hidden" id="feedbackSection">
+                  <label id="feedbackLabel" for="feedback"></label>
+                  <textarea id="feedback" rows="5" placeholder=""></textarea>
+              </div>
+              <button type="submit">Submit Feedback</button>
 
-        </form>
+          </form>
 
-        <p id="message"></p>
-    </div>
-
-    <script src="../Script/feedback.js"></script>
+          <p id="message"></p>
+      </div>
+    </main>
 
 </body>
 </html>

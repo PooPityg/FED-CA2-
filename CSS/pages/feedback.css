@@ -1,78 +1,75 @@
-body{
+.page-feedback {
+
     background-color: rgb(0, 0, 0);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
-}
+        
+    /* Form container */
+    & .container{
+        background: rgb(0, 0, 0);
+        color: white;
+        width: 400px;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+    }
 
-/* Form container */
-.container{
-    background: rgb(0, 0, 0);
-    color: white;
-    width: 400px;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px gray;
-}
+    /* Heading */
+    & h1{
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-/* Heading */
-h1{
-    text-align: center;
-    margin-bottom: 20px;
-}
+    /* Labels */
+    & label{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input,
+    select,
+    textarea{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
 
-/* Labels */
-label{
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-input,
-select,
-textarea{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
+    /* Button */
+    & .container button{
+        width: 100%;
+        padding: 12px;
+        background: #0077cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
 
-/* Button */
-.container button{
-    width: 100%;
-    padding: 12px;
-    background: #0077cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
+    /* Hover effect */
+    & button:hover{
+        background: #005fa3;
+        transform: scale(1.05);
+    }
 
-/* Hover effect */
-button:hover{
-    background: #005fa3;
-    transform: scale(1.05);
-}
+    /* Success message */
+    & #message{
+        text-align: center;
+        margin-top: 15px;
+        font-weight: bold;
+        color: green;
+    }
 
-/* Success message */
-#message{
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
-    color: green;
+    & select option{
+        background: #000;
+        color: white;
+    }
 }
-
-.hidden{
-    display:none;
-}
- select option{
-    background: #000;
-    color: white;
- }
