@@ -4,32 +4,31 @@ const nextBtn = document.getElementById('nextBtn')
 
 const gallaryData=[
     [   //Terracotta warriors  
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/stone-linedUp.jpg'},
-        {id:2 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/Terracotta/stone-poseUp.jpg'},
-        {id:3 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/Terracotta/stone-Kneeling.jpg'},
-        {id:4 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/Terracotta/stone-Frontfacing.jpg'},
-        {id:5 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/Terracotta/stone-closeUp.jpg'}
+        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/stone-linedUp.jpg'},
+        {id:2 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/stone-poseUp.jpg'},
+        {id:3 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/stone-Kneeling.jpg'},
+        {id:4 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/stone-Frontfacing.jpg'},
+        {id:5 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/stone-closeUp.jpg'}
     ],
 
     [  //Hourse and Chariots
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'}
+        {id:6 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/horse-linedUp'},
+        {id:7 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/horse-frontFacing'},
+        {id:8 ,span:'col-span-2',rowSpan:'row-span-2',image:'../assets/exhibits/Terracotta/horse-'},
+        {id:9 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/horse-'},
     ],
     [  //Weapons and armor
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'}
+        {id:10 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
+        {id:11 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
+        {id:12 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
+        {id:13 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
+        {id:14 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'}
     ],
     [  //Command and Rituals
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'},
-        {id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/Terracotta/'}
+        {id:15 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
+        {id:16 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
+        {id:17 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'},
+        {id:18 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/Terracotta/'}
     ]
 ]
 
