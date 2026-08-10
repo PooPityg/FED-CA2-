@@ -63,7 +63,7 @@ html {
     border: 3px solid rgba(255, 255, 255, 0.08);
     padding: 20px 0 20px 0;
     display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     cursor: grab;
     user-select: none;         
 }

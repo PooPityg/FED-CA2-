@@ -1,6 +1,6 @@
 const buttons = document.querySelectorAll(".button")
 const suns = document.querySelectorAll(".sun")
-
+// Remove hidden class from the sun paragraph when hovering above the corresponding button //
 buttons.forEach((button, index) => {
     button.addEventListener('mouseenter', () => {
         suns[index].classList.remove("opacity-0", "pointer-events-none");
