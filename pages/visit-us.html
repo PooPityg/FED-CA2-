@@ -1,317 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="../Script/main.js" defer></script>
-    <script src="../Script/visitus.js" defer></script>
-    <link rel="stylesheet" href="../CSS/output.css">
-    <link rel="stylesheet" href="../CSS/pages/visit-us.css">
-    <title> CARPE DIEM | Visit Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="../Script/main.js" defer></script>
+  <script src="../Script/visitus.js" defer></script>
+  <link rel="stylesheet" href="../CSS/output.css">
+  <link rel="stylesheet" href="../CSS/pages/visit-us.css">
+  <title> CARPE DIEM | Visit Us</title>
 </head>
 
 
 <body class="flex flex-col bg-gradient-to-br from-gray-900 to-black text-white overflow-x-hidden">
-    <header
-      id="navbar"
-      class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
-    >
-      <nav
-        id="navInner"
-        class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30"
-      >
-        <!-- Left -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#about">About</a>
-        </div>
+  <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out">
+    <nav id="navInner"
+      class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
+      <!-- Left -->
+      <div class="hidden sm:flex justify-around min-w-0">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+      </div>
 
-        <!-- Hamburger (mobile only) -->
-        <div class="flex sm:hidden justify-start min-w-0">
-          <button
-            id="hamburgerBtn"
-            class="flex flex-col justify-center items-center gap-1.5"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-          >
-            <span
-              id="barTop"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
-            <span
-              id="barMid"
-              class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"
-            ></span>
-            <span
-              id="barBot"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
+      <!-- Hamburger (mobile only) -->
+      <div class="flex sm:hidden justify-start min-w-0">
+        <button id="hamburgerBtn" class="flex flex-col justify-center items-center gap-1.5" aria-label="Toggle menu"
+          aria-expanded="false">
+          <span id="barTop" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+          <span id="barMid" class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"></span>
+          <span id="barBot" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+        </button>
+      </div>
+
+      <!-- Center -->
+      <a href="../index.html"
+        class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0" id="brand">
+        <div class="flex flex-col items-center min-w-0">
+          <span class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap">
+            CARPE DIEM
+          </span>
+          <span class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60">
+            EST. 2026
+          </span>
+        </div>
+      </a>
+
+      <!-- Right -->
+      <div class="hidden sm:flex justify-around min-w-0">
+        <div class="relative" id="exploreMenu">
+          <button id="exploreBtn" class="flex items-center gap-1 cursor-pointer">
+            Explore
+            <span id="exploreArrow">▾</span>
           </button>
-        </div>
-
-        <!-- Center -->
-        <a
-          href="../index.html"
-          class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0"
-          id="brand"
-        >
-          <div class="flex flex-col items-center min-w-0">
-            <span
-              class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap"
-            >
-              CARPE DIEM
-            </span>
-            <span
-              class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60"
-            >
-              EST. 2026
-            </span>
-          </div>
-        </a>
-
-        <!-- Right -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <div class="relative" id="exploreMenu">
-            <button
-              id="exploreBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Explore
-              <span id="exploreArrow">▾</span>
-            </button>
-            <div
-              id="exploreDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                <a
-                  href="./Pages/museum.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">3D Virtual Museum</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Walk the immersive halls</span
-                  >
-                </a>
-                <a
-                  href="./collections.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                  role="menuitem"
-                >
-                  <span class="block font-medium">Collections</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Browse artifacts by era</span
-                  >
-                </a>
-                <a
-                  href="./passport.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                  role="menuitem"
-                >
-                  <span class="block font-medium">My Achievement</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >View your passport & badges</span
-                  >
-                </a>
-                <a
-                  href="./quiz.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                  role="menuitem"
-                >
-                  <span class="block font-medium">Quiz</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Test your knowledge</span
-                  >
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="relative" id="visitMenu">
-            <button
-              id="visitBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Visit
-              <span id="visitArrow">▾</span>
-            </button>
-
-            <div
-              id="visitDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                
-                <a
-                  href="./visit-us.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">Visit Us</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Plan your museum visit
-                  </span>
-                </a>
-
-                <a
-                  href="./tickets.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                >
-                  <span class="block font-medium">Book Tickets</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Reserve your museum admission
-                  </span>
-                </a>
-
-              </div>
+          <div id="exploreDropdown"
+            class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+            <div class="rounded-xl bg-black/90 mt-4">
+              <a href="./Pages/museum.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                <span class="block font-medium">3D Virtual Museum</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Walk the immersive halls</span>
+              </a>
+              <a href="./collections.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
+                role="menuitem">
+                <span class="block font-medium">Collections</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Browse artifacts by era</span>
+              </a>
+              <a href="./passport.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
+                role="menuitem">
+                <span class="block font-medium">My Achievement</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">View your passport & badges</span>
+              </a>
+              <a href="./quiz.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
+                role="menuitem">
+                <span class="block font-medium">Quiz</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Test your knowledge</span>
+              </a>
             </div>
           </div>
         </div>
-      </nav>
+        <div class="relative" id="visitMenu">
+          <button id="visitBtn" class="flex items-center gap-1 cursor-pointer">
+            Visit
+            <span id="visitArrow">▾</span>
+          </button>
 
-      <!-- Mobile dropdown panel -->
-      <div
-        id="mobileMenu"
-        class="sm:hidden overflow-hidden max-h-0 opacity-0 bg-olive-900/95 backdrop-blur-lg transition-all duration-300 ease-in-out"
-      >
-        <div
-          class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans"
-        >
-          <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
-          <a href="./about.html" class="py-3 border-b border-white/10"
-            >About</a
-          >
-          <a href="./Pages/museum.html" class="py-3 border-b border-white/10"
-            >3D Virtual Museum</a
-          >
-          <a
-            href="./collections.html"
-            class="py-3 border-b border-white/10"
-            >Collections</a
-          >
-          <a href="./passport.html" class="py-3 border-b border-white/10"
-            >My Achievement</a
-          >
-          <a href="./quiz.html" class="py-3 border-b border-white/10"
-            >Quiz</a
-          >
-          <a href="./visit-us.html" class="py-3 border-b border-white/10"">Visit Us</a>
-          <a href="./tickets.html" class="py-3">Book Tickets</a>
+          <div id="visitDropdown"
+            class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+            <div class="rounded-xl bg-black/90 mt-4">
+
+              <a href="./visit-us.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                <span class="block font-medium">Visit Us</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">
+                  Plan your museum visit
+                </span>
+              </a>
+
+              <a href="./tickets.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl">
+                <span class="block font-medium">Book Tickets</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">
+                  Reserve your museum admission
+                </span>
+              </a>
+
+            </div>
+          </div>
         </div>
       </div>
-    </header>
+    </nav>
 
-    <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-10">
+    <!-- Mobile dropdown panel -->
+    <div id="mobileMenu"
+      class="sm:hidden overflow-hidden max-h-0 opacity-0 bg-olive-900/95 backdrop-blur-lg transition-all duration-300 ease-in-out">
+      <div class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans">
+        <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
+        <a href="./about.html" class="py-3 border-b border-white/10">About</a>
+        <a href="./Pages/museum.html" class="py-3 border-b border-white/10">3D Virtual Museum</a>
+        <a href="./collections.html" class="py-3 border-b border-white/10">Collections</a>
+        <a href="./passport.html" class="py-3 border-b border-white/10">My Achievement</a>
+        <a href="./quiz.html" class="py-3 border-b border-white/10">Quiz</a>
+        <a href="./visit-us.html" class="py-3 border-b border-white/10"">Visit Us</a>
+          <a href=" ./tickets.html" class="py-3">Book Tickets</a>
+      </div>
+    </div>
+  </header>
 
-    <section class="flex justify-center align-center flex-col items-center">
-        <img src="../assets/visit-us/museum.png" class="mt-15 w-[80%] h-120 object-cover" alt="Museum Image">
-    </section>
+  <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-10">
 
-    <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg mt-15"> 
+  <section class="flex justify-center align-center flex-col items-center">
+    <img src="../assets/visit-us/museum.png" class="mt-15 w-[80%] h-120 object-cover" alt="Museum Image">
+  </section>
 
-    <h1 class="serif text-8xl text-center m-10 p-2 md:text-8xl">INFORMATION</h1>
+  <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg mt-15">
 
-    <section class="flex flex-col items-center gap-10 md:flex-row md:justify-center">
-        <div class="card flex flex-col items-center">
-            <h1 class="py-4 text-7xl serif">Opening Hours</h1>
-            <p class="p-1"> <strong>Weekdays:</strong> 10am-9pm</p>
-            <p class="p-1"> <strong>Weekends:</strong> 11am-8am</p>
-        </div>
-        <div class="flex flex-col items-center card">
-            <h1 class="py-4 text-7xl serif">Ticket Prices</h1>
-            <p class="pb-2 text-white/80">From $10/exhibit</p>
-            <a href="#ticketdiv"><button class="border-2 border-white/30 rounded-md border-dashed p-5 px-10 cursor-pointer bg-black hover:bg-slate-950"> Learn more </button></a>
-        </div>
-        <div class="card flex flex-col items-center">
-            <h1 class="py-4 text-7xl serif">Address</h1>
-            <p class="pb-2"> 2 Bayfront Avenue</p>
-            <p class="pb-2"> Singapore, 018972</p> 
-            <a href="#transportdiv"> <button class="py-2 bg-black border-2 border-white/30 border-dashed rounded-md p-1 hover:bg-slate-950 cursor-pointer"> Learn more </button> </a>
-        </div>
-    </section>
+  <h1 class="serif text-8xl text-center m-10 p-2 md:text-8xl">INFORMATION</h1>
 
-    <hr id="transportdiv" class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15"> 
+  <section class="flex flex-col items-center gap-10 md:flex-row md:justify-center">
+    <div class="card flex flex-col items-center">
+      <h1 class="py-4 text-7xl serif">Opening Hours</h1>
+      <p class="p-1"> <strong>Weekdays:</strong> 10am-9pm</p>
+      <p class="p-1"> <strong>Weekends:</strong> 11am-8am</p>
+    </div>
+    <div class="flex flex-col items-center card">
+      <h1 class="py-4 text-7xl serif">Ticket Prices</h1>
+      <p class="pb-2 text-white/80">From $10/exhibit</p>
+      <a href="#ticketdiv"><button
+          class="border-2 border-white/30 rounded-md border-dashed p-5 px-10 cursor-pointer bg-black hover:bg-slate-950">
+          Learn more </button></a>
+    </div>
+    <div class="card flex flex-col items-center">
+      <h1 class="py-4 text-7xl serif">Address</h1>
+      <p class="pb-2"> 2 Bayfront Avenue</p>
+      <p class="pb-2"> Singapore, 018972</p>
+      <a href="#transportdiv"> <button
+          class="py-2 bg-black border-2 border-white/30 border-dashed rounded-md p-1 hover:bg-slate-950 cursor-pointer">
+          Learn more </button> </a>
+    </div>
+  </section>
 
-    <section class="flex flex-col justify-center md:gap-10 md:flex-row md:justify-center">
-        <div class="border-3 border-white/10 p-6 md:p-10 w-[80%] mx-auto md:mx-0 md:w-[30%] bg-gradient-to-br from-gray-900/80 to-black">
-            <h1 class="serif text-5xl md:text-7xl text-center pb-6 md:pb-10">TRANSPORT</h1>
-            <ol class="list-disc  space-y-4 text-white/70 pl-5"> 
-                <li class="text-lg md:text-xl">10-minute walk from Bayfront MRT (DTL/CCL)</li> 
-                <li class="text-lg md:text-xl">Located inside Marina Bay Sands</li>
-                <li class="text-lg md:text-xl">5-min walk from Marina Bay Sands Theatre bus stop</li>
-                <li class="text-lg md:text-xl">2-min walk from Helix Bridge!</li>
-            </ol>
-        </div>
-        <div class="border-3 border-white/10 p-10 w-[50%] bg-gradient-to-br from-gray-900/80 to-black">
-            <h1 class="serif text-7xl text-center mb-10">GETTING THERE</h1>
-            <iframe class="w-[100%] mx-auto rounded-xl overflow-hidden" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6758.919695322001!2d103.85591794933656!3d1.2856972194028085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1906fa938819%3A0x4af3bb1fea6f86c!2s2%20Bayfront%20Ave%2C%20Singapore%20018972!5e0!3m2!1sen!2ssg!4v1784909038216!5m2!1sen!2ssg" 
-                width="750" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>    
-        </div>
-    </section>
+  <hr id="transportdiv" class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15">
 
-    <hr id="ticketdiv" class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15">
+  <section class="flex flex-col justify-center md:gap-10 md:flex-row md:justify-center">
+    <div
+      class="border-3 border-white/10 p-6 md:p-10 w-[80%] mx-auto md:mx-0 md:w-[30%] bg-gradient-to-br from-gray-900/80 to-black">
+      <h1 class="serif text-5xl md:text-7xl text-center pb-6 md:pb-10">TRANSPORT</h1>
+      <ol class="list-disc  space-y-4 text-white/70 pl-5">
+        <li class="text-lg md:text-xl">10-minute walk from Bayfront MRT (DTL/CCL)</li>
+        <li class="text-lg md:text-xl">Located inside Marina Bay Sands</li>
+        <li class="text-lg md:text-xl">5-min walk from Marina Bay Sands Theatre bus stop</li>
+        <li class="text-lg md:text-xl">2-min walk from Helix Bridge!</li>
+      </ol>
+    </div>
+    <div class="border-3 border-white/10 p-10 w-[50%] bg-gradient-to-br from-gray-900/80 to-black">
+      <h1 class="serif text-7xl text-center mb-10">GETTING THERE</h1>
+      <iframe class="w-[100%] mx-auto rounded-xl overflow-hidden"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6758.919695322001!2d103.85591794933656!3d1.2856972194028085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1906fa938819%3A0x4af3bb1fea6f86c!2s2%20Bayfront%20Ave%2C%20Singapore%20018972!5e0!3m2!1sen!2ssg!4v1784909038216!5m2!1sen!2ssg"
+        width="750" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </section>
 
-    <section class="flex flex-col justify-center gap-10 md:flex-row md:justify-center">
-        <div class="flex justify-center flex-col border-3 border-white/10 p-10 w-[45%]">
-            <h1 class="serif text-7xl text-center  mb-10">TICKET PRICING</h1>
-            <table class="border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-md border border-gray-300 ">
-                <thead>
-                    <tr class="transition-colors bg-white/20">
-                        <th> Age Group</th>
-                        <th> Price/Exhibit</th>
-                        <th> All 4 Exhibits</th>
-                    </tr>
-                </thead>
-                <tr class="hover:bg-white/10 transition-colors bg-white/5">
-                    <td>Children (<5) </td>
-                    <td>$10</td>
-                    <td>$25</td>
-                </tr>
-                <tr class="hover:bg-white/10 transition-colors bg-white/5">
-                    <td>Youth (5-18)</td>
-                    <td>$15</td>
-                    <td>$35</td>
-                </tr>
-                <tr class="hover:bg-white/10 transition-colors bg-white/5">
-                    <td>Adult (19-64)</td>
-                    <td>$17</td>
-                    <td>$42</td>
-                </tr>
-                <tr class="hover:bg-white/10 transition-colors bg-white/5">
-                    <td>Senior</td>
-                    <td>$15</td>
-                    <td>$35</td> 
-                </tr>
-            </table>
-        </div>
-        <div class="border-3 border-white/10 p-5 w-[35%] ">
-            <img src="../assets/visit-us/museumticket.png" class="object-cover w-full h-full"></img>
-        </div>
-    </section> 
+  <hr id="ticketdiv" class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15">
 
-    <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15"> 
+  <section class="flex flex-col justify-center gap-10 md:flex-row md:justify-center">
+    <div class="flex justify-center flex-col border-3 border-white/10 p-10 w-[45%]">
+      <h1 class="serif text-7xl text-center  mb-10">TICKET PRICING</h1>
+      <table
+        class="border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-md border border-gray-300 ">
+        <thead>
+          <tr class="transition-colors bg-white/20">
+            <th> Age Group</th>
+            <th> Price/Exhibit</th>
+            <th> All 4 Exhibits</th>
+          </tr>
+        </thead>
+        <tr class="hover:bg-white/10 transition-colors bg-white/5">
+          <td>Children (<5) </td>
+          <td>$10</td>
+          <td>$25</td>
+        </tr>
+        <tr class="hover:bg-white/10 transition-colors bg-white/5">
+          <td>Youth (5-18)</td>
+          <td>$15</td>
+          <td>$35</td>
+        </tr>
+        <tr class="hover:bg-white/10 transition-colors bg-white/5">
+          <td>Adult (19-64)</td>
+          <td>$17</td>
+          <td>$42</td>
+        </tr>
+        <tr class="hover:bg-white/10 transition-colors bg-white/5">
+          <td>Senior</td>
+          <td>$15</td>
+          <td>$35</td>
+        </tr>
+      </table>
+    </div>
+    <div class="border-3 border-white/10 p-5 w-[35%] ">
+      <img src="../assets/visit-us/museumticket.png" class="object-cover w-full h-full"></img>
+    </div>
+  </section>
 
-    <section class="flex justify-center">
-        <div class="flex border-3 border-white/10 w-[80%] h-100">
-            <div class="w-[30%] bg-white/5 h-[100%]">
-                <h1 class="serif text-9xl px-10 pt-10">FAQ</h1>
-                <h1 class="serif text-2xl px-10 pt-2">Hover over the boxes!</h1>
-            </div>
-            <div class="w-[30%] bg-white/8 h-[100%]">
-                <button class="faq serif text-4xl text-white/20 border-3 border-white/10 w-full h-[25%] transition-colors">Parking Locations</button>
-                <button class="faq serif text-4xl text-white/20 border-3 border-white/10 w-full h-[25%] transition-colors">Family-friendliness</button>
-                <button class="faq serif text-4xl text-white/20 border-3 border-white/10 w-full h-[25%] transition-colors">Translators</button>
-                <button class="faq serif text-4xl text-white/20 border-3 border-white/10 w-full h-[25%] transition-colors">Ticket Booking</button>
-            </div>   
-            <div class="faqcontainer flex items-center w-[40%] h-full bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
-                <p class="faqinfo p-10 py-15 text-3xl hidden">Easy parking access at Marina Bay Sands. From there, exit the mall at Level 1. Drop-off point: 10 Bayfront Avenue, Singapore 018956</p>
-                <p class="faqinfo p-10 py-15 text-3xl hidden">Our museum's content is suitable for <strong>all ages!</strong> No matter how old, you'll be sure to have a good time.</p>
-                <p class="faqinfo p-10 py-15 text-2xl hidden min-w-0">Exhibitions are equipped with free wired audio translators, for our international friends. <em class="text-gray-300">Supported languages: Chinese, Malay, Tamil, Japanese, Korean, French, German</em></p>
-                <p class="faqinfo p-10 py-15 text-2xl hidden">We offer in-advance ticket booking! When it's time for your visit, simply scan your virtual receipt and we'll print your physical tickets. <em class="text-gray-300">(Pricing will be according to the time slots booked and tickets can only be printed starting 2 hours before your timing)</em></p>
-            </div>      
-        </div>
-    </section>
+  <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15">
 
-    <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15"> 
- </body>
+  <section class="flex justify-center">
+    <div class="flex border-3 border-white/10 w-[80%] h-100">
+      <div class="w-[30%] bg-white/5 h-[100%]">
+        <h1 class="serif text-9xl px-10 pt-10">FAQ</h1>
+        <h1 class="serif text-2xl px-10 pt-2">Hover over the boxes!</h1>
+      </div>
+      <div class="w-[30%] bg-white/8 h-[100%]">
+        <button
+          class="faq serif text-4xl text-white/20 border-3 border-white/10 w-full h-[25%] transition-colors">Parking
+          Locations</button>
+        <button
+          class="faq serif text-4xl text-white/20 border-3 border-white/10 w-full h-[25%] transition-colors">Family-friendliness</button>
+        <button
+          class="faq serif text-4xl text-white/20 border-3 border-white/10 w-full h-[25%] transition-colors">Translators</button>
+        <button
+          class="faq serif text-4xl text-white/20 border-3 border-white/10 w-full h-[25%] transition-colors">Ticket
+          Booking</button>
+      </div>
+      <div
+        class="faqcontainer flex items-center w-[40%] h-full bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5">
+        <p class="faqinfo p-10 py-15 text-3xl hidden">Easy parking access at Marina Bay Sands. From there, exit the mall
+          at Level 1. Drop-off point: 10 Bayfront Avenue, Singapore 018956</p>
+        <p class="faqinfo p-10 py-15 text-3xl hidden">Our museum's content is suitable for <strong>all ages!</strong> No
+          matter how old, you'll be sure to have a good time.</p>
+        <p class="faqinfo p-10 py-15 text-2xl hidden min-w-0">Exhibitions are equipped with free wired audio
+          translators, for our international friends. <em class="text-gray-300">Supported languages: Chinese, Malay,
+            Tamil, Japanese, Korean, French, German</em></p>
+        <p class="faqinfo p-10 py-15 text-2xl hidden">We offer in-advance ticket booking! When it's time for your visit,
+          simply scan your virtual receipt and we'll print your physical tickets. <em class="text-gray-300">(Pricing
+            will be according to the time slots booked and tickets can only be printed starting 2 hours before your
+            timing)</em></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="w-[90%] items-center mx-auto border-1 border-white rounded-lg m-15">
+  <footer
+    class="grid grid-cols-1 md:grid-cols-6 gap-6 md:gap-8 p-8 md:p-12 lg:p-16 bg-stone-950 border-t border-white/5">
+    <!-- First div - Larger -->
+    <div class="md:col-span-2 flex flex-col justify-between pb-6 md:pb-0">
+      <div>
+        <h1
+          class="font-instrument-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 tracking-wide text-neutral-100">
+          CARPE DIEM</h1>
+        <p class="text-neutral-200 text-base md:text-lg leading-relaxed">Preserving the past for long term
+          heritage</p>
+      </div>
+    </div>
+
+    <!-- EXPLORE -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        EXPLORE</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./collections.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Collection</a>
+        <a href="./museum.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Virtual</a>
+      </nav>
+    </div>
+
+    <!-- PLAN YOUR VISIT -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        PLAN YOUR VISIT</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./visit-us.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Visit
+          Us</a>
+        <a href="./tickets.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Tickets</a>
+      </nav>
+    </div>
+
+    <!-- LEARN & PLAY -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        LEARN & PLAY</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./quiz.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
+          Quiz</a>
+        <a href="./passport.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
+          Passport</a>
+      </nav>
+    </div>
+
+    <!-- EXHIBITIONS -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        EXHIBITIONS</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./nativeam.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Native
+          American</a>
+        <a href="./warriors.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Terracotta
+          Warriors</a>
+        <a href="./egypt.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Egyptian
+          Tomb</a>
+        <a href="./easter-island.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Easter
+          Island</a>
+      </nav>
+    </div>
+  </footer>
+</body>

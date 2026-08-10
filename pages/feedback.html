@@ -1,239 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
 
-    <link rel="stylesheet" href="../CSS/pages/feedback.css">
-    <link rel="stylesheet" href="../CSS/output.css">
-
-    <script src="../Script/main.js" defer></script>
+  <link rel="stylesheet" href="../CSS/pages/feedback.css">
+  <link rel="stylesheet" href="../CSS/output.css">
+  <script src="../Script/feedback.js" defer></script>
+  <script src="../Script/main.js" defer></script>
 </head>
+
 <body class="font-instrument-serif">
-    <header
-      id="navbar"
-      class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
-    >
-      <nav
-        id="navInner"
-        class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30"
-      >
-        <!-- Left -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#about">About</a>
-        </div>
+  <header id="navbar" class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out">
+    <nav id="navInner"
+      class="relative flex sm:grid sm:grid-cols-3 items-center min-w-0 font-instrument-sans text-neutral-100 py-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 backdrop-blur-lg bg-olive-900/30">
+      <!-- Left -->
+      <div class="hidden sm:flex justify-around min-w-0">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+      </div>
 
-        <!-- Hamburger (mobile only) -->
-        <div class="flex sm:hidden justify-start min-w-0">
-          <button
-            id="hamburgerBtn"
-            class="flex flex-col justify-center items-center gap-1.5"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-          >
-            <span
-              id="barTop"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
-            <span
-              id="barMid"
-              class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"
-            ></span>
-            <span
-              id="barBot"
-              class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"
-            ></span>
+      <!-- Hamburger (mobile only) -->
+      <div class="flex sm:hidden justify-start min-w-0">
+        <button id="hamburgerBtn" class="flex flex-col justify-center items-center gap-1.5" aria-label="Toggle menu"
+          aria-expanded="false">
+          <span id="barTop" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+          <span id="barMid" class="block w-6 h-0.5 bg-neutral-100 transition-opacity duration-200 ease-in-out"></span>
+          <span id="barBot" class="block w-6 h-0.5 bg-neutral-100 transition-transform duration-300 ease-in-out"></span>
+        </button>
+      </div>
+
+      <!-- Center -->
+      <a href="../index.html"
+        class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0" id="brand">
+        <div class="flex flex-col items-center min-w-0">
+          <span class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap">
+            CARPE DIEM
+          </span>
+          <span class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60">
+            EST. 2026
+          </span>
+        </div>
+      </a>
+
+      <!-- Right -->
+      <div class="hidden sm:flex justify-around min-w-0">
+        <div class="relative" id="exploreMenu">
+          <button id="exploreBtn" class="flex items-center gap-1 cursor-pointer">
+            Explore
+            <span id="exploreArrow">▾</span>
           </button>
-        </div>
-
-        <!-- Center -->
-        <a
-          href="../index.html"
-          class="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 sm:justify-self-center min-w-0"
-          id="brand"
-        >
-          <div class="flex flex-col items-center min-w-0">
-            <span
-              class="font-instrument-serif text-xl sm:text-2xl md:text-3xl whitespace-nowrap"
-            >
-              CARPE DIEM
-            </span>
-            <span
-              class="font-instrument-sans text-[0.55rem] sm:text-xs tracking-[0.3em] text-white/60"
-            >
-              EST. 2026
-            </span>
-          </div>
-        </a>
-
-        <!-- Right -->
-        <div class="hidden sm:flex justify-around min-w-0">
-          <div class="relative" id="exploreMenu">
-            <button
-              id="exploreBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Explore
-              <span id="exploreArrow">▾</span>
-            </button>
-            <div
-              id="exploreDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                <a
-                  href="./Pages/museum.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">3D Virtual Museum</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Walk the immersive halls</span
-                  >
-                </a>
-                <a
-                  href="./collections.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                  role="menuitem"
-                >
-                  <span class="block font-medium">Collections</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Browse artifacts by era</span
-                  >
-                </a>
-                <a
-                  href="./passport.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
-                  role="menuitem"
-                >
-                  <span class="block font-medium">My Achievement</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >View your passport & badges</span
-                  >
-                </a>
-                <a
-                  href="./quiz.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                  role="menuitem"
-                >
-                  <span class="block font-medium">Quiz</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5"
-                    >Test your knowledge</span
-                  >
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="relative" id="visitMenu">
-            <button
-              id="visitBtn"
-              class="flex items-center gap-1 cursor-pointer"
-            >
-              Visit
-              <span id="visitArrow">▾</span>
-            </button>
-
-            <div
-              id="visitDropdown"
-              class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out"
-            >
-              <div class="rounded-xl bg-black/90 mt-4">
-                
-                <a
-                  href="./visit-us.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl"
-                >
-                  <span class="block font-medium">Visit Us</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Plan your museum visit
-                  </span>
-                </a>
-
-                <a
-                  href="./tickets.html"
-                  class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
-                >
-                  <span class="block font-medium">Book Tickets</span>
-                  <span class="block text-xs text-neutral-400 mt-0.5">
-                    Reserve your museum admission
-                  </span>
-                </a>
-
-              </div>
+          <div id="exploreDropdown"
+            class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+            <div class="rounded-xl bg-black/90 mt-4">
+              <a href="./Pages/museum.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                <span class="block font-medium">3D Virtual Museum</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Walk the immersive halls</span>
+              </a>
+              <a href="./collections.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
+                role="menuitem">
+                <span class="block font-medium">Collections</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Browse artifacts by era</span>
+              </a>
+              <a href="./passport.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors"
+                role="menuitem">
+                <span class="block font-medium">My Achievement</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">View your passport & badges</span>
+              </a>
+              <a href="./quiz.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl"
+                role="menuitem">
+                <span class="block font-medium">Quiz</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">Test your knowledge</span>
+              </a>
             </div>
           </div>
         </div>
-      </nav>
+        <div class="relative" id="visitMenu">
+          <button id="visitBtn" class="flex items-center gap-1 cursor-pointer">
+            Visit
+            <span id="visitArrow">▾</span>
+          </button>
 
-      <!-- Mobile dropdown panel -->
-      <div
-        id="mobileMenu"
-        class="sm:hidden overflow-hidden max-h-0 opacity-0 bg-olive-900/95 backdrop-blur-lg transition-all duration-300 ease-in-out"
-      >
-        <div
-          class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans"
-        >
-          <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
-          <a href="./about.html" class="py-3 border-b border-white/10"
-            >About</a
-          >
-          <a href="./Pages/museum.html" class="py-3 border-b border-white/10"
-            >3D Virtual Museum</a
-          >
-          <a
-            href="./collections.html"
-            class="py-3 border-b border-white/10"
-            >Collections</a
-          >
-          <a href="./passport.html" class="py-3 border-b border-white/10"
-            >My Achievement</a
-          >
-          <a href="./quiz.html" class="py-3 border-b border-white/10"
-            >Quiz</a
-          >
-          <a href="./visit-us.html" class="py-3 border-b border-white/10"">Visit Us</a>
-          <a href="./tickets.html" class="py-3">Book Tickets</a>
+          <div id="visitDropdown"
+            class="absolute top-full right-0 w-56 opacity-0 invisible translate-y-2 transition-all duration-200 ease-out">
+            <div class="rounded-xl bg-black/90 mt-4">
+
+              <a href="./visit-us.html"
+                class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-t-xl">
+                <span class="block font-medium">Visit Us</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">
+                  Plan your museum visit
+                </span>
+              </a>
+
+              <a href="./tickets.html" class="block px-4 py-3 text-sm hover:bg-white/10 transition-colors rounded-b-xl">
+                <span class="block font-medium">Book Tickets</span>
+                <span class="block text-xs text-neutral-400 mt-0.5">
+                  Reserve your museum admission
+                </span>
+              </a>
+
+            </div>
+          </div>
         </div>
       </div>
-    </header>
-    <div class="container font-instrument-serif tracking-wider">
-        <h1>Feedback Form</h1>
+    </nav>
 
-        <form id="feedbackForm">
+    <!-- Mobile dropdown panel -->
+    <div id="mobileMenu"
+      class="sm:hidden overflow-hidden max-h-0 opacity-0 bg-olive-900/95 backdrop-blur-lg transition-all duration-300 ease-in-out">
+      <div class="flex flex-col px-4 py-2 text-neutral-100 font-instrument-sans">
+        <a href="../index.html" class="py-3 border-b border-white/10">Home</a>
+        <a href="./about.html" class="py-3 border-b border-white/10">About</a>
+        <a href="./Pages/museum.html" class="py-3 border-b border-white/10">3D Virtual Museum</a>
+        <a href="./collections.html" class="py-3 border-b border-white/10">Collections</a>
+        <a href="./passport.html" class="py-3 border-b border-white/10">My Achievement</a>
+        <a href="./quiz.html" class="py-3 border-b border-white/10">Quiz</a>
+        <a href="./visit-us.html" class="py-3 border-b border-white/10"">Visit Us</a>
+          <a href=" ./tickets.html" class="py-3">Book Tickets</a>
+      </div>
+    </div>
+  </header>
+  <div class="container font-instrument-serif tracking-wider">
+    <h1>Feedback Form</h1>
 
-            <!-- Name -->
-            <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Enter your name">
+    <form id="feedbackForm">
 
-            <!-- Email -->
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email">
+      <!-- Name -->
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
 
-            <!-- Rating -->
-            <label for="rating">Rating</label>
-            <select id="rating">
-                <option value="">Choose a rating</option>
-                <option>1 - Poor⭐</option>
-                <option>2 - Fair⭐⭐</option>
-                <option>3 - Good⭐⭐⭐</option>
-                <option>4 - Very Good⭐⭐⭐⭐</option>
-                <option>5 - Excellent⭐⭐⭐⭐⭐</option>
-            </select>
+      <!-- Email -->
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email">
 
-            <!-- Feedback -->
-            <div class="hidden" id="feedbackSection">
-                <label id="feedbackLabel" for="feedback"></label>
-                <textarea id="feedback" rows="5" placeholder=""></textarea>
-            </div>
-            <button type="submit">Submit Feedback</button>
+      <!-- Rating -->
+      <label for="rating">Rating</label>
+      <select id="rating">
+        <option value="">Choose a rating</option>
+        <option>1 - Poor⭐</option>
+        <option>2 - Fair⭐⭐</option>
+        <option>3 - Good⭐⭐⭐</option>
+        <option>4 - Very Good⭐⭐⭐⭐</option>
+        <option>5 - Excellent⭐⭐⭐⭐⭐</option>
+      </select>
 
-        </form>
+      <!-- Feedback -->
+      <div class="hidden" id="feedbackSection">
+        <label id="feedbackLabel" for="feedback"></label>
+        <textarea id="feedback" rows="5" placeholder=""></textarea>
+      </div>
+      <button type="submit">Submit Feedback</button>
 
-        <p id="message"></p>
+    </form>
+
+    <p id="message"></p>
+  </div>
+      <footer
+    class="grid grid-cols-1 md:grid-cols-6 gap-6 md:gap-8 p-8 md:p-12 lg:p-16 bg-stone-950 border-t border-white/5">
+    <!-- First div - Larger -->
+    <div class="md:col-span-2 flex flex-col justify-between pb-6 md:pb-0">
+      <div>
+        <h1
+          class="font-instrument-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 tracking-wide text-neutral-100">
+          CARPE DIEM</h1>
+        <p class="text-neutral-200 text-base md:text-lg leading-relaxed">Preserving the past for long term
+          heritage</p>
+      </div>
     </div>
 
-    <script src="../Script/feedback.js"></script>
+    <!-- EXPLORE -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        EXPLORE</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./collections.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Collection</a>
+        <a href="./museum.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Virtual</a>
+      </nav>
+    </div>
 
+    <!-- PLAN YOUR VISIT -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        PLAN YOUR VISIT</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./visit-us.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Visit
+          Us</a>
+        <a href="./tickets.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Tickets</a>
+      </nav>
+    </div>
+
+    <!-- LEARN & PLAY -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        LEARN & PLAY</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./quiz.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
+          Quiz</a>
+        <a href="./passport.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Museum
+          Passport</a>
+      </nav>
+    </div>
+
+    <!-- EXHIBITIONS -->
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-instrument-serif text-lg md:text-xl font-semibold tracking-wide border-b border-white/5 pb-2 text-neutral-100">
+        EXHIBITIONS</h1>
+      <nav class="flex flex-col gap-3">
+        <a href="./nativeam.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Native
+          American</a>
+        <a href="./warriors.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Terracotta
+          Warriors</a>
+        <a href="./egypt.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Egyptian
+          Tomb</a>
+        <a href="./easter-island.html"
+          class="text-neutral-200 hover:text-neutral-100 transition-colors duration-200 hover:font-semibold text-sm md:text-base">Easter
+          Island</a>
+      </nav>
+    </div>
+  </footer>
 </body>
+
 </html>
