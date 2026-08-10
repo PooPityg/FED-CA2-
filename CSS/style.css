@@ -48,10 +48,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-    width: fit-content;
-}
-
 #intro-video {
     transition: filter 2s ease
 }

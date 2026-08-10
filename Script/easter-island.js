@@ -33,3 +33,25 @@ function reveal() {
 window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 
+const carousel = document.getElementById("issuesCarousel");
+const carouselButtons = document.querySelectorAll(".carousel-btn");
+
+if (carousel) {
+    carousel.addEventListener("wheel", (event) => {
+        if (Math.abs(event.deltaY) > 0) {
+            event.preventDefault();
+            carousel.scrollLeft += event.deltaY;
+        }
+    }, { passive: false });
+}
+
+carouselButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (!carousel) return;
+
+        const direction = button.dataset.direction === "next" ? 1 : -1;
+        const scrollAmount = carousel.clientWidth * 0.8 * direction;
+        carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+});
+

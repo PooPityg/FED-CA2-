@@ -14,6 +14,12 @@
 
 <body class="flex flex-col bg-linear-to-br from-gray-900 to-black text-white overflow-x-hidden background-no-repeat bg-cover bg-center">
 
+    <!-- Blurred background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <img src="../assets/tickets/ticketsbg.png" alt="" class="w-full h-full object-cover blur-sm scale-110">
+        <div class="absolute inset-0 bg-black/50"></div>
+    </div>
+
     <header
       id="navbar"
       class="fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out"
@@ -198,30 +204,32 @@
       </div>
     </header>
 
+    <section class="flex flex-col justify-center items-center gap-10 px-4 pt-24 pb-10 sm:pt-28">
 
-    <section class="flex justify-center align-center items-center gap-10">
+    <div class="w-full md:w-[60%] lg:w-[40%] flex flex-col items-center">
+        <h1 class="mt-4 sm:mt-8 md:mt-17 lg:mt-0 lg:text-7xl md:text-8xl p-4 sm:p-6 md:p-8 serif">Book Your Visit</h1>
+        <form class="flex flex-col border-white/10 border-2 rounded-xl w-full md:w-[800px] lg:w-full px-4 sm:px-5 pt-5 mb-2 bg-black">
+            <label class="p-3 py-2 text-4xl md:text-3xl lg:text-xl text-white/60 underline md:mb-4 lg:mb-0">Visit Date</label>
+            <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white text-2xl lg:text-base bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5" type="date" min="2026-06-07" max="2026-12-31">
 
-        <div class="w-[40%] flex flex-col items-center">
-            <h1 class="mt-17 text-6xl p-5 serif bg-clip-text">Book Your Visit</h1>
-            <form class="flex flex-col border-white/10 border-2 rounded-xl w-full px-5 pt-5 mb-2">
-                <label class="p-3 text-white/60 underline">Visit Date</label>
-                <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white" type="date" id="visitDate" name="visitDate" min="2026-06-07" max="2026-12-31">
+            <label class="p-3 py-2 text-4xl md:text-3xl lg:text-xl text-white/60 underline md:mb-4 lg:mb-0">Time Slot</label>
+            <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white text-2xl lg:text-base bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5" type="time">
 
-                <label class="p-3 text-white/60 underline">Time Slot</label>
-                <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white" type="time" id="timeSlot" name="timeSlot">
+            <label class="p-3 py-2 text-4xl md:text-3xl lg:text-xl text-white/60 underline md:mb-4 lg:mb-0">Number of Exhibits</label>
+            <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white text-2xl lg:text-base bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5" id='exhibits' type="number" min="1" max="4" placeholder="1-4">
 
-                <label class="p-3 text-white/60 underline">Number of Exhibits</label>
-                <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white" type="number" id="exhibits" name="exhibits" min="1" max="4" placeholder="1-4">
+            <label class="p-3 py-2 text-4xl md:text-3xl lg:text-xl text-white/60 underline md:mb-4 lg:mb-0">Age</label>
+            <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white text-2xl lg:text-base bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_12px)] bg-white/5" id='ageGroup' type="number" min="10" max="120" placeholder="Enter age">
 
-                <label class="p-3 text-white/60 underline">Age</label>
-                <input class="border-2 rounded-xl border-white/30 p-3 mb-4 text-white" type="number" id="ageGroup" name="ageGroup" min="10" max="120" placeholder="Enter age">
+            <p id='price' class="my-5 p-3 py-2 text-green-400 mx-auto text-6xl lg:m-0 lg:mx-auto lg:text-3xl underline">Total: -</p>
 
-                <div class="flex justify-between p-10">
-                    <button class="border-2 rounded-xl bg-green-400/10 text-green-400 hover:bg-green-400/20 shadow-md hover:shadow-lg shadow-green-200/20 w-[30%] h-10 cursor-pointer">Place Order!</button>
-                    <button class="border-2 rounded-xl bg-red-400/10 text-red-400 hover:bg-red-400/20 shadow-md hover:shadow-lg shadow-red-200/20 w-[30%] h-10 cursor-pointer">Reset</button>
-                </div>
-            </form>
-        </div>
+            <div class="flex flex-wrap justify-center sm:justify-between gap-4 p-6 sm:p-10 sm:pt-5">
+                <button class="text-2xl lg:text-sm border-2 rounded-xl bg-green-400/10 text-green-400 hover:bg-green-400/20 shadow-md hover:shadow-lg shadow-green-200/20 w-full sm:w-[30%] h-20 lg:h-10 cursor-pointer">Place Order!</button>
+                <a href="visit-us.html#ticketdiv" class="text-2xl lg:text-sm border-2 rounded-xl bg-white/10 text-white-400 hover:bg-white/20 shadow-md hover:shadow-lg shadow-white/20 w-full sm:w-[30%] h-20 lg:h-10 flex items-center justify-center cursor-pointer">View Prices</a>
+                <button class="text-2xl lg:text-sm border-2 rounded-xl bg-red-400/10 text-red-400 hover:bg-red-400/20 shadow-md hover:shadow-lg shadow-red-200/20 w-full sm:w-[30%] h-20 lg:h-10 cursor-pointer">Reset</button>
+            </div>
+        </form>
+    </div>
 
     </section>
 </body>
