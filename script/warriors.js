@@ -6,8 +6,8 @@ const gallaryData=[
     [   //Terracotta warriors  
         {title:'A line of Stone Warriors' , id:1 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/terracotta/stone-linedUp.jpg'},
         {title:'A stone warrior in a fighting stance' , id:2 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/stone-poseUp.jpg'},
-        {title:'Stone warrior kneeling' , id:3 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/stone-kneeling.jpg'},
-        {title:'A front shot of a stone warrior' , id:4 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/stone-frontFacing.jpg'},
+        {title:'Stone warrior kneeling' , id:3 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/stone-Kneeling.jpg'},
+        {title:'A front shot of a stone warrior' , id:4 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/stone-Frontfacing.jpg'},
         {title:'A front shot of a stone general' , id:5 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/terracotta/stone-closeUp.jpg'}
     ],
 
@@ -18,11 +18,11 @@ const gallaryData=[
         {title:'A row of stone horses' , id:9 ,span:'col-span-3',rowSpan:'row-span-1',image:'../assets/exhibits/terracotta/horse-faceLinedup.jpg'},
     ],
     [  //Weapons and armor
-        {title:'' , id:10 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/terracotta/armor-wornFace.jpg'},
-        {title:'' , id:11 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/terracotta/weapons-tipFacingSword.jpg'},
-        {title:'' , id:12 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/armor-bodySet.jpg'},
-        {title:'' , id:13 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/armor-fullSet.jpg'},
-        {title:'' , id:14 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/armor-shoeSet.jpg'}
+        {title:'face with helmet' , id:10 ,span:'col-span-1',rowSpan:'row-span-1',image:'../assets/exhibits/terracotta/armor-wornFace.jpg'},
+        {title:'sword facing by the tip' , id:11 ,span:'col-span-2',rowSpan:'row-span-1',image:'../assets/exhibits/terracotta/weapons-tipFacingSword.jpg'},
+        {title:'full body armor' , id:12 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/armor-bodySet.jpg'},
+        {title:'full set armor' , id:13 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/armor-fullSet.jpg'},
+        {title:'A sole of a shoe' , id:14 ,span:'col-span-1',rowSpan:'row-span-2',image:'../assets/exhibits/terracotta/armor-shoeSet.jpg'}
     ],
 ]
 
